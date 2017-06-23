@@ -26,4 +26,6 @@ urlpatterns = [
     url(r'^server/raid/(\w+)/(\w+)/$',views.server_raid,name='server_raid'),
     url(r'^select_cab/',views.select_cab,name='select_cab'),
     url(r'^server/status/(\w+)/$',views.server_change_status,name='server_change_status'),
+    url(r'^server/ipmi/(\w+)/(\w+)/$',views.server_ipmi,name='server_ipmi'),
+    url(r'^server/ipmi/(\w+)/$',views.update_ipmi,name='update_ipmi'),
 ]

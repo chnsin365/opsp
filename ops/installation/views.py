@@ -104,7 +104,13 @@ def select_cab(request):
 
 def server_raid(request,server_id,fun):
     '''
-    处理raid的模块
+    raid模块,包含以下方法：
+    1、查看raid卡信息(包括控制器状态、Cache状态、电池状态) (raid_card)
+    2、查看raid详细信息 （raid_detail）
+    3、查看raid状态 (raid_status)
+    4、查看物理硬盘状态 (raid_status)
+    5、创建raid (create_raid)
+    6、删除raid (delete_raid)
     '''
     server = get_object_or_404(Server,pk=server_id)
     addr = server.pxe_ip
@@ -137,5 +143,67 @@ def server_raid(request,server_id,fun):
             return render(request,'installation/tips.html',locals())
     return render(request,'installation/raid.html',locals())
 
+def server_ipmi(request,server_id,fun):
+    '''
+    IPMI模块,包含以下方法：
+    1、chassis_status
+    2、chassis_on
+    3、chassis_off
+    4、chassis_reboot
+    5、boot_to_pxe
+    6、boot_to_disk
+    '''
+    server = get_object_or_404(Server,pk=server_id)
+    ipmi_ip = server.ipmi_ip
+    ipmi_user = server.ipmi_user
+    ipmi_pass = server.ipmi_pass
+    if (ipmi_ip and ipmi_user and ipmi_pass):
+        try:
+            from ops.ipmi_api import ipmitool
+            ipmi = ipmitool(ipmi_ip,ipmi_pass,username=ipmi_user)
+            if fun == 'boot_to_disk':
+                ipmi.boot_to_disk()
+            elif fun == 'chassis_on':
+                ipmi.chassis_on()
+            elif fun == 'chassis_off':
+                ipmi.chassis_off()
+            elif fun == 'chassis_reboot':
+                ipmi.chassis_reboot()
+            elif fun == 'boot_to_pxe':
+                ipmi.boot_to_pxe()
+            else:
+                ipmi.chassis_status()
+            ret_data = ipmi.output
+        except Exception as e:
+            ret_data = e
+    else:
+        ret_data = '''
+无法完成操作，可能原因是ipmi的地址、账号或密码配置不正确。
+当前的ipmi地址、账号和密码如下：
+地址：%s
+账号：%s
+密码：%s
+您可以尝试更新ipmi账号配置后继续该操作'''%(ipmi_ip,ipmi_user,ipmi_pass)
+    return render(request,'installation/ipmi.html',locals())
 
-
+def update_ipmi(request,server_id):
+    server = get_object_or_404(Server,pk=server_id)
+    if request.method == "GET":
+        return render(request,'installation/update_ipmi.html',locals())
+    else:
+        kwargs = {}
+        for k,v in request.POST.dict().items():
+            if k == 'csrfmiddlewaretoken':
+                pass
+            else:
+                if v:
+                    kwargs[k] = v
+        print kwargs
+        Server.objects.filter(pk=server_id).update(**kwargs)
+        ret_data = '''
+ipmi的地址、账号或密码均已被更新。
+当前的ipmi地址、账号和密码如下：
+地址：%s
+账号：%s
+密码：%s'''%(kwargs['ipmi_ip'],kwargs['ipmi_user'],kwargs['ipmi_pass'])
+        return render(request,'installation/tips.html',locals())

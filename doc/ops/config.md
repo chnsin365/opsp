@@ -4,7 +4,7 @@
 
 ### yum install git
 
-### git clone https://github.com/uevol/opsadmin.git
+### git clone https://github.com/uevol/opsp.git
 
 ### 配置python开发库
 ```cd /usr/lib64/python2.7  
@@ -96,7 +96,7 @@ python manage.py migrate
 
 ## 初始化用户和权限
 ```
-python manage.py shell < usermanage/scripts/init_data.py
+python manage.py shell < scripts/init_data.py
 ```
 
 ## 启动服务
@@ -104,4 +104,4 @@ python manage.py runserver 0.0.0.0:8000
 
 ### 在浏览器登录
 http://xxxx.xxxx.xxxx.xxxx:8000  
-初始账户及密码：admin/R00t@123
+初始账户及密码：admin/admin@123

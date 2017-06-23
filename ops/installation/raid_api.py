@@ -3,6 +3,14 @@
 #
 # @author: wei.yang <wei.yang@jinmuinfo.com>
 # Created on 2017/06/22
+#    raid模块:
+#    1、查看raid卡信息(包括控制器状态、Cache状态、电池状态) (raid_card)
+#    2、查看raid详细信息 （raid_detail）
+#    3、查看raid状态 (raid_status)
+#    4、查看物理硬盘状态 (raid_status)
+#    5、创建raid (create_raid)
+#    6、删除raid (delete_raid)
+
 from ops.sshapi import remote_cmd
 from .models import Disk
 
