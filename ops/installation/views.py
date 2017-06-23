@@ -46,8 +46,9 @@ def post_server_info(request):
     return HttpResponse(created)
 
 def servers(request):
-    status = get_object_or_404(ServerStatus,status_type='init')
-    servers = status.server_set.all()
+    # status = get_object_or_404(ServerStatus)
+    # servers = status.server_set.all()
+    servers = Server.objects.select_related('serverstatus').all()
     return render(request,'installation/servers.html',locals())
 
 def server_detail(request,server_id):
@@ -75,8 +76,23 @@ def server_edit(request,server_id):
             else:
                 if v:
                     kwargs[k] = v
+        print kwargs
         Server.objects.filter(pk=server_id).update(**kwargs)
         return redirect('installation:server_edit',server_id)
+
+def server_change_status(request,server_id):
+    server = get_object_or_404(Server,pk=server_id)
+    if request.method == "GET":
+        all_status = ServerStatus.objects.all()
+        return render(request,'installation/change_status.html',locals())
+    else:
+        status_id = request.POST.get('status_id','')
+        Server.objects.filter(pk=server_id).update(serverstatus_id=status_id)
+        status = get_object_or_404(ServerStatus,pk=status_id)
+        ret_data = '''%s 的状态已经更新。
+
+当前状态：%s'''%(server.id,status.name)
+        return render(request,'installation/tips.html',locals())
 
 def select_cab(request):
     idc_id = request.GET.get('idc_id','')
@@ -87,6 +103,9 @@ def select_cab(request):
     return HttpResponse("%s"%(json.dumps(result)))
 
 def server_raid(request,server_id,fun):
+    '''
+    处理raid的模块
+    '''
     server = get_object_or_404(Server,pk=server_id)
     addr = server.pxe_ip
     from .raid_api import RAIDAPI

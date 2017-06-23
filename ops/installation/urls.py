@@ -25,4 +25,5 @@ urlpatterns = [
     url(r'^server/edit/(\w+)/$',views.server_edit,name='server_edit'),
     url(r'^server/raid/(\w+)/(\w+)/$',views.server_raid,name='server_raid'),
     url(r'^select_cab/',views.select_cab,name='select_cab'),
+    url(r'^server/status/(\w+)/$',views.server_change_status,name='server_change_status'),
 ]

@@ -74,6 +74,8 @@
 			                        </li>
 			                         <li><a href="{% url 'installation:server_delete' server.id %}">删除</a>
 			                        </li>
+			                        <li><a onclick="detail('服务器状态变更','{{server.id}}','400px','220px','/installation/server/status/','')">变更状态</a>
+			                        </li>
 			                      </ul>
 			                    </div>
 			         		  </td>
