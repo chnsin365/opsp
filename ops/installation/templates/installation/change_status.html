@@ -39,6 +39,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-2" style="padding-left: 20px;width: 90px;">主机状态</label>
                         <div class="col-md-6 col-sm-6 col-xs-6">
                           <select class="form-control" name="status_id" style="width: 226px;">
+                            <option value="-1">---请选择状态---</option>
                             {% for status in all_status %}
                               <option value="{{status.id}}">{{status.name}}</option>
                             {% endfor %}
