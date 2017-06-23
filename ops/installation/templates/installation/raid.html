@@ -1,0 +1,101 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title> RAID操作 </title>
+
+    <!-- Bootstrap -->
+    <link href="{%static 'vendors/bootstrap/dist/css/bootstrap.min.css'%}" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="{%static 'vendors/font-awesome/css/font-awesome.min.css'%}" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="{%static 'vendors/nprogress/nprogress.css'%}" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="{%static 'vendors/iCheck/skins/flat/green.css'%}" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+    <link href="{%static 'vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css'%}" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="{%static 'build/css/custom.min.css'%}" rel="stylesheet">
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            <div class="clearfix"></div>
+
+            <div class="">
+             <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                  <div class="bs-example-popovers">
+                      <button type="button" class="btn btn-xs"><a href="{% url 'installation:server_raid' server.id 'raid_status' %}">当前RAID</a></button>
+                      <button type="button" class="btn btn-xs"><a href="{% url 'installation:server_raid' server.id 'raid_detail' %}">RAID详细信息</a></button>
+                      <button type="button" class="btn btn-xs"><a href="{% url 'installation:server_raid' server.id 'raid_disk' %}">物理硬盘状态</a></button>
+                      <button type="button" class="btn btn-xs" onclick="detail('创建RAID','{{server.id}}','400px','300px','/installation/server/raid/','/create_raid')">创建RAID</button>
+                      <button type="button" class="btn btn-xs" onclick="detail('删除RAID','{{server.id}}','400px','200px','/installation/server/raid/','/delete_raid')">删除RAID</button>
+                      <button type="button" class="btn btn-xs"><a href="{% url 'installation:server_raid' server.id 'raid_card' %}">RAID卡信息</a></button>
+                    </div>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                  <div class="bs-example" data-example-id="simple-jumbotron">
+                      <pre>
+{{ret_data}}
+                      </pre>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="{%static 'vendors/jquery/dist/jquery.min.js'%}"></script>
+    <!-- Bootstrap -->
+    <script src="{%static 'vendors/bootstrap/dist/js/bootstrap.min.js'%}"></script>
+    <!-- FastClick -->
+    <script src="{%static 'vendors/fastclick/lib/fastclick.js'%}"></script>
+    <!-- NProgress -->
+    <script src="{%static 'vendors/nprogress/nprogress.js'%}"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="{%static 'vendors/bootstrap-progressbar/bootstrap-progressbar.min.js'%}"></script>
+    <!-- iCheck -->
+    <script src="{%static 'vendors/iCheck/icheck.min.js'%}"></script>
+
+    <script src="{%static 'layer/layer.js'%}"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="{%static 'build/js/custom.min.js'%}"></script>
+
+    <script type="text/javascript">
+      function detail(title,sn,width,height,url,fun){
+          layer.open({
+          type: 2,
+          title: title,
+          maxmin: true,
+          // shadeClose: true, //点击遮罩关闭层
+          area : [ width,height],
+          content: url + sn + fun
+          });
+      }
+    </script>
+	
+  </body>
+</html>

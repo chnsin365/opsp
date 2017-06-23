@@ -1,0 +1,412 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap -->
+    <link href="{%static 'vendors/bootstrap/dist/css/bootstrap.min.css'%}" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="{%static 'vendors/font-awesome/css/font-awesome.min.css'%}" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="{%static 'vendors/nprogress/nprogress.css'%}" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="{%static 'build/css/custom.min.css'%}" rel="stylesheet">
+
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+
+          <div class="row">
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="x_panel tile fixed_height_230">
+                <div class="x_title">
+                  <h2>装机信息</h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Settings 1</a>
+                        </li>
+                        <li><a href="#">Settings 2</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                      <table class="countries_list">
+                        <tbody>
+                          <tr>
+                            <td>PXE IP</td>
+                            <td class="fs15 fw700 text-right">{{server.pxe_ip}}</td>
+                          </tr>
+                          <tr>
+                            <td>PXE Mac</td>
+                            <td class="fs15 fw700 text-right">{{server.pxe_mac}}</td>
+                          </tr>
+                          <tr>
+                            <td>IPMI IP</td>
+                            <td class="fs15 fw700 text-right">{{server.ipmi_ip}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-5 col-sm-5 col-xs-12">
+              <div class="x_panel tile fixed_height_300 overflow_hidden">
+                <div class="x_title">
+                  <h2>品牌型号</h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Settings 1</a>
+                        </li>
+                        <li><a href="#">Settings 2</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                      <table class="countries_list">
+                        <tbody>
+                          <tr>
+                            <td>厂商</td>
+                            <td class="fs15 fw700 text-right">{{server.vendor}}</td>
+                          </tr>
+                          <tr>
+                            <td>型号</td>
+                            <td class="fs15 fw700 text-right">{{server.model}}</td>
+                          </tr>
+                          <tr>
+                            <td>RAID卡</td>
+                            <td class="fs15 fw700 text-right">{{server.raid_adapter}}</td>
+                          </tr>
+                          <!-- <tr>
+                            <td>RAID Slot</td>
+                            <td class="fs15 fw700 text-right">{{server.raid_adapter_slot}}</td>
+                          </tr> -->
+                        </tbody>
+                      </table>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12">
+	              <div class="x_panel tile ">
+	                <div class="x_title">
+	                  <h2>内存</h2>
+	                  <ul class="nav navbar-right panel_toolbox">
+	                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+	                    </li>
+	                    <li class="dropdown">
+	                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+	                      <ul class="dropdown-menu" role="menu">
+	                        <li><a href="#">Settings 1</a>
+	                        </li>
+	                        <li><a href="#">Settings 2</a>
+	                        </li>
+	                      </ul>
+	                    </li>
+	                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+	                    </li>
+	                  </ul>
+	                  <div class="clearfix"></div>
+	                </div>
+	                <div class="x_content">
+	                      <table class="countries_list">
+	                        <tbody>
+	                          <tr>
+	                            <td>总内存(G)</td>
+	                            <td class="fs15 fw700 text-right">{{server.mem_size}}</td>
+	                          </tr>
+	                          <tr>
+	                            <td>槽位数</td>
+	                            <td class="fs15 fw700 text-right">{{server.mem_total_slots}}</td>
+	                          </tr>
+	                          <tr>
+	                            <td>剩余槽位</td>
+	                            <td class="fs15 fw700 text-right">{{server.mem_free_slots}}</td>
+	                          </tr>
+	                        </tbody>
+	                      </table>
+	                </div>
+	              </div>
+	        </div>
+          </div>
+
+          <div class="row">
+          	<div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="x_panel tile">
+                <div class="x_title">
+                  <h2>CPU</h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Settings 1</a>
+                        </li>
+                        <li><a href="#">Settings 2</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                      <table class="countries_list">
+                        <tbody>
+                          <tr>
+                            <td>CPU</td>
+                            <td class="fs15 fw700 text-right">{{server.cpu_model}}</td>
+                          </tr>
+                          <tr>
+                            <td>Sockets</td>
+                            <td class="fs15 fw700 text-right">{{server.cpu_sockets}}</td>
+                          </tr>
+                          <tr>
+                            <td>Cores</td>
+                            <td class="fs15 fw700 text-right">{{server.cpu_cores}}</td>
+                          </tr>
+                          <tr>
+                            <td>Threads</td>
+                            <td class="fs15 fw700 text-right">{{server.cpu_threads}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="x_panel tile">
+                <div class="x_title">
+                  <h2 style="width: 80px;">附加信息</h2>
+                  <button onclick="edit('{{server.id}}')" type="button" class="btn btn-info btn-xs">编辑</button>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Settings 1</a>
+                        </li>
+                        <li><a href="#">Settings 2</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                      <table class="countries_list">
+                        <tbody>
+                          <tr>
+                            <td>机房</td>
+                            <td class="fs15 fw700 text-right">{{server.cabinet.idc.name}}</td>
+                          </tr>
+                          <tr>
+                            <td>机柜位置</td>
+                            <td class="fs15 fw700 text-right">{{server.cabinet.name}}&nbsp{{server.unit}}</td>
+                          </tr>
+                          <tr>
+                            <td>环境</td>
+                            <td class="fs15 fw700 text-right">{{server.environment}}</td>
+                          </tr>
+                          <tr>
+                            <td>联系人</td>
+                            <td class="fs15 fw700 text-right">{{server.contacter.name}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row">
+	         <div class="col-md-6 col-sm-6 col-xs-12">
+                  <div class="x_panel">
+                    <div class="x_title">
+                      <h2>硬盘信息</h2>
+                      <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Settings 1</a>
+                            </li>
+                            <li><a href="#">Settings 2</a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                      </ul>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+
+	                  <table class="table table-striped">
+	                      <thead>
+	                        <tr>
+	                          <th>Name</th>
+	                          <th>Model</th>
+	                          <th>Size</th>
+	                          <th>Status</th>
+	                        </tr>
+	                      </thead>
+	                      
+	                      <tbody>
+	                      {% for disk in server.disk_set.all %}
+	                        <tr>
+	                          <td>{{disk.name}}</td>
+	                          <td>{{disk.model}}</td>
+	                          <td>{{disk.size}}</td>
+	                          <td><span class="label label-success">{{disk.status}}</span></td>
+	                        </tr>
+	                      {% endfor %}
+	                      </tbody>
+	                    </table>
+                    </div>
+                  </div>
+             </div>
+             <div class="col-md-6 col-sm-6 col-xs-12">
+                  <div class="x_panel">
+                    <div class="x_title">
+                      <h2>网卡信息</h2>
+                      <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Settings 1</a>
+                            </li>
+                            <li><a href="#">Settings 2</a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                      </ul>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+
+	                  <table class="table table-striped">
+	                      <thead>
+	                        <tr syle="color: #000000;background: #2A3F54;font-family: 'Helvetica Neue',Roboto,Arial,'Droid Sans',sans-serif;font-size: 13px;font-weight: 400;line-height: 1.471;">
+	                          <th>Mac</th>
+	                          <th>Model</th>
+	                        </tr>
+	                      </thead>
+	                      
+	                      <tbody>
+	                      {% for nic in nics %}
+	                        <tr>
+	                          <td>{{nic.name}}</td>
+	                          <td>{{nic.model}}</td>
+	                      {% endfor %}
+	                      </tbody>
+	                    </table>
+                    </div>
+                  </div>
+             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- /page content -->
+
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="{%static 'vendors/jquery/dist/jquery.min.js'%}"></script>
+    <!-- Bootstrap -->
+    <script src="{%static 'vendors/bootstrap/dist/js/bootstrap.min.js'%}"></script>
+    <!-- FastClick -->
+    <script src="{%static 'vendors/fastclick/lib/fastclick.js'%}"></script>
+    <!-- NProgress -->
+    <script src="{%static 'vendors/nprogress/nprogress.js'%}"></script>
+    <!-- layer -->
+    <script src="{%static 'layer/layer.js'%}"></script>    
+    
+    <!-- Custom Theme Scripts -->
+    <script src="{%static 'build/js/custom.min.js'%}"></script>
+
+        <!-- Chart.js -->
+    <script src="{%static 'vendors/Chart.js/dist/Chart.min.js'%}"></script>
+    <!-- gauge.js -->
+    <script src="{%static 'vendors/gauge.js/dist/gauge.min.js'%}"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="{%static 'vendors/bootstrap-progressbar/bootstrap-progressbar.min.js'%}"></script>
+    <!-- iCheck -->
+    <script src="{%static 'vendors/iCheck/icheck.min.js'%}"></script>
+    <!-- Skycons -->
+    <script src="{%static 'vendors/skycons/skycons.js'%}"></script>
+    <!-- Flot -->
+    <script src="{%static 'vendors/Flot/jquery.flot.js'%}"></script>
+    <script src="{%static 'vendors/Flot/jquery.flot.pie.js'%}"></script>
+    <script src="{%static 'vendors/Flot/jquery.flot.time.js'%}"></script>
+    <script src="{%static 'vendors/Flot/jquery.flot.stack.js'%}"></script>
+    <script src="{%static 'vendors/Flot/jquery.flot.resize.js'%}"></script>
+    <!-- Flot plugins -->
+    <script src="{%static 'vendors/flot.orderbars/js/jquery.flot.orderBars.js'%}"></script>
+    <script src="{%static 'vendors/flot-spline/js/jquery.flot.spline.min.js'%}"></script>
+    <script src="{%static 'vendors/flot.curvedlines/curvedLines.js'%}"></script>
+    <!-- DateJS -->
+    <script src="{%static 'vendors/DateJS/build/date.js'%}"></script>
+    <!-- JQVMap -->
+    <script src="{%static 'vendors/jqvmap/dist/jquery.vmap.js'%}"></script>
+    <script src="{%static 'vendors/jqvmap/dist/maps/jquery.vmap.world.js'%}"></script>
+    <script src="{%static 'vendors/jqvmap/examples/js/jquery.vmap.sampledata.js'%}"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="{%static 'vendors/moment/min/moment.min.js'%}"></script>
+    <script src="{%static 'vendors/bootstrap-daterangepicker/daterangepicker.js'%}"></script>
+    <script type="text/javascript">
+            function edit(sn){
+              layer.open({
+              type: 2,
+              title: '编辑附加信息',
+              maxmin: true,
+              shadeClose: true, //点击遮罩关闭层
+              area : ['400px' , '400px'],
+              content: '/installation/server/edit/' + sn
+              });
+      }
+    </script>
+
+  </body>
+</html>
+
