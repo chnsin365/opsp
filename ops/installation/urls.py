@@ -28,4 +28,6 @@ urlpatterns = [
     url(r'^server/status/(\w+)/$',views.server_change_status,name='server_change_status'),
     url(r'^server/ipmi/(\w+)/(\w+)/$',views.server_ipmi,name='server_ipmi'),
     url(r'^server/ipmi/(\w+)/$',views.update_ipmi,name='update_ipmi'),
+    url(r'^server/install/(\w+)/$',views.install,name='install'),
+    url(r'^server/install/add_system/(\w+)/$',views.add_system,name='add_system'),
 ]

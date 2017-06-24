@@ -1472,3 +1472,709 @@ Not Found: /installation/vendors/bootstrap-progressbar/bootstrap-progressbar.min
 [24/Jun/2017 15:57:52] "GET /installation/servers/ HTTP/1.1" 200 20926
 [24/Jun/2017 15:58:27] "GET /installation/servers/ HTTP/1.1" 200 20926
 [24/Jun/2017 15:58:56] "GET /installation/servers/ HTTP/1.1" 200 20927
+[24/Jun/2017 16:00:34] "GET /installation/servers/ HTTP/1.1" 200 20927
+[24/Jun/2017 16:00:42] "GET /installation/server/status/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 5253
+[24/Jun/2017 16:00:57] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5424
+Not Found: /installation/server/operate/fc160deb0ec83f404a83079e9062406c/
+[24/Jun/2017 17:20:51] "GET /installation/server/operate/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 404 4575
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 15:18:13
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 17:22:41
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[24/Jun/2017 17:23:23] "GET /installation/servers/ HTTP/1.1" 200 20927
+[24/Jun/2017 17:23:23] "GET /static/vendors/bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 0
+[24/Jun/2017 17:23:23] "GET /static/layer/layer.js HTTP/1.1" 304 0
+[24/Jun/2017 17:23:23] "GET /static/layer/skin/default/layer.css?v=3.0.3303 HTTP/1.1" 304 0
+[24/Jun/2017 17:23:25] "GET /static/layer/skin/default/loading-1.gif HTTP/1.1" 304 0
+[24/Jun/2017 17:23:25] "GET /static/layer/skin/default/icon.png HTTP/1.1" 304 0
+[24/Jun/2017 17:23:25] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c HTTP/1.1" 301 0
+[24/Jun/2017 17:23:25] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 15
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 17:23:12
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[24/Jun/2017 17:36:46] "GET /installation/servers/ HTTP/1.1" 200 20927
+Internal Server Error: /installation/server/install/fc160deb0ec83f404a83079e9062406c/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/opsp/ops/installation/views.py", line 228, in install
+    return render(request,'installation/install.html',locals())
+  File "/usr/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/usr/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/usr/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/defaulttags.py", line 447, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/lib/python2.7/site-packages/django/urls/base.py", line 91, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 389, in _reverse_with_prefix
+    (lookup_view_s, args, kwargs, len(patterns), patterns)
+NoReverseMatch: Reverse for 'server_raid' with arguments '('', u'raid_status')' and keyword arguments '{}' not found. 1 pattern(s) tried: [u'installation/server/raid/(\\w+)/(\\w+)/$']
+[24/Jun/2017 17:36:49] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 500 127191
+[24/Jun/2017 17:37:37] "GET /installation/server/raid/fc160deb0ec83f404a83079e9062406c/raid_status/ HTTP/1.1" 200 4191
+Internal Server Error: /installation/server/install/fc160deb0ec83f404a83079e9062406c/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/opsp/ops/installation/views.py", line 228, in install
+    return render(request,'installation/install.html',locals())
+  File "/usr/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/usr/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/usr/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/defaulttags.py", line 447, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/lib/python2.7/site-packages/django/urls/base.py", line 91, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 389, in _reverse_with_prefix
+    (lookup_view_s, args, kwargs, len(patterns), patterns)
+NoReverseMatch: Reverse for 'server_raid' with arguments '('', u'raid_status')' and keyword arguments '{}' not found. 1 pattern(s) tried: [u'installation/server/raid/(\\w+)/(\\w+)/$']
+[24/Jun/2017 17:38:05] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 500 127648
+Internal Server Error: /installation/server/install/fc160deb0ec83f404a83079e9062406c/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/opsp/ops/installation/views.py", line 228, in install
+    return render(request,'installation/install.html',locals())
+  File "/usr/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/usr/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/usr/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/defaulttags.py", line 447, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/lib/python2.7/site-packages/django/urls/base.py", line 91, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 389, in _reverse_with_prefix
+    (lookup_view_s, args, kwargs, len(patterns), patterns)
+NoReverseMatch: Reverse for 'server_raid' with arguments '('', u'raid_card')' and keyword arguments '{}' not found. 1 pattern(s) tried: [u'installation/server/raid/(\\w+)/(\\w+)/$']
+[24/Jun/2017 17:40:45] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 500 127492
+[24/Jun/2017 17:41:06] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 3791
+[24/Jun/2017 17:43:36] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 3784
+[24/Jun/2017 17:44:47] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 3329
+[24/Jun/2017 17:45:09] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 3329
+[24/Jun/2017 17:46:20] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 3335
+[24/Jun/2017 17:48:21] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 3335
+[24/Jun/2017 17:48:24] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 3335
+[24/Jun/2017 17:48:46] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 3335
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 17:36:35
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 17:50:26
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[24/Jun/2017 17:51:32] "GET /installation/servers/ HTTP/1.1" 200 20934
+[24/Jun/2017 17:51:35] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/system HTTP/1.1" 301 0
+[24/Jun/2017 17:51:35] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/system/ HTTP/1.1" 200 3335
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 17:51:24
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 17:56:33
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[24/Jun/2017 17:58:29] "GET /installation/servers/ HTTP/1.1" 200 20934
+[24/Jun/2017 17:58:34] "GET /installation/server/raid/fc160deb0ec83f404a83079e9062406c/raid_status/ HTTP/1.1" 200 4191
+[24/Jun/2017 17:58:36] "GET /installation/server/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 17194
+[24/Jun/2017 17:58:38] "GET /installation/server/edit/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 12457
+[24/Jun/2017 17:58:52] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5424
+[24/Jun/2017 17:58:53] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 5790
+[24/Jun/2017 17:59:35] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/system/ HTTP/1.1" 200 3335
+[24/Jun/2017 17:59:36] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/system/ HTTP/1.1" 200 3335
+[24/Jun/2017 18:00:07] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/system/ HTTP/1.1" 200 3457
+[24/Jun/2017 18:00:08] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/add_system HTTP/1.1" 301 0
+[24/Jun/2017 18:00:08] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/add_system/ HTTP/1.1" 200 3457
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 17:57:58
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[24/Jun/2017 18:00:34] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/add_system/ HTTP/1.1" 200 5790
+[24/Jun/2017 18:01:01] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/add_system/ HTTP/1.1" 200 5790
+[24/Jun/2017 18:01:05] "GET /installation/servers/ HTTP/1.1" 200 20934
+[24/Jun/2017 18:01:08] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/system/ HTTP/1.1" 200 3457
+[24/Jun/2017 18:01:09] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/add_system/ HTTP/1.1" 200 5790
+[24/Jun/2017 18:04:03] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/add_system/ HTTP/1.1" 200 6727
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 18:00:28
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 18:04:44
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 18:07:06
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 18:18:04
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Unhandled exception in thread started by <function wrapper at 0x1a04c08>
+Performing system checks...
+
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/utils/autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/core/management/commands/runserver.py", line 121, in inner_run
+    self.check(display_num_errors=True)
+  File "/usr/lib/python2.7/site-packages/django/core/management/base.py", line 385, in check
+    include_deployment_checks=include_deployment_checks,
+  File "/usr/lib/python2.7/site-packages/django/core/management/base.py", line 372, in _run_checks
+    return checks.run_checks(**kwargs)
+  File "/usr/lib/python2.7/site-packages/django/core/checks/registry.py", line 81, in run_checks
+    new_errors = check(app_configs=app_configs)
+  File "/usr/lib/python2.7/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/usr/lib/python2.7/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    for pattern in resolver.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 310, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 303, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/root/opsp/ops/ops/urls.py", line 26, in <module>
+    url(r'^installation/',include('installation.urls',namespace='installation')),
+  File "/usr/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 50, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/root/opsp/ops/installation/urls.py", line 18, in <module>
+    from . import views
+  File "/root/opsp/ops/installation/views.py", line 236
+    def add_system()
+                   ^
+SyntaxError: invalid syntax
+Unhandled exception in thread started by <function wrapper at 0x251ec08>
+Performing system checks...
+
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/utils/autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/core/management/commands/runserver.py", line 121, in inner_run
+    self.check(display_num_errors=True)
+  File "/usr/lib/python2.7/site-packages/django/core/management/base.py", line 385, in check
+    include_deployment_checks=include_deployment_checks,
+  File "/usr/lib/python2.7/site-packages/django/core/management/base.py", line 372, in _run_checks
+    return checks.run_checks(**kwargs)
+  File "/usr/lib/python2.7/site-packages/django/core/checks/registry.py", line 81, in run_checks
+    new_errors = check(app_configs=app_configs)
+  File "/usr/lib/python2.7/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/usr/lib/python2.7/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    for pattern in resolver.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 310, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 303, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/root/opsp/ops/ops/urls.py", line 26, in <module>
+    url(r'^installation/',include('installation.urls',namespace='installation')),
+  File "/usr/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 50, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/root/opsp/ops/installation/urls.py", line 18, in <module>
+    from . import views
+  File "/root/opsp/ops/installation/views.py", line 237
+    def add_system(request)
+                          ^
+SyntaxError: invalid syntax
+[24/Jun/2017 18:26:27] "GET /installation/servers/ HTTP/1.1" 200 20934
+Not Found: /installation/server/install/fc160deb0ec83f404a83079e9062406c/system/
+[24/Jun/2017 18:26:30] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/system/ HTTP/1.1" 404 5004
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 18:26:24
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Not Found: /installation/server/install/fc160deb0ec83f404a83079e9062406c/system/
+[24/Jun/2017 18:27:40] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/system/ HTTP/1.1" 404 5001
+Not Found: /installation/server/install/fc160deb0ec83f404a83079e9062406c/system/
+[24/Jun/2017 18:27:49] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/system/ HTTP/1.1" 404 5001
+Not Found: /installation/server/install/fc160deb0ec83f404a83079e9062406c/system/
+[24/Jun/2017 18:29:16] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/system/ HTTP/1.1" 404 5001
+[24/Jun/2017 18:29:20] "GET /installation/servers/ HTTP/1.1" 200 20927
+Internal Server Error: /installation/server/install/fc160deb0ec83f404a83079e9062406c/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: install() takes exactly 3 arguments (2 given)
+[24/Jun/2017 18:29:23] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 500 60908
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 18:27:34
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 18:30:34
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[24/Jun/2017 18:31:10] "GET /installation/servers/ HTTP/1.1" 200 20935
+[24/Jun/2017 18:31:12] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/install HTTP/1.1" 301 0
+Internal Server Error: /installation/server/install/fc160deb0ec83f404a83079e9062406c/install/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: install() takes exactly 3 arguments (2 given)
+[24/Jun/2017 18:31:12] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/install/ HTTP/1.1" 500 60988
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 18:31:02
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 18:31:57
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[24/Jun/2017 18:32:11] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/install/ HTTP/1.1" 200 3457
+[24/Jun/2017 18:32:15] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/add_system/ HTTP/1.1" 302 0
+Internal Server Error: /installation/server/install/add_system/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/opsp/ops/installation/views.py", line 239, in add_system
+    return render(request,'installation/add_system.html',locals())
+  File "/usr/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/usr/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/usr/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/defaulttags.py", line 447, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/lib/python2.7/site-packages/django/urls/base.py", line 91, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 389, in _reverse_with_prefix
+    (lookup_view_s, args, kwargs, len(patterns), patterns)
+NoReverseMatch: Reverse for 'update_ipmi' with arguments '('',)' and keyword arguments '{}' not found. 1 pattern(s) tried: [u'installation/server/ipmi/(\\w+)/$']
+[24/Jun/2017 18:32:15] "GET /installation/server/install/add_system/ HTTP/1.1" 500 126657
+[24/Jun/2017 18:33:39] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/add_system/ HTTP/1.1" 302 0
+Internal Server Error: /installation/server/install/add_system/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/opsp/ops/installation/views.py", line 239, in add_system
+    return render(request,'installation/add_system.html',locals())
+  File "/usr/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/usr/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/usr/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/defaulttags.py", line 447, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/lib/python2.7/site-packages/django/urls/base.py", line 91, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 389, in _reverse_with_prefix
+    (lookup_view_s, args, kwargs, len(patterns), patterns)
+NoReverseMatch: Reverse for 'update_ipmi' with arguments '('',)' and keyword arguments '{}' not found. 1 pattern(s) tried: [u'installation/server/ipmi/(\\w+)/$']
+[24/Jun/2017 18:33:39] "GET /installation/server/install/add_system/ HTTP/1.1" 500 126426
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 18:31:59
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 18:34:37
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 18:34:56
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[24/Jun/2017 18:36:28] "GET /installation/servers/ HTTP/1.1" 200 20935
+[24/Jun/2017 18:36:31] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/install/ HTTP/1.1" 200 3457
+Not Found: /installation/server/install//add_systemfc160deb0ec83f404a83079e9062406c
+[24/Jun/2017 18:36:33] "GET /installation/server/install//add_systemfc160deb0ec83f404a83079e9062406c HTTP/1.1" 404 5025
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 18:35:10
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Not Found: /installation/server/install//add_systemfc160deb0ec83f404a83079e9062406c
+[24/Jun/2017 18:37:41] "GET /installation/server/install//add_systemfc160deb0ec83f404a83079e9062406c HTTP/1.1" 404 5025
+[24/Jun/2017 18:37:47] "GET /installation/servers/ HTTP/1.1" 200 20935
+[24/Jun/2017 18:37:49] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/install/ HTTP/1.1" 200 3458
+Not Found: /installation/server/install//add_system/fc160deb0ec83f404a83079e9062406c
+[24/Jun/2017 18:37:51] "GET /installation/server/install//add_system/fc160deb0ec83f404a83079e9062406c HTTP/1.1" 404 5028
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 18:37:20
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Unhandled exception in thread started by <function wrapper at 0x19e3c08>
+Performing system checks...
+
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/utils/autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/core/management/commands/runserver.py", line 121, in inner_run
+    self.check(display_num_errors=True)
+  File "/usr/lib/python2.7/site-packages/django/core/management/base.py", line 385, in check
+    include_deployment_checks=include_deployment_checks,
+  File "/usr/lib/python2.7/site-packages/django/core/management/base.py", line 372, in _run_checks
+    return checks.run_checks(**kwargs)
+  File "/usr/lib/python2.7/site-packages/django/core/checks/registry.py", line 81, in run_checks
+    new_errors = check(app_configs=app_configs)
+  File "/usr/lib/python2.7/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/usr/lib/python2.7/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    for pattern in resolver.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 310, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 303, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/root/opsp/ops/ops/urls.py", line 26, in <module>
+    url(r'^installation/',include('installation.urls',namespace='installation')),
+  File "/usr/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 50, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/root/opsp/ops/installation/urls.py", line 32, in <module>
+    url(r'^server/install/add_system/(\w+)/$',views.add_system,name='add_system'),
+AttributeError: 'module' object has no attribute 'add_system'
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 18:43:52
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 18:44:20
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[24/Jun/2017 18:45:12] "GET /installation/servers/ HTTP/1.1" 200 20927
+Internal Server Error: /installation/server/install/fc160deb0ec83f404a83079e9062406c/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: install() takes exactly 3 arguments (2 given)
+[24/Jun/2017 18:45:15] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 500 60908
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 18:45:04
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[24/Jun/2017 18:46:04] "GET /installation/servers/ HTTP/1.1" 200 20927
+[24/Jun/2017 18:46:07] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 3458
+Not Found: /installation/server/install//add_system/fc160deb0ec83f404a83079e9062406c
+[24/Jun/2017 18:46:11] "GET /installation/server/install//add_system/fc160deb0ec83f404a83079e9062406c HTTP/1.1" 404 5022
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 18:45:59
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Not Found: /installation/server/install//add_system/fc160deb0ec83f404a83079e9062406c
+[24/Jun/2017 18:47:30] "GET /installation/server/install//add_system/fc160deb0ec83f404a83079e9062406c HTTP/1.1" 404 5022
+[24/Jun/2017 18:49:10] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 3408
+[24/Jun/2017 18:49:10] "GET /static/build/js/custom.min.js HTTP/1.1" 304 0
+Internal Server Error: /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/opsp/ops/installation/views.py", line 234, in add_system
+    return render(request,'installation/add_system.html',locals())
+  File "/usr/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/usr/lib/python2.7/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/usr/lib/python2.7/site-packages/django/template/loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "/usr/lib/python2.7/site-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/usr/lib/python2.7/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/usr/lib/python2.7/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/usr/lib/python2.7/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 574, in invalid_block_tag
+    "or load this tag?" % (token.lineno, command)
+TemplateSyntaxError: Invalid block tag on line 1: 'extend'. Did you forget to register or load this tag?
+[24/Jun/2017 18:49:11] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 500 132034
+[24/Jun/2017 18:49:30] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 3408
+[24/Jun/2017 18:49:31] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 10140
+[24/Jun/2017 18:51:32] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 3408
+[24/Jun/2017 18:51:34] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 10264
+[24/Jun/2017 18:52:42] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 10164
+[24/Jun/2017 18:52:44] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 10164
+[24/Jun/2017 18:57:17] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 3408
+[24/Jun/2017 18:57:18] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 10162
+[24/Jun/2017 19:01:32] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 10555
+[24/Jun/2017 19:01:32] "GET /static/vendors/font-awesome/css/font-awesome.min.css HTTP/1.1" 304 0
+[24/Jun/2017 19:01:32] "GET /static/vendors/iCheck/skins/flat/green.css HTTP/1.1" 304 0
+[24/Jun/2017 19:01:32] "GET /static/vendors/nprogress/nprogress.css HTTP/1.1" 304 0
+[24/Jun/2017 19:01:32] "GET /static/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css HTTP/1.1" 304 0
+[24/Jun/2017 19:01:32] "GET /static/build/css/custom.min.css HTTP/1.1" 304 0
+[24/Jun/2017 19:01:32] "GET /static/vendors/bootstrap-daterangepicker/daterangepicker.css HTTP/1.1" 304 0
+[24/Jun/2017 19:01:32] "GET /static/vendors/jquery/dist/jquery.min.js HTTP/1.1" 304 0
+[24/Jun/2017 19:01:32] "GET /static/vendors/bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 0
+[24/Jun/2017 19:01:32] "GET /static/vendors/fastclick/lib/fastclick.js HTTP/1.1" 304 0
+[24/Jun/2017 19:01:32] "GET /static/vendors/nprogress/nprogress.js HTTP/1.1" 304 0
+[24/Jun/2017 19:01:32] "GET /static/vendors/bootstrap-daterangepicker/daterangepicker.js HTTP/1.1" 304 0
+[24/Jun/2017 19:01:32] "GET /static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js HTTP/1.1" 304 0
+[24/Jun/2017 19:01:32] "GET /static/vendors/iCheck/icheck.min.js HTTP/1.1" 304 0
+[24/Jun/2017 19:01:32] "GET /static/vendors/moment/min/moment.min.js HTTP/1.1" 304 0
+[24/Jun/2017 19:01:57] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 10553
+[24/Jun/2017 19:02:01] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 10553
+[24/Jun/2017 19:02:07] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 10553
+[24/Jun/2017 19:02:36] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 10549
+[24/Jun/2017 19:03:31] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 10912
+[24/Jun/2017 19:04:22] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 10912
+[24/Jun/2017 19:06:42] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 11038
+[24/Jun/2017 19:07:17] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 11038
+[24/Jun/2017 19:07:50] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 11038
+[24/Jun/2017 19:08:19] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 11164
+[24/Jun/2017 19:12:18] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 10245
+[24/Jun/2017 19:12:19] "GET /static/vendors/parsleyjs/dist/parsley.min.js.map HTTP/1.1" 304 0
+[24/Jun/2017 19:13:21] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 10271
+[24/Jun/2017 19:14:56] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 10405
+[24/Jun/2017 19:18:35] "GET /installation/servers/ HTTP/1.1" 200 20927
+[24/Jun/2017 19:18:35] "GET /static/vendors/jqvmap/dist/jqvmap.min.css HTTP/1.1" 304 0
+[24/Jun/2017 19:18:35] "GET /static/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[24/Jun/2017 19:18:35] "GET /static/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css HTTP/1.1" 304 0
+[24/Jun/2017 19:18:35] "GET /static/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css HTTP/1.1" 304 0
+[24/Jun/2017 19:18:35] "GET /static/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[24/Jun/2017 19:18:35] "GET /static/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css HTTP/1.1" 304 0
+[24/Jun/2017 19:18:35] "GET /static/vendors/datatables.net/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[24/Jun/2017 19:18:35] "GET /static/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[24/Jun/2017 19:18:35] "GET /static/vendors/datatables.net-buttons/js/dataTables.buttons.min.js HTTP/1.1" 304 0
+[24/Jun/2017 19:18:35] "GET /static/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js HTTP/1.1" 304 0
+[24/Jun/2017 19:18:35] "GET /static/vendors/datatables.net-buttons/js/buttons.flash.min.js HTTP/1.1" 304 0
+[24/Jun/2017 19:18:35] "GET /static/vendors/datatables.net-buttons/js/buttons.html5.min.js HTTP/1.1" 304 0
+[24/Jun/2017 19:18:35] "GET /static/vendors/datatables.net-buttons/js/buttons.print.min.js HTTP/1.1" 304 0
+[24/Jun/2017 19:18:35] "GET /static/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js HTTP/1.1" 304 0
+[24/Jun/2017 19:18:35] "GET /static/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js HTTP/1.1" 304 0
+[24/Jun/2017 19:18:35] "GET /static/vendors/datatables.net-responsive/js/dataTables.responsive.min.js HTTP/1.1" 304 0
+[24/Jun/2017 19:18:35] "GET /static/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js HTTP/1.1" 304 0
+[24/Jun/2017 19:18:35] "GET /static/vendors/datatables.net-scroller/js/dataTables.scroller.min.js HTTP/1.1" 304 0
+[24/Jun/2017 19:18:35] "GET /static/vendors/jszip/dist/jszip.min.js HTTP/1.1" 304 0
+[24/Jun/2017 19:18:35] "GET /static/vendors/pdfmake/build/pdfmake.min.js HTTP/1.1" 304 0
+[24/Jun/2017 19:18:35] "GET /static/vendors/pdfmake/build/vfs_fonts.js HTTP/1.1" 304 0
+[24/Jun/2017 19:18:35] "GET /static/images/img.jpg HTTP/1.1" 304 0
+[24/Jun/2017 19:18:36] "GET /static/vendors/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 HTTP/1.1" 304 0
+[24/Jun/2017 19:18:36] "GET /static/vendors/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 304 0
+[24/Jun/2017 19:18:39] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 3408
+[24/Jun/2017 19:18:40] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 10405
+[24/Jun/2017 19:19:58] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 10405
+[24/Jun/2017 19:20:29] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 10405
+[24/Jun/2017 19:20:54] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 10405
+[24/Jun/2017 19:23:11] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 10408
+[24/Jun/2017 19:25:28] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 10369
+[24/Jun/2017 19:26:39] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 10492
+[24/Jun/2017 19:26:44] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 3446
+[24/Jun/2017 19:26:45] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 10492
+[24/Jun/2017 19:28:42] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 10519
+[24/Jun/2017 19:30:28] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 10506
+[24/Jun/2017 19:30:35] "GET /installation/servers/ HTTP/1.1" 200 20927
+[24/Jun/2017 19:30:38] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 3446
+[24/Jun/2017 19:30:39] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 10506
+[24/Jun/2017 19:30:44] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 3446
+[24/Jun/2017 19:30:47] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 10506
+[24/Jun/2017 19:35:04] "GET /installation/servers/ HTTP/1.1" 200 20927
+[24/Jun/2017 19:35:07] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 3470
+[24/Jun/2017 19:35:08] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 9809
+[24/Jun/2017 19:36:07] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 9809
+[24/Jun/2017 19:36:09] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 9809
+[24/Jun/2017 19:36:15] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5424
+[24/Jun/2017 19:36:21] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 3470
+[24/Jun/2017 19:36:23] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 9809
+[24/Jun/2017 19:40:32] "GET /installation/servers/ HTTP/1.1" 200 20927
+[24/Jun/2017 19:40:35] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 3479
+[24/Jun/2017 19:40:37] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 9818
+[24/Jun/2017 19:41:08] "GET /installation/servers/ HTTP/1.1" 200 20927
+[24/Jun/2017 19:41:11] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 3488
+[24/Jun/2017 19:41:13] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 9827
+[24/Jun/2017 19:43:54] "GET /installation/servers/ HTTP/1.1" 200 20927
+[24/Jun/2017 19:43:58] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 3386
+[24/Jun/2017 19:43:59] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 9725
+[24/Jun/2017 19:44:01] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 9725
+[24/Jun/2017 19:45:51] "GET /installation/servers/ HTTP/1.1" 200 20927
+[24/Jun/2017 19:45:52] "GET /static/vendors/bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 0
+[24/Jun/2017 19:45:53] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 3332
+[24/Jun/2017 19:45:55] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 9671
+[24/Jun/2017 19:48:03] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 3350
+[24/Jun/2017 19:48:04] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 9689
+[24/Jun/2017 19:48:38] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 9689
+[24/Jun/2017 19:48:39] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 9689
+[24/Jun/2017 19:48:40] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 9689

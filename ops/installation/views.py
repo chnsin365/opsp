@@ -223,3 +223,16 @@ ipmi的地址、账号或密码均已被更新。
 账号：%s
 密码：%s'''%(kwargs['ipmi_ip'],kwargs['ipmi_user'],kwargs['ipmi_pass'])
         return render(request,'installation/tips.html',locals())
+
+def install(request,server_id):
+    server = get_object_or_404(Server,pk=server_id)
+    return render(request,'installation/install.html',locals())
+
+def add_system(request,server_id):
+    server = get_object_or_404(Server,pk=server_id)
+    if request.method == 'GET':
+        return render(request,'installation/add_system.html',locals())
+    else:
+        return render(request,'installation/install.html',locals())
+
+
