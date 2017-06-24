@@ -16,6 +16,8 @@
     <link href="{%static 'vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css'%}" rel="stylesheet">
     <link href="{%static 'vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css'%}" rel="stylesheet">
 
+    <link href="{%static 'vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css'%}" rel="stylesheet">
+
 {% endblock %}
 
 
@@ -44,6 +46,7 @@
 	                          <th>制造商</th>
 	                          <th>型号</th>
 	                          <th>状态</th>
+	                          <th>安装进度</th>
 	                          <th>创建时间</th>
 	                          <th>操作</th>
 	                        </tr>
@@ -57,6 +60,8 @@
 	                          <td>{{server.vendor}}</td>
 	                          <td>{{server.model}}</td>
 	                          <td><span class="label label-success">{{server.serverstatus.name}}</span></td>
+	                          <td>
+                        <div class="progress-bar progress_sm" data-transitiongoal="25" aria-valuenow="25" style="width: '{{server.progress}}'%;"><font color="blue">{{server.progress}}%</font></div></td>
 	                          <td>{{server.create_time | date:'Y-m-d H:m:s'}}</td>
 	                          <td>
 	                          	<div class="btn-group">
@@ -72,7 +77,8 @@
 			                        </li>
 			                         <li><a onclick="detail('IPMI','{{server.id}}','800px','350px','/installation/server/ipmi/','/chassis_status')">IPMI</a>
 			                        </li>
-			                         <li><a href="{% url 'installation:server_delete' server.id %}">删除</a>
+			                         <!-- <li><a href="{% url 'installation:server_delete' server.id %}">删除</a></li> -->
+			                        <li><a onclick="confirm('{{server.id}}')">删除</a>
 			                        </li>
 			                        <li><a onclick="detail('服务器状态变更','{{server.id}}','400px','220px','/installation/server/status/','')">变更状态</a>
 			                        </li>
@@ -111,6 +117,8 @@
     <script src="{%static 'vendors/jszip/dist/jszip.min.js'%}"></script>
     <script src="{%static 'vendors/pdfmake/build/pdfmake.min.js'%}"></script>
     <script src="{%static 'vendors/pdfmake/build/vfs_fonts.js'%}"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="{%static 'vendors/bootstrap-progressbar/bootstrap-progressbar.min.js'%}"></script>
     <script type="text/javascript">
 			$(document).ready(function() {
 			    $('#datatable1').dataTable(
@@ -131,6 +139,13 @@
 				  content: url + sn + fun
 				  });
 			}
+
+	      function confirm(server_id){
+	        layer.confirm('请确认是否要删除', function(index){
+            	window.location.href = "/installation/server/delete/"+server_id;
+            	layer.close(index);
+            });         
+	      }
     </script>
   
 {% endblock %}

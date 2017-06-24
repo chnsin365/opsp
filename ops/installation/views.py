@@ -8,6 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import *
 import json
 from ops.sshapi import remote_cmd
+import subprocess
 
 # Create your views here.
 @csrf_exempt
@@ -48,7 +49,7 @@ def post_server_info(request):
 def servers(request):
     # status = get_object_or_404(ServerStatus)
     # servers = status.server_set.all()
-    servers = Server.objects.select_related('serverstatus').all()
+    servers = Server.objects.select_related('serverstatus').filter(progress__lt=100)
     return render(request,'installation/servers.html',locals())
 
 def server_detail(request,server_id):
@@ -161,21 +162,36 @@ def server_ipmi(request,server_id,fun):
         try:
             from ops.ipmi_api import ipmitool
             ipmi = ipmitool(ipmi_ip,ipmi_pass,username=ipmi_user)
+            ipmi.chassis_status()
             if fun == 'boot_to_disk':
                 ipmi.boot_to_disk()
+                ret_data = ipmi.output
             elif fun == 'chassis_on':
-                ipmi.chassis_on()
+                if 'on' in ipmi.output:
+                    ret_data = '已经在开机状态，已为您取消本次开机操作。'
+                else:
+                    ipmi.chassis_on()
+                    ret_data = ipmi.output
             elif fun == 'chassis_off':
-                ipmi.chassis_off()
+                if 'off' in ipmi.output:
+                    ret_data = '已经在关机状态，已为您取消本次关机操作。'
+                else:
+                    ipmi.chassis_off()
+                    ret_data = ipmi.output
+                # return HttpResponse(ret_data)
             elif fun == 'chassis_reboot':
-                ipmi.chassis_reboot()
+                if 'off' in ipmi.output:
+                    ret_data = '当前在关机状态，无法完成重启操作。'
+                else:
+                    ipmi.chassis_reboot()
+                    ret_data = ipmi.output
             elif fun == 'boot_to_pxe':
                 ipmi.boot_to_pxe()
+                ret_data = ipmi.output
             else:
-                ipmi.chassis_status()
-            ret_data = ipmi.output
+                ret_data = ipmi.output
         except Exception as e:
-            ret_data = e
+            ret_data = str(e)
     else:
         ret_data = '''
 无法完成操作，可能原因是ipmi的地址、账号或密码配置不正确。

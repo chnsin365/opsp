@@ -9,7 +9,7 @@ def remote_cmd(cmd,host,user='root',passwd='P@ssw0rd'):
 		stdin,stdout,stderr = ssh.exec_command(cmd)
 		return stdout.read()
 	except Exception as e:
-		raise e
+		return str(e)
 	finally:
 		ssh.close()
 

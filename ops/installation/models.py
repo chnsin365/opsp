@@ -94,6 +94,7 @@ class Server(models.Model):
     pxe_ip             = models.GenericIPAddressField(blank=True,null=True)
     vendor             = models.CharField(max_length=30,blank=True,null=True)
     model              = models.CharField(max_length=30,blank=True,null=True)
+    progress           = models.IntegerField(blank=True,null=True,default=0)
     create_time        = models.DateTimeField(auto_now=True)
     update_time        = models.DateTimeField(auto_now_add=True)
 
@@ -108,7 +109,7 @@ class Disk(models.Model):
     id                 = models.AutoField(primary_key=True,db_column="disk_id")
     name               = models.CharField(max_length=30,blank=True,null=True,db_column="disk_name")
     model              = models.CharField(max_length=30,blank=True,null=True,db_column="disk_model")
-    server             = models.ForeignKey(Server,blank=True, null=True,on_delete=models.PROTECT)
+    server             = models.ForeignKey(Server,blank=True, null=True)
     raid_name          = models.CharField(max_length=100,blank=True,null=True)
     raid_type          = models.CharField(max_length=100,blank=True,null=True)
     size               = models.CharField(max_length=30,blank=True,null=True,db_column="disk_size")

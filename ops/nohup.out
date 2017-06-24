@@ -1,0 +1,1474 @@
+[24/Jun/2017 09:56:25] "GET / HTTP/1.1" 200 48655
+[24/Jun/2017 09:56:25] "GET /static/vendors/font-awesome/css/font-awesome.min.css HTTP/1.1" 304 0
+[24/Jun/2017 09:56:25] "GET /static/vendors/bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 0
+[24/Jun/2017 09:56:25] "GET /static/vendors/nprogress/nprogress.css HTTP/1.1" 304 0
+[24/Jun/2017 09:56:25] "GET /static/build/css/custom.min.css HTTP/1.1" 304 0
+[24/Jun/2017 09:56:25] "GET /static/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css HTTP/1.1" 304 0
+[24/Jun/2017 09:56:25] "GET /static/vendors/iCheck/skins/flat/green.css HTTP/1.1" 304 0
+[24/Jun/2017 09:56:25] "GET /static/vendors/jqvmap/dist/jqvmap.min.css HTTP/1.1" 304 0
+[24/Jun/2017 09:56:25] "GET /static/vendors/bootstrap-daterangepicker/daterangepicker.css HTTP/1.1" 304 0
+[24/Jun/2017 09:56:25] "GET /static/vendors/jquery/dist/jquery.min.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:25] "GET /static/vendors/bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:25] "GET /static/vendors/fastclick/lib/fastclick.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:25] "GET /static/vendors/nprogress/nprogress.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:25] "GET /static/layer/layer.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:25] "GET /static/build/js/custom.min.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:25] "GET /static/vendors/Chart.js/dist/Chart.min.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:25] "GET /static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:25] "GET /static/vendors/gauge.js/dist/gauge.min.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:25] "GET /static/vendors/iCheck/icheck.min.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:25] "GET /static/vendors/skycons/skycons.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:25] "GET /static/vendors/Flot/jquery.flot.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:25] "GET /static/vendors/Flot/jquery.flot.pie.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:25] "GET /static/vendors/Flot/jquery.flot.time.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:25] "GET /static/vendors/Flot/jquery.flot.stack.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:25] "GET /static/vendors/Flot/jquery.flot.resize.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:25] "GET /static/vendors/flot.orderbars/js/jquery.flot.orderBars.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:25] "GET /static/vendors/flot-spline/js/jquery.flot.spline.min.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:25] "GET /static/vendors/flot.curvedlines/curvedLines.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:25] "GET /static/vendors/DateJS/build/date.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:25] "GET /static/vendors/jqvmap/dist/jquery.vmap.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:25] "GET /static/vendors/jqvmap/dist/maps/jquery.vmap.world.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:25] "GET /static/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:25] "GET /static/vendors/moment/min/moment.min.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:25] "GET /static/vendors/bootstrap-daterangepicker/daterangepicker.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:25] "GET /static/images/img.jpg HTTP/1.1" 304 0
+[24/Jun/2017 09:56:25] "GET /static/vendors/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 HTTP/1.1" 304 0
+[24/Jun/2017 09:56:26] "GET /static/layer/skin/default/layer.css?v=3.0.3303 HTTP/1.1" 304 0
+[24/Jun/2017 09:56:26] "GET /static/vendors/iCheck/skins/flat/green@2x.png HTTP/1.1" 304 0
+Not Found: /favicon.ico
+[24/Jun/2017 09:56:27] "GET /favicon.ico HTTP/1.1" 404 2526
+[24/Jun/2017 09:56:57] "GET /installation/servers/ HTTP/1.1" 200 20077
+[24/Jun/2017 09:56:57] "GET /static/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[24/Jun/2017 09:56:57] "GET /static/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css HTTP/1.1" 304 0
+[24/Jun/2017 09:56:57] "GET /static/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css HTTP/1.1" 304 0
+[24/Jun/2017 09:56:57] "GET /static/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[24/Jun/2017 09:56:57] "GET /static/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css HTTP/1.1" 304 0
+[24/Jun/2017 09:56:57] "GET /static/vendors/datatables.net/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:57] "GET /static/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:57] "GET /static/vendors/datatables.net-buttons/js/dataTables.buttons.min.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:57] "GET /static/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:57] "GET /static/vendors/datatables.net-buttons/js/buttons.flash.min.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:57] "GET /static/vendors/datatables.net-buttons/js/buttons.html5.min.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:57] "GET /static/vendors/datatables.net-buttons/js/buttons.print.min.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:57] "GET /static/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:57] "GET /static/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:57] "GET /static/vendors/datatables.net-responsive/js/dataTables.responsive.min.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:57] "GET /static/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:57] "GET /static/vendors/datatables.net-scroller/js/dataTables.scroller.min.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:57] "GET /static/vendors/jszip/dist/jszip.min.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:57] "GET /static/vendors/pdfmake/build/pdfmake.min.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:57] "GET /static/vendors/pdfmake/build/vfs_fonts.js HTTP/1.1" 304 0
+[24/Jun/2017 09:56:57] "GET /static/vendors/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 304 0
+[24/Jun/2017 09:58:04] "GET /static/layer/skin/default/loading-1.gif HTTP/1.1" 304 0
+[24/Jun/2017 09:58:04] "GET /static/layer/skin/default/icon.png HTTP/1.1" 304 0
+[24/Jun/2017 09:58:04] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 4292
+[24/Jun/2017 09:58:08] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/boot_to_disk/ HTTP/1.1" 200 4295
+[24/Jun/2017 09:58:11] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 4300
+[24/Jun/2017 09:58:19] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 4291
+Internal Server Error: /installation/server/raid/fc160deb0ec83f404a83079e9062406c/raid_status/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/opsp/ops/installation/views.py", line 124, in server_raid
+    ret_data = rd.raid_status()
+  File "/root/opsp/ops/installation/raid_api.py", line 48, in raid_status
+    ret_data = remote_cmd(cmd,self.addr,user=self.user,passwd=self.passwd)
+  File "/root/opsp/ops/ops/sshapi.py", line 12, in remote_cmd
+    raise e
+NoValidConnectionsError: [Errno None] Unable to connect to port 22 on 192.168.3.149
+[24/Jun/2017 09:59:09] "GET /installation/server/raid/fc160deb0ec83f404a83079e9062406c/raid_status/ HTTP/1.1" 500 74505
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 09:55:51
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[24/Jun/2017 10:04:02] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 4291
+[24/Jun/2017 10:04:19] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 4300
+[24/Jun/2017 10:04:33] "GET /installation/server/raid/fc160deb0ec83f404a83079e9062406c/raid_status/ HTTP/1.1" 200 4193
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 10:03:56
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[24/Jun/2017 10:07:12] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 4292
+[24/Jun/2017 10:07:27] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 4292
+[24/Jun/2017 10:07:41] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 4303
+[24/Jun/2017 10:07:49] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 4300
+[24/Jun/2017 10:37:44] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 4893
+[24/Jun/2017 10:38:05] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 4902
+[24/Jun/2017 10:38:05] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 4905
+[24/Jun/2017 10:38:10] "GET /static/vendors/bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 0
+[24/Jun/2017 10:38:15] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 4905
+[24/Jun/2017 10:38:26] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 4905
+[24/Jun/2017 10:38:27] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 4905
+[24/Jun/2017 10:38:27] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 4905
+[24/Jun/2017 10:38:27] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 4905
+[24/Jun/2017 10:38:28] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 4905
+[24/Jun/2017 10:38:29] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 4905
+[24/Jun/2017 10:38:29] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 4905
+[24/Jun/2017 10:38:29] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 4905
+[24/Jun/2017 10:38:41] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 4894
+[24/Jun/2017 10:38:45] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 4902
+[24/Jun/2017 10:38:52] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 4893
+[24/Jun/2017 10:39:03] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 4905
+[24/Jun/2017 10:39:03] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 4894
+[24/Jun/2017 10:39:05] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 4894
+[24/Jun/2017 10:43:06] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 4920
+[24/Jun/2017 10:43:10] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 4928
+[24/Jun/2017 10:43:17] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 4919
+[24/Jun/2017 10:43:45] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 4928
+[24/Jun/2017 10:44:07] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 4920
+[24/Jun/2017 10:44:10] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 4928
+[24/Jun/2017 10:45:03] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 4928
+[24/Jun/2017 10:48:26] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5056
+[24/Jun/2017 10:48:30] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5047
+[24/Jun/2017 10:49:57] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5056
+[24/Jun/2017 10:50:33] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5078
+[24/Jun/2017 10:50:57] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5069
+[24/Jun/2017 10:51:34] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5069
+[24/Jun/2017 10:52:50] "GET /installation/servers/ HTTP/1.1" 200 20077
+[24/Jun/2017 10:52:53] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5047
+[24/Jun/2017 10:52:55] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5047
+[24/Jun/2017 10:56:56] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5047
+[24/Jun/2017 10:57:16] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5056
+[24/Jun/2017 11:05:24] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 5126
+[24/Jun/2017 11:05:51] "GET /installation/servers/ HTTP/1.1" 200 20077
+[24/Jun/2017 11:05:55] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5118
+[24/Jun/2017 11:06:08] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5129
+[24/Jun/2017 11:06:37] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5129
+[24/Jun/2017 11:10:50] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5197
+[24/Jun/2017 11:10:54] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5208
+[24/Jun/2017 11:10:54] "GET /static/vendors/jquery/dist/jquery.min.js?_=1498273886336 HTTP/1.1" 200 85578
+[24/Jun/2017 11:10:54] "GET /static/vendors/bootstrap/dist/js/bootstrap.min.js?_=1498273886337 HTTP/1.1" 200 36868
+[24/Jun/2017 11:10:54] "GET /static/vendors/fastclick/lib/fastclick.js?_=1498273886338 HTTP/1.1" 200 25965
+[24/Jun/2017 11:10:54] "GET /static/vendors/nprogress/nprogress.js?_=1498273886339 HTTP/1.1" 200 11565
+[24/Jun/2017 11:10:54] "GET /static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js?_=1498273886340 HTTP/1.1" 200 2333
+[24/Jun/2017 11:10:54] "GET /static/vendors/iCheck/icheck.min.js?_=1498273886341 HTTP/1.1" 200 4931
+[24/Jun/2017 11:10:54] "GET /static/layer/layer.js?_=1498273886342 HTTP/1.1" 200 21616
+[24/Jun/2017 11:10:54] "GET /static/build/js/custom.min.js?_=1498273886343 HTTP/1.1" 200 117932
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 10:04:46
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[24/Jun/2017 11:12:42] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5197
+[24/Jun/2017 11:12:47] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 32
+[24/Jun/2017 11:12:56] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5197
+[24/Jun/2017 11:14:01] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 5354
+[24/Jun/2017 11:14:06] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5346
+[24/Jun/2017 11:14:08] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 5354
+[24/Jun/2017 11:16:44] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5464
+[24/Jun/2017 11:34:35] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5475
+[24/Jun/2017 11:35:14] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 32
+[24/Jun/2017 11:35:27] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5483
+[24/Jun/2017 11:35:33] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5474
+[24/Jun/2017 11:42:01] "POST /installation/post_server_info/ HTTP/1.1" 200 5
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 11:12:38
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+fc160deb0ec83f404a83079e9062406c False
+Unhandled exception in thread started by <function wrapper at 0x31aec08>
+Performing system checks...
+
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/utils/autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/core/management/commands/runserver.py", line 121, in inner_run
+    self.check(display_num_errors=True)
+  File "/usr/lib/python2.7/site-packages/django/core/management/base.py", line 385, in check
+    include_deployment_checks=include_deployment_checks,
+  File "/usr/lib/python2.7/site-packages/django/core/management/base.py", line 372, in _run_checks
+    return checks.run_checks(**kwargs)
+  File "/usr/lib/python2.7/site-packages/django/core/checks/registry.py", line 81, in run_checks
+    new_errors = check(app_configs=app_configs)
+  File "/usr/lib/python2.7/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/usr/lib/python2.7/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    for pattern in resolver.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 310, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 303, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/root/opsp/ops/ops/urls.py", line 26, in <module>
+    url(r'^installation/',include('installation.urls',namespace='installation')),
+  File "/usr/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 50, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/root/opsp/ops/installation/urls.py", line 18, in <module>
+    from . import views
+  File "/root/opsp/ops/installation/views.py", line 167
+    if 
+      ^
+SyntaxError: invalid syntax
+[24/Jun/2017 11:47:33] "GET /installation/servers/ HTTP/1.1" 200 20077
+[24/Jun/2017 11:47:38] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5474
+[24/Jun/2017 11:47:40] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5536
+[24/Jun/2017 11:47:58] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5474
+[24/Jun/2017 11:48:00] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5536
+[24/Jun/2017 11:48:42] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5483
+[24/Jun/2017 11:48:43] "GET /static/vendors/jquery/dist/jquery.min.js?_=1498276116008 HTTP/1.1" 200 85578
+[24/Jun/2017 11:48:43] "GET /static/vendors/bootstrap/dist/js/bootstrap.min.js?_=1498276116009 HTTP/1.1" 200 36868
+[24/Jun/2017 11:48:43] "GET /static/vendors/fastclick/lib/fastclick.js?_=1498276116010 HTTP/1.1" 200 25965
+[24/Jun/2017 11:48:43] "GET /static/vendors/nprogress/nprogress.js?_=1498276116011 HTTP/1.1" 200 11565
+[24/Jun/2017 11:48:43] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 32
+[24/Jun/2017 11:48:43] "GET /static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js?_=1498276116012 HTTP/1.1" 200 2333
+[24/Jun/2017 11:48:43] "GET /static/vendors/iCheck/icheck.min.js?_=1498276116013 HTTP/1.1" 200 4931
+[24/Jun/2017 11:48:43] "GET /static/layer/layer.js?_=1498276116014 HTTP/1.1" 200 21616
+[24/Jun/2017 11:48:43] "GET /static/build/js/custom.min.js?_=1498276116015 HTTP/1.1" 200 117932
+[24/Jun/2017 11:48:51] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5475
+[24/Jun/2017 11:48:54] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 32
+[24/Jun/2017 11:49:03] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 32
+[24/Jun/2017 11:49:11] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 5483
+[24/Jun/2017 11:49:11] "GET /static/vendors/jquery/dist/jquery.min.js?_=1498276167436 HTTP/1.1" 200 85578
+[24/Jun/2017 11:49:11] "GET /static/vendors/bootstrap/dist/js/bootstrap.min.js?_=1498276167437 HTTP/1.1" 200 36868
+[24/Jun/2017 11:49:11] "GET /static/vendors/fastclick/lib/fastclick.js?_=1498276167438 HTTP/1.1" 200 25965
+[24/Jun/2017 11:49:11] "GET /static/vendors/nprogress/nprogress.js?_=1498276167439 HTTP/1.1" 200 11565
+[24/Jun/2017 11:49:11] "GET /static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js?_=1498276167440 HTTP/1.1" 200 2333
+[24/Jun/2017 11:49:11] "GET /static/vendors/iCheck/icheck.min.js?_=1498276167441 HTTP/1.1" 200 4931
+[24/Jun/2017 11:49:11] "GET /static/layer/layer.js?_=1498276167442 HTTP/1.1" 200 21616
+[24/Jun/2017 11:49:11] "GET /static/build/js/custom.min.js?_=1498276167443 HTTP/1.1" 200 117932
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 11:47:20
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[24/Jun/2017 11:49:41] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5475
+[24/Jun/2017 11:49:45] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 29
+[24/Jun/2017 11:50:02] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 32
+[24/Jun/2017 11:50:13] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5475
+[24/Jun/2017 11:50:17] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 32
+[24/Jun/2017 11:51:55] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5475
+[24/Jun/2017 11:52:03] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 32
+[24/Jun/2017 11:52:13] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 29
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 11:49:35
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Unhandled exception in thread started by <function wrapper at 0x36a4c08>
+Performing system checks...
+
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/utils/autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/core/management/commands/runserver.py", line 121, in inner_run
+    self.check(display_num_errors=True)
+  File "/usr/lib/python2.7/site-packages/django/core/management/base.py", line 385, in check
+    include_deployment_checks=include_deployment_checks,
+  File "/usr/lib/python2.7/site-packages/django/core/management/base.py", line 372, in _run_checks
+    return checks.run_checks(**kwargs)
+  File "/usr/lib/python2.7/site-packages/django/core/checks/registry.py", line 81, in run_checks
+    new_errors = check(app_configs=app_configs)
+  File "/usr/lib/python2.7/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/usr/lib/python2.7/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    for pattern in resolver.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 310, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 303, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/root/opsp/ops/ops/urls.py", line 26, in <module>
+    url(r'^installation/',include('installation.urls',namespace='installation')),
+  File "/usr/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 50, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/root/opsp/ops/installation/urls.py", line 18, in <module>
+    from . import views
+  File "/root/opsp/ops/installation/views.py", line 170
+    else
+       ^
+SyntaxError: invalid syntax
+[24/Jun/2017 12:05:46] "GET /installation/servers/ HTTP/1.1" 200 20077
+[24/Jun/2017 12:05:52] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5475
+[24/Jun/2017 12:06:02] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 5475
+[24/Jun/2017 12:06:02] "GET /static/vendors/jquery/dist/jquery.min.js?_=1498277188179 HTTP/1.1" 200 85578
+[24/Jun/2017 12:06:02] "GET /static/vendors/bootstrap/dist/js/bootstrap.min.js?_=1498277188180 HTTP/1.1" 200 36868
+[24/Jun/2017 12:06:02] "GET /static/vendors/fastclick/lib/fastclick.js?_=1498277188181 HTTP/1.1" 200 25965
+[24/Jun/2017 12:06:02] "GET /static/vendors/nprogress/nprogress.js?_=1498277188182 HTTP/1.1" 200 11565
+[24/Jun/2017 12:06:02] "GET /static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js?_=1498277188183 HTTP/1.1" 200 2333
+[24/Jun/2017 12:06:02] "GET /static/vendors/iCheck/icheck.min.js?_=1498277188184 HTTP/1.1" 200 4931
+[24/Jun/2017 12:06:02] "GET /static/layer/layer.js?_=1498277188185 HTTP/1.1" 200 21616
+[24/Jun/2017 12:06:02] "GET /static/build/js/custom.min.js?_=1498277188186 HTTP/1.1" 200 117932
+[24/Jun/2017 12:06:13] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5475
+[24/Jun/2017 12:06:16] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5475
+[24/Jun/2017 12:06:16] "GET /static/vendors/jquery/dist/jquery.min.js?_=1498277209068 HTTP/1.1" 200 85578
+[24/Jun/2017 12:06:16] "GET /static/vendors/bootstrap/dist/js/bootstrap.min.js?_=1498277209069 HTTP/1.1" 200 36868
+[24/Jun/2017 12:06:16] "GET /static/vendors/fastclick/lib/fastclick.js?_=1498277209070 HTTP/1.1" 200 25965
+[24/Jun/2017 12:06:16] "GET /static/vendors/nprogress/nprogress.js?_=1498277209071 HTTP/1.1" 200 11565
+[24/Jun/2017 12:06:16] "GET /static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js?_=1498277209072 HTTP/1.1" 200 2333
+[24/Jun/2017 12:06:17] "GET /static/vendors/iCheck/icheck.min.js?_=1498277209073 HTTP/1.1" 200 4931
+[24/Jun/2017 12:06:17] "GET /static/layer/layer.js?_=1498277209074 HTTP/1.1" 200 21616
+[24/Jun/2017 12:06:17] "GET /static/build/js/custom.min.js?_=1498277209075 HTTP/1.1" 200 117932
+[24/Jun/2017 12:08:30] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5475
+[24/Jun/2017 12:08:32] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5475
+[24/Jun/2017 12:08:34] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5475
+[24/Jun/2017 12:08:49] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5475
+[24/Jun/2017 12:08:53] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5475
+[24/Jun/2017 12:09:06] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5475
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 12:05:42
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[24/Jun/2017 12:10:39] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5475
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 12:10:36
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Chassis Power is off
+
+[24/Jun/2017 12:11:16] "GET /installation/servers/ HTTP/1.1" 200 20077
+[24/Jun/2017 12:11:19] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5475
+[24/Jun/2017 12:11:21] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5475
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 12:11:00
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Chassis Power is off
+==============
+[24/Jun/2017 12:12:16] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5475
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 12:12:12
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Chassis Power is off
+==============
+[24/Jun/2017 12:14:29] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5475
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 12:14:23
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+-1 ==============
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 12:14:45
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[24/Jun/2017 12:14:56] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5475
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 12:14:49
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+-1 ==============
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 12:17:42
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[24/Jun/2017 12:25:51] "GET /installation/servers/ HTTP/1.1" 200 20077
+[24/Jun/2017 12:25:54] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5475
+[24/Jun/2017 12:25:57] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5454
+[24/Jun/2017 12:26:21] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5483
+[24/Jun/2017 12:26:21] "GET /static/vendors/jquery/dist/jquery.min.js?_=1498278393249 HTTP/1.1" 200 85578
+[24/Jun/2017 12:26:21] "GET /static/vendors/bootstrap/dist/js/bootstrap.min.js?_=1498278393250 HTTP/1.1" 200 36868
+[24/Jun/2017 12:26:21] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5508
+[24/Jun/2017 12:26:21] "GET /static/vendors/fastclick/lib/fastclick.js?_=1498278393251 HTTP/1.1" 200 25965
+[24/Jun/2017 12:26:21] "GET /static/vendors/nprogress/nprogress.js?_=1498278393252 HTTP/1.1" 200 11565
+[24/Jun/2017 12:26:21] "GET /static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js?_=1498278393253 HTTP/1.1" 200 2333
+[24/Jun/2017 12:26:21] "GET /static/vendors/iCheck/icheck.min.js?_=1498278393254 HTTP/1.1" 200 4931
+[24/Jun/2017 12:26:21] "GET /static/layer/layer.js?_=1498278393255 HTTP/1.1" 200 21616
+[24/Jun/2017 12:26:21] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5508
+[24/Jun/2017 12:26:21] "GET /static/build/js/custom.min.js?_=1498278393256 HTTP/1.1" 200 117932
+[24/Jun/2017 12:26:21] "GET /static/vendors/jquery/dist/jquery.min.js?_=1498278416964 HTTP/1.1" 200 85578
+[24/Jun/2017 12:26:21] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5508
+[24/Jun/2017 12:26:21] "GET /static/vendors/bootstrap/dist/js/bootstrap.min.js?_=1498278416965 HTTP/1.1" 200 36868
+[24/Jun/2017 12:26:21] "GET /static/vendors/fastclick/lib/fastclick.js?_=1498278416966 HTTP/1.1" 200 25965
+[24/Jun/2017 12:26:21] "GET /static/vendors/nprogress/nprogress.js?_=1498278416967 HTTP/1.1" 200 11565
+[24/Jun/2017 12:26:21] "GET /static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js?_=1498278416968 HTTP/1.1" 200 2333
+[24/Jun/2017 12:26:21] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5508
+[24/Jun/2017 12:26:21] "GET /static/vendors/iCheck/icheck.min.js?_=1498278416969 HTTP/1.1" 200 4931
+[24/Jun/2017 12:26:21] "GET /static/layer/layer.js?_=1498278416970 HTTP/1.1" 200 21616
+[24/Jun/2017 12:26:21] "GET /static/build/js/custom.min.js?_=1498278416971 HTTP/1.1" 200 117932
+[24/Jun/2017 12:26:21] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5508
+[24/Jun/2017 12:26:21] "GET /static/vendors/jquery/dist/jquery.min.js?_=1498278417246 HTTP/1.1" 200 85578
+[24/Jun/2017 12:26:21] "GET /static/vendors/bootstrap/dist/js/bootstrap.min.js?_=1498278417247 HTTP/1.1" 200 36868
+[24/Jun/2017 12:26:22] "GET /static/vendors/fastclick/lib/fastclick.js?_=1498278417248 HTTP/1.1" 200 25965
+[24/Jun/2017 12:26:22] "GET /static/vendors/nprogress/nprogress.js?_=1498278417249 HTTP/1.1" 200 11565
+[24/Jun/2017 12:26:22] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5508
+[24/Jun/2017 12:26:22] "GET /static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js?_=1498278417250 HTTP/1.1" 200 2333
+[24/Jun/2017 12:26:22] "GET /static/vendors/iCheck/icheck.min.js?_=1498278417251 HTTP/1.1" 200 4931
+[24/Jun/2017 12:26:22] "GET /static/layer/layer.js?_=1498278417252 HTTP/1.1" 200 21616
+[24/Jun/2017 12:26:22] "GET /static/build/js/custom.min.js?_=1498278417253 HTTP/1.1" 200 117932
+[24/Jun/2017 12:26:22] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5508
+[24/Jun/2017 12:26:22] "GET /static/vendors/jquery/dist/jquery.min.js?_=1498278417520 HTTP/1.1" 200 85578
+[24/Jun/2017 12:26:22] "GET /static/vendors/bootstrap/dist/js/bootstrap.min.js?_=1498278417521 HTTP/1.1" 200 36868
+[24/Jun/2017 12:26:22] "GET /static/vendors/fastclick/lib/fastclick.js?_=1498278417522 HTTP/1.1" 200 25965
+[24/Jun/2017 12:26:22] "GET /static/vendors/nprogress/nprogress.js?_=1498278417523 HTTP/1.1" 200 11565
+[24/Jun/2017 12:26:22] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5508
+[24/Jun/2017 12:26:22] "GET /static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js?_=1498278417524 HTTP/1.1" 200 2333
+[24/Jun/2017 12:26:22] "GET /static/vendors/iCheck/icheck.min.js?_=1498278417525 HTTP/1.1" 200 4931
+[24/Jun/2017 12:26:22] "GET /static/layer/layer.js?_=1498278417526 HTTP/1.1" 200 21616
+[24/Jun/2017 12:26:22] "GET /static/build/js/custom.min.js?_=1498278417527 HTTP/1.1" 200 117932
+[24/Jun/2017 12:26:22] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5508
+[24/Jun/2017 12:26:22] "GET /static/vendors/jquery/dist/jquery.min.js?_=1498278417771 HTTP/1.1" 200 85578
+[24/Jun/2017 12:26:22] "GET /static/vendors/bootstrap/dist/js/bootstrap.min.js?_=1498278417772 HTTP/1.1" 200 36868
+[24/Jun/2017 12:26:22] "GET /static/vendors/fastclick/lib/fastclick.js?_=1498278417773 HTTP/1.1" 200 25965
+[24/Jun/2017 12:26:22] "GET /static/vendors/nprogress/nprogress.js?_=1498278417774 HTTP/1.1" 200 11565
+[24/Jun/2017 12:26:22] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5508
+[24/Jun/2017 12:26:22] "GET /static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js?_=1498278417775 HTTP/1.1" 200 2333
+[24/Jun/2017 12:26:22] "GET /static/vendors/iCheck/icheck.min.js?_=1498278417776 HTTP/1.1" 200 4931
+[24/Jun/2017 12:26:22] "GET /static/layer/layer.js?_=1498278417777 HTTP/1.1" 200 21616
+[24/Jun/2017 12:26:22] "GET /static/build/js/custom.min.js?_=1498278417778 HTTP/1.1" 200 117932
+[24/Jun/2017 12:26:22] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5508
+[24/Jun/2017 12:26:22] "GET /static/vendors/jquery/dist/jquery.min.js?_=1498278418008 HTTP/1.1" 200 85578
+[24/Jun/2017 12:26:22] "GET /static/vendors/bootstrap/dist/js/bootstrap.min.js?_=1498278418009 HTTP/1.1" 200 36868
+[24/Jun/2017 12:26:22] "GET /static/vendors/fastclick/lib/fastclick.js?_=1498278418010 HTTP/1.1" 200 25965
+[24/Jun/2017 12:26:22] "GET /static/vendors/nprogress/nprogress.js?_=1498278418011 HTTP/1.1" 200 11565
+[24/Jun/2017 12:26:22] "GET /static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js?_=1498278418012 HTTP/1.1" 200 2333
+[24/Jun/2017 12:26:22] "GET /static/vendors/iCheck/icheck.min.js?_=1498278418013 HTTP/1.1" 200 4931
+[24/Jun/2017 12:26:22] "GET /static/layer/layer.js?_=1498278418014 HTTP/1.1" 200 21616
+[24/Jun/2017 12:26:22] "GET /static/build/js/custom.min.js?_=1498278418015 HTTP/1.1" 200 117932
+[24/Jun/2017 12:26:22] "GET /static/vendors/jquery/dist/jquery.min.js?_=1498278418216 HTTP/1.1" 200 85578
+[24/Jun/2017 12:26:22] "GET /static/vendors/bootstrap/dist/js/bootstrap.min.js?_=1498278418217 HTTP/1.1" 200 36868
+[24/Jun/2017 12:26:22] "GET /static/vendors/fastclick/lib/fastclick.js?_=1498278418218 HTTP/1.1" 200 25965
+[24/Jun/2017 12:26:22] "GET /static/vendors/nprogress/nprogress.js?_=1498278418219 HTTP/1.1" 200 11565
+[24/Jun/2017 12:26:22] "GET /static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js?_=1498278418220 HTTP/1.1" 200 2333
+[24/Jun/2017 12:26:22] "GET /static/vendors/iCheck/icheck.min.js?_=1498278418221 HTTP/1.1" 200 4931
+[24/Jun/2017 12:26:22] "GET /static/layer/layer.js?_=1498278418222 HTTP/1.1" 200 21616
+[24/Jun/2017 12:26:22] "GET /static/build/js/custom.min.js?_=1498278418223 HTTP/1.1" 200 117932
+[24/Jun/2017 12:26:23] "GET /static/vendors/jquery/dist/jquery.min.js?_=1498278418422 HTTP/1.1" 200 85578
+[24/Jun/2017 12:26:23] "GET /static/vendors/bootstrap/dist/js/bootstrap.min.js?_=1498278418423 HTTP/1.1" 200 36868
+[24/Jun/2017 12:26:23] "GET /static/vendors/fastclick/lib/fastclick.js?_=1498278418424 HTTP/1.1" 200 25965
+[24/Jun/2017 12:26:23] "GET /static/vendors/nprogress/nprogress.js?_=1498278418425 HTTP/1.1" 200 11565
+[24/Jun/2017 12:26:23] "GET /static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js?_=1498278418426 HTTP/1.1" 200 2333
+[24/Jun/2017 12:26:23] "GET /static/vendors/iCheck/icheck.min.js?_=1498278418427 HTTP/1.1" 200 4931
+[24/Jun/2017 12:26:23] "GET /static/layer/layer.js?_=1498278418428 HTTP/1.1" 200 21616
+[24/Jun/2017 12:26:23] "GET /static/build/js/custom.min.js?_=1498278418429 HTTP/1.1" 200 117932
+[24/Jun/2017 12:26:23] "GET /static/vendors/jquery/dist/jquery.min.js?_=1498278418609 HTTP/1.1" 200 85578
+[24/Jun/2017 12:26:23] "GET /static/vendors/bootstrap/dist/js/bootstrap.min.js?_=1498278418610 HTTP/1.1" 200 36868
+[24/Jun/2017 12:26:23] "GET /static/vendors/fastclick/lib/fastclick.js?_=1498278418611 HTTP/1.1" 200 25965
+[24/Jun/2017 12:26:23] "GET /static/vendors/nprogress/nprogress.js?_=1498278418612 HTTP/1.1" 200 11565
+[24/Jun/2017 12:26:23] "GET /static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js?_=1498278418613 HTTP/1.1" 200 2333
+[24/Jun/2017 12:26:23] "GET /static/vendors/iCheck/icheck.min.js?_=1498278418614 HTTP/1.1" 200 4931
+[24/Jun/2017 12:26:23] "GET /static/layer/layer.js?_=1498278418615 HTTP/1.1" 200 21616
+[24/Jun/2017 12:26:23] "GET /static/build/js/custom.min.js?_=1498278418616 HTTP/1.1" 200 117932
+[24/Jun/2017 12:26:23] "GET /static/vendors/jquery/dist/jquery.min.js?_=1498278418830 HTTP/1.1" 200 85578
+[24/Jun/2017 12:26:23] "GET /static/vendors/bootstrap/dist/js/bootstrap.min.js?_=1498278418831 HTTP/1.1" 200 36868
+[24/Jun/2017 12:26:23] "GET /static/vendors/fastclick/lib/fastclick.js?_=1498278418832 HTTP/1.1" 200 25965
+[24/Jun/2017 12:26:23] "GET /static/vendors/nprogress/nprogress.js?_=1498278418833 HTTP/1.1" 200 11565
+[24/Jun/2017 12:26:23] "GET /static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js?_=1498278418834 HTTP/1.1" 200 2333
+[24/Jun/2017 12:26:23] "GET /static/vendors/iCheck/icheck.min.js?_=1498278418835 HTTP/1.1" 200 4931
+[24/Jun/2017 12:26:23] "GET /static/layer/layer.js?_=1498278418836 HTTP/1.1" 200 21616
+[24/Jun/2017 12:26:23] "GET /static/build/js/custom.min.js?_=1498278418837 HTTP/1.1" 200 117932
+[24/Jun/2017 12:26:23] "GET /static/vendors/jquery/dist/jquery.min.js?_=1498278419051 HTTP/1.1" 200 85578
+[24/Jun/2017 12:26:23] "GET /static/vendors/bootstrap/dist/js/bootstrap.min.js?_=1498278419052 HTTP/1.1" 200 36868
+[24/Jun/2017 12:26:23] "GET /static/vendors/fastclick/lib/fastclick.js?_=1498278419053 HTTP/1.1" 200 25965
+[24/Jun/2017 12:26:23] "GET /static/vendors/nprogress/nprogress.js?_=1498278419054 HTTP/1.1" 200 11565
+[24/Jun/2017 12:26:23] "GET /static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js?_=1498278419055 HTTP/1.1" 200 2333
+[24/Jun/2017 12:26:23] "GET /static/vendors/iCheck/icheck.min.js?_=1498278419056 HTTP/1.1" 200 4931
+[24/Jun/2017 12:26:23] "GET /static/layer/layer.js?_=1498278419057 HTTP/1.1" 200 21616
+[24/Jun/2017 12:26:23] "GET /static/build/js/custom.min.js?_=1498278419058 HTTP/1.1" 200 117932
+[24/Jun/2017 12:26:23] "GET /static/vendors/jquery/dist/jquery.min.js?_=1498278419257 HTTP/1.1" 200 85578
+[24/Jun/2017 12:26:23] "GET /static/vendors/bootstrap/dist/js/bootstrap.min.js?_=1498278419258 HTTP/1.1" 200 36868
+[24/Jun/2017 12:26:23] "GET /static/vendors/fastclick/lib/fastclick.js?_=1498278419259 HTTP/1.1" 200 25965
+[24/Jun/2017 12:26:23] "GET /static/vendors/nprogress/nprogress.js?_=1498278419260 HTTP/1.1" 200 11565
+[24/Jun/2017 12:26:23] "GET /static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js?_=1498278419261 HTTP/1.1" 200 2333
+[24/Jun/2017 12:26:23] "GET /static/vendors/iCheck/icheck.min.js?_=1498278419262 HTTP/1.1" 200 4931
+[24/Jun/2017 12:26:24] "GET /static/layer/layer.js?_=1498278419263 HTTP/1.1" 200 21616
+[24/Jun/2017 12:26:24] "GET /static/build/js/custom.min.js?_=1498278419264 HTTP/1.1" 200 117932
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 12:25:46
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[24/Jun/2017 12:30:25] "GET /installation/servers/ HTTP/1.1" 200 20077
+[24/Jun/2017 12:30:28] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5475
+[24/Jun/2017 12:30:31] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 12:30:40] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 51
+[24/Jun/2017 12:30:48] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/boot_to_pxe/ HTTP/1.1" 200 5477
+[24/Jun/2017 12:30:50] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/boot_to_disk/ HTTP/1.1" 200 5478
+[24/Jun/2017 12:30:56] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 12:31:15] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 51
+[24/Jun/2017 12:31:18] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5475
+[24/Jun/2017 12:31:49] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 12:32:00] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 51
+[24/Jun/2017 12:32:13] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 29
+[24/Jun/2017 12:32:30] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5474
+[24/Jun/2017 12:32:34] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 54
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 12:30:10
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[24/Jun/2017 12:35:06] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5474
+[24/Jun/2017 12:35:20] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 51
+[24/Jun/2017 12:35:26] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5483
+[24/Jun/2017 12:35:26] "GET /static/vendors/jquery/dist/jquery.min.js?_=1498278942234 HTTP/1.1" 200 85578
+[24/Jun/2017 12:35:26] "GET /static/vendors/bootstrap/dist/js/bootstrap.min.js?_=1498278942235 HTTP/1.1" 200 36868
+[24/Jun/2017 12:35:26] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 12:35:26] "GET /static/vendors/fastclick/lib/fastclick.js?_=1498278942236 HTTP/1.1" 200 25965
+[24/Jun/2017 12:35:27] "GET /static/vendors/nprogress/nprogress.js?_=1498278942237 HTTP/1.1" 200 11565
+[24/Jun/2017 12:35:27] "GET /static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js?_=1498278942238 HTTP/1.1" 200 2333
+[24/Jun/2017 12:35:27] "GET /static/vendors/iCheck/icheck.min.js?_=1498278942239 HTTP/1.1" 200 4931
+[24/Jun/2017 12:35:27] "GET /static/layer/layer.js?_=1498278942240 HTTP/1.1" 200 21616
+[24/Jun/2017 12:35:27] "GET /static/build/js/custom.min.js?_=1498278942241 HTTP/1.1" 200 117932
+[24/Jun/2017 12:35:33] "GET /installation/servers/ HTTP/1.1" 200 20077
+[24/Jun/2017 12:35:36] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5475
+[24/Jun/2017 12:35:39] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5483
+[24/Jun/2017 12:35:52] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5474
+[24/Jun/2017 12:36:12] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5483
+[24/Jun/2017 12:36:12] "GET /static/vendors/jquery/dist/jquery.min.js?_=1498278987718 HTTP/1.1" 200 85578
+[24/Jun/2017 12:36:13] "GET /static/vendors/bootstrap/dist/js/bootstrap.min.js?_=1498278987719 HTTP/1.1" 200 36868
+[24/Jun/2017 12:36:13] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 12:36:13] "GET /static/vendors/fastclick/lib/fastclick.js?_=1498278987720 HTTP/1.1" 200 25965
+[24/Jun/2017 12:36:13] "GET /static/vendors/nprogress/nprogress.js?_=1498278987721 HTTP/1.1" 200 11565
+[24/Jun/2017 12:36:13] "GET /static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js?_=1498278987722 HTTP/1.1" 200 2333
+[24/Jun/2017 12:36:13] "GET /static/vendors/iCheck/icheck.min.js?_=1498278987723 HTTP/1.1" 200 4931
+[24/Jun/2017 12:36:13] "GET /static/layer/layer.js?_=1498278987724 HTTP/1.1" 200 21616
+[24/Jun/2017 12:36:13] "GET /static/build/js/custom.min.js?_=1498278987725 HTTP/1.1" 200 117932
+[24/Jun/2017 12:36:13] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 12:36:13] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 12:36:13] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 12:36:13] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 12:36:13] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 12:36:13] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 12:36:20] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5475
+[24/Jun/2017 12:36:24] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 12:36:33] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 51
+[24/Jun/2017 12:36:36] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/boot_to_pxe/ HTTP/1.1" 200 5477
+[24/Jun/2017 12:36:41] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/boot_to_disk/ HTTP/1.1" 200 5478
+[24/Jun/2017 12:36:44] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 5790
+[24/Jun/2017 12:36:44] "GET /static/vendors/switchery/dist/switchery.min.css HTTP/1.1" 304 0
+[24/Jun/2017 12:36:44] "GET /static/vendors/starrr/dist/starrr.css HTTP/1.1" 304 0
+[24/Jun/2017 12:36:44] "GET /static/vendors/google-code-prettify/bin/prettify.min.css HTTP/1.1" 304 0
+[24/Jun/2017 12:36:44] "GET /static/vendors/select2/dist/css/select2.min.css HTTP/1.1" 304 0
+[24/Jun/2017 12:36:44] "GET /static/vendors/jquery.hotkeys/jquery.hotkeys.js HTTP/1.1" 304 0
+[24/Jun/2017 12:36:44] "GET /static/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js HTTP/1.1" 304 0
+[24/Jun/2017 12:36:44] "GET /static/vendors/google-code-prettify/src/prettify.js HTTP/1.1" 304 0
+[24/Jun/2017 12:36:44] "GET /static/vendors/jquery.tagsinput/src/jquery.tagsinput.js HTTP/1.1" 304 0
+[24/Jun/2017 12:36:44] "GET /static/vendors/switchery/dist/switchery.min.js HTTP/1.1" 304 0
+[24/Jun/2017 12:36:44] "GET /static/vendors/select2/dist/js/select2.full.min.js HTTP/1.1" 304 0
+[24/Jun/2017 12:36:44] "GET /static/vendors/parsleyjs/dist/parsley.min.js HTTP/1.1" 304 0
+[24/Jun/2017 12:36:44] "GET /static/vendors/autosize/dist/autosize.min.js HTTP/1.1" 304 0
+[24/Jun/2017 12:36:44] "GET /static/vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js HTTP/1.1" 304 0
+[24/Jun/2017 12:36:44] "GET /static/vendors/starrr/dist/starrr.js HTTP/1.1" 304 0
+[24/Jun/2017 12:36:48] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5475
+[24/Jun/2017 12:36:55] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5483
+[24/Jun/2017 12:37:05] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5508
+[24/Jun/2017 12:37:37] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5483
+[24/Jun/2017 12:37:37] "GET /static/vendors/jquery/dist/jquery.min.js?_=1498279061446 HTTP/1.1" 200 85578
+[24/Jun/2017 12:37:37] "GET /static/vendors/bootstrap/dist/js/bootstrap.min.js?_=1498279061447 HTTP/1.1" 200 36868
+[24/Jun/2017 12:37:37] "GET /static/vendors/fastclick/lib/fastclick.js?_=1498279061448 HTTP/1.1" 200 25965
+[24/Jun/2017 12:37:37] "GET /static/vendors/nprogress/nprogress.js?_=1498279061449 HTTP/1.1" 200 11565
+[24/Jun/2017 12:37:37] "GET /static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js?_=1498279061450 HTTP/1.1" 200 2333
+[24/Jun/2017 12:37:37] "GET /static/vendors/iCheck/icheck.min.js?_=1498279061451 HTTP/1.1" 200 4931
+[24/Jun/2017 12:37:37] "GET /static/layer/layer.js?_=1498279061452 HTTP/1.1" 200 21616
+[24/Jun/2017 12:37:37] "GET /static/build/js/custom.min.js?_=1498279061453 HTTP/1.1" 200 117932
+[24/Jun/2017 12:40:09] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 12:40:15] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5475
+[24/Jun/2017 12:40:18] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 12:40:27] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 12:40:37] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 51
+[24/Jun/2017 12:48:07] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5352
+[24/Jun/2017 12:48:33] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5352
+[24/Jun/2017 12:51:51] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5401
+[24/Jun/2017 12:51:54] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 12:52:05] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 12:52:22] "GET /installation/servers/ HTTP/1.1" 200 20077
+[24/Jun/2017 12:52:25] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5404
+[24/Jun/2017 12:52:28] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 12:52:30] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 12:52:32] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 12:52:32] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 12:52:32] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 12:52:33] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 12:52:38] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 51
+[24/Jun/2017 12:52:39] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 51
+[24/Jun/2017 12:52:39] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 51
+[24/Jun/2017 12:52:40] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 51
+[24/Jun/2017 12:52:40] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 51
+[24/Jun/2017 12:52:43] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 51
+[24/Jun/2017 12:52:43] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 51
+[24/Jun/2017 12:52:43] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 51
+[24/Jun/2017 12:52:43] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 51
+[24/Jun/2017 12:52:43] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 51
+[24/Jun/2017 13:01:55] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:01:56] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:01:57] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:01:57] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:01:57] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:01:57] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:01:58] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:01:58] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:01:59] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:01:59] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:01:59] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:01:59] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:01:59] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:01:59] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:02:06] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:02:09] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:02:10] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:02:10] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:02:11] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:02:11] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:02:11] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:02:11] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:13:46] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:13:47] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:17:44] "GET /installation/servers/ HTTP/1.1" 200 20077
+[24/Jun/2017 13:17:47] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5048
+[24/Jun/2017 13:17:51] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:18:06] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:18:09] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 51
+[24/Jun/2017 13:18:11] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5048
+[24/Jun/2017 13:18:13] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5048
+[24/Jun/2017 13:18:16] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:18:31] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:19:06] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5059
+[24/Jun/2017 13:19:09] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5050
+[24/Jun/2017 13:19:29] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5059
+[24/Jun/2017 13:19:29] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:19:29] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:19:29] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:19:29] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:19:29] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:19:29] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:19:30] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:19:30] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:19:30] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:19:30] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:19:30] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:19:30] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:19:30] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:19:30] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:19:30] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:19:31] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:19:31] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:19:31] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:19:31] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:19:31] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:19:31] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:19:31] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:19:32] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:19:32] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:19:32] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:19:32] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:19:32] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:20:05] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:20:06] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:20:09] "GET /installation/servers/ HTTP/1.1" 200 20077
+[24/Jun/2017 13:20:12] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5047
+[24/Jun/2017 13:20:14] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:20:25] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:20:38] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:20:47] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 51
+[24/Jun/2017 13:20:49] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5055
+[24/Jun/2017 13:21:03] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5047
+[24/Jun/2017 13:21:03] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5047
+[24/Jun/2017 13:21:03] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5047
+[24/Jun/2017 13:21:03] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5047
+[24/Jun/2017 13:21:04] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5047
+[24/Jun/2017 13:21:04] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5047
+[24/Jun/2017 13:21:05] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5047
+[24/Jun/2017 13:21:05] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5047
+[24/Jun/2017 13:21:09] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 54
+[24/Jun/2017 13:21:13] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5055
+[24/Jun/2017 13:22:17] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5055
+[24/Jun/2017 13:22:21] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5080
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 12:35:00
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[24/Jun/2017 13:23:34] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5055
+[24/Jun/2017 13:24:19] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 5077
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 13:22:52
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[24/Jun/2017 13:25:37] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 5077
+[24/Jun/2017 13:25:51] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 5077
+[24/Jun/2017 13:27:48] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5080
+[24/Jun/2017 13:27:57] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 5110
+[24/Jun/2017 13:28:30] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/boot_to_pxe/ HTTP/1.1" 200 5082
+[24/Jun/2017 13:28:32] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/boot_to_disk/ HTTP/1.1" 200 5083
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 13:25:30
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Chassis Power is off
+
+Chassis Power is off
+
+Chassis Power is off
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 13:33:23
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[24/Jun/2017 13:34:25] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 5110
+[24/Jun/2017 13:34:28] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5080
+[24/Jun/2017 13:34:33] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 5110
+[24/Jun/2017 13:34:35] "GET /installation/servers/ HTTP/1.1" 200 20077
+[24/Jun/2017 13:34:38] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5080
+[24/Jun/2017 13:34:42] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 5110
+[24/Jun/2017 13:35:04] "GET /installation/servers/ HTTP/1.1" 200 20077
+[24/Jun/2017 13:35:07] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5036
+[24/Jun/2017 13:35:09] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 5066
+[24/Jun/2017 13:35:11] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 5066
+[24/Jun/2017 13:36:00] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5111
+[24/Jun/2017 13:36:02] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5111
+[24/Jun/2017 13:36:02] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5111
+[24/Jun/2017 13:36:08] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5072
+[24/Jun/2017 13:36:11] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5111
+[24/Jun/2017 13:38:26] "GET /installation/servers/ HTTP/1.1" 200 20077
+[24/Jun/2017 13:38:29] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5072
+[24/Jun/2017 13:38:31] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5111
+[24/Jun/2017 13:38:34] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 5102
+[24/Jun/2017 13:38:43] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/boot_to_pxe/ HTTP/1.1" 200 5074
+[24/Jun/2017 13:38:45] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/boot_to_disk/ HTTP/1.1" 200 5075
+[24/Jun/2017 13:38:48] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5072
+[24/Jun/2017 13:41:27] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5111
+[24/Jun/2017 13:41:31] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 5102
+[24/Jun/2017 13:41:36] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5072
+[24/Jun/2017 13:42:43] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5080
+[24/Jun/2017 13:43:37] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5071
+[24/Jun/2017 13:43:42] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 5080
+[24/Jun/2017 13:46:30] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5080
+[24/Jun/2017 13:46:59] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5111
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 13:33:45
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 13:58:48
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 13:59:55
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[24/Jun/2017 14:00:04] "GET /installation/servers/ HTTP/1.1" 200 20077
+[24/Jun/2017 14:00:07] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5401
+[24/Jun/2017 14:00:09] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5401
+[24/Jun/2017 14:00:11] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5409
+[24/Jun/2017 14:00:18] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5400
+[24/Jun/2017 14:00:42] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5409
+[24/Jun/2017 14:00:49] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 60
+[24/Jun/2017 14:00:56] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5401
+[24/Jun/2017 14:01:39] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5406
+[24/Jun/2017 14:01:41] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5406
+[24/Jun/2017 14:01:43] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 60
+[24/Jun/2017 14:01:57] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 51
+[24/Jun/2017 14:02:02] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5406
+[24/Jun/2017 14:02:06] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5414
+[24/Jun/2017 14:02:36] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5414
+[24/Jun/2017 14:02:36] "GET /static/vendors/jquery/dist/jquery.min.js?_=1498284162700 HTTP/1.1" 200 85578
+[24/Jun/2017 14:02:36] "GET /static/vendors/bootstrap/dist/js/bootstrap.min.js?_=1498284162701 HTTP/1.1" 200 36868
+[24/Jun/2017 14:02:36] "GET /static/vendors/fastclick/lib/fastclick.js?_=1498284162702 HTTP/1.1" 200 25965
+[24/Jun/2017 14:02:36] "GET /static/vendors/nprogress/nprogress.js?_=1498284162703 HTTP/1.1" 200 11565
+[24/Jun/2017 14:02:36] "GET /static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js?_=1498284162704 HTTP/1.1" 200 2333
+[24/Jun/2017 14:02:36] "GET /static/vendors/iCheck/icheck.min.js?_=1498284162705 HTTP/1.1" 200 4931
+[24/Jun/2017 14:02:36] "GET /static/layer/layer.js?_=1498284162706 HTTP/1.1" 200 21616
+[24/Jun/2017 14:02:36] "GET /static/build/js/custom.min.js?_=1498284162707 HTTP/1.1" 200 117932
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 13:59:58
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[24/Jun/2017 14:05:11] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5406
+[24/Jun/2017 14:05:16] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5414
+[24/Jun/2017 14:05:51] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5414
+[24/Jun/2017 14:05:51] "GET /static/vendors/jquery/dist/jquery.min.js?_=1498284351820 HTTP/1.1" 200 85578
+[24/Jun/2017 14:05:51] "GET /static/vendors/bootstrap/dist/js/bootstrap.min.js?_=1498284351821 HTTP/1.1" 200 36868
+[24/Jun/2017 14:05:51] "GET /static/vendors/fastclick/lib/fastclick.js?_=1498284351822 HTTP/1.1" 200 25965
+[24/Jun/2017 14:05:51] "GET /static/vendors/nprogress/nprogress.js?_=1498284351823 HTTP/1.1" 200 11565
+[24/Jun/2017 14:05:51] "GET /static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js?_=1498284351824 HTTP/1.1" 200 2333
+[24/Jun/2017 14:05:51] "GET /static/vendors/iCheck/icheck.min.js?_=1498284351825 HTTP/1.1" 200 4931
+[24/Jun/2017 14:05:51] "GET /static/layer/layer.js?_=1498284351826 HTTP/1.1" 200 21616
+[24/Jun/2017 14:05:51] "GET /static/build/js/custom.min.js?_=1498284351827 HTTP/1.1" 200 117932
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 14:04:59
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[24/Jun/2017 14:07:19] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5406
+[24/Jun/2017 14:07:26] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 60
+[24/Jun/2017 14:07:36] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 51
+[24/Jun/2017 14:08:00] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5406
+[24/Jun/2017 14:08:03] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 60
+[24/Jun/2017 14:08:13] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 51
+[24/Jun/2017 14:08:21] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/boot_to_pxe/ HTTP/1.1" 200 5408
+[24/Jun/2017 14:08:23] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/boot_to_disk/ HTTP/1.1" 200 5409
+[24/Jun/2017 14:08:25] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/boot_to_pxe/ HTTP/1.1" 200 5408
+[24/Jun/2017 14:08:28] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5406
+[24/Jun/2017 14:08:34] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5414
+[24/Jun/2017 14:09:33] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5445
+[24/Jun/2017 14:09:44] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5405
+[24/Jun/2017 14:10:10] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5414
+[24/Jun/2017 14:10:10] "GET /static/vendors/jquery/dist/jquery.min.js?_=1498284620224 HTTP/1.1" 200 85578
+[24/Jun/2017 14:10:10] "GET /static/vendors/bootstrap/dist/js/bootstrap.min.js?_=1498284620225 HTTP/1.1" 200 36868
+[24/Jun/2017 14:10:10] "GET /static/vendors/fastclick/lib/fastclick.js?_=1498284620226 HTTP/1.1" 200 25965
+[24/Jun/2017 14:10:10] "GET /static/vendors/nprogress/nprogress.js?_=1498284620227 HTTP/1.1" 200 11565
+[24/Jun/2017 14:10:10] "GET /static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js?_=1498284620228 HTTP/1.1" 200 2333
+[24/Jun/2017 14:10:10] "GET /static/vendors/iCheck/icheck.min.js?_=1498284620229 HTTP/1.1" 200 4931
+[24/Jun/2017 14:10:10] "GET /static/layer/layer.js?_=1498284620230 HTTP/1.1" 200 21616
+[24/Jun/2017 14:10:10] "GET /static/build/js/custom.min.js?_=1498284620231 HTTP/1.1" 200 117932
+[24/Jun/2017 14:10:20] "GET /installation/servers/ HTTP/1.1" 200 20077
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 14:06:56
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 14:16:23
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[24/Jun/2017 14:16:49] "GET /installation/servers/ HTTP/1.1" 200 20077
+[24/Jun/2017 14:16:52] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5406
+[24/Jun/2017 14:16:54] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5414
+[24/Jun/2017 14:16:57] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5405
+[24/Jun/2017 14:17:27] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5414
+[24/Jun/2017 14:17:27] "GET /static/vendors/jquery/dist/jquery.min.js?_=1498285052812 HTTP/1.1" 200 85578
+[24/Jun/2017 14:17:27] "GET /static/vendors/bootstrap/dist/js/bootstrap.min.js?_=1498285052813 HTTP/1.1" 200 36868
+[24/Jun/2017 14:17:27] "GET /static/vendors/fastclick/lib/fastclick.js?_=1498285052814 HTTP/1.1" 200 25965
+[24/Jun/2017 14:17:27] "GET /static/vendors/nprogress/nprogress.js?_=1498285052815 HTTP/1.1" 200 11565
+[24/Jun/2017 14:17:27] "GET /static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js?_=1498285052816 HTTP/1.1" 200 2333
+[24/Jun/2017 14:17:27] "GET /static/vendors/iCheck/icheck.min.js?_=1498285052817 HTTP/1.1" 200 4931
+[24/Jun/2017 14:17:27] "GET /static/layer/layer.js?_=1498285052818 HTTP/1.1" 200 21616
+[24/Jun/2017 14:17:27] "GET /static/build/js/custom.min.js?_=1498285052819 HTTP/1.1" 200 117932
+[24/Jun/2017 14:17:59] "GET /installation/servers/ HTTP/1.1" 200 20077
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 14:16:45
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 14:18:03
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 14:19:36
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 14:19:41
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[24/Jun/2017 14:20:05] "GET /installation/servers/ HTTP/1.1" 200 20077
+[24/Jun/2017 14:20:07] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5406
+[24/Jun/2017 14:20:09] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5414
+[24/Jun/2017 14:20:12] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5405
+[24/Jun/2017 14:20:18] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5445
+[24/Jun/2017 14:21:10] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5414
+[24/Jun/2017 14:21:11] "GET /static/vendors/jquery/dist/jquery.min.js?_=1498285254052 HTTP/1.1" 200 85578
+[24/Jun/2017 14:21:11] "GET /static/vendors/bootstrap/dist/js/bootstrap.min.js?_=1498285254053 HTTP/1.1" 200 36868
+[24/Jun/2017 14:21:11] "GET /static/vendors/fastclick/lib/fastclick.js?_=1498285254054 HTTP/1.1" 200 25965
+[24/Jun/2017 14:21:11] "GET /static/vendors/nprogress/nprogress.js?_=1498285254055 HTTP/1.1" 200 11565
+[24/Jun/2017 14:21:11] "GET /static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js?_=1498285254056 HTTP/1.1" 200 2333
+[24/Jun/2017 14:21:11] "GET /static/vendors/iCheck/icheck.min.js?_=1498285254057 HTTP/1.1" 200 4931
+[24/Jun/2017 14:21:11] "GET /static/layer/layer.js?_=1498285254058 HTTP/1.1" 200 21616
+[24/Jun/2017 14:21:11] "GET /static/build/js/custom.min.js?_=1498285254059 HTTP/1.1" 200 117932
+[24/Jun/2017 14:22:38] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 60
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 14:19:50
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 14:23:55
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Internal Server Error: /installation/servers/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/opsp/ops/installation/views.py", line 53, in servers
+    return render(request,'installation/servers.html',locals())
+  File "/usr/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/usr/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/usr/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/loader_tags.py", line 174, in render
+    return compiled_parent._render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/loader_tags.py", line 70, in render
+    result = block.nodelist.render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/defaulttags.py", line 447, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/lib/python2.7/site-packages/django/urls/base.py", line 91, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 389, in _reverse_with_prefix
+    (lookup_view_s, args, kwargs, len(patterns), patterns)
+NoReverseMatch: Reverse for 'server_delete' with arguments '('',)' and keyword arguments '{}' not found. 1 pattern(s) tried: [u'installation/server/delete/(\\w+)/$']
+[24/Jun/2017 14:31:18] "GET /installation/servers/ HTTP/1.1" 500 169857
+Internal Server Error: /installation/servers/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/opsp/ops/installation/views.py", line 53, in servers
+    return render(request,'installation/servers.html',locals())
+  File "/usr/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/usr/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/usr/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/loader_tags.py", line 174, in render
+    return compiled_parent._render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/loader_tags.py", line 70, in render
+    result = block.nodelist.render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/usr/lib/python2.7/site-packages/django/template/defaulttags.py", line 447, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/lib/python2.7/site-packages/django/urls/base.py", line 91, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 389, in _reverse_with_prefix
+    (lookup_view_s, args, kwargs, len(patterns), patterns)
+NoReverseMatch: Reverse for 'server_delete' with arguments '('',)' and keyword arguments '{}' not found. 1 pattern(s) tried: [u'installation/server/delete/(\\w+)/$']
+[24/Jun/2017 14:33:04] "GET /installation/servers/ HTTP/1.1" 500 170817
+[24/Jun/2017 14:36:18] "GET /installation/servers/ HTTP/1.1" 200 20452
+[24/Jun/2017 14:36:23] "GET /installation/server/delete/fc160deb0ec83f404a83079e9062406c HTTP/1.1" 301 0
+Internal Server Error: /installation/server/delete/fc160deb0ec83f404a83079e9062406c/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/opsp/ops/installation/views.py", line 60, in server_delete
+    server = get_object_or_404(Server,pk=server_id).delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/base.py", line 957, in delete
+    collector.collect([self], keep_parents=keep_parents)
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 223, in collect
+    field.remote_field.on_delete(self, field, sub_objs, self.using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 28, in PROTECT
+    sub_objs
+ProtectedError: ("Cannot delete some instances of model 'Server' because they are referenced through a protected foreign key: 'Disk.server'", <QuerySet [<Disk: 1I:1:1>, <Disk: 1I:1:2>, <Disk: 1I:1:3>, <Disk: 1I:1:4>]>)
+[24/Jun/2017 14:36:23] "GET /installation/server/delete/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 500 15158
+Internal Server Error: /installation/server/delete/fc160deb0ec83f404a83079e9062406c/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/opsp/ops/installation/views.py", line 60, in server_delete
+    server = get_object_or_404(Server,pk=server_id).delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/base.py", line 957, in delete
+    collector.collect([self], keep_parents=keep_parents)
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 223, in collect
+    field.remote_field.on_delete(self, field, sub_objs, self.using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 28, in PROTECT
+    sub_objs
+ProtectedError: ("Cannot delete some instances of model 'Server' because they are referenced through a protected foreign key: 'Disk.server'", <QuerySet [<Disk: 1I:1:1>, <Disk: 1I:1:2>, <Disk: 1I:1:3>, <Disk: 1I:1:4>]>)
+[24/Jun/2017 14:36:35] "GET /installation/server/delete/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 500 15158
+[24/Jun/2017 14:36:41] "GET /installation/servers/ HTTP/1.1" 200 20452
+Internal Server Error: /installation/server/delete/fc160deb0ec83f404a83079e9062406c/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/opsp/ops/installation/views.py", line 60, in server_delete
+    server = get_object_or_404(Server,pk=server_id).delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/base.py", line 957, in delete
+    collector.collect([self], keep_parents=keep_parents)
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 223, in collect
+    field.remote_field.on_delete(self, field, sub_objs, self.using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 28, in PROTECT
+    sub_objs
+ProtectedError: ("Cannot delete some instances of model 'Server' because they are referenced through a protected foreign key: 'Disk.server'", <QuerySet [<Disk: 1I:1:1>, <Disk: 1I:1:2>, <Disk: 1I:1:3>, <Disk: 1I:1:4>]>)
+[24/Jun/2017 14:36:51] "GET /installation/server/delete/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 500 15158
+Internal Server Error: /installation/server/delete/fc160deb0ec83f404a83079e9062406c/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/opsp/ops/installation/views.py", line 60, in server_delete
+    server = get_object_or_404(Server,pk=server_id).delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/base.py", line 957, in delete
+    collector.collect([self], keep_parents=keep_parents)
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 223, in collect
+    field.remote_field.on_delete(self, field, sub_objs, self.using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 28, in PROTECT
+    sub_objs
+ProtectedError: ("Cannot delete some instances of model 'Server' because they are referenced through a protected foreign key: 'Disk.server'", <QuerySet [<Disk: 1I:1:1>, <Disk: 1I:1:2>, <Disk: 1I:1:3>, <Disk: 1I:1:4>]>)
+[24/Jun/2017 14:36:54] "GET /installation/server/delete/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 500 15158
+Internal Server Error: /installation/server/delete/fc160deb0ec83f404a83079e9062406c/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/opsp/ops/installation/views.py", line 60, in server_delete
+    server = get_object_or_404(Server,pk=server_id).delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/base.py", line 957, in delete
+    collector.collect([self], keep_parents=keep_parents)
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 223, in collect
+    field.remote_field.on_delete(self, field, sub_objs, self.using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 28, in PROTECT
+    sub_objs
+ProtectedError: ("Cannot delete some instances of model 'Server' because they are referenced through a protected foreign key: 'Disk.server'", <QuerySet [<Disk: 1I:1:1>, <Disk: 1I:1:2>, <Disk: 1I:1:3>, <Disk: 1I:1:4>]>)
+[24/Jun/2017 14:36:55] "GET /installation/server/delete/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 500 15158
+Internal Server Error: /installation/server/delete/fc160deb0ec83f404a83079e9062406c/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/opsp/ops/installation/views.py", line 60, in server_delete
+    server = get_object_or_404(Server,pk=server_id).delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/base.py", line 957, in delete
+    collector.collect([self], keep_parents=keep_parents)
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 223, in collect
+    field.remote_field.on_delete(self, field, sub_objs, self.using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 28, in PROTECT
+    sub_objs
+ProtectedError: ("Cannot delete some instances of model 'Server' because they are referenced through a protected foreign key: 'Disk.server'", <QuerySet [<Disk: 1I:1:1>, <Disk: 1I:1:2>, <Disk: 1I:1:3>, <Disk: 1I:1:4>]>)
+[24/Jun/2017 14:36:55] "GET /installation/server/delete/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 500 15158
+Internal Server Error: /installation/server/delete/fc160deb0ec83f404a83079e9062406c/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/opsp/ops/installation/views.py", line 60, in server_delete
+    server = get_object_or_404(Server,pk=server_id).delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/base.py", line 957, in delete
+    collector.collect([self], keep_parents=keep_parents)
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 223, in collect
+    field.remote_field.on_delete(self, field, sub_objs, self.using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 28, in PROTECT
+    sub_objs
+ProtectedError: ("Cannot delete some instances of model 'Server' because they are referenced through a protected foreign key: 'Disk.server'", <QuerySet [<Disk: 1I:1:1>, <Disk: 1I:1:2>, <Disk: 1I:1:3>, <Disk: 1I:1:4>]>)
+[24/Jun/2017 14:36:56] "GET /installation/server/delete/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 500 15158
+Internal Server Error: /installation/server/delete/fc160deb0ec83f404a83079e9062406c/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/opsp/ops/installation/views.py", line 60, in server_delete
+    server = get_object_or_404(Server,pk=server_id).delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/base.py", line 957, in delete
+    collector.collect([self], keep_parents=keep_parents)
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 223, in collect
+    field.remote_field.on_delete(self, field, sub_objs, self.using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 28, in PROTECT
+    sub_objs
+ProtectedError: ("Cannot delete some instances of model 'Server' because they are referenced through a protected foreign key: 'Disk.server'", <QuerySet [<Disk: 1I:1:1>, <Disk: 1I:1:2>, <Disk: 1I:1:3>, <Disk: 1I:1:4>]>)
+[24/Jun/2017 14:36:56] "GET /installation/server/delete/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 500 15158
+Internal Server Error: /installation/server/delete/fc160deb0ec83f404a83079e9062406c/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/opsp/ops/installation/views.py", line 60, in server_delete
+    server = get_object_or_404(Server,pk=server_id).delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/base.py", line 957, in delete
+    collector.collect([self], keep_parents=keep_parents)
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 223, in collect
+    field.remote_field.on_delete(self, field, sub_objs, self.using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 28, in PROTECT
+    sub_objs
+ProtectedError: ("Cannot delete some instances of model 'Server' because they are referenced through a protected foreign key: 'Disk.server'", <QuerySet [<Disk: 1I:1:1>, <Disk: 1I:1:2>, <Disk: 1I:1:3>, <Disk: 1I:1:4>]>)
+[24/Jun/2017 14:36:56] "GET /installation/server/delete/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 500 15158
+Internal Server Error: /installation/server/delete/fc160deb0ec83f404a83079e9062406c/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/opsp/ops/installation/views.py", line 60, in server_delete
+    server = get_object_or_404(Server,pk=server_id).delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/base.py", line 957, in delete
+    collector.collect([self], keep_parents=keep_parents)
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 223, in collect
+    field.remote_field.on_delete(self, field, sub_objs, self.using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 28, in PROTECT
+    sub_objs
+ProtectedError: ("Cannot delete some instances of model 'Server' because they are referenced through a protected foreign key: 'Disk.server'", <QuerySet [<Disk: 1I:1:1>, <Disk: 1I:1:2>, <Disk: 1I:1:3>, <Disk: 1I:1:4>]>)
+[24/Jun/2017 14:36:57] "GET /installation/server/delete/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 500 15158
+Internal Server Error: /installation/server/delete/fc160deb0ec83f404a83079e9062406c/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/opsp/ops/installation/views.py", line 60, in server_delete
+    server = get_object_or_404(Server,pk=server_id).delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/base.py", line 957, in delete
+    collector.collect([self], keep_parents=keep_parents)
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 223, in collect
+    field.remote_field.on_delete(self, field, sub_objs, self.using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 28, in PROTECT
+    sub_objs
+ProtectedError: ("Cannot delete some instances of model 'Server' because they are referenced through a protected foreign key: 'Disk.server'", <QuerySet [<Disk: 1I:1:1>, <Disk: 1I:1:2>, <Disk: 1I:1:3>, <Disk: 1I:1:4>]>)
+[24/Jun/2017 14:36:57] "GET /installation/server/delete/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 500 15158
+[24/Jun/2017 14:38:58] "GET /installation/servers/ HTTP/1.1" 200 20454
+[24/Jun/2017 14:38:58] "GET /static/vendors/pdfmake/build/pdfmake.min.js.map HTTP/1.1" 304 0
+[24/Jun/2017 14:39:03] "GET /installation/servers/installation/server/delete/fc160deb0ec83f404a83079e9062406c HTTP/1.1" 200 20454
+[24/Jun/2017 14:39:06] "GET /installation/servers/ HTTP/1.1" 200 20454
+[24/Jun/2017 14:39:22] "GET /installation/servers/installation/server/delete/fc160deb0ec83f404a83079e9062406c HTTP/1.1" 200 20454
+[24/Jun/2017 14:39:32] "GET /installation/servers/installation/server/delete/fc160deb0ec83f404a83079e9062406c HTTP/1.1" 200 20454
+[24/Jun/2017 14:40:28] "GET /installation/servers/ HTTP/1.1" 200 20456
+[24/Jun/2017 14:40:31] "GET /installation/servers/installation/server/delete/fc160deb0ec83f404a83079e9062406c HTTP/1.1" 200 20456
+[24/Jun/2017 14:41:39] "GET /installation/servers/installation/server/delete/fc160deb0ec83f404a83079e9062406c HTTP/1.1" 200 20456
+[24/Jun/2017 14:41:53] "GET /installation/servers/ HTTP/1.1" 200 20456
+[24/Jun/2017 14:41:56] "GET /installation/servers/ HTTP/1.1" 200 20456
+[24/Jun/2017 14:41:58] "GET /installation/servers/ HTTP/1.1" 200 20456
+[24/Jun/2017 14:43:13] "GET /installation/servers/installation/server/delete/fc160deb0ec83f404a83079e9062406c HTTP/1.1" 200 20456
+[24/Jun/2017 14:44:13] "GET /installation/servers/ HTTP/1.1" 200 20425
+Internal Server Error: /installation/server/delete/fc160deb0ec83f404a83079e9062406c/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/opsp/ops/installation/views.py", line 60, in server_delete
+    server = get_object_or_404(Server,pk=server_id).delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/base.py", line 957, in delete
+    collector.collect([self], keep_parents=keep_parents)
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 223, in collect
+    field.remote_field.on_delete(self, field, sub_objs, self.using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 28, in PROTECT
+    sub_objs
+ProtectedError: ("Cannot delete some instances of model 'Server' because they are referenced through a protected foreign key: 'Disk.server'", <QuerySet [<Disk: 1I:1:1>, <Disk: 1I:1:2>, <Disk: 1I:1:3>, <Disk: 1I:1:4>]>)
+[24/Jun/2017 14:44:17] "GET /installation/server/delete/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 500 81490
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 14:24:17
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[24/Jun/2017 14:46:27] "GET /installation/servers/ HTTP/1.1" 200 20425
+[24/Jun/2017 14:46:31] "GET /installation/server/delete/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 302 0
+[24/Jun/2017 14:46:31] "GET /installation/servers/ HTTP/1.1" 200 18142
+[24/Jun/2017 14:51:16] "GET /installation/servers/ HTTP/1.1" 200 18144
+[24/Jun/2017 14:51:49] "GET /installation/servers/ HTTP/1.1" 200 18144
+[24/Jun/2017 14:51:50] "GET /installation/servers/ HTTP/1.1" 200 18144
+[24/Jun/2017 14:51:51] "GET /installation/servers/ HTTP/1.1" 200 18144
+[24/Jun/2017 14:51:52] "GET /installation/servers/ HTTP/1.1" 200 18144
+[24/Jun/2017 14:51:53] "GET /installation/servers/ HTTP/1.1" 200 18144
+[24/Jun/2017 14:52:00] "GET /installation/servers/ HTTP/1.1" 200 18144
+[24/Jun/2017 14:52:01] "GET /installation/servers/ HTTP/1.1" 200 18144
+[24/Jun/2017 14:53:13] "GET /installation/servers/ HTTP/1.1" 200 18144
+[24/Jun/2017 14:54:51] "POST /installation/post_server_info/ HTTP/1.1" 200 4
+[24/Jun/2017 14:55:01] "GET /installation/servers/ HTTP/1.1" 200 20422
+[24/Jun/2017 14:55:08] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5625
+[24/Jun/2017 14:55:28] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 5790
+[24/Jun/2017 14:56:00] "POST /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 176
+[24/Jun/2017 14:56:05] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5405
+[24/Jun/2017 14:56:07] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5445
+[24/Jun/2017 14:56:50] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/boot_to_pxe/ HTTP/1.1" 200 5408
+[24/Jun/2017 14:57:04] "GET /installation/server/raid/fc160deb0ec83f404a83079e9062406c/raid_status/ HTTP/1.1" 200 4290
+[24/Jun/2017 14:57:07] "GET /installation/server/raid/fc160deb0ec83f404a83079e9062406c/raid_detail/ HTTP/1.1" 200 11101
+[24/Jun/2017 14:57:12] "GET /installation/server/raid/fc160deb0ec83f404a83079e9062406c/raid_disk/ HTTP/1.1" 200 4486
+[24/Jun/2017 14:57:14] "GET /installation/server/raid/fc160deb0ec83f404a83079e9062406c/create_raid/ HTTP/1.1" 200 5901
+[24/Jun/2017 14:57:20] "GET /installation/server/raid/fc160deb0ec83f404a83079e9062406c/delete_raid/ HTTP/1.1" 200 5414
+[24/Jun/2017 14:57:30] "GET /installation/server/raid/fc160deb0ec83f404a83079e9062406c/raid_card/ HTTP/1.1" 200 4254
+[24/Jun/2017 14:57:47] "GET /installation/server/delete/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 302 0
+[24/Jun/2017 14:57:47] "GET /installation/servers/ HTTP/1.1" 200 18144
+[24/Jun/2017 14:58:41] "POST /installation/post_server_info/ HTTP/1.1" 200 4
+[24/Jun/2017 14:59:08] "GET /installation/servers/ HTTP/1.1" 200 20422
+[24/Jun/2017 15:01:06] "GET /installation/servers/ HTTP/1.1" 200 20435
+[24/Jun/2017 15:01:17] "GET /installation/server/delete/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 302 0
+[24/Jun/2017 15:01:17] "GET /installation/servers/ HTTP/1.1" 200 18157
+[24/Jun/2017 15:01:25] "GET /installation/servers/ HTTP/1.1" 200 18157
+[24/Jun/2017 15:01:54] "POST /installation/post_server_info/ HTTP/1.1" 200 4
+[24/Jun/2017 15:01:58] "GET /installation/servers/ HTTP/1.1" 200 20435
+[24/Jun/2017 15:02:04] "GET /installation/server/delete/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 302 0
+[24/Jun/2017 15:02:04] "GET /installation/servers/ HTTP/1.1" 200 18157
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 14:45:36
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+fc160deb0ec83f404a83079e9062406c True
+{u'ipmi_user': u'Administrator', u'ipmi_pass': u'R00t@123', u'ipmi_ip': u'192.168.3.200'}
+fc160deb0ec83f404a83079e9062406c True
+fc160deb0ec83f404a83079e9062406c True
+[24/Jun/2017 15:06:22] "GET /installation/servers/ HTTP/1.1" 200 18157
+[24/Jun/2017 15:06:25] "GET /installation/servers/ HTTP/1.1" 200 18157
+[24/Jun/2017 15:06:36] "POST /installation/post_server_info/ HTTP/1.1" 200 4
+[24/Jun/2017 15:06:40] "GET /installation/servers/ HTTP/1.1" 200 20435
+[24/Jun/2017 15:06:43] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5787
+[24/Jun/2017 15:06:50] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 5790
+[24/Jun/2017 15:07:19] "POST /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 176
+[24/Jun/2017 15:07:23] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5567
+[24/Jun/2017 15:07:42] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5576
+[24/Jun/2017 15:07:52] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5568
+[24/Jun/2017 15:07:54] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5568
+[24/Jun/2017 15:08:44] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5296
+[24/Jun/2017 15:08:48] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 51
+[24/Jun/2017 15:09:59] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5424
+[24/Jun/2017 15:10:04] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 51
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 15:06:13
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+fc160deb0ec83f404a83079e9062406c True
+{u'ipmi_user': u'Administrator', u'ipmi_pass': u'R00t@123', u'ipmi_ip': u'192.168.3.200'}
+[24/Jun/2017 15:12:41] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5424
+[24/Jun/2017 15:12:44] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5463
+[24/Jun/2017 15:12:47] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_reboot/ HTTP/1.1" 200 5454
+[24/Jun/2017 15:12:55] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5424
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 15:12:30
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 15:16:33
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 15:16:39
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 24, 2017 - 15:18:11
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[24/Jun/2017 15:18:16] "GET /installation/servers/ HTTP/1.1" 200 20435
+[24/Jun/2017 15:18:19] "GET /installation/servers/ HTTP/1.1" 200 20435
+[24/Jun/2017 15:19:01] "GET /installation/servers/ HTTP/1.1" 200 18157
+[24/Jun/2017 15:19:25] "GET /installation/servers/ HTTP/1.1" 200 20435
+[24/Jun/2017 15:27:10] "GET /installation/servers/ HTTP/1.1" 200 20645
+[24/Jun/2017 15:29:44] "GET /installation/servers/ HTTP/1.1" 200 20741
+[24/Jun/2017 15:29:49] "GET /installation/servers/ HTTP/1.1" 200 20741
+[24/Jun/2017 15:30:00] "GET /installation/servers/ HTTP/1.1" 200 20741
+[24/Jun/2017 15:30:58] "GET /installation/servers/ HTTP/1.1" 200 20835
+[24/Jun/2017 15:31:16] "GET /installation/servers/ HTTP/1.1" 200 20835
+[24/Jun/2017 15:31:38] "GET /installation/servers/ HTTP/1.1" 200 20522
+[24/Jun/2017 15:32:10] "GET /installation/servers/ HTTP/1.1" 200 20523
+[24/Jun/2017 15:32:38] "GET /installation/server/raid/fc160deb0ec83f404a83079e9062406c/raid_status/ HTTP/1.1" 200 4191
+[24/Jun/2017 15:32:45] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5424
+[24/Jun/2017 15:32:46] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5424
+[24/Jun/2017 15:33:48] "GET /installation/servers/ HTTP/1.1" 200 20743
+[24/Jun/2017 15:35:37] "GET /installation/servers/ HTTP/1.1" 200 20982
+Not Found: /installation/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js
+[24/Jun/2017 15:35:37] "GET /installation/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js HTTP/1.1" 404 4605
+Not Found: /installation/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js
+[24/Jun/2017 15:35:38] "GET /installation/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js HTTP/1.1" 404 4605
+[24/Jun/2017 15:35:40] "GET /installation/servers/ HTTP/1.1" 200 20982
+Not Found: /installation/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js
+[24/Jun/2017 15:35:40] "GET /installation/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js HTTP/1.1" 404 4605
+Not Found: /installation/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js
+[24/Jun/2017 15:35:40] "GET /installation/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js HTTP/1.1" 404 4605
+[24/Jun/2017 15:35:41] "GET /installation/servers/ HTTP/1.1" 200 20982
+Not Found: /installation/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js
+[24/Jun/2017 15:35:41] "GET /installation/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js HTTP/1.1" 404 4605
+Not Found: /installation/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js
+[24/Jun/2017 15:35:41] "GET /installation/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js HTTP/1.1" 404 4605
+[24/Jun/2017 15:35:42] "GET /installation/servers/ HTTP/1.1" 200 20982
+Not Found: /installation/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js
+[24/Jun/2017 15:35:42] "GET /installation/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js HTTP/1.1" 404 4605
+Not Found: /installation/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js
+[24/Jun/2017 15:35:42] "GET /installation/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js HTTP/1.1" 404 4605
+[24/Jun/2017 15:35:43] "GET /installation/servers/ HTTP/1.1" 200 20982
+Not Found: /installation/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js
+[24/Jun/2017 15:35:43] "GET /installation/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js HTTP/1.1" 404 4605
+Not Found: /installation/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js
+[24/Jun/2017 15:35:43] "GET /installation/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js HTTP/1.1" 404 4605
+[24/Jun/2017 15:36:17] "GET /installation/servers/ HTTP/1.1" 200 20987
+[24/Jun/2017 15:37:14] "GET /installation/servers/ HTTP/1.1" 200 20987
+[24/Jun/2017 15:38:57] "GET /installation/servers/ HTTP/1.1" 200 20975
+[24/Jun/2017 15:39:35] "GET /installation/servers/ HTTP/1.1" 200 20979
+[24/Jun/2017 15:40:53] "GET /installation/servers/ HTTP/1.1" 200 20900
+[24/Jun/2017 15:41:44] "GET /installation/servers/ HTTP/1.1" 200 20901
+[24/Jun/2017 15:42:38] "GET /installation/servers/ HTTP/1.1" 200 20915
+[24/Jun/2017 15:42:41] "GET /installation/servers/ HTTP/1.1" 200 20915
+[24/Jun/2017 15:42:57] "GET /installation/servers/ HTTP/1.1" 200 20915
+[24/Jun/2017 15:43:56] "GET /installation/servers/ HTTP/1.1" 200 20909
+[24/Jun/2017 15:45:12] "GET /installation/servers/ HTTP/1.1" 200 21090
+[24/Jun/2017 15:46:08] "GET /installation/servers/ HTTP/1.1" 200 21046
+[24/Jun/2017 15:48:07] "GET /installation/servers/ HTTP/1.1" 200 20945
+[24/Jun/2017 15:49:54] "GET /installation/servers/ HTTP/1.1" 200 20902
+[24/Jun/2017 15:51:22] "GET /installation/servers/ HTTP/1.1" 200 20933
+[24/Jun/2017 15:51:46] "GET /installation/servers/ HTTP/1.1" 200 20932
+[24/Jun/2017 15:53:06] "GET /installation/servers/ HTTP/1.1" 200 20914
+[24/Jun/2017 15:55:46] "GET /installation/servers/ HTTP/1.1" 200 20901
+[24/Jun/2017 15:57:52] "GET /installation/servers/ HTTP/1.1" 200 20926
+[24/Jun/2017 15:58:27] "GET /installation/servers/ HTTP/1.1" 200 20926
+[24/Jun/2017 15:58:56] "GET /installation/servers/ HTTP/1.1" 200 20927

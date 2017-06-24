@@ -42,9 +42,11 @@
                   <div class="bs-example-popovers">
                       <button type="button" class="btn btn-xs"><a href="{% url 'installation:server_ipmi' server.id 'chassis_status' %}">电源状态</a></button>
                       <button type="button" class="btn btn-xs"><a href="{% url 'installation:server_ipmi' server.id 'chassis_on' %}">开机</a></button>
-                      <button type="button" class="btn btn-xs"><a href="{% url 'installation:server_ipmi' server.id 'chassis_off' %}">关机</a></button>
-                      <button type="button" class="btn btn-xs"><a href="{% url 'installation:server_ipmi' server.id 'chassis_reboot' %}">重启</button>
-                      <button type="button" class="btn btn-xs"><a href="{% url 'installation:server_ipmi' server.id 'boot_to_pxe' %}">设置PXE启动</button>
+                      <!-- <button type="button" class="btn btn-xs"><a href="{% url 'installation:server_ipmi' server.id 'chassis_off' %}">关机</a></button> -->
+                      <button type="button" class="btn btn-xs"><a onclick="confirm('关机')">关机</a></button>
+                      <!-- <button type="button" class="btn btn-xs"><a href="{% url 'installation:server_ipmi' server.id 'chassis_reboot' %}">重启</a></button> -->
+                      <button type="button" class="btn btn-xs"><a onclick="confirm('重启')">重启</a></button>
+                      <button type="button" class="btn btn-xs"><a href="{% url 'installation:server_ipmi' server.id 'boot_to_pxe' %}">设置PXE启动</a></button>
                       <button type="button" class="btn btn-xs"><a href="{% url 'installation:server_ipmi' server.id 'boot_to_disk' %}">设置硬盘启动</a></button>
                       <button type="button" class="btn btn-xs"><a onclick="detail('更新ipmi账号配置','{{server.id}}','400px','300px','/installation/server/ipmi/','')">更新ipmi账号配置</a></button>
                     </div>
@@ -95,6 +97,26 @@
           area : [ width,height],
           content: url + sn + fun
           });
+      }
+
+      function confirm(type){
+        layer.confirm('请确认是否要'+type, function(index){
+            if (type == "关机")
+              {
+                window.location.href = "{% url 'installation:server_ipmi' server.id 'chassis_off' %}"
+                layer.close(index);
+              }
+            if (type == "重启")
+              { 
+                // $.get("{% url 'installation:server_ipmi' server.id 'chassis_reboot' %}",function(data){
+                //       layer.msg(data, {
+                //             time: 5000 //5秒关闭（如果不配置，默认是3秒）
+                //           });   
+                //     });
+                window.location.href = "{% url 'installation:server_ipmi' server.id 'chassis_reboot' %}"
+                layer.close(index);
+              }
+            });       
       }
     </script>
 	
