@@ -15,9 +15,26 @@ git clone https://github.com/uevol/opsp.git
 ## 2、配置python开发库
 
 ### 方法1、直接从网络安装
+#### 配置pip豆瓣源(可选,可以有效提升安装速度)
+```
+mk -p  ~/.pip/pip.conf
+vi pip.conf
+
+[global]
+index-url = http://pypi.douban.com/simple
+trusted-host = pypi.douban.com
+```
+
+#### 安装python开发库
 ```
 cd opsp/ops/
 pip install -r requirements.txt
+```
+#### 实际测试在pip install之前以下软件需提前安装：
+```
+yum -y install MySQL-python
+yum -y install python-devel libxml2-devel libxslt-devel gcc
+yum -y install openssl openssl-devel
 ```
 
 ### 方法2、直接从已有环境copy库到新环境
@@ -34,7 +51,7 @@ tar xvf /usr/lib/python2.7/usr_lib_python2.7_site-packages.tar
 
 ## 3、配置settings.py文件(根据实际情况修改配置)
 ```
-mv ops/settings.py.template ops/settings.py
+cp ops/settings.py.template ops/settings.py
 ```
 
 ## 4、设置数据库
@@ -89,8 +106,6 @@ psql -U ops -d opsdb -h 127.0.0.1 -p 5432;
 ```
 DATABASES = {  
     'default': { 
-    	'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'), 
         'ENGINE': 'django.db.backends.psql',  
         'NAME': 'opsdb',  
         'USER': 'ops',  
@@ -105,11 +120,12 @@ DATABASES = {
 
 #### install MySQLdb
 ```
-rpm -ivh MySQL-python-1.2.5-1.el7.x86_64.rpm
+yum install -y MySQL-python
 ```
 
 #### create db
 ```
+mysql
 create database opsdb default charset=utf8;
 ```
 
@@ -123,10 +139,10 @@ grant all on opsdb.* to ops@localhost identified by "ops@123";
 ```
 DATABASES = {  
     'default': { 
-        'ENGINE': 'django.db.backends.psql',  
+        'ENGINE': 'django.db.backends.mysql',  
         'NAME': 'opsdb',  
         'USER': 'ops',  
-        'PASSWORD': 'opsdb@123',  
+        'PASSWORD': 'ops@123',  
         'HOST': 'localhost',  
         'PORT': '3306',  
     }  
@@ -141,12 +157,14 @@ python manage.py migrate
 ## 6、初始化数据
 ```
 cd opsp/ops/
-python manage.py shell < scripts/init_data.py
+python manage.py shell < scripts/init_db.py
 ```
 
 ## 7、启动服务
 ```
-python manage.py runserver 0.0.0.0:8000
+cd opsp/ops/
+nohup python manage.py runserver 0.0.0.0:8000 & 
+(启动后当前文件夹下自动生成nohup.out,可tailf nohup.out查看运行日志)
 ``` 
 
 ## 8、登录

@@ -2178,3 +2178,320 @@ TemplateSyntaxError: Invalid block tag on line 1: 'extend'. Did you forget to re
 [24/Jun/2017 19:48:38] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 9689
 [24/Jun/2017 19:48:39] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 9689
 [24/Jun/2017 19:48:40] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 9689
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 25, 2017 - 12:54:38
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[25/Jun/2017 12:55:34] "GET / HTTP/1.1" 200 48655
+[25/Jun/2017 12:55:34] "GET /static/vendors/font-awesome/css/font-awesome.min.css HTTP/1.1" 200 29063
+[25/Jun/2017 12:55:34] "GET /static/vendors/nprogress/nprogress.css HTTP/1.1" 200 1458
+[25/Jun/2017 12:55:34] "GET /static/build/css/custom.min.css HTTP/1.1" 404 1689
+[25/Jun/2017 12:55:34] "GET /static/vendors/iCheck/skins/flat/green.css HTTP/1.1" 200 1317
+[25/Jun/2017 12:55:34] "GET /static/vendors/bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 200 121200
+[25/Jun/2017 12:55:35] "GET /static/vendors/bootstrap-daterangepicker/daterangepicker.css HTTP/1.1" 200 8133
+[25/Jun/2017 12:55:35] "GET /static/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css HTTP/1.1" 200 5014
+[25/Jun/2017 12:55:35] "GET /static/vendors/jqvmap/dist/jqvmap.min.css HTTP/1.1" 200 621
+[25/Jun/2017 12:55:35] "GET /static/vendors/jquery/dist/jquery.min.js HTTP/1.1" 200 85578
+[25/Jun/2017 12:55:35] "GET /static/vendors/bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 200 36868
+[25/Jun/2017 12:55:35] "GET /static/vendors/fastclick/lib/fastclick.js HTTP/1.1" 404 1719
+[25/Jun/2017 12:55:35] "GET /static/vendors/nprogress/nprogress.js HTTP/1.1" 200 11565
+[25/Jun/2017 12:55:35] "GET /static/layer/layer.js HTTP/1.1" 200 21616
+[25/Jun/2017 12:55:35] "GET /static/build/js/custom.min.js HTTP/1.1" 404 1683
+[25/Jun/2017 12:55:35] "GET /static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js HTTP/1.1" 200 2333
+[25/Jun/2017 12:55:35] "GET /static/vendors/iCheck/icheck.min.js HTTP/1.1" 200 4931
+[25/Jun/2017 12:55:35] "GET /static/vendors/skycons/skycons.js HTTP/1.1" 200 19025
+[25/Jun/2017 12:55:35] "GET /static/vendors/gauge.js/dist/gauge.min.js HTTP/1.1" 200 17848
+[25/Jun/2017 12:55:35] "GET /static/vendors/Chart.js/dist/Chart.min.js HTTP/1.1" 200 147169
+[25/Jun/2017 12:55:35] "GET /static/vendors/Flot/jquery.flot.js HTTP/1.1" 200 122971
+[25/Jun/2017 12:55:35] "GET /static/vendors/Flot/jquery.flot.pie.js HTTP/1.1" 200 23809
+[25/Jun/2017 12:55:35] "GET /static/vendors/Flot/jquery.flot.time.js HTTP/1.1" 200 11768
+[25/Jun/2017 12:55:35] "GET /static/vendors/Flot/jquery.flot.resize.js HTTP/1.1" 200 3314
+[25/Jun/2017 12:55:35] "GET /static/vendors/Flot/jquery.flot.stack.js HTTP/1.1" 200 7090
+[25/Jun/2017 12:55:35] "GET /static/vendors/flot.orderbars/js/jquery.flot.orderBars.js HTTP/1.1" 200 6919
+[25/Jun/2017 12:55:35] "GET /static/vendors/flot-spline/js/jquery.flot.spline.min.js HTTP/1.1" 200 1756
+[25/Jun/2017 12:55:35] "GET /static/vendors/DateJS/build/date.js HTTP/1.1" 404 1701
+[25/Jun/2017 12:55:35] "GET /static/vendors/flot.curvedlines/curvedLines.js HTTP/1.1" 200 16821
+[25/Jun/2017 12:55:35] "GET /static/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js HTTP/1.1" 200 2386
+[25/Jun/2017 12:55:35] "GET /static/vendors/jqvmap/dist/jquery.vmap.js HTTP/1.1" 200 34068
+[25/Jun/2017 12:55:35] "GET /static/vendors/bootstrap-daterangepicker/daterangepicker.js HTTP/1.1" 200 69708
+[25/Jun/2017 12:55:35] "GET /static/vendors/jqvmap/dist/maps/jquery.vmap.world.js HTTP/1.1" 200 60599
+[25/Jun/2017 12:55:35] "GET /static/vendors/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 HTTP/1.1" 200 71896
+[25/Jun/2017 12:55:35] "GET /static/vendors/moment/min/moment.min.js HTTP/1.1" 200 46645
+[25/Jun/2017 12:55:35] "GET /static/images/img.jpg HTTP/1.1" 200 4077
+[25/Jun/2017 12:55:35] "GET /static/vendors/fastclick/lib/fastclick.js HTTP/1.1" 404 1719
+[25/Jun/2017 12:55:36] "GET /static/layer/skin/default/layer.css?v=3.0.3303 HTTP/1.1" 200 14499
+[25/Jun/2017 12:55:36] "GET /static/build/js/custom.min.js HTTP/1.1" 404 1683
+[25/Jun/2017 12:55:36] "GET /static/vendors/DateJS/build/date.js HTTP/1.1" 404 1701
+Not Found: /favicon.ico
+[25/Jun/2017 12:55:36] "GET /favicon.ico HTTP/1.1" 404 2526
+[25/Jun/2017 12:55:50] "GET / HTTP/1.1" 200 48655
+[25/Jun/2017 12:55:50] "GET /static/build/css/custom.min.css HTTP/1.1" 404 1689
+[25/Jun/2017 12:55:50] "GET /static/vendors/fastclick/lib/fastclick.js HTTP/1.1" 404 1719
+[25/Jun/2017 12:55:50] "GET /static/build/js/custom.min.js HTTP/1.1" 404 1683
+[25/Jun/2017 12:55:50] "GET /static/vendors/DateJS/build/date.js HTTP/1.1" 404 1701
+[25/Jun/2017 12:55:50] "GET /static/vendors/fastclick/lib/fastclick.js HTTP/1.1" 404 1719
+[25/Jun/2017 12:55:50] "GET /static/build/js/custom.min.js HTTP/1.1" 404 1683
+[25/Jun/2017 12:55:50] "GET /static/vendors/DateJS/build/date.js HTTP/1.1" 404 1701
+[25/Jun/2017 12:55:52] "GET / HTTP/1.1" 200 48655
+[25/Jun/2017 12:55:52] "GET /static/build/css/custom.min.css HTTP/1.1" 404 1689
+[25/Jun/2017 12:55:52] "GET /static/vendors/fastclick/lib/fastclick.js HTTP/1.1" 404 1719
+[25/Jun/2017 12:55:52] "GET /static/build/js/custom.min.js HTTP/1.1" 404 1683
+[25/Jun/2017 12:55:52] "GET /static/vendors/DateJS/build/date.js HTTP/1.1" 404 1701
+[25/Jun/2017 12:55:52] "GET /static/vendors/fastclick/lib/fastclick.js HTTP/1.1" 404 1719
+[25/Jun/2017 12:55:53] "GET /static/build/js/custom.min.js HTTP/1.1" 404 1683
+[25/Jun/2017 12:55:53] "GET /static/vendors/DateJS/build/date.js HTTP/1.1" 404 1701
+[25/Jun/2017 12:55:55] "GET / HTTP/1.1" 200 48655
+[25/Jun/2017 12:55:55] "GET /static/build/css/custom.min.css HTTP/1.1" 404 1689
+[25/Jun/2017 12:55:55] "GET /static/vendors/fastclick/lib/fastclick.js HTTP/1.1" 404 1719
+[25/Jun/2017 12:55:55] "GET /static/build/js/custom.min.js HTTP/1.1" 404 1683
+[25/Jun/2017 12:55:55] "GET /static/vendors/DateJS/build/date.js HTTP/1.1" 404 1701
+[25/Jun/2017 12:55:55] "GET /static/vendors/fastclick/lib/fastclick.js HTTP/1.1" 404 1719
+[25/Jun/2017 12:55:55] "GET /static/build/js/custom.min.js HTTP/1.1" 404 1683
+[25/Jun/2017 12:55:55] "GET /static/vendors/DateJS/build/date.js HTTP/1.1" 404 1701
+[25/Jun/2017 12:55:57] "GET / HTTP/1.1" 200 48655
+[25/Jun/2017 12:55:57] "GET /static/vendors/fastclick/lib/fastclick.js HTTP/1.1" 404 1719
+[25/Jun/2017 12:55:57] "GET /static/build/css/custom.min.css HTTP/1.1" 404 1689
+[25/Jun/2017 12:55:57] "GET /static/build/js/custom.min.js HTTP/1.1" 404 1683
+[25/Jun/2017 12:55:57] "GET /static/vendors/DateJS/build/date.js HTTP/1.1" 404 1701
+[25/Jun/2017 12:55:57] "GET /static/vendors/fastclick/lib/fastclick.js HTTP/1.1" 404 1719
+[25/Jun/2017 12:55:57] "GET /static/build/js/custom.min.js HTTP/1.1" 404 1683
+[25/Jun/2017 12:55:57] "GET /static/vendors/DateJS/build/date.js HTTP/1.1" 404 1701
+[25/Jun/2017 12:55:59] "GET / HTTP/1.1" 200 48655
+[25/Jun/2017 12:55:59] "GET /static/build/css/custom.min.css HTTP/1.1" 404 1689
+[25/Jun/2017 12:55:59] "GET /static/vendors/fastclick/lib/fastclick.js HTTP/1.1" 404 1719
+[25/Jun/2017 12:55:59] "GET /static/build/js/custom.min.js HTTP/1.1" 404 1683
+[25/Jun/2017 12:55:59] "GET /static/vendors/DateJS/build/date.js HTTP/1.1" 404 1701
+[25/Jun/2017 12:56:12] "GET / HTTP/1.1" 200 48655
+[25/Jun/2017 12:56:12] "GET /static/build/css/custom.min.css HTTP/1.1" 404 1689
+[25/Jun/2017 12:56:12] "GET /static/vendors/fastclick/lib/fastclick.js HTTP/1.1" 404 1719
+[25/Jun/2017 12:56:12] "GET /static/build/js/custom.min.js HTTP/1.1" 404 1683
+[25/Jun/2017 12:56:12] "GET /static/vendors/DateJS/build/date.js HTTP/1.1" 404 1701
+[25/Jun/2017 12:56:12] "GET /static/vendors/fastclick/lib/fastclick.js HTTP/1.1" 404 1719
+[25/Jun/2017 12:56:12] "GET /static/build/js/custom.min.js HTTP/1.1" 404 1683
+[25/Jun/2017 12:56:12] "GET /static/vendors/DateJS/build/date.js HTTP/1.1" 404 1701
+[25/Jun/2017 12:56:14] "GET / HTTP/1.1" 200 48655
+[25/Jun/2017 12:56:14] "GET /static/vendors/fastclick/lib/fastclick.js HTTP/1.1" 404 1719
+[25/Jun/2017 12:56:14] "GET /static/build/css/custom.min.css HTTP/1.1" 404 1689
+[25/Jun/2017 12:56:14] "GET /static/build/js/custom.min.js HTTP/1.1" 404 1683
+[25/Jun/2017 12:56:14] "GET /static/vendors/DateJS/build/date.js HTTP/1.1" 404 1701
+[25/Jun/2017 12:56:14] "GET /static/vendors/fastclick/lib/fastclick.js HTTP/1.1" 404 1719
+[25/Jun/2017 12:56:14] "GET /static/build/js/custom.min.js HTTP/1.1" 404 1683
+[25/Jun/2017 12:56:14] "GET /static/vendors/DateJS/build/date.js HTTP/1.1" 404 1701
+[25/Jun/2017 12:57:41] "GET / HTTP/1.1" 200 48655
+[25/Jun/2017 12:57:41] "GET /static/build/css/custom.min.css HTTP/1.1" 404 1689
+[25/Jun/2017 12:57:41] "GET /static/vendors/fastclick/lib/fastclick.js HTTP/1.1" 404 1719
+[25/Jun/2017 12:57:41] "GET /static/build/js/custom.min.js HTTP/1.1" 404 1683
+[25/Jun/2017 12:57:41] "GET /static/vendors/DateJS/build/date.js HTTP/1.1" 404 1701
+[25/Jun/2017 12:57:42] "GET /static/vendors/fastclick/lib/fastclick.js HTTP/1.1" 404 1719
+[25/Jun/2017 12:57:42] "GET /static/build/js/custom.min.js HTTP/1.1" 404 1683
+[25/Jun/2017 12:57:42] "GET /static/vendors/DateJS/build/date.js HTTP/1.1" 404 1701
+[25/Jun/2017 12:58:02] "GET /installation/servers/ HTTP/1.1" 200 18450
+[25/Jun/2017 12:58:02] "GET /static/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css HTTP/1.1" 200 328
+[25/Jun/2017 12:58:02] "GET /static/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css HTTP/1.1" 200 1735
+[25/Jun/2017 12:58:02] "GET /static/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css HTTP/1.1" 200 4216
+[25/Jun/2017 12:58:02] "GET /static/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css HTTP/1.1" 200 3921
+[25/Jun/2017 12:58:02] "GET /static/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css HTTP/1.1" 200 414
+[25/Jun/2017 12:58:02] "GET /static/build/css/custom.min.css HTTP/1.1" 404 1689
+[25/Jun/2017 12:58:02] "GET /static/vendors/fastclick/lib/fastclick.js HTTP/1.1" 404 1719
+[25/Jun/2017 12:58:02] "GET /static/build/js/custom.min.js HTTP/1.1" 404 1683
+[25/Jun/2017 12:58:02] "GET /static/vendors/datatables.net/js/jquery.dataTables.min.js HTTP/1.1" 200 82638
+[25/Jun/2017 12:58:02] "GET /static/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js HTTP/1.1" 200 1960
+[25/Jun/2017 12:58:02] "GET /static/vendors/datatables.net-buttons/js/dataTables.buttons.min.js HTTP/1.1" 200 15661
+[25/Jun/2017 12:58:02] "GET /static/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js HTTP/1.1" 200 939
+[25/Jun/2017 12:58:02] "GET /static/vendors/datatables.net-buttons/js/buttons.flash.min.js HTTP/1.1" 200 21956
+[25/Jun/2017 12:58:02] "GET /static/vendors/datatables.net-buttons/js/buttons.html5.min.js HTTP/1.1" 200 20463
+[25/Jun/2017 12:58:02] "GET /static/vendors/datatables.net-buttons/js/buttons.print.min.js HTTP/1.1" 200 1694
+[25/Jun/2017 12:58:02] "GET /static/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js HTTP/1.1" 200 6652
+[25/Jun/2017 12:58:02] "GET /static/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js HTTP/1.1" 200 7094
+[25/Jun/2017 12:58:02] "GET /static/vendors/datatables.net-responsive/js/dataTables.responsive.min.js HTTP/1.1" 200 11056
+[25/Jun/2017 12:58:02] "GET /static/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js HTTP/1.1" 200 1892
+[25/Jun/2017 12:58:02] "GET /static/vendors/datatables.net-scroller/js/dataTables.scroller.min.js HTTP/1.1" 200 11373
+[25/Jun/2017 12:58:02] "GET /static/vendors/pdfmake/build/pdfmake.min.js HTTP/1.1" 404 1725
+[25/Jun/2017 12:58:02] "GET /static/vendors/pdfmake/build/vfs_fonts.js HTTP/1.1" 404 1719
+[25/Jun/2017 12:58:02] "GET /static/vendors/jszip/dist/jszip.min.js HTTP/1.1" 200 80025
+[25/Jun/2017 12:58:02] "GET /static/vendors/fastclick/lib/fastclick.js HTTP/1.1" 404 1719
+[25/Jun/2017 12:58:02] "GET /static/build/js/custom.min.js HTTP/1.1" 404 1683
+[25/Jun/2017 12:58:03] "GET /static/vendors/pdfmake/build/pdfmake.min.js HTTP/1.1" 404 1725
+[25/Jun/2017 12:58:03] "GET /static/vendors/pdfmake/build/vfs_fonts.js HTTP/1.1" 404 1719
+[25/Jun/2017 12:58:03] "GET /static/vendors/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18028
+[25/Jun/2017 12:58:04] "GET /installation/servers/ HTTP/1.1" 200 18450
+[25/Jun/2017 12:58:04] "GET /static/build/css/custom.min.css HTTP/1.1" 404 1689
+[25/Jun/2017 12:58:04] "GET /static/vendors/fastclick/lib/fastclick.js HTTP/1.1" 404 1719
+[25/Jun/2017 12:58:04] "GET /static/build/js/custom.min.js HTTP/1.1" 404 1683
+[25/Jun/2017 12:58:04] "GET /static/vendors/pdfmake/build/vfs_fonts.js HTTP/1.1" 404 1719
+[25/Jun/2017 12:58:04] "GET /static/vendors/pdfmake/build/pdfmake.min.js HTTP/1.1" 404 1725
+[25/Jun/2017 12:58:05] "GET /static/vendors/fastclick/lib/fastclick.js HTTP/1.1" 404 1719
+[25/Jun/2017 12:58:05] "GET /static/build/js/custom.min.js HTTP/1.1" 404 1683
+[25/Jun/2017 12:58:05] "GET /static/vendors/pdfmake/build/pdfmake.min.js HTTP/1.1" 404 1725
+[25/Jun/2017 12:58:05] "GET /static/vendors/pdfmake/build/vfs_fonts.js HTTP/1.1" 404 1719
+[25/Jun/2017 12:58:06] "GET /installation/servers/ HTTP/1.1" 200 18450
+[25/Jun/2017 12:58:06] "GET /static/build/css/custom.min.css HTTP/1.1" 404 1689
+[25/Jun/2017 12:58:06] "GET /static/vendors/fastclick/lib/fastclick.js HTTP/1.1" 404 1719
+[25/Jun/2017 12:58:06] "GET /static/build/js/custom.min.js HTTP/1.1" 404 1683
+[25/Jun/2017 12:58:06] "GET /static/vendors/pdfmake/build/pdfmake.min.js HTTP/1.1" 404 1725
+[25/Jun/2017 12:58:06] "GET /static/vendors/pdfmake/build/vfs_fonts.js HTTP/1.1" 404 1719
+[25/Jun/2017 12:58:06] "GET /static/vendors/fastclick/lib/fastclick.js HTTP/1.1" 404 1719
+[25/Jun/2017 12:58:06] "GET /static/build/js/custom.min.js HTTP/1.1" 404 1683
+[25/Jun/2017 12:58:06] "GET /static/vendors/pdfmake/build/pdfmake.min.js HTTP/1.1" 404 1725
+[25/Jun/2017 12:58:06] "GET /static/vendors/pdfmake/build/vfs_fonts.js HTTP/1.1" 404 1719
+[25/Jun/2017 12:58:07] "GET /installation/servers/ HTTP/1.1" 200 18450
+[25/Jun/2017 12:58:07] "GET /static/build/css/custom.min.css HTTP/1.1" 404 1689
+[25/Jun/2017 12:58:07] "GET /static/vendors/fastclick/lib/fastclick.js HTTP/1.1" 404 1719
+[25/Jun/2017 12:58:07] "GET /static/build/js/custom.min.js HTTP/1.1" 404 1683
+[25/Jun/2017 12:58:07] "GET /static/vendors/pdfmake/build/pdfmake.min.js HTTP/1.1" 404 1725
+[25/Jun/2017 12:58:07] "GET /static/vendors/pdfmake/build/vfs_fonts.js HTTP/1.1" 404 1719
+[25/Jun/2017 12:58:07] "GET /static/vendors/fastclick/lib/fastclick.js HTTP/1.1" 404 1719
+[25/Jun/2017 12:58:07] "GET /static/build/js/custom.min.js HTTP/1.1" 404 1683
+[25/Jun/2017 12:58:07] "GET /static/vendors/pdfmake/build/pdfmake.min.js HTTP/1.1" 404 1725
+[25/Jun/2017 12:58:07] "GET /static/vendors/pdfmake/build/vfs_fonts.js HTTP/1.1" 404 1719
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 25, 2017 - 12:54:51
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Unhandled exception in thread started by <function wrapper at 0x31b4938>
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/utils/autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/core/management/commands/runserver.py", line 113, in inner_run
+    autoreload.raise_last_exception()
+  File "/usr/lib/python2.7/site-packages/django/utils/autoreload.py", line 249, in raise_last_exception
+    six.reraise(*_exception)
+  File "/usr/lib/python2.7/site-packages/django/utils/autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/__init__.py", line 27, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "/usr/lib/python2.7/site-packages/django/apps/registry.py", line 89, in populate
+    "duplicates: %s" % app_config.label)
+django.core.exceptions.ImproperlyConfigured: Application labels aren't unique, duplicates: installation
+Unhandled exception in thread started by <function wrapper at 0x2d70938>
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/utils/autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/core/management/commands/runserver.py", line 113, in inner_run
+    autoreload.raise_last_exception()
+  File "/usr/lib/python2.7/site-packages/django/utils/autoreload.py", line 249, in raise_last_exception
+    six.reraise(*_exception)
+  File "/usr/lib/python2.7/site-packages/django/utils/autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/__init__.py", line 27, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "/usr/lib/python2.7/site-packages/django/apps/registry.py", line 89, in populate
+    "duplicates: %s" % app_config.label)
+django.core.exceptions.ImproperlyConfigured: Application labels aren't unique, duplicates: installation
+Unhandled exception in thread started by <function wrapper at 0x15d7938>
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/utils/autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/core/management/commands/runserver.py", line 113, in inner_run
+    autoreload.raise_last_exception()
+  File "/usr/lib/python2.7/site-packages/django/utils/autoreload.py", line 249, in raise_last_exception
+    six.reraise(*_exception)
+  File "/usr/lib/python2.7/site-packages/django/utils/autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/__init__.py", line 27, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "/usr/lib/python2.7/site-packages/django/apps/registry.py", line 89, in populate
+    "duplicates: %s" % app_config.label)
+django.core.exceptions.ImproperlyConfigured: Application labels aren't unique, duplicates: installation
+Unhandled exception in thread started by <function wrapper at 0x3019938>
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/utils/autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/core/management/commands/runserver.py", line 113, in inner_run
+    autoreload.raise_last_exception()
+  File "/usr/lib/python2.7/site-packages/django/utils/autoreload.py", line 249, in raise_last_exception
+    six.reraise(*_exception)
+  File "/usr/lib/python2.7/site-packages/django/utils/autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/__init__.py", line 27, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "/usr/lib/python2.7/site-packages/django/apps/registry.py", line 89, in populate
+    "duplicates: %s" % app_config.label)
+django.core.exceptions.ImproperlyConfigured: Application labels aren't unique, duplicates: installation
+Unhandled exception in thread started by <function wrapper at 0x3270938>
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/utils/autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/core/management/commands/runserver.py", line 113, in inner_run
+    autoreload.raise_last_exception()
+  File "/usr/lib/python2.7/site-packages/django/utils/autoreload.py", line 249, in raise_last_exception
+    six.reraise(*_exception)
+  File "/usr/lib/python2.7/site-packages/django/utils/autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/__init__.py", line 27, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "/usr/lib/python2.7/site-packages/django/apps/registry.py", line 89, in populate
+    "duplicates: %s" % app_config.label)
+django.core.exceptions.ImproperlyConfigured: Application labels aren't unique, duplicates: installation
+Unhandled exception in thread started by <function wrapper at 0x20a2938>
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/utils/autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/core/management/commands/runserver.py", line 113, in inner_run
+    autoreload.raise_last_exception()
+  File "/usr/lib/python2.7/site-packages/django/utils/autoreload.py", line 249, in raise_last_exception
+    six.reraise(*_exception)
+  File "/usr/lib/python2.7/site-packages/django/utils/autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/__init__.py", line 27, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "/usr/lib/python2.7/site-packages/django/apps/registry.py", line 89, in populate
+    "duplicates: %s" % app_config.label)
+django.core.exceptions.ImproperlyConfigured: Application labels aren't unique, duplicates: installation
+[25/Jun/2017 13:04:08] "GET /installation/servers/ HTTP/1.1" 200 18450
+[25/Jun/2017 13:04:08] "GET /static/vendors/bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 0
+[25/Jun/2017 13:04:08] "GET /static/vendors/font-awesome/css/font-awesome.min.css HTTP/1.1" 304 0
+[25/Jun/2017 13:04:08] "GET /static/vendors/nprogress/nprogress.css HTTP/1.1" 304 0
+[25/Jun/2017 13:04:08] "GET /static/vendors/iCheck/skins/flat/green.css HTTP/1.1" 304 0
+[25/Jun/2017 13:04:08] "GET /static/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css HTTP/1.1" 304 0
+[25/Jun/2017 13:04:08] "GET /static/vendors/bootstrap-daterangepicker/daterangepicker.css HTTP/1.1" 304 0
+[25/Jun/2017 13:04:08] "GET /static/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[25/Jun/2017 13:04:08] "GET /static/vendors/jqvmap/dist/jqvmap.min.css HTTP/1.1" 304 0
+[25/Jun/2017 13:04:09] "GET /static/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css HTTP/1.1" 304 0
+[25/Jun/2017 13:04:09] "GET /static/build/css/custom.min.css HTTP/1.1" 404 1689
+[25/Jun/2017 13:04:09] "GET /static/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css HTTP/1.1" 304 0
+[25/Jun/2017 13:04:09] "GET /static/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[25/Jun/2017 13:04:09] "GET /static/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css HTTP/1.1" 304 0
+[25/Jun/2017 13:04:09] "GET /static/vendors/jquery/dist/jquery.min.js HTTP/1.1" 304 0
+[25/Jun/2017 13:04:09] "GET /static/vendors/bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 0
+[25/Jun/2017 13:04:09] "GET /static/vendors/fastclick/lib/fastclick.js HTTP/1.1" 404 1719
+[25/Jun/2017 13:04:09] "GET /static/vendors/nprogress/nprogress.js HTTP/1.1" 304 0
+[25/Jun/2017 13:04:09] "GET /static/layer/layer.js HTTP/1.1" 304 0
+[25/Jun/2017 13:04:09] "GET /static/build/js/custom.min.js HTTP/1.1" 404 1683
+[25/Jun/2017 13:04:09] "GET /static/vendors/iCheck/icheck.min.js HTTP/1.1" 304 0
+[25/Jun/2017 13:04:09] "GET /static/vendors/datatables.net/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[25/Jun/2017 13:04:09] "GET /static/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[25/Jun/2017 13:04:09] "GET /static/vendors/datatables.net-buttons/js/dataTables.buttons.min.js HTTP/1.1" 304 0
+[25/Jun/2017 13:04:09] "GET /static/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js HTTP/1.1" 304 0
+[25/Jun/2017 13:04:09] "GET /static/vendors/datatables.net-buttons/js/buttons.flash.min.js HTTP/1.1" 304 0
+[25/Jun/2017 13:04:09] "GET /static/vendors/datatables.net-buttons/js/buttons.html5.min.js HTTP/1.1" 304 0
+[25/Jun/2017 13:04:09] "GET /static/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js HTTP/1.1" 304 0
+[25/Jun/2017 13:04:09] "GET /static/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js HTTP/1.1" 304 0
+[25/Jun/2017 13:04:09] "GET /static/vendors/datatables.net-responsive/js/dataTables.responsive.min.js HTTP/1.1" 304 0
+[25/Jun/2017 13:04:09] "GET /static/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js HTTP/1.1" 304 0
+[25/Jun/2017 13:04:09] "GET /static/vendors/datatables.net-buttons/js/buttons.print.min.js HTTP/1.1" 304 0
+[25/Jun/2017 13:04:09] "GET /static/vendors/jszip/dist/jszip.min.js HTTP/1.1" 304 0
+[25/Jun/2017 13:04:09] "GET /static/vendors/datatables.net-scroller/js/dataTables.scroller.min.js HTTP/1.1" 304 0
+[25/Jun/2017 13:04:09] "GET /static/vendors/pdfmake/build/pdfmake.min.js HTTP/1.1" 404 1725
+[25/Jun/2017 13:04:09] "GET /static/vendors/pdfmake/build/vfs_fonts.js HTTP/1.1" 404 1719
+[25/Jun/2017 13:04:09] "GET /static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js HTTP/1.1" 304 0
+[25/Jun/2017 13:04:09] "GET /static/images/img.jpg HTTP/1.1" 304 0
+[25/Jun/2017 13:04:09] "GET /static/vendors/fastclick/lib/fastclick.js HTTP/1.1" 404 1719
+[25/Jun/2017 13:04:09] "GET /static/layer/skin/default/layer.css?v=3.0.3303 HTTP/1.1" 304 0
+[25/Jun/2017 13:04:09] "GET /static/build/js/custom.min.js HTTP/1.1" 404 1683
+[25/Jun/2017 13:04:09] "GET /static/vendors/pdfmake/build/pdfmake.min.js HTTP/1.1" 404 1725
+[25/Jun/2017 13:04:09] "GET /static/vendors/pdfmake/build/vfs_fonts.js HTTP/1.1" 404 1719
+[25/Jun/2017 13:04:09] "GET /static/vendors/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 25, 2017 - 13:04:04
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
