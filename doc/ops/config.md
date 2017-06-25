@@ -31,10 +31,8 @@ cd opsp/ops/
 pip install -r requirements.txt
 ```
 #### 实际测试在pip install之前以下软件需提前安装：
-```
-yum -y install MySQL-python
-yum -y install python-devel libxml2-devel libxslt-devel gcc
-yum -y install openssl openssl-devel
+``` 
+yum -y install python-devel libxml2-devel libxslt-devel gcc openssl openssl-devel MySQL-python
 ```
 
 ### 方法2、直接从已有环境copy库到新环境
