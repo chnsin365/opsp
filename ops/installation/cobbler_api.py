@@ -13,7 +13,7 @@ class CobblerAPI(object):
         self.cobbler_pass = password
         self.cobbler_url = url
     
-    def add_system(self,hostname,ip_add,mac_add,profile,kopts):
+    def add_system(self,hostname,ip_addr,mac_addr,profile,kopts):
         '''
         Add Cobbler System Infomation
         '''
@@ -28,13 +28,13 @@ class CobblerAPI(object):
         remote.modify_system(system_id,"name",hostname,token) 
         remote.modify_system(system_id,"hostname",hostname,token) 
         remote.modify_system(system_id,'modify_interface', { 
-            "macaddress-eth0" : mac_add, 
-            "ipaddress-eth0" : ip_add, 
+            "macaddress-eth0" : mac_addr, 
+            "ipaddress-eth0" : ip_addr, 
             "dnsname-eth0" : hostname, 
         }, token) 
         remote.modify_system(system_id,"profile",profile,token)
-        #if kopts:
-        remote.modify_system(system_id,"kopts",kopts,token) 
+        if kopts:
+            remote.modify_system(system_id,"kopts",kopts,token) 
         remote.save_system(system_id, token) 
         try:
             remote.update(token)
@@ -43,7 +43,7 @@ class CobblerAPI(object):
             ret['result'] = False
             ret['comment'].append(str(e))
         return ret
-    def edit_system(self,hostname,netboot):
+    def edit_system_netboot(self,hostname,netboot):
         '''
         Add Cobbler System Infomation
         '''
@@ -115,13 +115,34 @@ class CobblerAPI(object):
             pass
         return ret
     def get_system(self,hostname):
+        '''
+        get system by hostname
+        return a object of system
+        '''
         ret = {
             "result": True,
             "comment": [],
         }
         remote = xmlrpclib.Server(self.cobbler_url) 
         try:
-            ret = remote.find_profile({"name":"*"})
+            ret = remote.get_system(hostname)
+        except Exception as e:
+            ret['result'] = False
+            ret['comment'].append(str(e))
+        return ret
+
+    def find_system(self,mac_addr):
+        '''
+        get system by mac_addr
+        return a list of system's name
+        '''
+        ret = {
+            "result": True,
+            "comment": [],
+        }
+        remote = xmlrpclib.Server(self.cobbler_url) 
+        try:
+            ret = remote.find_system({"mac_address":mac_addr})
         except Exception as e:
             ret['result'] = False
             ret['comment'].append(str(e))
@@ -130,6 +151,7 @@ class CobblerAPI(object):
     def get_proflies(self):
         '''
         get cobbler profiles
+        return a list of profiles
         '''
         ret = {
             "result": True,

@@ -8,7 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import *
 import json
 from ops.sshapi import remote_cmd
-import subprocess
+from .cobbler_api import CobblerAPI
 
 # Create your views here.
 @csrf_exempt
@@ -158,48 +158,48 @@ def server_ipmi(request,server_id,fun):
     ipmi_ip = server.ipmi_ip
     ipmi_user = server.ipmi_user
     ipmi_pass = server.ipmi_pass
-    if (ipmi_ip and ipmi_user and ipmi_pass):
-        try:
-            from ops.ipmi_api import ipmitool
-            ipmi = ipmitool(ipmi_ip,ipmi_pass,username=ipmi_user)
-            ipmi.chassis_status()
-            if fun == 'boot_to_disk':
-                ipmi.boot_to_disk()
-                ret_data = ipmi.output
-            elif fun == 'chassis_on':
-                if 'on' in ipmi.output:
-                    ret_data = '已经在开机状态，已为您取消本次开机操作。'
-                else:
-                    ipmi.chassis_on()
-                    ret_data = ipmi.output
-            elif fun == 'chassis_off':
-                if 'off' in ipmi.output:
-                    ret_data = '已经在关机状态，已为您取消本次关机操作。'
-                else:
-                    ipmi.chassis_off()
-                    ret_data = ipmi.output
-                # return HttpResponse(ret_data)
-            elif fun == 'chassis_reboot':
-                if 'off' in ipmi.output:
-                    ret_data = '当前在关机状态，无法完成重启操作。'
-                else:
-                    ipmi.chassis_reboot()
-                    ret_data = ipmi.output
-            elif fun == 'boot_to_pxe':
-                ipmi.boot_to_pxe()
-                ret_data = ipmi.output
+    # if (ipmi_ip and ipmi_user and ipmi_pass):
+    try:
+        from ops.ipmi_api import ipmitool
+        ipmi = ipmitool(ipmi_ip,ipmi_pass,username=ipmi_user)
+        ipmi.chassis_status()
+        if fun == 'boot_to_disk':
+            ipmi.boot_to_disk()
+            ret_data = ipmi.output
+        elif fun == 'chassis_on':
+            if 'on' in ipmi.output:
+                ret_data = '已经在开机状态，已为您取消本次开机操作。'
             else:
+                ipmi.chassis_on()
                 ret_data = ipmi.output
-        except Exception as e:
-            ret_data = str(e)
+        elif fun == 'chassis_off':
+            if 'off' in ipmi.output:
+                ret_data = '已经在关机状态，已为您取消本次关机操作。'
+            else:
+                ipmi.chassis_off()
+                ret_data = ipmi.output
+            # return HttpResponse(ret_data)
+        elif fun == 'chassis_reboot':
+            if 'off' in ipmi.output:
+                ret_data = '当前在关机状态，无法完成重启操作。'
+            else:
+                ipmi.chassis_reboot()
+                ret_data = ipmi.output
+        elif fun == 'boot_to_pxe':
+            ipmi.boot_to_pxe()
+            ret_data = ipmi.output
+        else:
+            ret_data = ipmi.output
+    except Exception as e:
+        ret_data = str(e)
+    # else:
+    #     ret_data = 
+    if 'socket' in ret_data:
+        ret_data = 'ipmi地址错误或网络错误,当前地址:%s,请更新ipmi账号配置'%(ipmi_ip)
+    elif 'Error' in ret_data:
+        ret_data = '账号或密码错误，请更新账号或密码,当前账号:%s,密码:%s'%(ipmi_user,ipmi_pass)
     else:
-        ret_data = '''
-无法完成操作，可能原因是ipmi的地址、账号或密码配置不正确。
-当前的ipmi地址、账号和密码如下：
-地址：%s
-账号：%s
-密码：%s
-您可以尝试更新ipmi账号配置后继续该操作'''%(ipmi_ip,ipmi_user,ipmi_pass)
+        ret_data = ret_data
     return render(request,'installation/ipmi.html',locals())
 
 def update_ipmi(request,server_id):
@@ -226,13 +226,36 @@ ipmi的地址、账号或密码均已被更新。
 
 def install(request,server_id):
     server = get_object_or_404(Server,pk=server_id)
+    cobbler = CobblerAPI("http://192.168.3.166/cobbler_api","admin","admin")
+    ret_data = cobbler.find_system(server.pxe_mac)
     return render(request,'installation/install.html',locals())
 
 def add_system(request,server_id):
     server = get_object_or_404(Server,pk=server_id)
+    cobbler = CobblerAPI("http://192.168.3.166/cobbler_api","admin","admin")
     if request.method == 'GET':
+        profiles = cobbler.get_proflies()
         return render(request,'installation/add_system.html',locals())
     else:
-        return render(request,'installation/install.html',locals())
+        hostname = request.POST.get('hostname','')
+        ip_addr = request.POST.get('ip_addr','')
+        mac_addr = request.POST.get('mac_addr','')
+        profile = request.POST.get('profile','')
+        kopts = request.POST.get('kopts','')
+        try:
+            system = cobbler.add_system(hostname,ip_addr,mac_addr,profile,kopts)
+        except Exception as e:
+            raise e
+        return redirect('installation:install',server_id)
 
+def view_system(request,system):
+    cobbler = CobblerAPI("http://192.168.3.166/cobbler_api","admin","admin")
+    system = cobbler.get_system(system)
+    ret_data = json.dumps(json.loads(json.dumps(system), parse_int=str), indent=4, sort_keys=False, ensure_ascii=False)
+    return render(request,'installation/tips.html',locals())
+
+def delete_system(request,system,server_id):
+    cobbler = CobblerAPI("http://192.168.3.166/cobbler_api","admin","admin")
+    ret_data = cobbler.del_system(system)
+    return redirect('installation:install',server_id)
 

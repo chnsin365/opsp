@@ -29,5 +29,7 @@ urlpatterns = [
     url(r'^server/ipmi/(\w+)/(\w+)/$',views.server_ipmi,name='server_ipmi'),
     url(r'^server/ipmi/(\w+)/$',views.update_ipmi,name='update_ipmi'),
     url(r'^server/install/(\w+)/$',views.install,name='install'),
-    url(r'^server/install/add_system/(\w+)/$',views.add_system,name='add_system'),
+    url(r'^server/add_system/(\w+)/$',views.add_system,name='add_system'),
+    url(r'^server/system/view/(\w+)/$',views.view_system,name='view_system'),
+    url(r'^server/system/delete/(\w+)/(\w+)/$',views.delete_system,name='delete_system'),
 ]

@@ -1,7 +1,16 @@
-{% extends 'installation/install.html' %}
 {% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
 
-    {% block js %}
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title> RAID操作 </title>
+
     <!-- Bootstrap -->
     <link href="{%static 'vendors/bootstrap/dist/css/bootstrap.min.css'%}" rel="stylesheet">
     <!-- Font Awesome -->
@@ -10,6 +19,12 @@
     <link href="{%static 'vendors/nprogress/nprogress.css'%}" rel="stylesheet">
     <!-- iCheck -->
     <link href="{%static 'vendors/iCheck/skins/flat/green.css'%}" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+    <link href="{%static 'vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css'%}" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="{%static 'build/css/custom.min.css'%}" rel="stylesheet">
+
     <!-- bootstrap-wysiwyg -->
     <link href="{%static 'vendors/google-code-prettify/bin/prettify.min.css'%}" rel="stylesheet">
     <!-- Select2 -->
@@ -21,21 +36,29 @@
     <!-- bootstrap-daterangepicker -->
     <link href="{%static 'vendors/bootstrap-daterangepicker/daterangepicker.css'%}" rel="stylesheet">
 
-    <!-- Custom Theme Style -->
-    <link href="{%static 'build/css/custom.min.css'%}" rel="stylesheet">
+
+    {% block js %}
 
     {% endblock %}
+  </head>
 
-{% block bs-example%}
-               <form class="form-horizontal" action="{% url 'installation:update_ipmi' server.id %}" method="post">
+
+    <div class="container body">
+      <div class="main_container">
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+
+                  {% block bs-example%}
+                <form class="form-horizontal" action="{% url 'installation:add_system' server.id %}" method="post">
                     {% csrf_token %}
-                    	
+                        
                   <div class="col-md-6 col-sm-6 col-xs-6 form-group">
-                  	<label class="control-label col-md-4 col-sm-4 col-xs-4 text-right">Hostname
+                    <label class="control-label col-md-4 col-sm-4 col-xs-4 text-right">Hostname
                         <span class="required">*</span>
                         </label>
                     <div class="col-md-8 col-sm-8 col-xs-8" >
-                        	<input class="form-control col-md-6 col-xs-6" name="hostname" required="required" type="text">
+                            <input class="form-control col-md-6 col-xs-6" name="hostname" required="required" type="text">
                     </div>
                   </div>
 
@@ -44,7 +67,7 @@
                         <span class="required">*</span>
                         </label>
                     <div class="col-md-8 col-sm-8 col-xs-8" >
-                        	<input class="form-control col-md-6 col-xs-6" name="ip_addr" required="required" type="text" value="{{server.pxe_ip}}" placeholder="{{server.pxe_ip}}">
+                            <input class="form-control col-md-6 col-xs-6" name="ip_addr" required="required" type="text" value="{{server.pxe_ip}}" placeholder="{{server.pxe_ip}}">
                         </div>
                   </div>
 
@@ -53,16 +76,21 @@
                         <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-8 col-xs-8" >
-                        	<input class="form-control col-md-6 col-xs-6" name="mac_addr" required="required" type="passwrod" value="{{server.pxe_mac}}">
+                            <input class="form-control col-md-6 col-xs-6" name="mac_addr" required="required" type="passwrod" value="{{server.pxe_mac}}">
                         </div>
                       </div>
 
-					  <div class="col-md-6 col-sm-6 col-xs-6 form-group" >
+                      <div class="col-md-6 col-sm-6 col-xs-6 form-group" >
                         <label class="control-label col-md-4 col-sm-4 col-xs-4 text-right">Profile
                         <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-8 col-xs-8" >
-                        	<input class="form-control col-md-6 col-xs-6" name="profile" required="required" type="passwrod">
+                          <select class="form-control" name="profile" required="required">
+                            <option value="-1">--请选择--</option>
+                            {% for profile in profiles %}
+                            <option value="{{profile}}">{{profile}}</option>
+                            {% endfor %}
+                          </select>
                         </div>
                       </div>
 
@@ -71,7 +99,7 @@
                       <!--   <span class="required">*</span> -->
                         </label>
                         <div class="col-md-10 col-sm-10 col-xs-10">
-                        		 <textarea id="message" class="form-control" name="kopts" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100"  data-parsley-validation-threshold="10"></textarea>
+                                 <textarea id="message" class="form-control" name="kopts" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100"  data-parsley-validation-threshold="10"></textarea>
                         </div>
                       </div>
                       <div class="ln_solid"></div>
@@ -82,9 +110,12 @@
                         </div>
                       </div>
                     </form>
-{% endblock %}
+                  {% endblock %}
+        </div>
+        <!-- /page content -->
 
-    {% block css %}
+      </div>
+  </div>
     <!-- jQuery -->
     <script src="{%static 'vendors/jquery/dist/jquery.min.js'%}"></script>
     <!-- Bootstrap -->
@@ -97,6 +128,12 @@
     <script src="{%static 'vendors/bootstrap-progressbar/bootstrap-progressbar.min.js'%}"></script>
     <!-- iCheck -->
     <script src="{%static 'vendors/iCheck/icheck.min.js'%}"></script>
+
+    <script src="{%static 'layer/layer.js'%}"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="{%static 'build/js/custom.min.js'%}"></script>
+
     <!-- bootstrap-daterangepicker -->
     <script src="{%static 'vendors/moment/min/moment.min.js'%}"></script>
     <script src="{%static 'vendors/bootstrap-daterangepicker/daterangepicker.js'%}"></script>
@@ -117,7 +154,27 @@
     <!-- jQuery autocomplete -->
     <script src="{%static 'vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js'%}"></script>
     <!-- starrr -->
-    <script src="{%static 'vendors/starrr/dist/starrr.js'%}"></script>
-    <!-- Custom Theme Scripts -->
-    <script src="{%static 'build/js/custom.min.js'%}"></script>
+    <script src="{%static 'vendors/starrr/dist/starrr.js'%}"></script> 
+
+    <script type="text/javascript">
+      function detail(title,sn,width,height,url,fun){   
+          var index= layer.open({
+            type: 2,
+            shade: false,
+            title: title,
+            maxmin: true,
+            shadeClose: true, //点击遮罩关闭层
+            // area : [ width,height],
+            content: url + fun + sn
+          });
+          layer.full(index);
+          // layer.setTop(index);
+      }
+    </script>
+
+    {% block css %}
+
     {% endblock %}
+    
+  </body>
+</html>

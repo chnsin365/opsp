@@ -3318,3 +3318,1212 @@ Not Found: /installation/server/edit/68b329da9893e34099c7d8ad5cb9c940/
 [25/Jun/2017 20:22:55] "GET /static/layer/layer.js HTTP/1.1" 304 0
 [25/Jun/2017 20:22:55] "GET /static/build/js/custom.min.js HTTP/1.1" 304 0
 [25/Jun/2017 20:22:56] "GET /static/layer/skin/default/layer.css?v=3.0.3303 HTTP/1.1" 304 0
+[26/Jun/2017 09:13:22] "GET / HTTP/1.1" 200 48655
+[26/Jun/2017 09:13:22] "GET /static/vendors/bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 200 121200
+[26/Jun/2017 09:13:22] "GET /static/vendors/font-awesome/css/font-awesome.min.css HTTP/1.1" 200 29063
+[26/Jun/2017 09:13:22] "GET /static/vendors/nprogress/nprogress.css HTTP/1.1" 200 1458
+[26/Jun/2017 09:13:22] "GET /static/build/css/custom.min.css HTTP/1.1" 200 62701
+[26/Jun/2017 09:13:22] "GET /static/vendors/iCheck/skins/flat/green.css HTTP/1.1" 200 1317
+[26/Jun/2017 09:13:22] "GET /static/vendors/jqvmap/dist/jqvmap.min.css HTTP/1.1" 200 621
+[26/Jun/2017 09:13:22] "GET /static/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css HTTP/1.1" 200 5014
+[26/Jun/2017 09:13:22] "GET /static/vendors/bootstrap-daterangepicker/daterangepicker.css HTTP/1.1" 200 8133
+[26/Jun/2017 09:13:22] "GET /static/images/img.jpg HTTP/1.1" 200 4077
+[26/Jun/2017 09:13:22] "GET /static/vendors/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 HTTP/1.1" 200 71896
+[26/Jun/2017 09:13:23] "GET /static/vendors/jquery/dist/jquery.min.js HTTP/1.1" 200 85578
+[26/Jun/2017 09:13:23] "GET /static/vendors/bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 200 36868
+[26/Jun/2017 09:13:23] "GET /static/vendors/nprogress/nprogress.js HTTP/1.1" 200 11565
+[26/Jun/2017 09:13:23] "GET /static/vendors/fastclick/lib/fastclick.js HTTP/1.1" 200 25965
+[26/Jun/2017 09:13:23] "GET /static/layer/layer.js HTTP/1.1" 200 21616
+[26/Jun/2017 09:13:23] "GET /static/build/js/custom.min.js HTTP/1.1" 200 117932
+[26/Jun/2017 09:13:23] "GET /static/vendors/gauge.js/dist/gauge.min.js HTTP/1.1" 200 17848
+[26/Jun/2017 09:13:23] "GET /static/vendors/Chart.js/dist/Chart.min.js HTTP/1.1" 200 147169
+[26/Jun/2017 09:13:23] "GET /static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js HTTP/1.1" 200 2333
+[26/Jun/2017 09:13:23] "GET /static/vendors/skycons/skycons.js HTTP/1.1" 200 19025
+[26/Jun/2017 09:13:23] "GET /static/vendors/iCheck/icheck.min.js HTTP/1.1" 200 4931
+[26/Jun/2017 09:13:23] "GET /static/vendors/Flot/jquery.flot.js HTTP/1.1" 200 122971
+[26/Jun/2017 09:13:23] "GET /static/vendors/Flot/jquery.flot.pie.js HTTP/1.1" 200 23809
+[26/Jun/2017 09:13:23] "GET /static/vendors/Flot/jquery.flot.time.js HTTP/1.1" 200 11768
+[26/Jun/2017 09:13:23] "GET /static/vendors/Flot/jquery.flot.stack.js HTTP/1.1" 200 7090
+[26/Jun/2017 09:13:23] "GET /static/vendors/Flot/jquery.flot.resize.js HTTP/1.1" 200 3314
+[26/Jun/2017 09:13:23] "GET /static/vendors/flot.orderbars/js/jquery.flot.orderBars.js HTTP/1.1" 200 6919
+[26/Jun/2017 09:13:23] "GET /static/vendors/flot-spline/js/jquery.flot.spline.min.js HTTP/1.1" 200 1756
+[26/Jun/2017 09:13:23] "GET /static/vendors/flot.curvedlines/curvedLines.js HTTP/1.1" 200 16821
+[26/Jun/2017 09:13:23] "GET /static/vendors/DateJS/build/date.js HTTP/1.1" 200 129966
+[26/Jun/2017 09:13:23] "GET /static/vendors/jqvmap/dist/jquery.vmap.js HTTP/1.1" 200 34068
+[26/Jun/2017 09:13:23] "GET /static/vendors/jqvmap/dist/maps/jquery.vmap.world.js HTTP/1.1" 200 60599
+[26/Jun/2017 09:13:23] "GET /static/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js HTTP/1.1" 200 2386
+[26/Jun/2017 09:13:23] "GET /static/vendors/moment/min/moment.min.js HTTP/1.1" 200 46645
+[26/Jun/2017 09:13:23] "GET /static/vendors/bootstrap-daterangepicker/daterangepicker.js HTTP/1.1" 200 69708
+[26/Jun/2017 09:13:23] "GET /static/layer/skin/default/layer.css?v=3.0.3303 HTTP/1.1" 200 14499
+[26/Jun/2017 09:13:23] "GET /static/vendors/iCheck/skins/flat/green@2x.png HTTP/1.1" 200 3117
+Not Found: /favicon.ico
+[26/Jun/2017 09:13:24] "GET /favicon.ico HTTP/1.1" 404 2526
+[26/Jun/2017 09:13:26] "GET /installation/servers/ HTTP/1.1" 200 21145
+[26/Jun/2017 09:13:26] "GET /static/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css HTTP/1.1" 200 4216
+[26/Jun/2017 09:13:26] "GET /static/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css HTTP/1.1" 200 1735
+[26/Jun/2017 09:13:26] "GET /static/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css HTTP/1.1" 200 328
+[26/Jun/2017 09:13:26] "GET /static/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css HTTP/1.1" 200 3921
+[26/Jun/2017 09:13:26] "GET /static/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css HTTP/1.1" 200 414
+[26/Jun/2017 09:13:26] "GET /static/vendors/datatables.net/js/jquery.dataTables.min.js HTTP/1.1" 200 82638
+[26/Jun/2017 09:13:26] "GET /static/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js HTTP/1.1" 200 1960
+[26/Jun/2017 09:13:26] "GET /static/vendors/datatables.net-buttons/js/dataTables.buttons.min.js HTTP/1.1" 200 15661
+[26/Jun/2017 09:13:26] "GET /static/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js HTTP/1.1" 200 939
+[26/Jun/2017 09:13:26] "GET /static/vendors/datatables.net-buttons/js/buttons.flash.min.js HTTP/1.1" 200 21956
+[26/Jun/2017 09:13:26] "GET /static/vendors/datatables.net-buttons/js/buttons.html5.min.js HTTP/1.1" 200 20463
+[26/Jun/2017 09:13:26] "GET /static/vendors/datatables.net-buttons/js/buttons.print.min.js HTTP/1.1" 200 1694
+[26/Jun/2017 09:13:26] "GET /static/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js HTTP/1.1" 200 6652
+[26/Jun/2017 09:13:26] "GET /static/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js HTTP/1.1" 200 7094
+[26/Jun/2017 09:13:26] "GET /static/vendors/datatables.net-responsive/js/dataTables.responsive.min.js HTTP/1.1" 200 11056
+[26/Jun/2017 09:13:26] "GET /static/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js HTTP/1.1" 200 1892
+[26/Jun/2017 09:13:26] "GET /static/vendors/datatables.net-scroller/js/dataTables.scroller.min.js HTTP/1.1" 200 11373
+[26/Jun/2017 09:13:26] "GET /static/vendors/jszip/dist/jszip.min.js HTTP/1.1" 200 80025
+[26/Jun/2017 09:13:26] "GET /static/vendors/pdfmake/build/pdfmake.min.js HTTP/1.1" 200 426274
+[26/Jun/2017 09:13:26] "GET /static/vendors/pdfmake/build/vfs_fonts.js HTTP/1.1" 200 567638
+[26/Jun/2017 09:13:27] "GET /static/vendors/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18028
+[26/Jun/2017 09:13:33] "GET /static/layer/skin/default/loading-1.gif HTTP/1.1" 200 701
+[26/Jun/2017 09:13:33] "GET /static/layer/skin/default/icon.png HTTP/1.1" 200 11493
+[26/Jun/2017 09:13:33] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status HTTP/1.1" 301 0
+[26/Jun/2017 09:13:33] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5424
+[26/Jun/2017 09:13:36] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5424
+[26/Jun/2017 09:21:08] "GET /installation/servers/ HTTP/1.1" 200 36895
+[26/Jun/2017 09:21:25] "GET /installation/server/fc160deb0ec83f404a83079e9062406c HTTP/1.1" 301 0
+[26/Jun/2017 09:21:25] "GET /installation/server/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 17194
+[26/Jun/2017 09:21:35] "GET /installation/server/fc260deb0ec83f404a83079e9062406c HTTP/1.1" 301 0
+[26/Jun/2017 09:21:35] "GET /installation/server/fc260deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 17193
+[26/Jun/2017 09:21:41] "GET /installation/server/fc360deb0ec83f404a83079e9062406c HTTP/1.1" 301 0
+[26/Jun/2017 09:21:41] "GET /installation/server/fc360deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 17194
+[26/Jun/2017 09:21:54] "GET /installation/server/fc360deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 17194
+[26/Jun/2017 09:21:58] "GET /installation/server/fc460deb0ec83f404a83079e9062406c HTTP/1.1" 301 0
+[26/Jun/2017 09:21:58] "GET /installation/server/fc460deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 17194
+[26/Jun/2017 09:22:02] "GET /installation/server/fc460deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 17194
+[26/Jun/2017 09:22:13] "GET /installation/server/raid/fc160deb0ec83f404a83079e9062406c/raid_status HTTP/1.1" 301 0
+[26/Jun/2017 09:22:16] "GET /installation/server/raid/fc160deb0ec83f404a83079e9062406c/raid_status/ HTTP/1.1" 200 4191
+[26/Jun/2017 09:22:23] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5454
+[26/Jun/2017 09:22:31] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5454
+[26/Jun/2017 09:22:34] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/boot_to_disk/ HTTP/1.1" 200 5454
+[26/Jun/2017 09:22:40] "GET /installation/server/ipmi/fc360deb0ec83f404a83079e9062406c/chassis_status HTTP/1.1" 301 0
+[26/Jun/2017 09:22:50] "GET /installation/server/status/fc160deb0ec83f404a83079e9062406c HTTP/1.1" 301 0
+[26/Jun/2017 09:22:50] "GET /installation/server/status/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 5253
+[26/Jun/2017 09:22:50] "GET /static/vendors/select2/dist/css/select2.min.css HTTP/1.1" 200 15196
+[26/Jun/2017 09:22:50] "GET /static/vendors/google-code-prettify/bin/prettify.min.css HTTP/1.1" 200 675
+[26/Jun/2017 09:22:50] "GET /static/vendors/switchery/dist/switchery.min.css HTTP/1.1" 200 682
+[26/Jun/2017 09:22:50] "GET /static/vendors/starrr/dist/starrr.css HTTP/1.1" 200 162
+[26/Jun/2017 09:22:50] "GET /static/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js HTTP/1.1" 200 5448
+[26/Jun/2017 09:22:50] "GET /static/vendors/jquery.hotkeys/jquery.hotkeys.js HTTP/1.1" 200 5019
+[26/Jun/2017 09:22:50] "GET /static/vendors/google-code-prettify/src/prettify.js HTTP/1.1" 200 63320
+[26/Jun/2017 09:22:50] "GET /static/vendors/jquery.tagsinput/src/jquery.tagsinput.js HTTP/1.1" 200 12345
+[26/Jun/2017 09:22:50] "GET /static/vendors/switchery/dist/switchery.min.js HTTP/1.1" 200 24437
+[26/Jun/2017 09:22:50] "GET /static/vendors/select2/dist/js/select2.full.min.js HTTP/1.1" 200 75005
+[26/Jun/2017 09:22:50] "GET /static/vendors/parsleyjs/dist/parsley.min.js HTTP/1.1" 200 40946
+[26/Jun/2017 09:22:50] "GET /static/vendors/autosize/dist/autosize.min.js HTTP/1.1" 200 3274
+[26/Jun/2017 09:22:50] "GET /static/vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js HTTP/1.1" 200 13062
+[26/Jun/2017 09:22:50] "GET /static/vendors/starrr/dist/starrr.js HTTP/1.1" 200 2943
+[26/Jun/2017 09:23:00] "GET /installation/server/ipmi/fc360deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5454
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 09:13:12
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[26/Jun/2017 10:13:43] "GET /installation/server/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 17194
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 09:34:45
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 11:04:01
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 11:07:12
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 11:07:15
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 11:07:57
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 11:08:08
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[26/Jun/2017 11:08:16] "GET /installation/servers/ HTTP/1.1" 200 36895
+[26/Jun/2017 11:08:16] "GET /static/vendors/font-awesome/css/font-awesome.min.css HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/vendors/nprogress/nprogress.css HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/vendors/bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/build/css/custom.min.css HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/vendors/iCheck/skins/flat/green.css HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/vendors/jqvmap/dist/jqvmap.min.css HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/vendors/bootstrap-daterangepicker/daterangepicker.css HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/vendors/jquery/dist/jquery.min.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/vendors/bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/vendors/fastclick/lib/fastclick.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/vendors/nprogress/nprogress.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/layer/layer.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/build/js/custom.min.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/vendors/iCheck/icheck.min.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/vendors/datatables.net/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/vendors/datatables.net-buttons/js/dataTables.buttons.min.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/vendors/datatables.net-buttons/js/buttons.flash.min.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/vendors/datatables.net-buttons/js/buttons.html5.min.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/vendors/datatables.net-buttons/js/buttons.print.min.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/vendors/datatables.net-responsive/js/dataTables.responsive.min.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/vendors/datatables.net-scroller/js/dataTables.scroller.min.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/vendors/jszip/dist/jszip.min.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/vendors/pdfmake/build/pdfmake.min.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/vendors/pdfmake/build/vfs_fonts.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/images/img.jpg HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/layer/skin/default/layer.css?v=3.0.3303 HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/vendors/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 HTTP/1.1" 304 0
+[26/Jun/2017 11:08:16] "GET /static/vendors/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 304 0
+[26/Jun/2017 11:08:23] "GET /static/layer/skin/default/loading-1.gif HTTP/1.1" 304 0
+[26/Jun/2017 11:08:23] "GET /static/layer/skin/default/icon.png HTTP/1.1" 304 0
+[26/Jun/2017 11:08:23] "GET /installation/server/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 17194
+[26/Jun/2017 11:08:23] "GET /static/vendors/Chart.js/dist/Chart.min.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:23] "GET /static/vendors/skycons/skycons.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:23] "GET /static/vendors/gauge.js/dist/gauge.min.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:23] "GET /static/vendors/Flot/jquery.flot.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:23] "GET /static/vendors/Flot/jquery.flot.pie.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:23] "GET /static/vendors/Flot/jquery.flot.time.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:23] "GET /static/vendors/Flot/jquery.flot.resize.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:23] "GET /static/vendors/flot.orderbars/js/jquery.flot.orderBars.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:23] "GET /static/vendors/DateJS/build/date.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:23] "GET /static/vendors/flot.curvedlines/curvedLines.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:23] "GET /static/vendors/flot-spline/js/jquery.flot.spline.min.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:23] "GET /static/vendors/jqvmap/dist/jquery.vmap.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:23] "GET /static/vendors/Flot/jquery.flot.stack.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:23] "GET /static/vendors/jqvmap/dist/maps/jquery.vmap.world.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:23] "GET /static/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:23] "GET /static/vendors/moment/min/moment.min.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:23] "GET /static/vendors/bootstrap-daterangepicker/daterangepicker.js HTTP/1.1" 304 0
+[26/Jun/2017 11:08:28] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c HTTP/1.1" 301 0
+[26/Jun/2017 11:08:28] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 3374
+[26/Jun/2017 11:13:38] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 9689
+[26/Jun/2017 11:13:38] "GET /static/vendors/google-code-prettify/bin/prettify.min.css HTTP/1.1" 304 0
+[26/Jun/2017 11:13:38] "GET /static/vendors/select2/dist/css/select2.min.css HTTP/1.1" 304 0
+[26/Jun/2017 11:13:38] "GET /static/vendors/switchery/dist/switchery.min.css HTTP/1.1" 304 0
+[26/Jun/2017 11:13:38] "GET /static/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js HTTP/1.1" 304 0
+[26/Jun/2017 11:13:38] "GET /static/vendors/jquery.hotkeys/jquery.hotkeys.js HTTP/1.1" 304 0
+[26/Jun/2017 11:13:38] "GET /static/vendors/starrr/dist/starrr.css HTTP/1.1" 304 0
+[26/Jun/2017 11:13:38] "GET /static/vendors/google-code-prettify/src/prettify.js HTTP/1.1" 304 0
+[26/Jun/2017 11:13:38] "GET /static/vendors/jquery.tagsinput/src/jquery.tagsinput.js HTTP/1.1" 304 0
+[26/Jun/2017 11:13:38] "GET /static/vendors/switchery/dist/switchery.min.js HTTP/1.1" 304 0
+[26/Jun/2017 11:13:38] "GET /static/vendors/select2/dist/js/select2.full.min.js HTTP/1.1" 304 0
+[26/Jun/2017 11:13:38] "GET /static/vendors/parsleyjs/dist/parsley.min.js HTTP/1.1" 304 0
+[26/Jun/2017 11:13:38] "GET /static/vendors/autosize/dist/autosize.min.js HTTP/1.1" 304 0
+[26/Jun/2017 11:13:38] "GET /static/vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js HTTP/1.1" 304 0
+[26/Jun/2017 11:13:38] "GET /static/vendors/starrr/dist/starrr.js HTTP/1.1" 304 0
+[26/Jun/2017 11:13:44] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 20862
+Not Found: /installation/server/install/fc160deb0ec83f404a83079e9062406c/images/user.png
+[26/Jun/2017 11:13:44] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/images/user.png HTTP/1.1" 404 5034
+[26/Jun/2017 11:18:21] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4387
+[26/Jun/2017 11:19:00] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4386
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 11:08:10
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 11:21:30
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 11:22:06
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 11:22:08
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 11:22:52
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 11:23:21
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[26/Jun/2017 12:18:54] "GET /installation/servers/ HTTP/1.1" 200 36895
+[26/Jun/2017 12:18:57] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4392
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 11:25:17
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 12:26:45
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 12:27:05
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 12:27:56
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 12:30:20
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[26/Jun/2017 12:32:17] "GET /installation/servers/ HTTP/1.1" 200 36895
+[26/Jun/2017 12:32:20] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4481
+[26/Jun/2017 12:32:22] "GET /installation/server/system/cobbler_test HTTP/1.1" 301 0
+Internal Server Error: /installation/server/system/cobbler_test/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/opsp/ops/installation/views.py", line 242, in view_system
+    ret_data = cobbler.get_system(server.pxe_mac)
+NameError: global name 'server' is not defined
+[26/Jun/2017 12:32:22] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 500 64100
+[26/Jun/2017 12:32:30] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4481
+Internal Server Error: /installation/server/system/cobbler_test/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/opsp/ops/installation/views.py", line 242, in view_system
+    ret_data = cobbler.get_system(server.pxe_mac)
+NameError: global name 'server' is not defined
+[26/Jun/2017 12:32:32] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 500 64289
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 12:32:10
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[26/Jun/2017 12:33:36] "GET /installation/servers/ HTTP/1.1" 200 36895
+[26/Jun/2017 12:33:39] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4481
+Internal Server Error: /installation/server/system/cobbler_test/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/opsp/ops/installation/views.py", line 243, in view_system
+    return render(request,'installation/tip.html',locals())
+  File "/usr/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/usr/lib/python2.7/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/usr/lib/python2.7/site-packages/django/template/loader.py", line 25, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+TemplateDoesNotExist: installation/tip.html
+[26/Jun/2017 12:33:40] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 500 94300
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 12:33:32
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[26/Jun/2017 12:34:16] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4481
+[26/Jun/2017 12:34:17] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 4721
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 12:34:11
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[26/Jun/2017 12:35:38] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 12:35:50] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 12:36:25] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 12:36:33] "GET /installation/servers/ HTTP/1.1" 200 36895
+[26/Jun/2017 12:36:36] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4481
+[26/Jun/2017 12:36:37] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 12:41:32] "GET /installation/servers/ HTTP/1.1" 200 36895
+[26/Jun/2017 12:41:35] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4629
+[26/Jun/2017 12:41:37] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 12:45:19] "GET /installation/servers/ HTTP/1.1" 200 36895
+[26/Jun/2017 12:45:22] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4566
+[26/Jun/2017 12:48:21] "GET /installation/servers/ HTTP/1.1" 200 36895
+[26/Jun/2017 12:48:24] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4639
+[26/Jun/2017 12:48:25] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 12:49:17] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 12:49:45] "GET /static/vendors/bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 200 542194
+[26/Jun/2017 12:49:56] "GET /installation/servers/ HTTP/1.1" 200 36895
+[26/Jun/2017 12:49:57] "GET /static/vendors/pdfmake/build/pdfmake.min.js.map HTTP/1.1" 200 2258934
+[26/Jun/2017 12:50:09] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4639
+[26/Jun/2017 12:50:12] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 12:55:11] "GET /installation/servers/ HTTP/1.1" 200 36895
+[26/Jun/2017 12:55:18] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4802
+[26/Jun/2017 12:55:19] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 12:56:19] "GET /installation/servers/ HTTP/1.1" 200 36895
+[26/Jun/2017 12:56:23] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4809
+[26/Jun/2017 12:56:26] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 13:01:39] "GET /installation/servers/ HTTP/1.1" 200 36895
+[26/Jun/2017 13:01:44] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4646
+[26/Jun/2017 13:01:46] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 13:04:33] "GET /installation/servers/ HTTP/1.1" 200 36895
+[26/Jun/2017 13:04:33] "GET /static/vendors/bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/vendors/nprogress/nprogress.css HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/build/css/custom.min.css HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/vendors/font-awesome/css/font-awesome.min.css HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/vendors/iCheck/skins/flat/green.css HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/vendors/jqvmap/dist/jqvmap.min.css HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/vendors/bootstrap-daterangepicker/daterangepicker.css HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/vendors/jquery/dist/jquery.min.js HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/vendors/bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/vendors/fastclick/lib/fastclick.js HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/vendors/nprogress/nprogress.js HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/layer/layer.js HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/build/js/custom.min.js HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/vendors/iCheck/icheck.min.js HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/vendors/datatables.net/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/vendors/datatables.net-buttons/js/dataTables.buttons.min.js HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/vendors/datatables.net-buttons/js/buttons.flash.min.js HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/vendors/datatables.net-buttons/js/buttons.html5.min.js HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/vendors/datatables.net-buttons/js/buttons.print.min.js HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/vendors/datatables.net-responsive/js/dataTables.responsive.min.js HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/vendors/datatables.net-scroller/js/dataTables.scroller.min.js HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/vendors/jszip/dist/jszip.min.js HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/vendors/pdfmake/build/pdfmake.min.js HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/vendors/pdfmake/build/vfs_fonts.js HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/images/img.jpg HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/layer/skin/default/layer.css?v=3.0.3303 HTTP/1.1" 304 0
+[26/Jun/2017 13:04:33] "GET /static/vendors/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 HTTP/1.1" 304 0
+[26/Jun/2017 13:04:34] "GET /static/vendors/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 304 0
+[26/Jun/2017 13:04:36] "GET /static/layer/skin/default/loading-1.gif HTTP/1.1" 304 0
+[26/Jun/2017 13:04:36] "GET /static/layer/skin/default/icon.png HTTP/1.1" 304 0
+[26/Jun/2017 13:04:36] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4520
+[26/Jun/2017 13:04:38] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 13:05:15] "GET /installation/servers/ HTTP/1.1" 200 36895
+[26/Jun/2017 13:05:19] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4520
+[26/Jun/2017 13:05:21] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 13:10:16] "GET /installation/servers/ HTTP/1.1" 200 36895
+[26/Jun/2017 13:10:19] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4552
+[26/Jun/2017 13:10:21] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 13:10:50] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4552
+[26/Jun/2017 13:10:52] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 13:12:15] "GET /installation/servers/ HTTP/1.1" 200 36895
+[26/Jun/2017 13:12:18] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4555
+[26/Jun/2017 13:12:21] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 13:12:31] "GET /installation/servers/ HTTP/1.1" 200 36895
+[26/Jun/2017 13:12:34] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4555
+[26/Jun/2017 13:12:35] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 13:14:46] "GET /installation/servers/ HTTP/1.1" 200 36895
+[26/Jun/2017 13:14:49] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4563
+[26/Jun/2017 13:14:50] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 13:15:12] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5531
+[26/Jun/2017 13:15:36] "GET /installation/server/raid/fc160deb0ec83f404a83079e9062406c/raid_status/ HTTP/1.1" 200 4191
+[26/Jun/2017 13:15:47] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4563
+[26/Jun/2017 13:15:53] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 13:16:13] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 9771
+[26/Jun/2017 13:16:13] "GET /static/vendors/google-code-prettify/bin/prettify.min.css HTTP/1.1" 304 0
+[26/Jun/2017 13:16:13] "GET /static/vendors/select2/dist/css/select2.min.css HTTP/1.1" 304 0
+[26/Jun/2017 13:16:13] "GET /static/vendors/switchery/dist/switchery.min.css HTTP/1.1" 304 0
+[26/Jun/2017 13:16:13] "GET /static/vendors/starrr/dist/starrr.css HTTP/1.1" 304 0
+[26/Jun/2017 13:16:13] "GET /static/vendors/moment/min/moment.min.js HTTP/1.1" 304 0
+[26/Jun/2017 13:16:13] "GET /static/vendors/bootstrap-daterangepicker/daterangepicker.js HTTP/1.1" 304 0
+[26/Jun/2017 13:16:13] "GET /static/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js HTTP/1.1" 304 0
+[26/Jun/2017 13:16:13] "GET /static/vendors/jquery.hotkeys/jquery.hotkeys.js HTTP/1.1" 304 0
+[26/Jun/2017 13:16:13] "GET /static/vendors/google-code-prettify/src/prettify.js HTTP/1.1" 304 0
+[26/Jun/2017 13:16:13] "GET /static/vendors/jquery.tagsinput/src/jquery.tagsinput.js HTTP/1.1" 304 0
+[26/Jun/2017 13:16:13] "GET /static/vendors/switchery/dist/switchery.min.js HTTP/1.1" 304 0
+[26/Jun/2017 13:16:13] "GET /static/vendors/select2/dist/js/select2.full.min.js HTTP/1.1" 304 0
+[26/Jun/2017 13:16:13] "GET /static/vendors/autosize/dist/autosize.min.js HTTP/1.1" 304 0
+[26/Jun/2017 13:16:13] "GET /static/vendors/parsleyjs/dist/parsley.min.js HTTP/1.1" 304 0
+[26/Jun/2017 13:16:13] "GET /static/vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js HTTP/1.1" 304 0
+[26/Jun/2017 13:16:13] "GET /static/vendors/starrr/dist/starrr.js HTTP/1.1" 304 0
+[26/Jun/2017 13:16:21] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 9771
+[26/Jun/2017 13:16:22] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 9771
+[26/Jun/2017 13:17:41] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4563
+[26/Jun/2017 13:17:42] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 9771
+[26/Jun/2017 13:19:13] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4563
+[26/Jun/2017 13:19:15] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 13:20:23] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4563
+[26/Jun/2017 13:20:25] "GET /installation/server/install/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 9771
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 12:35:29
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 13:24:10
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[26/Jun/2017 13:25:27] "GET /installation/servers/ HTTP/1.1" 200 36895
+[26/Jun/2017 13:25:30] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4778
+[26/Jun/2017 13:25:32] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c HTTP/1.1" 301 0
+[26/Jun/2017 13:25:32] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 9986
+[26/Jun/2017 13:25:50] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 9986
+Internal Server Error: /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/opsp/ops/installation/views.py", line 236, in add_system
+    return render(request,'installation/add_system.html',locals())
+  File "/usr/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/usr/lib/python2.7/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/usr/lib/python2.7/site-packages/django/template/loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "/usr/lib/python2.7/site-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/usr/lib/python2.7/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/usr/lib/python2.7/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/usr/lib/python2.7/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 574, in invalid_block_tag
+    "or load this tag?" % (token.lineno, command)
+TemplateSyntaxError: Invalid block tag on line 2: 'static'. Did you forget to register or load this tag?
+[26/Jun/2017 13:27:53] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 500 132435
+[26/Jun/2017 13:28:19] "GET /installation/servers/ HTTP/1.1" 200 36895
+[26/Jun/2017 13:28:21] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4778
+[26/Jun/2017 13:28:22] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 6419
+[26/Jun/2017 13:30:23] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 13:30:52] "GET /installation/servers/ HTTP/1.1" 200 36895
+[26/Jun/2017 13:30:55] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4812
+[26/Jun/2017 13:30:56] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 10020
+[26/Jun/2017 13:31:15] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 13:32:15] "GET /installation/servers/ HTTP/1.1" 200 36895
+[26/Jun/2017 13:32:18] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4811
+[26/Jun/2017 13:32:20] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 13:32:30] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 10019
+[26/Jun/2017 13:32:46] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 10019
+[26/Jun/2017 13:32:47] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 10019
+[26/Jun/2017 13:33:12] "GET /installation/servers/ HTTP/1.1" 200 36895
+[26/Jun/2017 13:33:14] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4845
+[26/Jun/2017 13:33:16] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 10053
+[26/Jun/2017 13:33:22] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 13:33:50] "GET /installation/servers/ HTTP/1.1" 200 36895
+[26/Jun/2017 13:33:53] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4811
+[26/Jun/2017 13:33:55] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 10019
+[26/Jun/2017 13:34:01] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 13:34:12] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 10019
+[26/Jun/2017 13:38:07] "GET /installation/servers/ HTTP/1.1" 200 36895
+[26/Jun/2017 13:38:10] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4811
+[26/Jun/2017 13:38:12] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 8861
+[26/Jun/2017 13:39:01] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 8078
+[26/Jun/2017 13:40:24] "GET /installation/servers/ HTTP/1.1" 200 36895
+[26/Jun/2017 13:40:27] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4811
+[26/Jun/2017 13:40:28] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 8026
+[26/Jun/2017 13:41:14] "GET /installation/servers/ HTTP/1.1" 200 36895
+[26/Jun/2017 13:41:17] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4811
+[26/Jun/2017 13:41:18] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 7969
+[26/Jun/2017 13:42:15] "GET /installation/servers/ HTTP/1.1" 200 36895
+[26/Jun/2017 13:42:18] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4811
+[26/Jun/2017 13:42:20] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 7971
+[26/Jun/2017 13:43:09] "GET /installation/servers/ HTTP/1.1" 200 36895
+[26/Jun/2017 13:43:12] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4811
+[26/Jun/2017 13:43:14] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 7896
+[26/Jun/2017 13:43:57] "GET /installation/servers/ HTTP/1.1" 200 36895
+[26/Jun/2017 13:44:00] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4811
+[26/Jun/2017 13:44:01] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 7798
+[26/Jun/2017 13:44:32] "GET /installation/servers/ HTTP/1.1" 200 36895
+[26/Jun/2017 13:44:35] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4811
+[26/Jun/2017 13:44:36] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 7767
+[26/Jun/2017 13:46:47] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4811
+[26/Jun/2017 13:46:49] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 7696
+[26/Jun/2017 13:47:29] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 7777
+[26/Jun/2017 13:48:44] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 13:48:58] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 13:49:05] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 7777
+[26/Jun/2017 13:49:17] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 7777
+[26/Jun/2017 13:49:51] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4811
+[26/Jun/2017 13:50:02] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4811
+[26/Jun/2017 13:50:07] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 7777
+[26/Jun/2017 13:50:56] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 13:51:05] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 7777
+[26/Jun/2017 13:51:09] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 13:51:15] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 7777
+[26/Jun/2017 13:51:35] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 13:51:39] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 7777
+[26/Jun/2017 13:52:04] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5454
+[26/Jun/2017 13:52:09] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5454
+[26/Jun/2017 13:52:14] "GET /installation/server/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 17194
+[26/Jun/2017 13:52:14] "GET /static/vendors/Chart.js/dist/Chart.min.js HTTP/1.1" 304 0
+[26/Jun/2017 13:52:14] "GET /static/vendors/gauge.js/dist/gauge.min.js HTTP/1.1" 304 0
+[26/Jun/2017 13:52:14] "GET /static/vendors/skycons/skycons.js HTTP/1.1" 304 0
+[26/Jun/2017 13:52:14] "GET /static/vendors/Flot/jquery.flot.js HTTP/1.1" 304 0
+[26/Jun/2017 13:52:14] "GET /static/vendors/Flot/jquery.flot.pie.js HTTP/1.1" 304 0
+[26/Jun/2017 13:52:14] "GET /static/vendors/Flot/jquery.flot.time.js HTTP/1.1" 304 0
+[26/Jun/2017 13:52:14] "GET /static/vendors/Flot/jquery.flot.stack.js HTTP/1.1" 304 0
+[26/Jun/2017 13:52:14] "GET /static/vendors/Flot/jquery.flot.resize.js HTTP/1.1" 304 0
+[26/Jun/2017 13:52:14] "GET /static/vendors/flot.orderbars/js/jquery.flot.orderBars.js HTTP/1.1" 304 0
+[26/Jun/2017 13:52:14] "GET /static/vendors/flot-spline/js/jquery.flot.spline.min.js HTTP/1.1" 304 0
+[26/Jun/2017 13:52:14] "GET /static/vendors/flot.curvedlines/curvedLines.js HTTP/1.1" 304 0
+[26/Jun/2017 13:52:14] "GET /static/vendors/DateJS/build/date.js HTTP/1.1" 304 0
+[26/Jun/2017 13:52:14] "GET /static/vendors/jqvmap/dist/jquery.vmap.js HTTP/1.1" 304 0
+[26/Jun/2017 13:52:14] "GET /static/vendors/jqvmap/dist/maps/jquery.vmap.world.js HTTP/1.1" 304 0
+[26/Jun/2017 13:52:14] "GET /static/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js HTTP/1.1" 304 0
+[26/Jun/2017 13:52:20] "GET /installation/server/fc260deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 17193
+[26/Jun/2017 13:52:25] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5454
+[26/Jun/2017 13:52:30] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5531
+[26/Jun/2017 13:52:33] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5454
+[26/Jun/2017 13:52:34] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5454
+[26/Jun/2017 13:52:35] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5531
+[26/Jun/2017 13:52:36] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5531
+[26/Jun/2017 13:52:37] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5531
+[26/Jun/2017 13:52:38] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5531
+[26/Jun/2017 13:52:45] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5531
+[26/Jun/2017 13:52:46] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5454
+[26/Jun/2017 13:52:47] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5454
+[26/Jun/2017 13:52:48] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5531
+[26/Jun/2017 13:52:48] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5531
+[26/Jun/2017 13:52:49] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_on/ HTTP/1.1" 200 5531
+[26/Jun/2017 13:52:51] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/boot_to_disk/ HTTP/1.1" 200 5531
+[26/Jun/2017 13:52:54] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/boot_to_pxe/ HTTP/1.1" 200 5454
+[26/Jun/2017 13:52:55] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/boot_to_pxe/ HTTP/1.1" 200 5531
+[26/Jun/2017 13:53:36] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5454
+[26/Jun/2017 13:53:41] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5454
+[26/Jun/2017 13:53:42] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5531
+[26/Jun/2017 13:53:44] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5454
+[26/Jun/2017 13:53:45] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5531
+[26/Jun/2017 13:53:46] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5531
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 13:24:13
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[26/Jun/2017 13:56:31] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5531
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 13:56:00
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+192.168.3.200 Administrator   ===================
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 13:56:41
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[26/Jun/2017 13:56:49] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5454
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 13:56:44
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+192.168.3.200 Administrator   ===================
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 13:57:38
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[26/Jun/2017 13:57:44] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5454
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 13:57:41
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+192.168.3.200 Administrator <type 'unicode'> ===================
+[26/Jun/2017 13:58:02] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5454
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 13:57:59
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+192.168.3.200 Administrator <type 'unicode'> ===================
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 13:58:40
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[26/Jun/2017 13:58:46] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5531
+[26/Jun/2017 13:58:59] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5454
+[26/Jun/2017 13:59:08] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5454
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 13:58:43
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+  ===================
+  ===================
+  ===================
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 13:59:26
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[26/Jun/2017 13:59:32] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5454
+[26/Jun/2017 13:59:50] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5531
+[26/Jun/2017 14:00:01] "POST /installation/post_server_info/ HTTP/1.1" 200 5
+[26/Jun/2017 14:00:09] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5454
+[26/Jun/2017 14:00:52] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5648
+[26/Jun/2017 14:01:43] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5648
+[26/Jun/2017 14:01:50] "GET /installation/server/raid/fc160deb0ec83f404a83079e9062406c/raid_status/ HTTP/1.1" 200 4290
+[26/Jun/2017 14:01:53] "GET /installation/server/raid/fc160deb0ec83f404a83079e9062406c/raid_detail/ HTTP/1.1" 200 11101
+[26/Jun/2017 14:01:54] "GET /installation/server/raid/fc160deb0ec83f404a83079e9062406c/raid_detail/ HTTP/1.1" 200 11101
+[26/Jun/2017 14:01:56] "GET /installation/server/raid/fc160deb0ec83f404a83079e9062406c/raid_disk/ HTTP/1.1" 200 4486
+[26/Jun/2017 14:01:57] "GET /installation/server/raid/fc160deb0ec83f404a83079e9062406c/create_raid/ HTTP/1.1" 200 5901
+[26/Jun/2017 14:02:02] "GET /installation/server/raid/fc160deb0ec83f404a83079e9062406c/delete_raid/ HTTP/1.1" 200 5414
+[26/Jun/2017 14:02:11] "GET /installation/server/raid/fc160deb0ec83f404a83079e9062406c/raid_card/ HTTP/1.1" 200 4254
+[26/Jun/2017 14:02:13] "GET /installation/server/raid/fc160deb0ec83f404a83079e9062406c/delete_raid/ HTTP/1.1" 200 5414
+[26/Jun/2017 14:02:17] "GET /installation/server/raid/fc160deb0ec83f404a83079e9062406c/raid_status/ HTTP/1.1" 200 4290
+[26/Jun/2017 14:02:46] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5648
+[26/Jun/2017 14:02:50] "GET /installation/server/raid/fc160deb0ec83f404a83079e9062406c/raid_status/ HTTP/1.1" 200 4290
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 13:59:29
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+  ===================
+  ===================
+fc160deb0ec83f404a83079e9062406c False
+  ===================
+ ===================
+ ===================
+ ===================
+[26/Jun/2017 14:03:24] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4811
+[26/Jun/2017 14:04:03] "GET /installation/servers/ HTTP/1.1" 200 36897
+[26/Jun/2017 14:04:05] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4811
+[26/Jun/2017 14:04:12] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 14:04:19] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 14:05:13] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 14:05:18] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4766
+[26/Jun/2017 14:05:20] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 14:06:07] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 14:06:12] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4766
+[26/Jun/2017 14:06:13] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 14:06:20] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 7781
+[26/Jun/2017 14:06:33] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4766
+[26/Jun/2017 14:06:35] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 14:07:01] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 7781
+[26/Jun/2017 14:08:05] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4766
+[26/Jun/2017 14:08:07] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 7781
+[26/Jun/2017 14:08:15] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 14:08:21] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 7781
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 14:03:11
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[26/Jun/2017 14:09:16] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 14:10:52] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 14:10:56] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4805
+[26/Jun/2017 14:11:24] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4806
+[26/Jun/2017 14:11:25] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 14:11:35] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 14:11:51] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 7781
+[26/Jun/2017 14:12:02] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 7781
+[26/Jun/2017 14:12:51] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 14:12:55] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4809
+[26/Jun/2017 14:12:57] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 14:13:03] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 7781
+[26/Jun/2017 14:13:27] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 7781
+[26/Jun/2017 14:13:32] "GET /installation/server/raid/fc160deb0ec83f404a83079e9062406c/raid_status/ HTTP/1.1" 200 4290
+[26/Jun/2017 14:13:34] "GET /installation/server/raid/fc160deb0ec83f404a83079e9062406c/delete_raid/ HTTP/1.1" 200 5414
+[26/Jun/2017 14:13:40] "GET /installation/server/raid/fc160deb0ec83f404a83079e9062406c/raid_card/ HTTP/1.1" 200 4254
+[26/Jun/2017 14:13:42] "GET /installation/server/raid/fc160deb0ec83f404a83079e9062406c/create_raid/ HTTP/1.1" 200 5901
+[26/Jun/2017 14:13:47] "GET /installation/server/raid/fc160deb0ec83f404a83079e9062406c/create_raid/ HTTP/1.1" 200 5901
+[26/Jun/2017 14:13:53] "GET /installation/server/raid/fc160deb0ec83f404a83079e9062406c/raid_detail/ HTTP/1.1" 200 11101
+[26/Jun/2017 14:13:57] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5648
+[26/Jun/2017 14:13:59] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c HTTP/1.1" 301 0
+[26/Jun/2017 14:13:59] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 5790
+[26/Jun/2017 14:14:13] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4809
+[26/Jun/2017 14:14:15] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 14:14:22] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 7781
+[26/Jun/2017 14:16:48] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4808
+[26/Jun/2017 14:21:27] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 5146
+[26/Jun/2017 14:21:30] "GET /installation/server/system/cobbler_test/ HTTP/1.1" 200 6646
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 14:09:06
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 14:22:11
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 14:22:18
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 14:23:44
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 14:23:57
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 14:24:01
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 14:29:29
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[26/Jun/2017 14:29:39] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 5136
+[26/Jun/2017 14:29:49] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 5136
+[26/Jun/2017 14:29:51] "GET /installation/server/system/view/cobbler_test HTTP/1.1" 301 0
+[26/Jun/2017 14:29:51] "GET /installation/server/system/view/cobbler_test/ HTTP/1.1" 200 6646
+[26/Jun/2017 14:30:21] "GET /installation/server/system/delete/cobbler_test HTTP/1.1" 301 0
+[26/Jun/2017 14:30:22] "GET /installation/server/system/delete/cobbler_test/ HTTP/1.1" 200 62
+[26/Jun/2017 14:30:44] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5648
+[26/Jun/2017 14:30:47] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_off/ HTTP/1.1" 200 5648
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 14:29:31
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 14:32:36
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 14:35:23
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 14:37:30
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 14:37:39
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[26/Jun/2017 14:38:37] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4403
+[26/Jun/2017 14:38:58] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 7781
+[26/Jun/2017 14:39:02] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 7781
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 14:38:32
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 14:40:44
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[26/Jun/2017 14:42:35] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 8271
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 14:40:47
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 14:48:53
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 14:49:21
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Internal Server Error: /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/opsp/ops/installation/views.py", line 218, in update_ipmi
+    Server.objects.filter(pk=server_id).update(**kwargs)
+  File "/usr/lib/python2.7/site-packages/django/db/models/query.py", line 633, in update
+    query.add_update_values(kwargs)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/subqueries.py", line 125, in add_update_values
+    field = self.get_meta().get_field(name)
+  File "/usr/lib/python2.7/site-packages/django/db/models/options.py", line 614, in get_field
+    raise FieldDoesNotExist('%s has no field named %r' % (self.object_name, field_name))
+FieldDoesNotExist: Server has no field named u'hostname'
+[26/Jun/2017 14:49:57] "POST /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 500 78316
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 14:49:40
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+{u'hostname': u'test_add_system', u'ip_addr': u'192.168.3.100', u'mac_addr': u'F4:CE:46:B9:8D:A0'}
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 14:50:19
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 14:51:56
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 14:51:59
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[26/Jun/2017 14:52:06] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 8281
+[26/Jun/2017 14:52:19] "POST /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 302 0
+[26/Jun/2017 14:52:19] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4403
+[26/Jun/2017 14:52:32] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4403
+[26/Jun/2017 14:52:39] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4403
+[26/Jun/2017 14:52:40] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 8281
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 14:52:01
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[26/Jun/2017 14:55:43] "POST /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 302 0
+[26/Jun/2017 14:55:43] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4403
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 14:55:13
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+{'comment': [], 'result': True} ====================
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 14:57:03
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 14:57:05
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 14:58:05
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[26/Jun/2017 14:58:15] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 8281
+[26/Jun/2017 14:58:27] "POST /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 302 0
+[26/Jun/2017 14:58:27] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4403
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 14:58:07
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+test 192.168.3.100 F4:CE:46:B9:8D:A0  {'comment': [], 'result': True} ====================
+[26/Jun/2017 15:01:00] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 8281
+[26/Jun/2017 15:01:26] "GET /static/vendors/bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 0
+[26/Jun/2017 15:01:47] "POST /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 302 0
+[26/Jun/2017 15:01:47] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4403
+[26/Jun/2017 15:02:23] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4403
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 15:00:53
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+test 192.168.3.100 F4:CE:46:B9:8D:A0  {'comment': [], 'result': True} ====================
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 15:06:40
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 15:06:43
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 15:08:37
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[26/Jun/2017 15:08:58] "GET /installation/servers/ HTTP/1.1" 200 36897
+[26/Jun/2017 15:10:50] "GET /installation/servers/ HTTP/1.1" 200 36897
+[26/Jun/2017 15:10:50] "GET /static/vendors/bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 0
+[26/Jun/2017 15:10:50] "GET /static/vendors/font-awesome/css/font-awesome.min.css HTTP/1.1" 304 0
+[26/Jun/2017 15:10:50] "GET /static/build/css/custom.min.css HTTP/1.1" 304 0
+[26/Jun/2017 15:10:50] "GET /static/vendors/nprogress/nprogress.css HTTP/1.1" 304 0
+[26/Jun/2017 15:10:50] "GET /static/vendors/iCheck/skins/flat/green.css HTTP/1.1" 304 0
+[26/Jun/2017 15:10:50] "GET /static/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css HTTP/1.1" 304 0
+[26/Jun/2017 15:10:50] "GET /static/vendors/jqvmap/dist/jqvmap.min.css HTTP/1.1" 304 0
+[26/Jun/2017 15:10:50] "GET /static/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css HTTP/1.1" 304 0
+[26/Jun/2017 15:10:50] "GET /static/vendors/bootstrap-daterangepicker/daterangepicker.css HTTP/1.1" 304 0
+[26/Jun/2017 15:10:50] "GET /static/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[26/Jun/2017 15:10:50] "GET /static/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css HTTP/1.1" 304 0
+[26/Jun/2017 15:10:50] "GET /static/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[26/Jun/2017 15:10:50] "GET /static/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css HTTP/1.1" 304 0
+[26/Jun/2017 15:10:50] "GET /static/vendors/jquery/dist/jquery.min.js HTTP/1.1" 304 0
+[26/Jun/2017 15:10:50] "GET /static/vendors/bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 0
+[26/Jun/2017 15:10:50] "GET /static/vendors/fastclick/lib/fastclick.js HTTP/1.1" 304 0
+[26/Jun/2017 15:10:50] "GET /static/vendors/nprogress/nprogress.js HTTP/1.1" 304 0
+[26/Jun/2017 15:10:50] "GET /static/layer/layer.js HTTP/1.1" 304 0
+[26/Jun/2017 15:10:50] "GET /static/build/js/custom.min.js HTTP/1.1" 304 0
+[26/Jun/2017 15:10:50] "GET /static/vendors/iCheck/icheck.min.js HTTP/1.1" 304 0
+[26/Jun/2017 15:10:50] "GET /static/vendors/datatables.net/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[26/Jun/2017 15:10:50] "GET /static/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[26/Jun/2017 15:10:50] "GET /static/vendors/datatables.net-buttons/js/dataTables.buttons.min.js HTTP/1.1" 304 0
+[26/Jun/2017 15:10:50] "GET /static/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js HTTP/1.1" 304 0
+[26/Jun/2017 15:10:50] "GET /static/vendors/datatables.net-buttons/js/buttons.flash.min.js HTTP/1.1" 304 0
+[26/Jun/2017 15:10:50] "GET /static/vendors/datatables.net-buttons/js/buttons.html5.min.js HTTP/1.1" 304 0
+[26/Jun/2017 15:10:50] "GET /static/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js HTTP/1.1" 304 0
+[26/Jun/2017 15:10:50] "GET /static/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js HTTP/1.1" 304 0
+[26/Jun/2017 15:10:50] "GET /static/vendors/datatables.net-buttons/js/buttons.print.min.js HTTP/1.1" 304 0
+[26/Jun/2017 15:10:50] "GET /static/vendors/datatables.net-responsive/js/dataTables.responsive.min.js HTTP/1.1" 304 0
+[26/Jun/2017 15:10:50] "GET /static/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js HTTP/1.1" 304 0
+[26/Jun/2017 15:10:50] "GET /static/vendors/datatables.net-scroller/js/dataTables.scroller.min.js HTTP/1.1" 304 0
+[26/Jun/2017 15:10:50] "GET /static/vendors/jszip/dist/jszip.min.js HTTP/1.1" 304 0
+[26/Jun/2017 15:10:50] "GET /static/vendors/pdfmake/build/pdfmake.min.js HTTP/1.1" 304 0
+[26/Jun/2017 15:10:50] "GET /static/vendors/pdfmake/build/vfs_fonts.js HTTP/1.1" 304 0
+[26/Jun/2017 15:10:50] "GET /static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js HTTP/1.1" 304 0
+[26/Jun/2017 15:10:50] "GET /static/images/img.jpg HTTP/1.1" 304 0
+[26/Jun/2017 15:10:51] "GET /static/layer/skin/default/layer.css?v=3.0.3303 HTTP/1.1" 304 0
+[26/Jun/2017 15:10:51] "GET /static/vendors/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 HTTP/1.1" 304 0
+[26/Jun/2017 15:10:51] "GET /static/vendors/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 304 0
+[26/Jun/2017 15:11:05] "GET /static/layer/skin/default/icon.png HTTP/1.1" 304 0
+[26/Jun/2017 15:11:05] "GET /static/layer/skin/default/loading-1.gif HTTP/1.1" 304 0
+[26/Jun/2017 15:11:05] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4403
+[26/Jun/2017 15:11:13] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 8281
+[26/Jun/2017 15:11:23] "POST /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 302 0
+[26/Jun/2017 15:11:23] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4403
+[26/Jun/2017 15:16:30] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 8281
+[26/Jun/2017 15:16:40] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5648
+[26/Jun/2017 15:16:42] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5648
+[26/Jun/2017 15:16:50] "GET /installation/server/ipmi/fc260deb0ec83f404a83079e9062406c/chassis_status HTTP/1.1" 301 0
+[26/Jun/2017 15:16:50] "GET /installation/server/ipmi/fc260deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5647
+[26/Jun/2017 15:16:53] "GET /installation/server/ipmi/fc260deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5647
+[26/Jun/2017 15:16:58] "GET /installation/server/ipmi/fc360deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5648
+[26/Jun/2017 15:17:03] "GET /installation/server/ipmi/fc560deb0ec83f404a83079e9062406c/chassis_status HTTP/1.1" 301 0
+[26/Jun/2017 15:17:03] "GET /installation/server/ipmi/fc560deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5648
+[26/Jun/2017 15:17:09] "GET /installation/server/ipmi/fc760deb0ec83f404a83079e9062406c/chassis_status HTTP/1.1" 301 0
+[26/Jun/2017 15:17:29] "GET /installation/server/ipmi/fc760deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5454
+[26/Jun/2017 15:17:37] "GET /installation/server/ipmi/fc760deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5454
+[26/Jun/2017 15:18:21] "GET /installation/server/ipmi/fc760deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5648
+[26/Jun/2017 15:18:29] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5648
+[26/Jun/2017 15:18:32] "GET /installation/server/ipmi/fc160deb0ec83f404a83079e9062406c/chassis_status/ HTTP/1.1" 200 5648
+[26/Jun/2017 15:18:47] "GET /installation/server/raid/fc160deb0ec83f404a83079e9062406c/raid_status/ HTTP/1.1" 200 4290
+[26/Jun/2017 15:18:50] "GET /installation/server/raid/fc160deb0ec83f404a83079e9062406c/raid_detail/ HTTP/1.1" 200 11101
+[26/Jun/2017 15:18:58] "GET /installation/server/raid/fc160deb0ec83f404a83079e9062406c/raid_disk/ HTTP/1.1" 200 4486
+[26/Jun/2017 15:19:24] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4403
+[26/Jun/2017 15:19:26] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4403
+[26/Jun/2017 15:19:29] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 8281
+[26/Jun/2017 15:20:10] "POST /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 302 0
+[26/Jun/2017 15:20:10] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4403
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 15:10:13
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+test 192.168.3.100 F4:CE:46:B9:8D:A0  {'comment': [], 'result': True} ====================
+test 192.168.3.100 F4:CE:46:B9:8D:A0  {'comment': [], 'result': True} ====================
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 15:21:08
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[26/Jun/2017 15:21:36] "GET /installation/server/install/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 4403
+[26/Jun/2017 15:21:51] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 8281
+[26/Jun/2017 15:22:22] "GET /installation/server/add_system/fc160deb0ec83f404a83079e9062406c/ HTTP/1.1" 200 8281
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 15:21:10
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+-------------------------
+-------------------------
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 15:24:22
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 15:26:09
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.

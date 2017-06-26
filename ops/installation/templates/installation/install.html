@@ -42,18 +42,40 @@
               <div class="x_panel">
                 <div class="x_title">
                   <div class="bs-example-popovers">
-                      <button type="button" class="btn btn-xs"><a href="{% url 'installation:add_system' server.id %}">添加系统</a></button>
-                      <button type="button" class="btn btn-xs"><a href="">查看所有系统</a></button>
-                      <button type="button" class="btn btn-xs"><a href="">查看profile</a></button>
+                      <!-- <button type="button" class="btn btn-xs"><a href="{% url 'installation:add_system' server.id %}">添加系统</a></button> -->
+                      <button type="button" class="btn btn-xs"><a onclick="detail('添加系统','{{server.id}}','700px','500px','/installation/server/add_system/','')">添加系统</a></button>
+                      <!-- <button type="button" class="btn btn-xs"><a onclick="confirm_install('{{ server.id }}')">开始安装</a></button> -->
+                      <!-- <button type="button" class="btn btn-xs"><a href="">查看profile</a></button> -->
                   </div>
                 </div>
                 <!-- <div class="x_content"> -->
 
                   <div>
                   {% block bs-example%}
-                      <pre>
-{{ret_data}}
-                      </pre>
+                    <table class="table table-striped projects">
+                      <thead>
+                        <tr>
+                          <th style="width: 2%">#</th>
+                          <th style="width: 20%">System Name</th>
+                          <th style="width: 50%">Edit</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for system in ret_data %}
+                        <tr>
+                          <td>#</td>
+                          <td>
+                            <a>{{ system }}</a>
+                          </td>
+                          <td>
+                            <a onclick="detail('系统{{ system }}详细信息','','700px','500px','/installation/server/system/view/','{{ system }}')" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> 系统详情 </a>
+                            <a onclick="confirm('{{ system }}','{{server.id}}','install')" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> 开始安装 </a>
+                            <a onclick="confirm('{{ system }}','{{server.id}}','delete')" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> 删除系统 </a>
+                          </td>
+                        </tr>
+                      {% endfor %}
+                      </tbody>
+                    </table>
                   {% endblock %}
                   </div>
                 <!-- </div> -->
@@ -84,15 +106,34 @@
     <script src="{%static 'build/js/custom.min.js'%}"></script>
 
     <script type="text/javascript">
-      function detail(title,sn,width,height,url,fun){
+      function detail(title,sn,width,height,url,fun){   
           layer.open({
-          type: 2,
-          title: title,
-          maxmin: true,
-          // shadeClose: true, //点击遮罩关闭层
-          area : [ width,height],
-          content: url + fun + sn
+            type: 2,
+            // shade: false,
+            shade: [0.5, '#393D49'],
+            // shadeClose: true, //点击遮罩关闭层
+            title: title,
+            maxmin: true,
+            area : [ width,height],
+            content: url + fun + sn
           });
+          // layer.full(index);
+      }
+
+      function confirm(system,server_id,fun){
+        if (fun == 'delete'){
+            layer.confirm('请确认是否要删除' + ' ' + system, function(index){
+              window.location.href = "/installation/server/system/delete/" + system + '/' + server_id
+              layer.close(index);
+          });       
+        }
+        else {
+            layer.confirm('请确认是否要安装' + ' ' + system, function(index){
+              window.location.href = "{% url 'installation:server_ipmi' server.id 'chassis_reboot' %}"
+              layer.close(index);
+          });       
+        }
+
       }
     </script>
 
