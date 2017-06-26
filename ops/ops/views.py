@@ -9,7 +9,7 @@ from django.contrib import messages
 
 # Create your views here.
 
-# @login_required
+@login_required
 def index(request):
     return render(request, 'index.html')
 
@@ -24,23 +24,21 @@ def login(request):
 	else:
 		username = request.POST.get('username','')
 		password = request.POST.get('password','')
+		print username,password,'================'
 		user = authenticate(username=username, password=password)
 		if user is not None:
 			if user.is_active:
 				auth_login(request,user)
-				# Audit.objects.create(user=request.user,client=request.META['REMOTE_ADDR'],action='Login')
 				return redirect('/')
 			else:
 				messages.error(request, 'The acount is not actived or not exsit.')
-				# Audit.objects.create(user=request.user,client=request.META['REMOTE_ADDR'],action='Login failed')
 				return render(request,'login.html')
 		else:
 			msg = ''
 			messages.error(request, 'The username or password is incorrect .')
-			# Audit.objects.create(user=request.user,client=request.META['REMOTE_ADDR'],action='Login failed')
 			return render(request,'login.html')
 
-# @login_required
+@login_required
 def logout(request):
 	auth_logout(request)
 	messages.info(request, 'Logout successfully !')

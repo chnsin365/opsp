@@ -3,12 +3,15 @@ from django.contrib.auth.models import User
 from installation.models import ServerStatus,Tag
 
 # create admin user
+
 try:
     user,created = User.objects.get_or_create(username='admin',defaults ={ 'is_superuser': True })
     if created:
         user.set_password('admin@123')
         user.save()
+    print '*************',user.username,'*************'
 except Exception as e:
+    print e
     raise e
 
 # 创建数据来源<从LiveCD获取的信息会自动填入L，线上主机通过Agent抓取的为A>

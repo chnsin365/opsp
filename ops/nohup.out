@@ -4527,3 +4527,73 @@ June 26, 2017 - 15:26:09
 Django version 1.10, using settings 'ops.settings'
 Starting development server at http://0.0.0.0:8000/
 Quit the server with CONTROL-C.
+[26/Jun/2017 20:56:51] "GET / HTTP/1.1" 302 0
+[26/Jun/2017 20:56:51] "GET /accounts/login/?next=/ HTTP/1.1" 200 2529
+[26/Jun/2017 20:56:51] "GET /static/vendors/bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 0
+[26/Jun/2017 20:56:51] "GET /static/vendors/font-awesome/css/font-awesome.min.css HTTP/1.1" 304 0
+[26/Jun/2017 20:56:51] "GET /static/vendors/nprogress/nprogress.css HTTP/1.1" 304 0
+[26/Jun/2017 20:56:51] "GET /static/vendors/animate.css/animate.min.css HTTP/1.1" 200 52789
+[26/Jun/2017 20:56:52] "GET /static/build/css/custom.min.css HTTP/1.1" 304 0
+Not Found: /favicon.ico
+[26/Jun/2017 20:56:53] "GET /favicon.ico HTTP/1.1" 404 2526
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 20:56:36
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 20:57:33
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[26/Jun/2017 20:57:51] "GET /accounts/login/index.html HTTP/1.1" 200 2529
+[26/Jun/2017 20:57:53] "GET /accounts/login/index.html HTTP/1.1" 200 2529
+[26/Jun/2017 20:57:54] "GET /accounts/login/index.html HTTP/1.1" 200 2529
+[26/Jun/2017 20:57:55] "GET /accounts/login/index.html HTTP/1.1" 200 2529
+[26/Jun/2017 20:58:05] "GET /accounts/login/index.html HTTP/1.1" 200 2529
+[26/Jun/2017 21:01:42] "GET /accounts/login/index.html HTTP/1.1" 200 2623
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 20:57:36
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[26/Jun/2017 21:02:25] "POST /accounts/login HTTP/1.1" 200 3168
+[26/Jun/2017 21:16:15] "POST /accounts/login HTTP/1.1" 200 3168
+[26/Jun/2017 21:16:34] "POST /accounts/login HTTP/1.1" 200 3168
+[26/Jun/2017 21:17:31] "POST /accounts/login HTTP/1.1" 200 3168
+[26/Jun/2017 21:17:42] "POST /accounts/login HTTP/1.1" 200 3168
+[26/Jun/2017 21:17:59] "POST /accounts/login HTTP/1.1" 200 3168
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 21:02:15
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+ 
+ 
+ 
+ 
+ 
+ 
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 21:33:54
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 26, 2017 - 21:35:49
+Django version 1.10, using settings 'ops.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[26/Jun/2017 21:36:27] "POST /accounts/login HTTP/1.1" 200 3168
