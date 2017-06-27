@@ -30,6 +30,8 @@
     {% endblock %}
   </head>
 
+                       
+
   <body class="nav-md">
     <div class="container body">
       <div class="main_container">
@@ -49,6 +51,8 @@
                   </div>
                 </div>
                 <!-- <div class="x_content"> -->
+
+  
 
                   <div>
                   {% block bs-example%}
@@ -136,6 +140,22 @@
 
       }
     </script>
+
+                  {% if messages %}
+                        {% for message in messages %}
+                            {% if message.tags == 'error' %}
+                               <script type="text/javascript">
+                                 layer.alert('{{ message }}',function() {
+                                  var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+                                  parent.layer.close(index); //再执行关闭   
+
+                                 });
+                                 
+                               </script>
+                            {% endif %}
+                                  
+                        {% endfor %}
+                  {% endif %}        
 
     {% block css %}
 

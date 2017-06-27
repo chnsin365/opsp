@@ -5,6 +5,7 @@ from django.shortcuts import render,redirect
 from django.shortcuts import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib import messages
 from .models import *
 import json
 from ops.sshapi import remote_cmd
@@ -32,7 +33,6 @@ def post_server_info(request):
                         'pxe_ip':server_info['pxe_ip'],\
                         'vendor':server_info['vendor'],\
                         'model':server_info['model']})
-        print server,created
         if created:
             tag = Tag.objects.get(tag_type=server_info['tag'])
             server.tag = tag
@@ -81,7 +81,6 @@ def server_edit(request,server_id):
             else:
                 if v:
                     kwargs[k] = v
-        print kwargs
         Server.objects.filter(pk=server_id).update(**kwargs)
         return redirect('installation:server_edit',server_id)
 
@@ -218,7 +217,6 @@ def update_ipmi(request,server_id):
             else:
                 if v:
                     kwargs[k] = v
-        print kwargs
         Server.objects.filter(pk=server_id).update(**kwargs)
         ret_data = '''
 ipmi的地址、账号或密码均已被更新。
@@ -232,6 +230,9 @@ def get_system(request,server_id):
     server = get_object_or_404(Server,pk=server_id)
     cobbler = CobblerAPI("http://192.168.3.166/cobbler_api","admin","admin")
     ret_data = cobbler.find_system(server.pxe_mac)
+    if not ret_data['result']:
+        messages.error(request, ret_data['comment'])
+        ret_data = {}
     return render(request,'installation/install.html',locals())
 
 def add_system(request,server_id):
@@ -239,7 +240,11 @@ def add_system(request,server_id):
     cobbler = CobblerAPI("http://192.168.3.166/cobbler_api","admin","admin")
     if request.method == 'GET':
         profiles = cobbler.get_proflies()
-        return render(request,'installation/add_system.html',locals())
+        if 'result' in profiles:
+            messages.error(request, profiles['comment'])
+            return render(request,'installation/install.html',locals())
+        else:       
+            return render(request,'installation/add_system.html',locals())
     else:
         hostname = request.POST.get('hostname','')
         ip_addr = request.POST.get('ip_addr','')
