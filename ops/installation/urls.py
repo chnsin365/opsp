@@ -19,7 +19,8 @@ from . import views
 
 urlpatterns = [
     url(r'^post_server_info/',views.post_server_info,name='post_server_info'),
-    url(r'^servers/',views.servers,name='servers'),
+    url(r'^servers/init/',views.init,name='init'),
+    url(r'^servers/install/',views.install,name='install'),
     url(r'^server/(\w+)/$',views.server_detail,name='server_detail'),
     url(r'^server/delete/(\w+)/$',views.server_delete,name='server_delete'),
     url(r'^server/edit/(\w+)/$',views.server_edit,name='server_edit'),
@@ -28,7 +29,7 @@ urlpatterns = [
     url(r'^server/status/(\w+)/$',views.server_change_status,name='server_change_status'),
     url(r'^server/ipmi/(\w+)/(\w+)/$',views.server_ipmi,name='server_ipmi'),
     url(r'^server/ipmi/(\w+)/$',views.update_ipmi,name='update_ipmi'),
-    url(r'^server/install/(\w+)/$',views.install,name='install'),
+    url(r'^server/install/(\w+)/$',views.get_system,name='get_system'),
     url(r'^server/add_system/(\w+)/$',views.add_system,name='add_system'),
     url(r'^server/system/view/(\w+)/$',views.view_system,name='view_system'),
     url(r'^server/system/delete/(\w+)/(\w+)/$',views.delete_system,name='delete_system'),

@@ -53,12 +53,25 @@
               <div class="menu_section">
                 <ul class="nav side-menu">
                   <li><a href="{% url 'index' %}"><i class="fa fa-dashboard"></i> Dashboard </a></li>
-                  <li><a><i class="fa fa-cubes"></i> 装机管理 <span class="fa fa-chevron-down"></span></a>
+                  <!-- <li><a><i class="fa fa-cubes"></i> 装机管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{% url 'installation:servers' %}">物理机安装</a></li>
+                      <li><a href="{% url 'installation:init' %}">物理机安装</a></li>
                       <li><a href="form_advanced.html">虚拟机安装</a></li>
                     </ul>
-                  </li>
+                  </li> -->
+                   <li><a><i class="fa fa-cubes"></i> 装机管理 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a>物理机安装<span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu">
+                            <li><a href="{% url 'installation:init' %}">主机初始化</a>
+                            </li>
+                            <li><a href="{% url 'installation:install' %}">安装系统</a></li>
+                            <li><a href="#level2_2">工具配置</a></li>
+                          </ul>
+                        </li>
+                        <li><a href="#level1_2">虚拟机安装</a></li>
+                    </ul>
+                  </li>           
                   <li><a><i class="fa fa-database"></i> 运维数据库 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="general_elements.html">General Elements</a></li>

@@ -133,3 +133,9 @@ class Nic(models.Model):
     def __unicode__(self):
         return self.mac
 
+class System(object):
+    """docstring for System"""
+    def __init__(self, arg):
+        super(System, self).__init__()
+        self.arg = arg
+        

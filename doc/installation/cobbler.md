@@ -88,7 +88,7 @@ The following are potential configuration items that you may want to fix:
 Restart cobblerd and then run 'cobbler sync' to apply changes.
 ```
 ### Solve the problem for cobbler check
-#### Install DHCP
+####[^1] Install DHCP
 ```
 yum install dhcp
 ```
@@ -259,8 +259,4 @@ The default gateway isn't specified per-NIC, so just add that separately (along 
 ```
 cobbler system edit --name=test --gateway=192.168.1.1 --hostname=test.mydomain.com
 ```
-
-
-
-
 

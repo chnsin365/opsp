@@ -46,11 +46,15 @@ def post_server_info(request):
         raise e
     return HttpResponse(created)
 
-def servers(request):
-    # status = get_object_or_404(ServerStatus)
-    # servers = status.server_set.all()
-    servers = Server.objects.select_related('serverstatus').filter(progress__lt=100)
-    return render(request,'installation/servers.html',locals())
+def init(request):
+    status = get_object_or_404(ServerStatus,status_type='init')
+    servers = status.server_set.all()
+    return render(request,'installation/init_server.html',locals())
+
+def install(request):
+    status = get_object_or_404(ServerStatus,status_type='install')
+    servers = status.server_set.all()
+    return render(request,'installation/install_server.html',locals())
 
 def server_detail(request,server_id):
     server = get_object_or_404(Server,pk=server_id)
@@ -58,7 +62,7 @@ def server_detail(request,server_id):
 
 def server_delete(request,server_id):
     server = get_object_or_404(Server,pk=server_id).delete()
-    return redirect('installation:servers')
+    return redirect('installation:init')
 
 def server_edit(request,server_id):
     server = get_object_or_404(Server,pk=server_id)
@@ -224,7 +228,7 @@ ipmi的地址、账号或密码均已被更新。
 密码：%s'''%(kwargs['ipmi_ip'],kwargs['ipmi_user'],kwargs['ipmi_pass'])
         return render(request,'installation/tips.html',locals())
 
-def install(request,server_id):
+def get_system(request,server_id):
     server = get_object_or_404(Server,pk=server_id)
     cobbler = CobblerAPI("http://192.168.3.166/cobbler_api","admin","admin")
     ret_data = cobbler.find_system(server.pxe_mac)
@@ -246,7 +250,7 @@ def add_system(request,server_id):
             system = cobbler.add_system(hostname,ip_addr,mac_addr,profile,kopts)
         except Exception as e:
             raise e
-        return redirect('installation:install',server_id)
+        return redirect('installation:get_system',server_id)
 
 def view_system(request,system):
     cobbler = CobblerAPI("http://192.168.3.166/cobbler_api","admin","admin")
@@ -257,5 +261,5 @@ def view_system(request,system):
 def delete_system(request,system,server_id):
     cobbler = CobblerAPI("http://192.168.3.166/cobbler_api","admin","admin")
     ret_data = cobbler.del_system(system)
-    return redirect('installation:install',server_id)
+    return redirect('installation:get_system',server_id)
 
