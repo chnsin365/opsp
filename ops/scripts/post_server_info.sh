@@ -3,6 +3,7 @@
 #
 # @author: alex.tang <feng.tang@gmail.com>
 # Created on 2017/06/28
+# only for HP server
 function get_install_ip(){
 #get master ip address
         preip=$(/sbin/ifconfig -a|grep inet|grep -v 127.0.0.1|grep -v inet6|grep -v "0.0.0.0"|awk '{print $2}'|tr -d "addr:"|head -1)
