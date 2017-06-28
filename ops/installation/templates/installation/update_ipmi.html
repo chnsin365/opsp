@@ -36,11 +36,12 @@
                     <form class="form-horizontal" action="{% url 'installation:update_ipmi' server.id %}" method="post">
                     {% csrf_token %}
                       <div class="form-group" >
-                        <label class="control-label col-md-3 col-sm-3 col-xs-4 text-right">IPMI地址
-                        <span class="required">*</span>
+                        <!-- <label class="control-label col-md-3 col-sm-3 col-xs-4 text-right">IPMI地址
+                        <span class="required">*</span> -->
                         </label>
-                        <div class="col-md-3 col-sm-4 col-xs-6" >
-                        	<input class="form-control col-md-7 col-xs-12" name="ipmi_ip" required="required" type="text">
+                        <div class="col-md-3 col-sm-4 col-xs-12 text-center" >
+                        	<!-- <input class="form-control col-md-7 col-xs-12" name="ipmi_ip" required="required" type="text"> -->
+                            <p>IPMI账号配置错误，请重新配置账号信息.</p>
                         </div>
                       </div>
                       <div class="form-group" >

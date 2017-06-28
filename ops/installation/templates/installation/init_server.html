@@ -70,21 +70,21 @@
 			                      <ul class="dropdown-menu" role="menu" style="min-width: 60px;width: 47px;">
 			                        <li><a onclick="detail('服务器RAID信息','{{server.id}}','800px','600px','/installation/server/raid/','/raid_status')" style="padding-left: 5px;">RAID</a>
 			                        </li>
-			                        <li><a onclick="detail('装机','{{server.id}}','800px','600px','/installation/server/install/','')" style="padding-left: 5px;">装机</a>
+			                        <li><a onclick="config_sys('装机','{{server.id}}','800px','600px','/installation/server/install/','')" style="padding-left: 5px;">配置系统</a>
 			                        </li>
-			                         <li><a onclick="detail('IPMI','{{server.id}}','800px','350px','/installation/server/ipmi/','/chassis_status')" style="padding-left: 5px;">IPMI</a>
-			                        </li>
+			                        <!-- <li><a onclick="detail('IPMI','{{server.id}}','800px','350px','/installation/server/ipmi/','/chassis_status')" style="padding-left: 5px;">IPMI</a>
+			                        </li> -->
 			                         <!-- <li><a href="{% url 'installation:server_delete' server.id %}">删除</a></li> -->
 			                        <li><a onclick="confirm('{{server.id}}')" style="padding-left: 5px;">删除</a>
 			                        </li>
-			                        <li><a onclick="detail('服务器状态变更','{{server.id}}','400px','220px','/installation/server/status/','')" style="padding-left: 5px;">变更状态</a>
-			                        </li>
+			                        <!-- <li><a onclick="detail('服务器状态变更','{{server.id}}','400px','220px','/installation/server/status/','')" style="padding-left: 5px;">变更状态</a>
+			                        </li> -->
 			                      </ul>
 			                    </div>
 			         		  </td>
 			         		  <td>
-	                            <a onclick="power('开机','chassis_on','{{server.id}}')" class="btn btn-primary btn-xs"><i class="fa fa-play" data-toggle="tooltip" data-placement="top" title="" data-original-title="开机"></i></a>
-	                            <a onclick="power('关机','chassis_off','{{server.id}}')" class="btn btn-info btn-xs"><i class="fa fa-stop" data-toggle="tooltip" data-placement="top" title="" data-original-title="关机"></i></a>
+	                            <a onclick="power('开机','chassis_on','{{server.id}}','{{server.ipmi_user}}','{{server.ipmi_pass}}')" class="btn btn-primary btn-xs"><i class="fa fa-play" data-toggle="tooltip" data-placement="top" title="" data-original-title="开机"></i></a>
+	                            <a onclick="power('关机','chassis_off','{{server.id}}','{{server.ipmi_user}}','{{server.ipmi_pass}}')" class="btn btn-danger btn-xs"><i class="fa fa-stop" data-toggle="tooltip" data-placement="top" title="" data-original-title="关机"></i></a>
 			         		  </td>
 	                        </tr>
 	                      {% endfor %}
@@ -142,19 +142,41 @@
 				  });
 			}
 
-			function power(name,type,server_id){
-		        layer.confirm('请确认是否要'+name, function(index){
-		                window.location.href = "/installation/server/ipmi/" + server_id + '/' + type
-		            	layer.close(index);
-		            });       
-		      }
+			function config_sys(title,sn,width,height,url,fun){
+				  layer.open({
+				  type: 2,
+				  title: title,
+				  maxmin: true,
+				  // shadeClose: true, //点击遮罩关闭层
+				  area : [ width,height],
+				  content: url + sn + fun,
+				  end: function () {
+	 	            	location.reload();//刷新
+	 	            }
+				  });
+			}
 
-	      function confirm(server_id){
-	        layer.confirm('请确认是否要删除', function(index){
+			function power(name,type,server_id,ipmi_user,ipmi_passwd){
+				alert(ipmi_user);
+				if ( ipmi_user=='' || ipmi_passwd=='' || ipmi_user=='None' || ipmi_passwd =='None' )
+					{
+						detail('IPMI账号配置',server_id,'400px','300px','/installation/server/ipmi/','')
+					}
+				else
+					{
+						layer.confirm('请确认是否要'+name, function(index){
+			                window.location.href = "/installation/server/ipmi/" + server_id + '/' + type
+			            	layer.close(index);
+			            });       
+					}
+		     }
+
+	      	function confirm(server_id){
+	        	layer.confirm('请确认是否要删除', function(index){
             	window.location.href = "/installation/server/delete/"+server_id;
             	layer.close(index);
-            });         
-	      }
+            	});         
+	      	}
     </script>
   
 {% endblock %}

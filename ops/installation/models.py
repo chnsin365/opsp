@@ -42,7 +42,7 @@ class ServerStatus(models.Model):
         db_table = 'server_status'
 
     def __unicode__(self):
-        return self.name
+        return self.status_type
 
 class Contacter(models.Model):
     id                 = models.AutoField(primary_key=True,db_column="contacter_id")
@@ -94,9 +94,8 @@ class Server(models.Model):
     pxe_ip             = models.GenericIPAddressField(blank=True,null=True)
     vendor             = models.CharField(max_length=30,blank=True,null=True)
     model              = models.CharField(max_length=30,blank=True,null=True)
-    progress           = models.IntegerField(blank=True,null=True,default=0)
-    create_time        = models.DateTimeField(auto_now=True)
-    update_time        = models.DateTimeField(auto_now_add=True)
+    create_time        = models.DateTimeField(auto_now_add=True)
+    update_time        = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = 'server'
@@ -133,9 +132,18 @@ class Nic(models.Model):
     def __unicode__(self):
         return self.mac
 
-class System(object):
-    """docstring for System"""
-    def __init__(self, arg):
-        super(System, self).__init__()
-        self.arg = arg
-        
+class PreSystem(models.Model):
+    ip                 = models.GenericIPAddressField(blank=True,null=True,unique=True)
+    hostname           = models.CharField(max_length=50,blank=True,null=True)
+    profile            = models.CharField(max_length=50,blank=True,null=True)
+    progress           = models.IntegerField(blank=True,null=True,default=0)
+    server             = models.OneToOneField(Server,blank=True, null=True)
+    create_time        = models.DateTimeField(auto_now_add=True)
+    update_time        = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table = 'pre_system'
+        ordering = ['-create_time']
+    
+    def __unicode__(self):
+        return self.profile   

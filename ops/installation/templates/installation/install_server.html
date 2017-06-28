@@ -26,17 +26,19 @@
 	                          <th>创建时间</th>
 	                          <th>安装进度</th>
 	                          <th>操作</th>
+	                          <th>电源</th>
 	                        </tr>
 	                      </thead>
 	                      
 	                      <tbody>
-	                      {% for server in servers %}
+	                      {% for system in systems %}
 	                        <tr>
-	                          <td onclick="detail('服务器详细信息','{{server.id}}','880px','650px','/installation/server/','')">{{server.id}}</td>
-	                          <td>{{server.pxe_ip}}</td>
-	                          <td>{{server.vendor}}</td>
-	                          <td>{{server.model}}</td>
-	                          <td>{{server.create_time | date:'Y-m-d H:m:s'}}</td>
+	                          <td onclick="detail('服务器详细信息','{{system.server.id}}','880px','650px','/installation/server/','')">{{system.server.id}}</td>
+	                          <td>{{system.ip}}</td>
+	                          <td>{{system.profile}}</td>
+	                          <td>{{system.create_time | date:'Y-m-d H:m:s'}}</td>
+	                          <td>
+	                          <div class="progress-bar" role="progressbar" style="width: {{system.progress}}%;"><small style="color: blue;">{{system.progress}}%</small></div></td>
 	                          <td>
 	                          	<div class="btn-group">
 			                      <button type="button" class="btn btn-info btn-xs" >操作</button>
@@ -44,24 +46,23 @@
 			                        <span class="caret"></span>
 			                        <span class="sr-only">Toggle Dropdown</span>
 			                      </button>
-			                      <ul class="dropdown-menu" role="menu" style="min-width: 60px;width: 47px;">
-			                        <li><a onclick="detail('服务器RAID信息','{{server.id}}','800px','600px','/installation/server/raid/','/raid_status')" style="padding-left: 5px;">RAID</a>
+			                      <ul class="dropdown-menu" role="menu" style="min-width: 60px;width: 70px;">
+			                        <li><a onclick="detail('服务器RAID信息','{{server.id}}','800px','600px','/installation/server/raid/','/raid_status')" style="padding-left: 5px;">开始安装</a>
 			                        </li>
-			                        <li><a onclick="detail('装机','{{server.id}}','800px','600px','/installation/server/install/','')" style="padding-left: 5px;">装机</a>
+			                        <li><a onclick="detail('装机','{{server.id}}','800px','600px','/installation/server/install/','')" style="padding-left: 5px;">系统信息</a>
 			                        </li>
-			                         <li><a onclick="detail('IPMI','{{server.id}}','800px','350px','/installation/server/ipmi/','/chassis_status')" style="padding-left: 5px;">IPMI</a>
+			                         <li><a onclick="detail('IPMI','{{server.id}}','800px','350px','/installation/server/ipmi/','/chassis_status')" style="padding-left: 5px;">修改系统</a>
 			                        </li>
-			                         <!-- <li><a href="{% url 'installation:server_delete' server.id %}">删除</a></li> -->
-			                        <li><a onclick="confirm('{{server.id}}')" style="padding-left: 5px;">删除</a>
-			                        </li>
-			                        <li><a onclick="detail('服务器状态变更','{{server.id}}','400px','220px','/installation/server/status/','')" style="padding-left: 5px;">变更状态</a>
+			                       <!--  <li><a onclick="confirm('{{server.id}}')" style="padding-left: 5px;">删除</a>
+			                        </li> -->
+			                        <li><a href="{% url 'installation:server_change_status' system.server.id 'init' %}" style="padding-left: 5px;">重新初始化</a>
 			                        </li>
 			                      </ul>
 			                    </div>
 			         		  </td>
 			         		  <td>
 	                            <a onclick="power('开机','chassis_on','{{server.id}}')" class="btn btn-primary btn-xs"><i class="fa fa-play" data-toggle="tooltip" data-placement="top" title="" data-original-title="开机"></i></a>
-	                            <a onclick="power('关机','chassis_off','{{server.id}}')" class="btn btn-info btn-xs"><i class="fa fa-stop" data-toggle="tooltip" data-placement="top" title="" data-original-title="关机"></i></a>
+	                            <a onclick="power('关机','chassis_off','{{server.id}}')" class="btn btn-danger btn-xs"><i class="fa fa-stop" data-toggle="tooltip" data-placement="top" title="" data-original-title="关机"></i></a>
 			         		  </td>
 	                        </tr>
 	                      {% endfor %}
@@ -73,4 +74,28 @@
             </div>
           </div>
         </div>
+
+        <script src="{%static 'layer/layer.js'%}"></script>
+
+                  {% if messages %}
+                        {% for message in messages %}
+                            {% if message.tags == 'error' %}
+                               <script type="text/javascript">
+                                 layer.alert('{{ message }}');
+                               </script>
+                            {% endif %}
+                                  
+                        {% endfor %}
+                  {% endif %} 
+        <script type="text/javascript">
+        	
+
+        	function power(name,type,server_id){
+		        layer.confirm('请确认是否要'+name, function(index){
+		                window.location.href = "/installation/server/ipmi/" + server_id + '/' + type
+		            	layer.close(index);
+		            });       
+		      }  
+		</script>     
+
 {% endblock %}

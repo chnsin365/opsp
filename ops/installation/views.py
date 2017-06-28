@@ -52,8 +52,9 @@ def init(request):
     return render(request,'installation/init_server.html',locals())
 
 def install(request):
-    status = get_object_or_404(ServerStatus,status_type='install')
-    servers = status.server_set.all()
+    # status = get_object_or_404(ServerStatus,status_type='install')
+    # servers = status.server_set.all()
+    systems = PreSystem.objects.all()
     return render(request,'installation/install_server.html',locals())
 
 def server_detail(request,server_id):
@@ -84,19 +85,24 @@ def server_edit(request,server_id):
         Server.objects.filter(pk=server_id).update(**kwargs)
         return redirect('installation:server_edit',server_id)
 
-def server_change_status(request,server_id):
+def server_change_status(request,server_id,status_type):
     server = get_object_or_404(Server,pk=server_id)
-    if request.method == "GET":
-        all_status = ServerStatus.objects.all()
-        return render(request,'installation/change_status.html',locals())
-    else:
-        status_id = request.POST.get('status_id','')
-        Server.objects.filter(pk=server_id).update(serverstatus_id=status_id)
-        status = get_object_or_404(ServerStatus,pk=status_id)
-        ret_data = '''%s 的状态已经更新。
-
-当前状态：%s'''%(server.id,status.name)
-        return render(request,'installation/tips.html',locals())
+    try:
+        pre_system = server.presystem
+        cobbler = CobblerAPI("http://192.168.3.166/cobbler_api","admin","admin")
+        result = cobbler.del_system(pre_system.hostname)
+        if result['result']:
+            status = get_object_or_404(ServerStatus,status_type=status_type)
+            server.serverstatus = status
+            server.save()
+            pre_system.delete()
+        else:
+            messages.error(request, result['comment'])
+            return render(request,'installation/install_server.html',locals())
+    except Exception as e:
+        # raise e
+        messages.error(request, str(e))
+    return redirect('installation:install')
 
 def select_cab(request):
     idc_id = request.GET.get('idc_id','')
@@ -223,14 +229,14 @@ ipmi的地址、账号或密码均已被更新。
 当前的ipmi地址、账号和密码如下：
 地址：%s
 账号：%s
-密码：%s'''%(kwargs['ipmi_ip'],kwargs['ipmi_user'],kwargs['ipmi_pass'])
+密码：%s'''%(server.ipmi_ip,kwargs['ipmi_user'],kwargs['ipmi_pass'])
         return render(request,'installation/tips.html',locals())
 
 def get_system(request,server_id):
     server = get_object_or_404(Server,pk=server_id)
     cobbler = CobblerAPI("http://192.168.3.166/cobbler_api","admin","admin")
     ret_data = cobbler.find_system(server.pxe_mac)
-    if not ret_data['result']:
+    if 'result' in ret_data:
         messages.error(request, ret_data['comment'])
         ret_data = {}
     return render(request,'installation/install.html',locals())
@@ -252,9 +258,16 @@ def add_system(request,server_id):
         profile = request.POST.get('profile','')
         kopts = request.POST.get('kopts','')
         try:
-            system = cobbler.add_system(hostname,ip_addr,mac_addr,profile,kopts)
+            ret_data = cobbler.add_system(hostname,ip_addr,mac_addr,profile,kopts)
+            if ret_data['result']:
+                PreSystem.objects.get_or_create(ip=ip_addr,defaults={'profile':profile,'server_id':server.id,'hostname':hostname})
+                status = get_object_or_404(ServerStatus,status_type='install')
+                server.serverstatus = status
+                server.save()
         except Exception as e:
-            raise e
+            messages.error(request, e)
+            profiles = cobbler.get_proflies()
+            return render(request,'installation/add_system.html',locals())
         return redirect('installation:get_system',server_id)
 
 def view_system(request,system):
