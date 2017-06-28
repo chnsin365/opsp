@@ -1,4 +1,8 @@
 #!/bin/bash
+# -*- coding: utf-8 -*-
+#
+# @author: alex.tang <feng.tang@gmail.com>
+# Created on 2017/06/28
 function get_install_ip(){
 #get master ip address
         preip=$(/sbin/ifconfig -a|grep inet|grep -v 127.0.0.1|grep -v inet6|grep -v "0.0.0.0"|awk '{print $2}'|tr -d "addr:"|head -1)
@@ -162,7 +166,7 @@ function get_disk_info(){
             raid_type=""
           fi
           disk_type=`ssacli ctrl slot=$raid_controller_slot physicaldrive $disk show |grep "Interface Type"|sed 's/^[ \t]*//g'|sed 's/[ \t]*$//g'|awk -F: '{print $2}'`
-          disk_size=`ssacli ctrl slot=$raid_controller_slot physicaldrive $disk show |grep -v "Logical/Physical Block Size"|grep "Size"|sed 's/^[ \t]*//g'|sed 's/[ \t]*$//g'|awk -F: '{print 
+          disk_size=`ssacli ctrl slot=$raid_controller_slot physicaldrive $disk show |grep -v "Logical/Physical Block Size"|grep "Size"|sed 's/^[ \t]*//g'|sed 's/[ \t]*$//g'|awk -F: '{print
 $2}'`
           echo $disk"&#"$disk_type"&#"$disk_size"&#"$disk_raid"&#"$raid_type >> /tmp/disk_info_list
         done
