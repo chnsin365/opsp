@@ -167,7 +167,6 @@ def server_ipmi(request,server_id,fun):
     ipmi_ip = server.ipmi_ip
     ipmi_user = server.ipmi_user
     ipmi_pass = server.ipmi_pass
-    # if (ipmi_ip and ipmi_user and ipmi_pass):
     try:
         from ops.ipmi_api import ipmitool
         ipmi = ipmitool(ipmi_ip,ipmi_pass,username=ipmi_user)
@@ -187,7 +186,6 @@ def server_ipmi(request,server_id,fun):
             else:
                 ipmi.chassis_off()
                 ret_data = ipmi.output
-            # return HttpResponse(ret_data)
         elif fun == 'chassis_reboot':
             if 'off' in ipmi.output:
                 ret_data = '当前在关机状态，无法完成重启操作。'
@@ -195,20 +193,23 @@ def server_ipmi(request,server_id,fun):
                 ipmi.chassis_reboot()
                 ret_data = ipmi.output
         elif fun == 'boot_to_pxe':
-            ipmi.boot_to_pxe()
-            ret_data = ipmi.output
+            if 'on' in ipmi.output:
+                ret_data = '已经在开机状态，已为您取消本次开机操作。'
+            else:
+                ipmi.boot_to_pxe()
+                ipmi.chassis_on()
+                ret_data = ipmi.output            
         else:
             ret_data = ipmi.output
     except Exception as e:
         ret_data = str(e)
-    # else:
-    #     ret_data = 
     if 'socket' in ret_data:
         ret_data = 'ipmi地址错误或网络错误,当前地址:%s,请更新ipmi账号配置'%(ipmi_ip)
     elif 'Error' in ret_data:
         ret_data = '账号或密码错误，请更新账号或密码,当前账号:%s,密码:%s'%(ipmi_user,ipmi_pass)
     else:
         ret_data = ret_data
+    messages.error(request, ret_data)
     return render(request,'installation/ipmi.html',locals())
 
 def update_ipmi(request,server_id):
