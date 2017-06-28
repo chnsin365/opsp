@@ -180,9 +180,9 @@ function get_nics_info(){
         echo "" >/tmp/tmp_net_list
         netlist=`cat /proc/net/dev|grep -Ev "Inter|face|lo"|awk -F ":" '{print $1}'|sed 's/[][ ]*//g'|sed 's/\"//g'`
         for net in `echo $netlist`;do
-                        nic_model=$(lshw -short |grep $net |awk '{for(i=4;i<=NF;i++)printf $i" ";printf "\n"}')
-                  mac=$(ip addr show $net|grep "link/ether"|awk '{print $2}'|sed 's/[][ ]*//g'|sed 's/\"//g')
-            echo $net"&#"$mac"&#"$nic_model >> /tmp/tmp_net_list
+          nic_model=$(lshw -short |grep $net |awk '{for(i=4;i<=NF;i++)printf $i" ";printf "\n"}')
+          mac=$(ip addr show $net|grep "link/ether"|awk '{print $2}'|sed 's/[][ ]*//g'|sed 's/\"//g')
+          echo $net"&#"$mac"&#"$nic_model >> /tmp/tmp_net_list
         done
 }
 
