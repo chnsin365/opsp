@@ -9,6 +9,7 @@ from django.contrib import messages
 from .models import *
 import json
 from ops.sshapi import remote_cmd
+from .raid_api import RAIDAPI
 from .cobbler_api import CobblerAPI
 
 # Create your views here.
@@ -76,8 +77,6 @@ def init(request):
     return render(request,'installation/init_server.html',locals())
 
 def install(request):
-    # status = get_object_or_404(ServerStatus,status_type='install')
-    # servers = status.server_set.all()
     systems = PreSystem.objects.all()
     return render(request,'installation/install_server.html',locals())
 
@@ -148,30 +147,38 @@ def server_raid(request,server_id,fun):
     '''
     server = get_object_or_404(Server,pk=server_id)
     addr = server.pxe_ip
-    from .raid_api import RAIDAPI
-    rd = RAIDAPI(server,addr,user='root',passwd='P@ssw0rd')
-    if fun == 'raid_card':
-        ret_data = rd.raid_card()
-    elif fun == 'raid_detail':
-        ret_data = rd.raid_detail()
-    elif fun == 'raid_status':
-        ret_data = rd.raid_status()
-    elif fun == 'raid_disk':
-        ret_data = rd.raid_disk()
+    if fun == 'raid_status':
+        disks = server.disk_set.all()
+        values = disks.values('raid_name','raid_type').distinct()
+        rds = dict()
+        for value in values:
+            tmp = {}
+            tmp['raid_type'] = value['raid_type']
+            dks = disks.filter(raid_name=value['raid_name'])
+            dk = []
+            for d in dks:
+                dk.append({'path':d.path,'dtype':d.dtype,'size':d.size})
+            tmp['disks'] = dk
+            rds[value['raid_name']] = tmp
+        # print json.dumps(rds),'============'
     elif fun == 'create_raid':
         if request.method == 'GET':
+            disks = server.disk_set.filter(raid_name='Unassigned')
             return render(request,'installation/create_raid.html',locals())
         else:
             drivers = ','.join(request.POST.getlist('drivers',''))
             raid_type = request.POST.get('raid_type','')
+            rd = RAIDAPI(server,addr,user='root',passwd='P@ssw0rd')
             ret_data = rd.create_raid(drivers,raid_type)
             if not ret_data:
                 ret_data = 'Raid %s has been created on %s'%(raid_type,drivers)
-            return render(request,'installation/tips.html',locals())
+            return HttpResponse(ret_data)
     elif fun == 'delete_raid':
         if request.method == 'GET':
+            r_names = server.disk_set.exclude(raid_name='Unassigned').values('raid_name').distinct()
             return render(request,'installation/delete_raid.html',locals())
         else:
+            rd = RAIDAPI(server,addr,user='root',passwd='P@ssw0rd')
             array = request.POST.get('array','')
             ret_data = rd.delete_raid(array)
             return render(request,'installation/tips.html',locals())
