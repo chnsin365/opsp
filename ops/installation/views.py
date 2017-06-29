@@ -42,6 +42,30 @@ def post_server_info(request):
                 status = ServerStatus.objects.get(status_type='running')
             server.serverstatus = status
             server.save()
+        nics = server.nic_set.all()
+        if nics:
+            nics.delete()
+        if server_info['nics']:
+            for nic in server_info['nics']:
+                nic_obj = Nic.objects.create(\
+                    mac=nic['mac'],\
+                    name=nic['nic_name'],\
+                    model=nic['nic_model'])
+                nic_obj.server = server
+                nic_obj.save()
+        disks = server.disk_set.all()
+        if disks:
+            disks.delete()
+        if server_info['disk']:
+            for disk in server_info['disk']:
+                disk_obj = Disk.objects.create(\
+                    path=disk['disk_path'],\
+                    dtype=disk['disk_type'],\
+                    raid_name=disk['raid_name'],\
+                    raid_type=disk['raid_type'],\
+                    size=disk['disk_size'])
+                disk_obj.server = server
+                disk_obj.save()            
     except Exception as e:
         raise e
     return HttpResponse(created)
