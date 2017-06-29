@@ -1,7 +1,4 @@
 {% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
@@ -17,12 +14,9 @@
     <!-- Custom Theme Style -->
     <link href="{%static 'build/css/custom.min.css'%}" rel="stylesheet">
 
-  </head>
 
-  <body class="nav-md">
     <div class="container body">
       <div class="main_container">
-
         <!-- page content -->
         <div class="right_col" role="main">
 
@@ -41,7 +35,7 @@
                             <td class="fs15 fw700 text-right">{{server.pxe_ip}}</td>
                           </tr>
                           <tr>
-                            <td>PXE Mac</td>
+                            <td>PXE MAC</td>
                             <td class="fs15 fw700 text-right">{{server.pxe_mac}}</td>
                           </tr>
                           <tr>
@@ -181,7 +175,7 @@
 	         <div class="col-md-6 col-sm-6 col-xs-12">
                   <div class="x_panel">
                     <div class="x_title">
-                      <h2>硬盘信息</h2>
+                      <h2 style="width: 80px;">硬盘信息</h2>
                       <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
@@ -189,8 +183,6 @@
 	                  <table class="table table-striped">
 	                      <thead>
 	                        <tr>
-	                          <th>Raid Name</th>
-	                          <th>Raid Type</th>
 	                          <th>Path</th>
 	                          <th>Size</th>
                             <th>Disk Type</th>
@@ -200,8 +192,6 @@
 	                      <tbody>
 	                      {% for disk in server.disk_set.all %}
 	                        <tr>
-	                          <td>{{disk.raid_name}}</td>
-	                          <td>{{disk.raid_type}}</td>
                             <td>{{disk.path}}</td>
 	                          <td>{{disk.size}}</td>
                             <td>{{disk.dtype}}</td>
@@ -215,7 +205,7 @@
              <div class="col-md-6 col-sm-6 col-xs-12">
                   <div class="x_panel">
                     <div class="x_title">
-                      <h2>网卡信息</h2>
+                      <h2 style="width: 80px;">网卡信息</h2>
                       <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
@@ -224,7 +214,7 @@
 	                      <thead>
 	                        <tr>
                             <th>Name</th>
-	                          <th>Mac</th>
+	                          <th>MAC</th>
 	                          <th>Model</th>
 	                        </tr>
 	                      </thead>
@@ -305,7 +295,4 @@
               });
       }
     </script>
-
-  </body>
-</html>
 
