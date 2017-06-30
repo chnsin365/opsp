@@ -1,8 +1,4 @@
 {% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-
-  <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
@@ -24,9 +20,7 @@
 
     <!-- Custom Theme Style -->
     <link href="{%static 'build/css/custom.min.css'%}" rel="stylesheet">
-  </head>
 
-  <body class="nav-md">
     <div class="container body">
       <div class="main_container">
 
@@ -40,21 +34,41 @@
               <div class="x_panel">
                 <div class="x_title">
                   <div class="bs-example-popovers">
-                      <button type="button" class="btn btn-xs"><a href="{% url 'installation:server_raid' server.id 'raid_status' %}">当前RAID</a></button>
-                      <button type="button" class="btn btn-xs"><a href="{% url 'installation:server_raid' server.id 'raid_detail' %}">RAID详细信息</a></button>
-                      <button type="button" class="btn btn-xs"><a href="{% url 'installation:server_raid' server.id 'raid_disk' %}">物理硬盘状态</a></button>
-                      <button type="button" class="btn btn-xs" onclick="detail('创建RAID','{{server.id}}','400px','300px','/installation/server/raid/','/create_raid')">创建RAID</button>
-                      <button type="button" class="btn btn-xs" onclick="detail('删除RAID','{{server.id}}','400px','200px','/installation/server/raid/','/delete_raid')">删除RAID</button>
-                      <button type="button" class="btn btn-xs"><a href="{% url 'installation:server_raid' server.id 'raid_card' %}">RAID卡信息</a></button>
+
                     </div>
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
 
                   <div class="bs-example" data-example-id="simple-jumbotron">
-                      <pre>
-{{ret_data}}
-                      </pre>
+                     <div class="x_content">
+                     {% for k,v in rds.items %}
+                      <div>
+                        {{k}} &nbsp {{v.raid_type}}
+                        <div style="float: right;">
+                        {% if k == 'Unassigned' %}
+                            <button type="button" class="btn btn-xs" onclick="detail('创建RAID','{{server.id}}','400px','200px','/installation/server/raid/','/delete_raid')">创建RAID</button>
+                        {% else %}
+                         <button type="button" class="btn btn-xs" onclick="detail('删除RAID','{{server.id}}','400px','200px','/installation/server/raid/','/delete_raid')">删除RAID</button>
+                         {% endif %}
+                        </div>
+                      
+                      </div>
+                      <table class="table table-bordered">
+                        <tbody>
+                        <thead><tr><th>磁盘路径</th><th>磁盘类型</th><th>磁盘大小</th></tr></thead>
+                        <tbody>
+                        {% for disk in v.disks %}
+                          <tr>
+                            <td>{{disk.path}}</td>
+                            <td>{{disk.dtype}}</td>
+                            <td>{{disk.size}}</td>
+                          </tr>
+                        {% endfor %}
+                        </tbody>
+                      </table>
+                    {% endfor %}
+                </div>
                   </div>
 
                 </div>
@@ -89,13 +103,12 @@
           layer.open({
           type: 2,
           title: title,
-          maxmin: true,
-          // shadeClose: true, //点击遮罩关闭层
-          area : [ width,height],
+          // maxmin: true,
+          shadeClose: true, //点击遮罩关闭层
+          moveOut: true,
+          // area : [ width,height],
           content: url + sn + fun
           });
       }
     </script>
-	
-  </body>
-</html>
+  

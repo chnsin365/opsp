@@ -61,8 +61,8 @@
 			                    </div>
 			         		  </td>
 			         		  <td>
-	                            <a onclick="power('开机','chassis_on','{{server.id}}')" class="btn btn-primary btn-xs"><i class="fa fa-play" data-toggle="tooltip" data-placement="top" title="" data-original-title="开机"></i></a>
-	                            <a onclick="power('关机','chassis_off','{{server.id}}')" class="btn btn-danger btn-xs"><i class="fa fa-stop" data-toggle="tooltip" data-placement="top" title="" data-original-title="关机"></i></a>
+	                            <a onclick="power('开机','boot_to_pxe','{{server.id}}','{{server.ipmi_user}}','{{server.ipmi_pass}}')" class="btn btn-primary btn-xs"><i class="fa fa-play" data-toggle="tooltip" data-placement="top" title="" data-original-title="开机"></i></a>
+	                            <a onclick="power('关机','chassis_off','{{server.id}}','{{server.ipmi_user}}','{{server.ipmi_pass}}')" class="btn btn-danger btn-xs"><i class="fa fa-stop" data-toggle="tooltip" data-placement="top" title="" data-original-title="关机"></i></a>
 			         		  </td>
 	                        </tr>
 	                      {% endfor %}
@@ -76,7 +76,6 @@
         </div>
 
         <script src="{%static 'layer/layer.js'%}"></script>
-
                   {% if messages %}
                         {% for message in messages %}
                             {% if message.tags == 'error' %}
@@ -88,14 +87,30 @@
                         {% endfor %}
                   {% endif %} 
         <script type="text/javascript">
-        	
-
-        	function power(name,type,server_id){
-		        layer.confirm('请确认是否要'+name, function(index){
-		                window.location.href = "/installation/server/ipmi/" + server_id + '/' + type
-		            	layer.close(index);
-		            });       
-		      }  
+			function power(name,type,server_id,ipmi_user,ipmi_passwd){
+				if ( ipmi_user=='' || ipmi_passwd=='' || ipmi_user=='None' || ipmi_passwd =='None' )
+					{
+						detail('IPMI账号配置',server_id,'400px','350px','/installation/server/ipmi/','')
+					}
+				else
+					{
+			            layer.confirm('请确认是否要'+name, function(index){
+			            	url = "/installation/server/ipmi/" + server_id + '/' + type;
+			            	layer.load(0, {shade: false}); //0代表加载的风格，支持0-2
+			            	$.get(url,function(data,status){
+			            		if (data==1)
+			            		{
+			            			layer.closeAll();
+			            			detail('IPMI账号配置',server_id,'400px','350px','/installation/server/ipmi/','')
+			            		}
+			            		else
+			            		{
+			            			layer.msg(data,{time: 5000});
+			            		}
+							});        
+			            });       
+					}
+		     }
 		</script>     
 
 {% endblock %}

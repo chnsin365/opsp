@@ -39,10 +39,10 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-2" style="padding-left: 20px;">阵列</label>
                         <div class="col-md-6 col-sm-6 col-xs-6">
                           <select class="form-control" name="array" style="width: 226px;">
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="C">C</option>
-                            <option value="D">D</option>
+                            <option value="-1">--请选择--</option>
+                            {% for name in r_names %}
+                                <option value="{{name}}">{{name}}</option>
+                            {% endfor %}
                           </select>
                         </div>
                       </div>

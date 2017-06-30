@@ -106,23 +106,23 @@ class Server(models.Model):
 
 class Disk(models.Model):
     id                 = models.AutoField(primary_key=True,db_column="disk_id")
-    name               = models.CharField(max_length=30,blank=True,null=True,db_column="disk_name")
-    model              = models.CharField(max_length=30,blank=True,null=True,db_column="disk_model")
+    path               = models.CharField(max_length=30,blank=True,null=True,db_column="disk_name")
+    dtype              = models.CharField(max_length=30,blank=True,null=True,db_column="disk_model")
     server             = models.ForeignKey(Server,blank=True, null=True)
     raid_name          = models.CharField(max_length=100,blank=True,null=True)
     raid_type          = models.CharField(max_length=100,blank=True,null=True)
     size               = models.CharField(max_length=30,blank=True,null=True,db_column="disk_size")
-    status             = models.CharField(max_length=100,blank=True,null=True,db_column="disk_status")
 
     class Meta:
         db_table = 'disk'
 
     def __unicode__(self):
-        return self.name
+        return self.path
 
 class Nic(models.Model):
     id                 = models.AutoField(primary_key=True,db_column="nic_id")
-    mac                = models.CharField(max_length=50,blank=True,null=True,db_column="nic_mac")
+    name               = models.CharField(max_length=20,blank=True,null=True,db_column="nic_name")
+    mac                = models.CharField(max_length=50,blank=True,null=True,db_column="mac")
     model              = models.CharField(max_length=100,blank=True,null=True,db_column="nic_model")
     server             = models.ForeignKey(Server,blank=True, null=True,on_delete=models.PROTECT)
 

@@ -39,8 +39,8 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-6">磁盘</label>
                         <div class="col-md-6 col-sm-6 col-xs-6">
                           <select class="select2_multiple form-control" name='drivers' multiple="multiple" style="width: 226px;">
-                            {% for disk in server.disk_set.all %}
-                            <option value="{{disk.name}}">{{disk.name}}</option>
+                            {% for disk in disks %}
+                            <option value="{{disk.name}}">{{disk.path}}</option>
                             {% endfor %}
                           </select>
                         </div>
@@ -51,7 +51,6 @@
                           <select class="form-control" name="raid_type" style="width: 226px;">
                             <option value="0">raid 0</option>
                             <option value="1">raid 1</option>
-                            <option value="1">raid 3</option>
                             <option value="5">raid 5</option>
                             <option value="1+0">raid 1+0</option>
                           </select>

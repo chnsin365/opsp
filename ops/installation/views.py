@@ -9,6 +9,8 @@ from django.contrib import messages
 from .models import *
 import json
 from ops.sshapi import remote_cmd
+from .raid_api import RAIDAPI
+from ops.ipmi_api import ipmitool
 from .cobbler_api import CobblerAPI
 
 # Create your views here.
@@ -42,6 +44,30 @@ def post_server_info(request):
                 status = ServerStatus.objects.get(status_type='running')
             server.serverstatus = status
             server.save()
+        nics = server.nic_set.all()
+        if nics:
+            nics.delete()
+        if server_info['nics']:
+            for nic in server_info['nics']:
+                nic_obj = Nic.objects.create(\
+                    mac=nic['mac'],\
+                    name=nic['nic_name'],\
+                    model=nic['nic_model'])
+                nic_obj.server = server
+                nic_obj.save()
+        disks = server.disk_set.all()
+        if disks:
+            disks.delete()
+        if server_info['disk']:
+            for disk in server_info['disk']:
+                disk_obj = Disk.objects.create(\
+                    path=disk['disk_path'],\
+                    dtype=disk['disk_type'],\
+                    raid_name=disk['raid_name'],\
+                    raid_type=disk['raid_type'],\
+                    size=disk['disk_size'])
+                disk_obj.server = server
+                disk_obj.save()            
     except Exception as e:
         raise e
     return HttpResponse(created)
@@ -52,8 +78,6 @@ def init(request):
     return render(request,'installation/init_server.html',locals())
 
 def install(request):
-    # status = get_object_or_404(ServerStatus,status_type='install')
-    # servers = status.server_set.all()
     systems = PreSystem.objects.all()
     return render(request,'installation/install_server.html',locals())
 
@@ -62,8 +86,12 @@ def server_detail(request,server_id):
     return render(request,'installation/server_detail.html',locals())
 
 def server_delete(request,server_id):
-    server = get_object_or_404(Server,pk=server_id).delete()
-    return redirect('installation:init')
+    try:
+        get_object_or_404(Server,pk=server_id).delete()
+        ret_data = '删除成功！'
+    except Exception as e:
+        ret_data = '删除失败！'
+    return HttpResponse(ret_data)
 
 def server_edit(request,server_id):
     server = get_object_or_404(Server,pk=server_id)
@@ -124,33 +152,44 @@ def server_raid(request,server_id,fun):
     '''
     server = get_object_or_404(Server,pk=server_id)
     addr = server.pxe_ip
-    from .raid_api import RAIDAPI
-    rd = RAIDAPI(server,addr,user='root',passwd='P@ssw0rd')
-    if fun == 'raid_card':
-        ret_data = rd.raid_card()
-    elif fun == 'raid_detail':
-        ret_data = rd.raid_detail()
-    elif fun == 'raid_status':
-        ret_data = rd.raid_status()
-    elif fun == 'raid_disk':
-        ret_data = rd.raid_disk()
+    if fun == 'raid_status':
+        disks = server.disk_set.all()
+        values = disks.values('raid_name','raid_type').distinct()
+        rds = dict()
+        for value in values:
+            tmp = {}
+            tmp['raid_type'] = value['raid_type']
+            dks = disks.filter(raid_name=value['raid_name'])
+            dk = []
+            for d in dks:
+                dk.append({'path':d.path,'dtype':d.dtype,'size':d.size})
+            tmp['disks'] = dk
+            rds[value['raid_name']] = tmp
     elif fun == 'create_raid':
         if request.method == 'GET':
+            disks = server.disk_set.filter(raid_name='Unassigned')
             return render(request,'installation/create_raid.html',locals())
         else:
-            drivers = ','.join(request.POST.getlist('drivers',''))
+            disks = request.POST.getlist('drivers','')
+            drivers = ','.join(disks)
             raid_type = request.POST.get('raid_type','')
+            rd = RAIDAPI(server,addr,user='root',passwd='P@ssw0rd')
             ret_data = rd.create_raid(drivers,raid_type)
             if not ret_data:
-                ret_data = 'Raid %s has been created on %s'%(raid_type,drivers)
-            return render(request,'installation/tips.html',locals())
+                cmd ="curl -L http://192.168.3.166/"
+                remote_cmd(cmd,addr,user='root',passwd='P@ssw0rd')
+                # ret_data = 'Raid %s has been created on %s'%(raid_type,drivers)
+            return HttpResponse(ret_data)
     elif fun == 'delete_raid':
         if request.method == 'GET':
+            r_names = server.disk_set.exclude(raid_name='Unassigned').values('raid_name').distinct()
             return render(request,'installation/delete_raid.html',locals())
         else:
+            rd = RAIDAPI(server,addr,user='root',passwd='P@ssw0rd')
             array = request.POST.get('array','')
             ret_data = rd.delete_raid(array)
-            return render(request,'installation/tips.html',locals())
+            server.disk_set.filter(raid_name=array).delete()
+            return HttpResponse(ret_data)
     return render(request,'installation/raid.html',locals())
 
 def server_ipmi(request,server_id,fun):
@@ -167,27 +206,19 @@ def server_ipmi(request,server_id,fun):
     ipmi_ip = server.ipmi_ip
     ipmi_user = server.ipmi_user
     ipmi_pass = server.ipmi_pass
-    # if (ipmi_ip and ipmi_user and ipmi_pass):
     try:
-        from ops.ipmi_api import ipmitool
         ipmi = ipmitool(ipmi_ip,ipmi_pass,username=ipmi_user)
         ipmi.chassis_status()
         if fun == 'boot_to_disk':
             ipmi.boot_to_disk()
+            ipmi.chassis_on()
             ret_data = ipmi.output
-        elif fun == 'chassis_on':
-            if 'on' in ipmi.output:
-                ret_data = '已经在开机状态，已为您取消本次开机操作。'
-            else:
-                ipmi.chassis_on()
-                ret_data = ipmi.output
         elif fun == 'chassis_off':
             if 'off' in ipmi.output:
                 ret_data = '已经在关机状态，已为您取消本次关机操作。'
             else:
                 ipmi.chassis_off()
                 ret_data = ipmi.output
-            # return HttpResponse(ret_data)
         elif fun == 'chassis_reboot':
             if 'off' in ipmi.output:
                 ret_data = '当前在关机状态，无法完成重启操作。'
@@ -195,25 +226,26 @@ def server_ipmi(request,server_id,fun):
                 ipmi.chassis_reboot()
                 ret_data = ipmi.output
         elif fun == 'boot_to_pxe':
-            ipmi.boot_to_pxe()
-            ret_data = ipmi.output
+            if 'on' in ipmi.output:
+                ret_data = '已经在开机状态，已为您取消本次开机操作。'
+            else:
+                ipmi.boot_to_pxe()
+                ipmi.chassis_on()
+                ret_data = ipmi.output            
         else:
             ret_data = ipmi.output
     except Exception as e:
         ret_data = str(e)
-    # else:
-    #     ret_data = 
-    if 'socket' in ret_data:
-        ret_data = 'ipmi地址错误或网络错误,当前地址:%s,请更新ipmi账号配置'%(ipmi_ip)
-    elif 'Error' in ret_data:
-        ret_data = '账号或密码错误，请更新账号或密码,当前账号:%s,密码:%s'%(ipmi_user,ipmi_pass)
+    if 'socket' in ret_data or 'Error' in ret_data:
+        ret_data = '1'
     else:
-        ret_data = ret_data
-    return render(request,'installation/ipmi.html',locals())
+        pass
+    return HttpResponse(ret_data)
 
 def update_ipmi(request,server_id):
-    server = get_object_or_404(Server,pk=server_id)
     if request.method == "GET":
+        server = get_object_or_404(Server,pk=server_id)
+        ret_data = "用户或密码错误"
         return render(request,'installation/update_ipmi.html',locals())
     else:
         kwargs = {}
@@ -223,14 +255,17 @@ def update_ipmi(request,server_id):
             else:
                 if v:
                     kwargs[k] = v
-        Server.objects.filter(pk=server_id).update(**kwargs)
-        ret_data = '''
-ipmi的地址、账号或密码均已被更新。
-当前的ipmi地址、账号和密码如下：
-地址：%s
-账号：%s
-密码：%s'''%(server.ipmi_ip,kwargs['ipmi_user'],kwargs['ipmi_pass'])
-        return render(request,'installation/tips.html',locals())
+        ipmi = ipmitool(kwargs[ipmi_ip],kwargs[ipmi_pass],username=kwargs[ipmi_user])
+        ipmi.chassis_status()
+        ret_data = ipmi.output
+        if 'socket' in ret_data:
+            ret_data = 'ipmi地址错误或网络错误'
+        elif 'Error' in ret_data:
+            ret_data = 'ipmi账号或密码错误'
+        else:
+            Server.objects.filter(pk=server_id).update(**kwargs)
+            ret_data = '账号配置成功'
+        return HttpResponse(ret_data)
 
 def get_system(request,server_id):
     server = get_object_or_404(Server,pk=server_id)
