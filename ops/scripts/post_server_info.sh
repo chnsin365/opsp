@@ -150,19 +150,19 @@ function get_disk_info(){
         then
         echo"" >/tmp/disk_info_list
         get_raid_controller_slot
-        disklist=`ssacli ctrl slot=$raid_controller_slot pd all show status  |grep -E "physicaldrive|ssdphysicaldrive"|awk '{print $2}'`
+        disklist=`/opt/ssacli/bin/ssacli ctrl slot=$raid_controller_slot pd all show status  |grep -E "physicaldrive|ssdphysicaldrive"|awk '{print $2}'`
         for disk in `echo $disklist`;do
-          disk_type=`ssacli ctrl slot=$raid_controller_slot physicaldrive $disk show |grep "Drive Type"|awk -F: '{print $2}'|sed 's/^[ \t]*//g'|sed 's/[ \t]*$//g'`
+          disk_type=`/opt/ssacli/bin/ssacli ctrl slot=$raid_controller_slot physicaldrive $disk show |grep "Drive Type"|awk -F: '{print $2}'|sed 's/^[ \t]*//g'|sed 's/[ \t]*$//g'`
           if [ "$disk_type" == "Data Drive" ]
           then
-            disk_raid=`ssacli ctrl slot=$raid_controller_slot physicaldrive $disk show |grep -v "Smart Array"|grep "Array"|sed 's/^[ \t]*//g'|sed 's/[ \t]*$//g'|awk '{print $2}'`
-            raid_type=`ssacli ctrl slot=$raid_controller_slot array $disk_raid ld all show |grep logicaldrive |awk -F, '{print $2}'|sed 's/^[ \t]*//g'|sed 's/[ \t]*$//g'`
+            disk_raid=`/opt/ssacli/bin/ssacli ctrl slot=$raid_controller_slot physicaldrive $disk show |grep -v "Smart Array"|grep "Array"|sed 's/^[ \t]*//g'|sed 's/[ \t]*$//g'|awk '{print $2}'`
+            raid_type=`/opt/ssacli/bin/ssacli ctrl slot=$raid_controller_slot array $disk_raid ld all show |grep logicaldrive |awk -F, '{print $2}'|sed 's/^[ \t]*//g'|sed 's/[ \t]*$//g'`
           else
             disk_raid="Unassigned"
             raid_type=""
           fi
-          disk_type=`ssacli ctrl slot=$raid_controller_slot physicaldrive $disk show |grep "Interface Type"|sed 's/^[ \t]*//g'|sed 's/[ \t]*$//g'|awk -F: '{print $2}'`
-          disk_size=`ssacli ctrl slot=$raid_controller_slot physicaldrive $disk show |grep -v "Logical/Physical Block Size"|grep "Size"|sed 's/^[ \t]*//g'|sed 's/[ \t]*$//g'|awk -F: '{print 
+          disk_type=`/opt/ssacli/bin/ssacli ctrl slot=$raid_controller_slot physicaldrive $disk show |grep "Interface Type"|sed 's/^[ \t]*//g'|sed 's/[ \t]*$//g'|awk -F: '{print $2}'`
+          disk_size=`/opt/ssacli/bin/ssacli ctrl slot=$raid_controller_slot physicaldrive $disk show |grep -v "Logical/Physical Block Size"|grep "Size"|sed 's/^[ \t]*//g'|sed 's/[ \t]*$//g'|awk -F: '{print 
 $2}'`
           echo $disk"&#"$disk_type"&#"$disk_size"&#"$disk_raid"&#"$raid_type >> /tmp/disk_info_list
         done

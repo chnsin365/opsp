@@ -41,7 +41,7 @@
                           <select class="form-control" name="array" style="width: 226px;">
                             <option value="-1">--请选择--</option>
                             {% for name in r_names %}
-                                <option value="{{name}}">{{name}}</option>
+                                <option value="{{name.raid_name}}">{{name.raid_name}}</option>
                             {% endfor %}
                           </select>
                         </div>
