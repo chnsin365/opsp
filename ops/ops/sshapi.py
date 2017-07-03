@@ -2,16 +2,18 @@
 import paramiko
 
 def remote_cmd(cmd,host,user='root',passwd='P@ssw0rd'):
+	ret = {'status':True,'result':''}
 	try:
 		ssh = paramiko.SSHClient()
 		ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 		ssh.connect(hostname=host,username=user,password=passwd)
 		stdin,stdout,stderr = ssh.exec_command(cmd)
-		return stdout.read()
+		ret['result'] = stdout.read()
 	except Exception as e:
-		return str(e)
+		ret = {'status':False,'result':str(e)}
 	finally:
 		ssh.close()
+		return ret
 
 def put_file(user,passwd,localpath,remotepath):
 	try:

@@ -72,6 +72,19 @@ def post_server_info(request):
         created = e
     return HttpResponse(created)
 
+@csrf_exempt
+def install_pre_post(request):
+    name = request.POST['name']
+    ip = request.POST['ip']
+    progress = request.POST['progress']
+    print name,ip,progress
+    try:
+        PreSystem.objects.filter(hostname=name,ip=ip).update(progress=progress)
+        ret = True
+    except Exception as e:
+        ret = False
+    return HttpResponse(ret)
+
 def init(request):
     status = get_object_or_404(ServerStatus,status_type='init')
     servers = status.server_set.all()
@@ -125,8 +138,9 @@ def server_change_status(request,server_id,status_type):
             server.save()
             pre_system.delete()
         else:
-            messages.error(request, result['comment'])
-            return render(request,'installation/install_server.html',locals())
+            # messages.error(request, result['comment'])
+            # return render(request,'installation/install_server.html',locals())
+            return HttpResponse(result['comment'])
     except Exception as e:
         # raise e
         messages.error(request, str(e))
@@ -175,13 +189,18 @@ def server_raid(request,server_id,fun):
             raid_type = request.POST.get('raid_type','')
             rd = RAIDAPI(server,addr,user='root',passwd='P@ssw0rd')
             ret_data = rd.create_raid(drivers,raid_type)
-            if not ret_data:
+            if ret_data['status']:
                 cmd ="curl -L http://192.168.3.166/cobbler/svc/post_server_info.sh | sh > /tmp/curl.log 2>&1"
                 try:
-                    remote_cmd(cmd,addr,user='root',passwd='P@ssw0rd')
-                    ret_data = 'Raid %s has been created on %s'%(raid_type,drivers)
+                    ret = remote_cmd(cmd,addr,user='root',passwd='P@ssw0rd')
+                    if ret['status']:
+                        ret_data = 'Raid %s has been created on %s'%(raid_type,drivers)
+                    else:
+                        ret_data = ret['result']
                 except Exception as e:
                     ret_data = str(e)
+            else:
+                ret_data = ret_data['result']
             return HttpResponse(ret_data)
     elif fun == 'delete_raid':
         if request.method == 'GET':
@@ -191,13 +210,21 @@ def server_raid(request,server_id,fun):
             rd = RAIDAPI(server,addr,user='root',passwd='P@ssw0rd')
             array = request.POST.get('array','')
             ret_data = rd.delete_raid(array)
-            cmd ="curl -L http://192.168.3.166/cobbler/svc/post_server_info.sh | sh > /tmp/curl.log 2>&1"
-            try:
-                remote_cmd(cmd,addr,user='root',passwd='P@ssw0rd')
-                ret_data = 'Array %s has been deleted'%(array)
-            except Exception as e:
-                ret_data = str(e)
+            if ret_data['status']:
+                cmd ="curl -L http://192.168.3.166/cobbler/svc/post_server_info.sh | sh > /tmp/curl.log 2>&1"
+                try:
+                    ret = remote_cmd(cmd,addr,user='root',passwd='P@ssw0rd')
+                    if ret['status']:
+                        ret_data = 'Array %s has been deleted'%(array)
+                    else:
+                        ret_data = ret['result']
+                except Exception as e:
+                    ret_data = str(e)
+            else:
+                ret_data = ret_data['result']
             return HttpResponse(ret_data)
+    else:
+        pass
     return render(request,'installation/raid.html',locals())
 
 def server_ipmi(request,server_id,fun):
@@ -239,10 +266,11 @@ def server_ipmi(request,server_id,fun):
                 ipmi.chassis_on()
                 ret_data = '开始安装......'
             else:
+                ipmi.boot_to_pxe()
                 ipmi.chassis_reboot()
                 ret_data = '开始安装......'
-            server.presystem.progress = 3
-            server.presystem.save()
+            # server.presystem.progress = 0
+            # server.presystem.save()
         elif fun == 'boot_to_pxe':
             if 'on' in ipmi.output:
                 ret_data = '已经在开机状态，已为您取消本次开机操作。'
@@ -283,7 +311,7 @@ def update_ipmi(request,server_id):
         else:
             Server.objects.filter(pk=server_id).update(**kwargs)
             ret_data = '账号配置成功'
-        return HttpResponse(ret_data)
+        return render(request,'installation/msg.html',locals())
 
 def get_system(request,server_id):
     server = get_object_or_404(Server,pk=server_id)

@@ -38,7 +38,15 @@
 	                          <td>{{system.profile}}</td>
 	                          <td>{{system.create_time | date:'Y-m-d H:m:s'}}</td>
 	                          <td>
-	                          <div class="progress-bar" role="progressbar" style="width: {{system.progress}}%;"><small style="color: blue;">{{system.progress}}%</small></div></td>
+	                          {% if system.progress == -1 %}
+	                          	ready
+	                          {% elif system.progress == 0 %}
+	                          	installing
+	                          {% elif system.progress == 1 %}
+	                          	finished
+	                          {% endif %}
+	                          <!-- <div class="progress-bar" role="progressbar" style="width: {{system.progress}}%;"><small style="color: blue;">{{system.progress}}%</small></div> -->
+	                          </td>
 	                          <td>
 	                          	<div class="btn-group">
 			                      <button type="button" class="btn btn-info btn-xs" >操作</button>
@@ -57,7 +65,7 @@
 			                        </li> -->
 			                        <li><a href="{% url 'installation:server_change_status' system.server.id 'init' %}" style="padding-left: 5px;">重新初始化</a>
 			                        </li>
-			                        <li><a href="{% url 'installation:server_change_status' system.server.id 'install' %}" style="padding-left: 5px;">确认上线</a>
+			                        <li><a href="{% url 'installation:server_change_status' system.server.id 'running' %}" style="padding-left: 5px;">确认上线</a>
 			                        </li>
 			                      </ul>
 			                    </div>

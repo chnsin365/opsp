@@ -136,7 +136,7 @@ class PreSystem(models.Model):
     ip                 = models.GenericIPAddressField(blank=True,null=True,unique=True)
     hostname           = models.CharField(max_length=50,blank=True,null=True)
     profile            = models.CharField(max_length=50,blank=True,null=True)
-    progress           = models.IntegerField(blank=True,null=True,default=0)
+    progress           = models.IntegerField(blank=True,null=True,default=-1)
     server             = models.OneToOneField(Server,blank=True, null=True)
     create_time        = models.DateTimeField(auto_now_add=True)
     update_time        = models.DateTimeField(auto_now=True)
