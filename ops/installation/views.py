@@ -12,6 +12,7 @@ from ops.sshapi import remote_cmd
 from .raid_api import RAIDAPI
 from ops.ipmi_api import ipmitool
 from .cobbler_api import CobblerAPI
+from .tasks import run_test_suit
 
 # Create your views here.
 @csrf_exempt
@@ -390,3 +391,8 @@ def delete_system(request,system,server_id):
     ret_data = cobbler.del_system(system)
     return redirect('installation:get_system',server_id)
 
+def tasks(request):
+    print('before run_test_suit')
+    result = run_test_suit.delay('110')
+    print('after run_test_suit')
+    return HttpResponse("job is runing background~")

@@ -36,4 +36,5 @@ urlpatterns = [
     url(r'^server/edit_system/(\w+)/(\w+)/$',views.edit_system,name='edit_system'),
     url(r'^server/system/view/(\w+)/$',views.view_system,name='view_system'),
     url(r'^server/system/delete/(\w+)/(\w+)/$',views.delete_system,name='delete_system'),
+    url(r'^celery/$',views.tasks,name='tasks'),
 ]
