@@ -15,48 +15,21 @@
     <link href="{%static 'build/css/custom.min.css'%}" rel="stylesheet">
 
 
-    <div class="container body">
+    <div class="container body" >
       <div class="main_container">
         <!-- page content -->
         <div class="right_col" role="main">
 
           <div class="row">
-            <div class="col-md-4 col-sm-4 col-xs-12">
-              <div class="x_panel tile fixed_height_230">
-                <div class="x_title">
-                  <h2>装机信息</h2>
-                  <div class="clearfix"></div>
+           <div class="col-md-5 col-sm-5 col-xs-12" style="width: 440px">
+              <div class="x_panel tile fixed_height_300 overflow_hidden" style="width: 440px">
+                <div class="x_title" style="width: 440px">
+                  <h2 >品牌型号</h2>
+                  <div class="clearfix" ></div>
                 </div>
-                <div class="x_content">
-                      <table class="countries_list">
-                        <tbody>
-                          <tr>
-                            <td>PXE IP</td>
-                            <td class="fs15 fw700 text-right">{{server.pxe_ip}}</td>
-                          </tr>
-                          <tr>
-                            <td>PXE MAC</td>
-                            <td class="fs15 fw700 text-right">{{server.pxe_mac}}</td>
-                          </tr>
-                          <tr>
-                            <td>IPMI IP</td>
-                            <td class="fs15 fw700 text-right">{{server.ipmi_ip}}</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-5 col-sm-5 col-xs-12">
-              <div class="x_panel tile fixed_height_300 overflow_hidden">
-                <div class="x_title">
-                  <h2>品牌型号</h2>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                      <table class="countries_list">
-                        <tbody>
+                <div class="x_content" >
+                      <table class="countries_list" style="width: 400px" style="font-size: 13px;">
+                        <tbody >
                           <tr>
                             <td>厂商</td>
                             <td class="fs15 fw700 text-right">{{server.vendor}}</td>
@@ -78,43 +51,14 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-3 col-sm-3 col-xs-12">
-	              <div class="x_panel tile ">
-	                <div class="x_title">
-	                  <h2>内存</h2>
-	                  <div class="clearfix"></div>
-	                </div>
-	                <div class="x_content">
-	                      <table class="countries_list">
-	                        <tbody>
-	                          <tr>
-	                            <td>总内存(G)</td>
-	                            <td class="fs15 fw700 text-right">{{server.mem_size}}</td>
-	                          </tr>
-	                          <tr>
-	                            <td>槽位数</td>
-	                            <td class="fs15 fw700 text-right">{{server.mem_total_slots}}</td>
-	                          </tr>
-	                          <tr>
-	                            <td>剩余槽位</td>
-	                            <td class="fs15 fw700 text-right">{{server.mem_free_slots}}</td>
-	                          </tr>
-	                        </tbody>
-	                      </table>
-	                </div>
-	              </div>
-	        </div>
-          </div>
-
-          <div class="row">
-          	<div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-md-6 col-sm-6 col-xs-12" style="width: 400px;">
               <div class="x_panel tile">
                 <div class="x_title">
-                  <h2>CPU</h2>
+                  <h2 >CPU</h2>
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                      <table class="countries_list">
+                      <table class="countries_list" style="font-size: 13px;">
                         <tbody>
                           <tr>
                             <td>CPU</td>
@@ -137,15 +81,138 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-              <div class="x_panel tile">
-                <div class="x_title">
-                  <h2 style="width: 80px;">附加信息</h2>
+
+            
+
+           
+          </div>
+
+          <div class="row">
+          <div class="col-md-6 col-sm-6 col-xs-12">
+                  <div class="x_panel">
+                    <div class="x_title">
+                      <h2 style="width: 80px;font-size: 15px;">硬盘信息</h2>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+
+                    <table class="table table-striped" style="font-size: 13px;">
+                        <thead>
+                          <tr>
+                            <td>硬盘路径</td>
+                            <td>大小</td>
+                            <td>类型</td>
+                          </tr>
+                        </thead>
+                        
+                        <tbody>
+                        {% for disk in server.disk_set.all %}
+                          <tr>
+                            <td>{{disk.path}}</td>
+                            <td>{{disk.size}}</td>
+                            <td>{{disk.dtype}}</td>
+                          </tr>
+                        {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+             </div>
+            <div class="col-md-6 col-sm-6 col-xs-12" >
+                  <div class="x_panel" >
+                    <div class="x_title" >
+                      <h2 style="width: 80px;font-size: 15px;">网卡信息</h2>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content" >
+
+                    <table class="table table-striped" style="font-size: 13px;" >
+                        <thead>
+                          <tr>
+                            <td>名称</td>
+                            <td>MAC</td>
+                            <td>型号</td>
+                          </tr>
+                        </thead>
+                        
+                        <tbody>
+                        {% for nic in server.nic_set.all %}
+                          <tr>
+                            <td>{{nic.name}}</td>
+                            <td>{{nic.mac}}</td>
+                            <td>{{nic.model}}</td>
+                        {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+           
+              </div>
+          </div>
+
+          <div class="row">
+
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                <div class="x_panel tile ">
+                  <div class="x_title">
+                    <h2 >内存</h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                        <table class="countries_list" style="font-size: 13px;">
+                          <tbody>
+                            <tr>
+                              <td>总内存(G)</td>
+                              <td class="fs15 fw700 text-right">{{server.mem_size}}</td>
+                            </tr>
+                            <tr>
+                              <td>槽位数</td>
+                              <td class="fs15 fw700 text-right">{{server.mem_total_slots}}</td>
+                            </tr>
+                            <tr>
+                              <td>剩余槽位</td>
+                              <td class="fs15 fw700 text-right">{{server.mem_free_slots}}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                  </div>
+                </div>
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="x_panel tile fixed_height_230" >
+                <div class="x_title" >
+                  <h2 >装机信息</h2>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content" >
+                      <table class="countries_list" style="font-size: 13px;">
+                        <tbody>
+                          <tr>
+                            <td>PXE IP</td>
+                            <td class="fs15 fw700 text-right">{{server.pxe_ip}}</td>
+                          </tr>
+                          <tr>
+                            <td>PXE MAC</td>
+                            <td class="fs15 fw700 text-right">{{server.pxe_mac}}</td>
+                          </tr>
+                          <tr>
+                            <td>IPMI IP</td>
+                            <td class="fs15 fw700 text-right">{{server.ipmi_ip}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+              </div>
+              </div> 
+            <div class="col-md-6 col-sm-6 col-xs-12" style="width: 320px;">
+              <div class="x_panel tile" style="width: 300px;">
+                <div class="x_title" style="width: 300px;">
+                  <h2 style="width: 80px;" >附加信息</h2>
                   <button onclick="edit('{{server.id}}')" type="button" class="btn btn-info btn-xs">编辑</button>
                   <div class="clearfix"></div>
                 </div>
-                <div class="x_content">
-                      <table class="countries_list">
+                <div class="x_content" style="width: 200px;">
+                      <table class="countries_list" style="font-size: 13px;" style="width: 300px;">
                         <tbody>
                           <tr>
                             <td>机房</td>
@@ -168,68 +235,8 @@
                 </div>
               </div>
             </div>
-
-          </div>
-
-          <div class="row">
-	         <div class="col-md-6 col-sm-6 col-xs-12">
-                  <div class="x_panel">
-                    <div class="x_title">
-                      <h2 style="width: 80px;">硬盘信息</h2>
-                      <div class="clearfix"></div>
-                    </div>
-                    <div class="x_content">
-
-	                  <table class="table table-striped">
-	                      <thead>
-	                        <tr>
-	                          <th>Path</th>
-	                          <th>Size</th>
-                            <th>Disk Type</th>
-	                        </tr>
-	                      </thead>
-	                      
-	                      <tbody>
-	                      {% for disk in server.disk_set.all %}
-	                        <tr>
-                            <td>{{disk.path}}</td>
-	                          <td>{{disk.size}}</td>
-                            <td>{{disk.dtype}}</td>
-	                        </tr>
-	                      {% endfor %}
-	                      </tbody>
-	                    </table>
-                    </div>
-                  </div>
-             </div>
-             <div class="col-md-6 col-sm-6 col-xs-12">
-                  <div class="x_panel">
-                    <div class="x_title">
-                      <h2 style="width: 80px;">网卡信息</h2>
-                      <div class="clearfix"></div>
-                    </div>
-                    <div class="x_content">
-
-	                  <table class="table table-striped">
-	                      <thead>
-	                        <tr>
-                            <th>Name</th>
-	                          <th>MAC</th>
-	                          <th>Model</th>
-	                        </tr>
-	                      </thead>
-	                      
-	                      <tbody>
-	                      {% for nic in server.nic_set.all %}
-	                        <tr>
-	                          <td>{{nic.name}}</td>
-                            <td>{{nic.mac}}</td>
-	                          <td>{{nic.model}}</td>
-	                      {% endfor %}
-	                      </tbody>
-	                    </table>
-                    </div>
-                  </div>
+             
+            
              </div>
           </div>
         </div>
@@ -295,4 +302,3 @@
               });
       }
     </script>
-

@@ -12,6 +12,7 @@ from ops.sshapi import remote_cmd
 from .raid_api import RAIDAPI
 from ops.ipmi_api import ipmitool
 from .cobbler_api import CobblerAPI
+from .tasks import run_test_suit
 
 # Create your views here.
 @csrf_exempt
@@ -69,8 +70,21 @@ def post_server_info(request):
                 disk_obj.server = server
                 disk_obj.save()            
     except Exception as e:
-        raise e
+        created = e
     return HttpResponse(created)
+
+@csrf_exempt
+def install_pre_post(request):
+    name = request.POST['name']
+    ip = request.POST['ip']
+    progress = request.POST['progress']
+    print name,ip,progress
+    try:
+        PreSystem.objects.filter(hostname=name,ip=ip).update(progress=progress)
+        ret = True
+    except Exception as e:
+        ret = False
+    return HttpResponse(ret)
 
 def init(request):
     status = get_object_or_404(ServerStatus,status_type='init')
@@ -125,8 +139,9 @@ def server_change_status(request,server_id,status_type):
             server.save()
             pre_system.delete()
         else:
-            messages.error(request, result['comment'])
-            return render(request,'installation/install_server.html',locals())
+            # messages.error(request, result['comment'])
+            # return render(request,'installation/install_server.html',locals())
+            return HttpResponse(result['comment'])
     except Exception as e:
         # raise e
         messages.error(request, str(e))
@@ -175,10 +190,18 @@ def server_raid(request,server_id,fun):
             raid_type = request.POST.get('raid_type','')
             rd = RAIDAPI(server,addr,user='root',passwd='P@ssw0rd')
             ret_data = rd.create_raid(drivers,raid_type)
-            if not ret_data:
-                cmd ="curl -L http://192.168.3.166/"
-                remote_cmd(cmd,addr,user='root',passwd='P@ssw0rd')
-                # ret_data = 'Raid %s has been created on %s'%(raid_type,drivers)
+            if ret_data['status']:
+                cmd ="curl -L http://192.168.3.166/cobbler/svc/post_server_info.sh | sh > /tmp/curl.log 2>&1"
+                try:
+                    ret = remote_cmd(cmd,addr,user='root',passwd='P@ssw0rd')
+                    if ret['status']:
+                        ret_data = 'Raid %s has been created on %s'%(raid_type,drivers)
+                    else:
+                        ret_data = ret['result']
+                except Exception as e:
+                    ret_data = str(e)
+            else:
+                ret_data = ret_data['result']
             return HttpResponse(ret_data)
     elif fun == 'delete_raid':
         if request.method == 'GET':
@@ -188,8 +211,21 @@ def server_raid(request,server_id,fun):
             rd = RAIDAPI(server,addr,user='root',passwd='P@ssw0rd')
             array = request.POST.get('array','')
             ret_data = rd.delete_raid(array)
-            server.disk_set.filter(raid_name=array).delete()
+            if ret_data['status']:
+                cmd ="curl -L http://192.168.3.166/cobbler/svc/post_server_info.sh | sh > /tmp/curl.log 2>&1"
+                try:
+                    ret = remote_cmd(cmd,addr,user='root',passwd='P@ssw0rd')
+                    if ret['status']:
+                        ret_data = 'Array %s has been deleted'%(array)
+                    else:
+                        ret_data = ret['result']
+                except Exception as e:
+                    ret_data = str(e)
+            else:
+                ret_data = ret_data['result']
             return HttpResponse(ret_data)
+    else:
+        pass
     return render(request,'installation/raid.html',locals())
 
 def server_ipmi(request,server_id,fun):
@@ -225,6 +261,17 @@ def server_ipmi(request,server_id,fun):
             else:
                 ipmi.chassis_reboot()
                 ret_data = ipmi.output
+        elif fun == 'install':
+            if 'off' in ipmi.output:
+                ipmi.boot_to_pxe()
+                ipmi.chassis_on()
+                ret_data = '开始安装......'
+            else:
+                ipmi.boot_to_pxe()
+                ipmi.chassis_reboot()
+                ret_data = '开始安装......'
+            # server.presystem.progress = 0
+            # server.presystem.save()
         elif fun == 'boot_to_pxe':
             if 'on' in ipmi.output:
                 ret_data = '已经在开机状态，已为您取消本次开机操作。'
@@ -255,7 +302,7 @@ def update_ipmi(request,server_id):
             else:
                 if v:
                     kwargs[k] = v
-        ipmi = ipmitool(kwargs[ipmi_ip],kwargs[ipmi_pass],username=kwargs[ipmi_user])
+        ipmi = ipmitool(kwargs['ipmi_ip'],kwargs['ipmi_pass'],username=kwargs['ipmi_user'])
         ipmi.chassis_status()
         ret_data = ipmi.output
         if 'socket' in ret_data:
@@ -265,7 +312,7 @@ def update_ipmi(request,server_id):
         else:
             Server.objects.filter(pk=server_id).update(**kwargs)
             ret_data = '账号配置成功'
-        return HttpResponse(ret_data)
+        return render(request,'installation/msg.html',locals())
 
 def get_system(request,server_id):
     server = get_object_or_404(Server,pk=server_id)
@@ -311,8 +358,41 @@ def view_system(request,system):
     ret_data = json.dumps(json.loads(json.dumps(system), parse_int=str), indent=4, sort_keys=False, ensure_ascii=False)
     return render(request,'installation/tips.html',locals())
 
+def edit_system(request,server_id,system):
+    server = get_object_or_404(Server,pk=server_id)
+    pre_system = get_object_or_404(PreSystem,hostname=system)
+    cobbler = CobblerAPI("http://192.168.3.166/cobbler_api","admin","admin")
+    if request.method == 'GET':
+        profiles = cobbler.get_proflies()
+        if 'result' in profiles:
+            messages.error(request, profiles['comment'])
+            return render(request,'installation/install.html',locals())
+        else:       
+            return render(request,'installation/edit_system.html',locals())
+    else:
+        hostname = request.POST.get('hostname','')
+        ip_addr = request.POST.get('ip_addr','')
+        mac_addr = request.POST.get('mac_addr','')
+        profile = request.POST.get('profile','')
+        kopts = request.POST.get('kopts','')
+        try:
+            ret_data = cobbler.edit_system(system,hostname,ip_addr,mac_addr,profile,kopts)
+            if ret_data['result']:
+                PreSystem.objects.update_or_create(server_id=server_id,\
+                    defaults={'ip':ip_addr,'profile':profile,'server_id':server.id,'hostname':hostname})
+        except Exception as e:
+            messages.error(request, e)
+            profiles = cobbler.get_proflies()
+            return render(request,'installation/edit_system.html',locals())
+        return redirect('installation:get_system',server_id)
+
 def delete_system(request,system,server_id):
     cobbler = CobblerAPI("http://192.168.3.166/cobbler_api","admin","admin")
     ret_data = cobbler.del_system(system)
     return redirect('installation:get_system',server_id)
 
+def tasks(request):
+    print('before run_test_suit')
+    result = run_test_suit.delay('110')
+    print('after run_test_suit')
+    return HttpResponse("job is runing background~")

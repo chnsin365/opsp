@@ -43,9 +43,9 @@ class CobblerAPI(object):
             ret['result'] = False
             ret['comment'].append(str(e))
         return ret
-    def edit_system_netboot(self,hostname,netboot):
+    def edit_system(self,name,hostname,ip_addr,mac_addr,profile,kopts):
         '''
-        Add Cobbler System Infomation
+        Edit Cobbler System Infomation
         '''
         ret = {
             "result": True,
@@ -54,8 +54,17 @@ class CobblerAPI(object):
         
         remote = xmlrpclib.Server(self.cobbler_url)
         token = remote.login(self.cobbler_user,self.cobbler_pass) 
-        system_id = remote.get_system_handle(hostname,token) 
-        remote.modify_system(system_id,"netboot_enabled",netboot,token)        
+        system_id = remote.get_system_handle(name,token)
+        remote.modify_system(system_id,"hostname",hostname,token) 
+        remote.modify_system(system_id,'modify_interface', { 
+            "macaddress-eth0" : mac_addr, 
+            "ipaddress-eth0" : ip_addr, 
+            "dnsname-eth0" : hostname, 
+        }, token)
+        if profile:
+            remote.modify_system(system_id,"profile",profile,token)
+        if kopts:
+            remote.modify_system(system_id,"kopts",kopts,token) 
         remote.save_system(system_id, token) 
         try:
             #remote.sync(token)

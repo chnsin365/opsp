@@ -41,7 +41,7 @@
                           <select class="form-control" name="array" style="width: 226px;">
                             <option value="-1">--请选择--</option>
                             {% for name in r_names %}
-                                <option value="{{name}}">{{name}}</option>
+                                <option value="{{name.raid_name}}">{{name.raid_name}}</option>
                             {% endfor %}
                           </select>
                         </div>
@@ -51,7 +51,7 @@
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12" style="padding-left: 130px;width: 360px;">
 						  <button class="btn btn-primary" type="reset">Reset</button>
-                          <button type="submit" class="btn btn-success" onclick="close_child()">Submit</button>
+                          <button type="submit" class="btn btn-success">Submit</button>
                         </div>
                       </div>
                     </form>
@@ -101,12 +101,16 @@
     <script src="{%static 'layer/layer.js'%}"></script>    
 
     <script type="text/javascript">
-        function close_child() {
-            sleep 10;
-            var index = parent.layer.getFrameIndex(window.name);
-            alert(index);
-            parent.layer.close(index);
+        // function close_child() {
+        //     sleep 10;
+        //     var index = parent.layer.getFrameIndex(window.name);
+        //     alert(index);
+        //     parent.layer.close(index);
 
-            parent.location.href="{% url 'installation:server_raid' server_id 'raid_status' %}";  
-        }
+        //     parent.location.href="{% url 'installation:server_raid' server_id 'raid_status' %}";  
+        // }
+        function loading() {
+            // sleep(4);
+            layer.load(2, {shade: false});
+         }
     </script>

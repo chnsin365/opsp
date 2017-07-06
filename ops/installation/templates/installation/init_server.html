@@ -64,9 +64,9 @@
 			                        <span class="sr-only">Toggle Dropdown</span>
 			                      </button>
 			                      <ul class="dropdown-menu" role="menu" style="min-width: 60px;width: 47px;">
-			                        <li><a onclick="detail('服务器RAID信息','{{server.id}}','600px','400px','/installation/server/raid/','/raid_status')" style="padding-left: 5px;">RAID</a>
+			                        <li><a onclick="detail('服务器RAID信息','{{server.id}}','600px','600px','/installation/server/raid/','/raid_status')" style="padding-left: 5px;">RAID</a>
 			                        </li>
-			                        <li><a onclick="config_sys('配置系统','{{server.id}}','600px','400px','/installation/server/install/','')" style="padding-left: 5px;">配置系统</a>
+			                        <li><a onclick="config_sys('配置系统','{{server.id}}','700px','400px','/installation/server/install/','')" style="padding-left: 5px;">配置系统</a>
 			                        </li>
 			                        <!-- <li><a onclick="detail('IPMI','{{server.id}}','800px','350px','/installation/server/ipmi/','/chassis_status')" style="padding-left: 5px;">IPMI</a>
 			                        </li> -->
@@ -125,7 +125,7 @@
                 searching: true,//搜索
                 language: {
                     lengthMenu: '<select class="form-control input-xsmall" style="width: 52px;height: 22px;">' + '<option value="10">10</option>' + '<option value="20">20</option>' + '<option value="30">30</option>' + '<option value="40">40</option>' + '<option value="50">50</option>' + '</select>',//左上角的分页大小显示。
-                    search: '<span class="label label-success">搜索：</span>',//右上角的搜索文本，可以写html标签
+                    search: '<span class="label label-success"></span>',//右上角的搜索文本，可以写html标签
 
                     paginate: {//分页的样式内容。
                         previous: "<",
@@ -136,7 +136,7 @@
 
                     zeroRecords: "没有内容",//table tbody内容为空时，tbody的内容。
                     //下面三者构成了总体的左下角的内容。
-                    info: "合计_TOTAL_条，总共_PAGES_页，显示第_START_到第_END_条",
+                    info: "合计_TOTAL_条，总共_PAGES_页",
                     // info: '<div class="row">' + '<div class="col-sm-5" style="bottom: 540px;">' + '<div class="dataTables_info" id="example_info" role="status" aria-live="polite" style="margin-left: 60px;">' + ' 合计:_MAX_ ' + '</div>' + '</div>' + '</div>',
                     //左下角的信息显示，大写的词为关键字。
                     infoEmpty: "0条记录",//筛选为空时左下角的显示。
@@ -164,7 +164,7 @@
 				  type: 2,
 				  title: title,
 				  maxmin: true,
-				  // shadeClose: true, //点击遮罩关闭层
+				  shadeClose: true, //点击遮罩关闭层
 				  area : [ width,height],
 				  content: url + sn + fun,
 				  end: function () {
@@ -191,6 +191,7 @@
 			            		}
 			            		else
 			            		{
+			            			layer.closeAll();
 			            			layer.msg(data,{time: 5000});
 			            		}
 							});        

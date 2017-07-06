@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url,include
 from django.contrib import admin
+from django.views.decorators.csrf import csrf_exempt
 from . import views
 
 urlpatterns = [
@@ -30,7 +31,10 @@ urlpatterns = [
     url(r'^server/ipmi/(\w+)/(\w+)/$',views.server_ipmi,name='server_ipmi'),
     url(r'^server/ipmi/(\w+)/$',views.update_ipmi,name='update_ipmi'),
     url(r'^server/install/(\w+)/$',views.get_system,name='get_system'),
+    url(r'^install_pre_post/$',views.install_pre_post,name='install_pre_post'),
     url(r'^server/add_system/(\w+)/$',views.add_system,name='add_system'),
+    url(r'^server/edit_system/(\w+)/(\w+)/$',views.edit_system,name='edit_system'),
     url(r'^server/system/view/(\w+)/$',views.view_system,name='view_system'),
     url(r'^server/system/delete/(\w+)/(\w+)/$',views.delete_system,name='delete_system'),
+    url(r'^celery/$',views.tasks,name='tasks'),
 ]
