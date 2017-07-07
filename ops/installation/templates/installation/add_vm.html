@@ -1,0 +1,129 @@
+{% extends 'base.html'%}
+{% load staticfiles %}
+
+    {% block title %}
+    <title> 自动化运维平台 </title>
+    {% endblock %}
+
+
+    {% block css %}
+    
+    {% endblock %}
+
+
+
+        {% block page-content %}
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            {% block page-title %}
+            <div class="page-title">
+              <div class="title_left">
+                
+              </div>
+            </div>
+            {% endblock %}
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                 
+                  	<h3>Vcenter</h3>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+          					<p>
+          						 <form action="{% url 'installation:add_vm' %}" method="post">
+                       	{% csrf_token %}
+                        <p>
+                          VM_NAME:<input type="text" name="name" required="required">
+                        </p>
+                        <p>
+                          VM_CPU:<input type="text" name="cpu">
+                        </p>
+                        <p>
+                          VM_CPU_CoreS:<input type="text" name="core">
+                        </p>
+                        <p>
+                          VM_MEMORY:<input type="text" name="mem">
+                        </p>
+                        <p>
+                          Power_on:
+                          <select name="power">
+                            <option value ="1">On</option>
+                            <option value ="0">Off</option>
+                          </select>
+                        </p>
+                        <p>
+                          Template:
+                          <select name="template">
+                            <option value ="-1">--请选择--</option>
+                            {% for template in templates %}
+                              <option value ="{{template.name}}">{{template.name}}</option>
+                            {% endfor %}
+                          </select>
+                        </p>
+                        <p>
+                          Vcenter:
+                          <select name="vcenter">
+                            <option value ="-1">--请选择--</option>
+                            {% for vcenter in vcenters %}
+                              <option value ="{{vcenter.name}}">{{vcenter.name}}</option>
+                            {% endfor %}
+                          </select>
+                        </p>
+                        <p>
+                          Datacenter:
+                          <select name="datacenter">
+                            <option value ="-1">--请选择--</option>
+                            {% for datacenter in datacenters %}
+                              <option value ="{{datacenter.name}}">{{datacenter.name}}</option>
+                            {% endfor %}
+                          </select>
+                        </p>
+                        <p>
+                          Cluster:
+                          <select name="cluster">
+                            <option value ="-1">--请选择--</option>
+                            {% for cluster in clusters %}
+                              <option value ="{{cluster.name}}">{{cluster.name}}</option>
+                            {% endfor %}
+                          </select>
+                        </p>
+                        <p>
+                          Esxi主机:
+                          <select name="esxi">
+                            <option value ="-1">--请选择--</option>
+                            {% for host in hosts %}
+                                <option value ="{{host.ip}}">{{host.ip}}</option>
+                            {% endfor %}
+                          </select>
+                        </p>
+                        <p>
+                          Datastore:
+                          <select name="datastore">
+                            <option value ="-1">--请选择--</option>
+                            {% for datastore in datastores %}
+                              <option value ="{{datastore.name}}">{{datastore.name}}</option>
+                            {% endfor %}
+                          </select>
+                        </p>                                                                       	
+                       	<button type="submit">提交</button>
+                       </form>						
+          					</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+        </div>
+        <!-- /page content -->
+        {% endblock %}
+
+
+    {% block js %}
+    
+    {% endblock %}

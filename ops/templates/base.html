@@ -60,8 +60,15 @@
                             <li><a href="{% url 'installation:install' %}">安装系统</a></li>
                           </ul>
                         </li>
-                        <li><a href="#level1_2">虚拟机安装</a></li>
-                        <li><a href="{% url 'installation:tasks' %}">工具配置</a></li>
+                        <li><a href="{% url 'installation:add_vm' %}">虚拟机安装</a></li>
+                        <!-- <li><a href="{% url 'installation:tasks' %}">工具配置</a></li> -->
+                        <li><a>配置中心<span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu">
+                            <li><a href="{% url 'installation:init' %}">Cobber配置</a>
+                            </li>
+                            <li><a href="{% url 'installation:vcenter' %}">VMware配置</a></li>
+                          </ul>
+                        </li>
                     </ul>
                   </li>           
                   <li><a><i class="fa fa-database"></i> 运维数据库 <span class="fa fa-chevron-down"></span></a>

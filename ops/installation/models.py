@@ -94,6 +94,7 @@ class Server(models.Model):
     pxe_ip             = models.GenericIPAddressField(blank=True,null=True)
     vendor             = models.CharField(max_length=30,blank=True,null=True)
     model              = models.CharField(max_length=30,blank=True,null=True)
+    prod_ip            = models.GenericIPAddressField(blank=True,null=True)
     create_time        = models.DateTimeField(auto_now_add=True)
     update_time        = models.DateTimeField(auto_now=True)
 
@@ -146,4 +147,123 @@ class PreSystem(models.Model):
         ordering = ['-create_time']
     
     def __unicode__(self):
-        return self.profile   
+        return self.profile
+
+class Vcenter(models.Model):
+    id                 = models.AutoField(primary_key=True,db_column="vc_id")
+    name               = models.CharField(max_length=50,blank=True,null=True,db_column="vc_name")
+    ip                 = models.GenericIPAddressField(blank=True,null=True,unique=True)
+    user               = models.CharField(max_length=50,blank=True,null=True)
+    password           = models.CharField(max_length=50,blank=True,null=True)
+
+    class Meta:
+        db_table = 'vcenter'
+    
+    def __unicode__(self):
+        return self.name
+
+class Datastore(models.Model):
+    id                 = models.AutoField(primary_key=True,db_column="datastore_id")
+    name               = models.CharField(max_length=50,blank=True,null=True,db_column="datastore_name")
+    capacity           = models.CharField(max_length=50,blank=True,null=True)
+    free_space         = models.CharField(max_length=50,blank=True,null=True)
+    provisioned        = models.CharField(max_length=50,blank=True,null=True)
+    uncommitted        = models.CharField(max_length=50,blank=True,null=True)
+    hosts              = models.IntegerField(blank=True,null=True,default=0)
+    vms                = models.IntegerField(blank=True,null=True,default=0)
+    vcenter            = models.ForeignKey(Vcenter,blank=True, null=True,on_delete=models.PROTECT)
+
+    class Meta:
+        db_table = 'vm_datastore'
+    
+    def __unicode__(self):
+        return self.name
+
+class Datacenter(models.Model):
+    id                 = models.AutoField(primary_key=True,db_column="dc_id")
+    name               = models.CharField(max_length=50,blank=True,null=True,db_column="dc_name")
+    vcenter            = models.ForeignKey(Vcenter,blank=True, null=True,on_delete=models.PROTECT)
+
+    class Meta:
+        db_table = 'vm_datacenter'
+    
+    def __unicode__(self):
+        return self.name
+          
+class Cluster(models.Model):
+    id                 = models.AutoField(primary_key=True,db_column="ha_id")
+    name               = models.CharField(max_length=50,blank=True,null=True,db_column="ha_name")
+    datacenter         = models.ForeignKey(Datacenter,blank=True, null=True,on_delete=models.PROTECT)
+
+    class Meta:
+        db_table = 'vm_cluster'
+    
+    def __unicode__(self):
+        return self.name
+
+class Host(models.Model):
+    id                 = models.AutoField(primary_key=True,db_column="host_id")
+    ip                 = models.GenericIPAddressField(blank=True,null=True,unique=True)    
+    cluster            = models.ForeignKey(Cluster,blank=True, null=True,on_delete=models.PROTECT)
+    server             = models.OneToOneField(Server,blank=True, null=True, on_delete=models.PROTECT)
+
+    class Meta:
+        db_table = 'vm_host'
+    
+    def __unicode__(self):
+        return self.ip
+
+class Guest(models.Model):
+    id                 = models.AutoField(primary_key=True,db_column="guest_id")
+    name               = models.CharField(max_length=50,blank=True,null=True,db_column="guest_name")
+    annotation         = models.CharField(max_length=200,blank=True,null=True)
+    cpu                = models.IntegerField(blank=True,null=True,default=0)
+    diskGB             = models.CharField(max_length=50,blank=True,null=True)
+    folder             = models.CharField(max_length=50,blank=True,null=True)
+    mem                = models.IntegerField(blank=True,null=True,default=0)
+    ostype             = models.CharField(max_length=50,blank=True,null=True)
+    path               = models.CharField(max_length=50,blank=True,null=True)
+    status             = models.CharField(max_length=50,blank=True,null=True)
+    is_template        = models.BooleanField(default=False)
+    host               = models.ForeignKey(Host,blank=True, null=True,on_delete=models.PROTECT)
+    datastore          = models.ForeignKey(Datastore,blank=True, null=True,on_delete=models.PROTECT)
+
+    class Meta:
+        db_table = 'vm_guest'
+    
+    def __unicode__(self):
+        return self.name
+
+class Vnet(models.Model):
+    mac                = models.CharField(max_length=50,primary_key=True,db_column="mac")
+    connected          = models.CharField(max_length=50,blank=True,null=True)
+    ip                 = models.GenericIPAddressField(blank=True,null=True,unique=True)
+    netlabel           = models.CharField(max_length=100,blank=True,null=True)
+    prefix             = models.CharField(max_length=50,blank=True,null=True)   
+    guest              = models.ForeignKey(Guest,blank=True, null=True,on_delete=models.PROTECT)
+
+    class Meta:
+        db_table = 'vm_guest_net'
+    
+    def __unicode__(self):
+        return self.mac
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
