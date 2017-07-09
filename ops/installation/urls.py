@@ -40,4 +40,12 @@ urlpatterns = [
     url(r'^vm/vcenter/$',views.vcenter,name='vcenter'),
     url(r'^vm/add_vcenter/$',views.add_vcenter,name='add_vcenter'),
     url(r'^vm/add_vm/$',views.add_vm,name='add_vm'),
+    url(r'^vm/get_obj',views.get_obj,name='get_obj'),
+    url(r'^installserver/$',views.cobblers,name='cobblers'),
+    url(r'^installserver/edit/(\d+)/$',views.edit_cobbler,name='edit_cobbler'),
 ]
+
+
+
+
+

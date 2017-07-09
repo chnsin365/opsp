@@ -1,0 +1,55 @@
+{% extends 'base.html'%}
+{% load staticfiles %}
+
+    {% block title %}
+    <title> 自动化运维平台 </title>
+    {% endblock %}
+
+
+    {% block css %}
+    
+    {% endblock %}
+
+
+        {% block page-content %}
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            {% block page-title %}
+            <div class="page-title">
+              <div class="title_left">
+                
+              </div>
+            </div>
+            {% endblock %}
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                	<table border="1">
+						<tr>
+						  <th>IP</th>
+						  <th>User</th>
+						  <th>操作</th>
+						</tr>
+						{% for cobbler in cobblers %}
+						<tr>
+						  <td>{{cobbler.ip}}</td>
+						  <td>{{cobbler.user}}</td>
+						  <td><a href="{% url 'installation:edit_cobbler' cobbler.id %}">Edit</a></td>
+						</tr>
+						{% endfor %}
+					</table>
+                </div>
+                     
+                <div>
+                	 <iframe id="iFrame1" name="iFrame1" width="100%" onload="this.height=iFrame1.document.body.scrollHeight" frameborder="0" src="http://192.168.3.166/cobbler_web/"></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->
+        {% endblock %}

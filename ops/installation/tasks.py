@@ -7,7 +7,7 @@ import time
 from .models import Vcenter,Datastore,Datacenter,Cluster,Host,Guest,Vnet,Server,ServerStatus
 from .getvmsbycluster import get_vms_by_cluster
 from .getdatastorebyname import get_ds_from_vcenter
-from .clone_vm import add_vm_by_template
+from .clone_vm import create_vm_by_template
 # from celery import task
 
 # @task
@@ -99,8 +99,8 @@ def clone_vm(vcenter_host,vcenter_port,username,password,\
 	'''
 	clone vm from template
 	'''
-	add_vm_by_template(vcenter_host,vcenter_port,username,password,\
-    vm_name,template,datacenter,datastore,power_on,vm_cpus,vm_cpu_sockets,vm_memory)
+	create_vm_by_template(vcenter,template,vm_name,datacenter_name,datastore_name,\
+    cluster_name,power_on,vm_cpus, vm_cpu_sockets, vm_memory)
     
 
 

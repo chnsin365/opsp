@@ -153,6 +153,7 @@ class Vcenter(models.Model):
     id                 = models.AutoField(primary_key=True,db_column="vc_id")
     name               = models.CharField(max_length=50,blank=True,null=True,db_column="vc_name")
     ip                 = models.GenericIPAddressField(blank=True,null=True,unique=True)
+    port               = models.CharField(max_length=10,default='443')
     user               = models.CharField(max_length=50,blank=True,null=True)
     password           = models.CharField(max_length=50,blank=True,null=True)
 
@@ -248,12 +249,17 @@ class Vnet(models.Model):
     def __unicode__(self):
         return self.mac
 
+class Cobbler(models.Model):
+    id                 = models.AutoField(primary_key=True,db_column="cobbler_id")
+    ip                 = models.GenericIPAddressField(blank=True,null=True,unique=True)
+    user               = models.CharField(max_length=50,blank=True,null=True)
+    password           = models.CharField(max_length=50,blank=True,null=True)
 
-
-
-
-
-
+    class Meta:
+        db_table = 'cobbler'
+    
+    def __unicode__(self):
+        return self.ip
 
 
 

@@ -1,4 +1,4 @@
-#!/data/vm_example/python/bin/python
+#!/usr/bin/env python
 """
 Written by Dann Bohn
 Github: https://github.com/whereismyjetpack
@@ -6,12 +6,111 @@ Email: dannbohn@gmail.com
 
 Clone a VM from template example
 """
-
 from pyVmomi import vim
 from pyVim.connect import SmartConnect, Disconnect
 import atexit
+import argparse
 import getpass
-import ssl
+
+
+def get_args():
+    """ Get arguments from CLI """
+    parser = argparse.ArgumentParser(
+        description='Arguments for talking to vCenter')
+
+    parser.add_argument('-s', '--host',
+                        required=True,
+                        action='store',
+                        help='vSpehre service to connect to')
+
+    parser.add_argument('-o', '--port',
+                        type=int,
+                        default=443,
+                        action='store',
+                        help='Port to connect on')
+
+    parser.add_argument('-u', '--user',
+                        required=True,
+                        action='store',
+                        help='Username to use')
+
+    parser.add_argument('-p', '--password',
+                        required=False,
+                        action='store',
+                        help='Password to use')
+
+    parser.add_argument('-v', '--vm-name',
+                        required=True,
+                        action='store',
+                        help='Name of the VM you wish to make')
+
+    parser.add_argument('--template',
+                        required=True,
+                        action='store',
+                        help='Name of the template/VM \
+                            you are cloning from')
+
+    parser.add_argument('--datacenter-name',
+                        required=False,
+                        action='store',
+                        default=None,
+                        help='Name of the Datacenter you\
+                            wish to use. If omitted, the first\
+                            datacenter will be used.')
+
+    parser.add_argument('--vm-folder',
+                        required=False,
+                        action='store',
+                        default=None,
+                        help='Name of the VMFolder you wish\
+                            the VM to be dumped in. If left blank\
+                            The datacenter VM folder will be used')
+
+    parser.add_argument('--datastore-name',
+                        required=False,
+                        action='store',
+                        default=None,
+                        help='Datastore you wish the VM to end up on\
+                            If left blank, VM will be put on the same \
+                            datastore as the template')
+
+    parser.add_argument('--cluster-name',
+                        required=False,
+                        action='store',
+                        default=None,
+                        help='Name of the cluster you wish the VM to\
+                            end up on. If left blank the first cluster found\
+                            will be used')
+
+    parser.add_argument('--resource-pool',
+                        required=False,
+                        action='store',
+                        default=None,
+                        help='Resource Pool to use. If left blank the first\
+                            resource pool found will be used')
+
+    parser.add_argument('--power-on',
+                        dest='power_on',
+                        required=False,
+                        action='store_true',
+                        help='power on the VM after creation')
+
+    parser.add_argument('--no-power-on',
+                        dest='power_on',
+                        required=False,
+                        action='store_false',
+                        help='do not power on the VM after creation')
+
+    parser.set_defaults(power_on=True)
+
+    args = parser.parse_args()
+
+    if not args.password:
+        args.password = getpass.getpass(
+            prompt='Enter password')
+
+    return args
+
 
 def wait_for_task(task):
     """ wait for a vCenter task to finish """
@@ -21,8 +120,7 @@ def wait_for_task(task):
             return task.info.result
 
         if task.info.state == 'error':
-            print task
-            print "there was an error"
+            return "there was an error"
             task_done = True
 
 
@@ -45,30 +143,40 @@ def get_obj(content, vimtype, name):
 
     return obj
 
-def clone_vm(content, template, vm_name, si, 
-            datacenter_name, vm_folder, datastore_name, power_on, 
-            vm_cpus, vm_cpu_sockets, vm_memory):
-    # Specify the datacenter 
+
+def clone_vm(
+        content, template, vm_name, si,
+        datacenter_name, vm_folder, datastore_name,
+        cluster_name, resource_pool, power_on,vm_cpus, vm_cpu_sockets, vm_memory):
+    """
+    Clone a VM from a template/VM, datacenter_name, vm_folder, datastore_name
+    cluster_name, resource_pool, and power_on are all optional.
+    """
+
+    # if none git the first one
     datacenter = get_obj(content, [vim.Datacenter], datacenter_name)
 
-    # Specify the vm_folder
     if vm_folder:
         destfolder = get_obj(content, [vim.Folder], vm_folder)
     else:
         destfolder = datacenter.vmFolder
 
-    # Specify the datastore
     if datastore_name:
         datastore = get_obj(content, [vim.Datastore], datastore_name)
     else:
         datastore = get_obj(
             content, [vim.Datastore], template.datastore[0].info.name)
 
-    # specify the host/cluster
-    hosts = datacenter.hostFolder.childEntity
-    resource_pool = hosts[0].resourcePool
+    # if None, get the first one
+    cluster = get_obj(content, [vim.ClusterComputeResource], cluster_name)
 
-    # Setting the relospec 
+    if resource_pool:
+        resource_pool = get_obj(content, [vim.ResourcePool], resource_pool)
+    else:
+        resource_pool = cluster.resourcePool
+
+
+    # set relospec
     relospec = vim.vm.RelocateSpec()
     relospec.datastore = datastore
     relospec.pool = resource_pool
@@ -76,57 +184,47 @@ def clone_vm(content, template, vm_name, si,
     config.numCPUs = vm_cpus 
     config.numCoresPerSocket = vm_cpu_sockets
     config.memoryMB = vm_memory 
-    #print config
 
-    # Setting the clonespec
     clonespec = vim.vm.CloneSpec()
     clonespec.location = relospec
     clonespec.powerOn = power_on
-    clonespec.config=config
-    #print clonespec
 
-    # Creating the Virtual Machine
-    print "Creating the VM..."
+    print "cloning VM..."
     task = template.Clone(folder=destfolder, name=vm_name, spec=clonespec)
     wait_for_task(task)
-    print "Succcess!"
 
-def add_vm_by_template(vcenter_host,vcenter_port,username,password,\
-    vm_name,template,datacenter,datastore,power_on,vm_cpus,vm_cpu_sockets,vm_memory):
+
+def create_vm_by_template(vcenter,template,vm_name,datacenter_name,datastore_name,\
+    cluster_name,power_on,vm_cpus, vm_cpu_sockets, vm_memory,
+    vm_folder=None,resource_pool = None):
     """
     Let this thing fly
     """
-    args = {
-        'host': vcenter_host, 'port': int(vcenter_port),
-        'user': username, 'password': password,
-        'vm_name': vm_name, 'template': template,
-        'datacenter_name': datacenter, 'vm_folder': None,
-        'datastore_name': datastore, 'power_on': bool(power_on),
-        'vm_cpus': int(vm_cpus),
-        'vm_cpu_sockets' : int(vm_cpu_sockets),
-        'vm_memory': int(vm_memory)
-    } 
-    print args
-    context = ssl.SSLContext(ssl.PROTOCOL_SSLv23)
-    context.verify_mode = ssl.CERT_NONE
+    # args = get_args()
 
-    # Connecting the vcenter 
-    si = SmartConnect(host=args['host'], user=args['user'], pwd=args['password'], 
-                      port=args['port'], sslContext=context)
-
+    # connect this thing
+    si = SmartConnect(
+        host=vcenter.ip,
+        user=vcenter.user,
+        pwd=vcenter.password,
+        port=vcenter.port)
+    # disconnect this thing
     atexit.register(Disconnect, si)
+
     content = si.RetrieveContent()
+    template = None
 
-    # Ready to create the Virtual Machine
-    template_obj = None
-    template_obj = get_obj(content, [vim.VirtualMachine], args['template'])
+    template = get_obj(content, [vim.VirtualMachine], template)
 
-    if template_obj:
-        clone_vm(content, template_obj, args['vm_name'], si, 
-                args['datacenter_name'], args['vm_folder'], args['datastore_name'], args['power_on'], 
-                args['vm_cpus'], args['vm_cpu_sockets'], args['vm_memory'])
+    if template:
+        clone_vm(
+            content, template, vm_name, si,
+            datacenter_name, vm_folder,
+            datastore_name, cluster_name,
+            resource_pool, power_on,vm_cpus, vm_cpu_sockets, vm_memory)
     else:
-        print "Template is not found"
+        return "template not found"
+
 
 # start this thing
 if __name__ == "__main__":

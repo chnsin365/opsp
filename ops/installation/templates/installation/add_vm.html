@@ -39,16 +39,16 @@
           						 <form action="{% url 'installation:add_vm' %}" method="post">
                        	{% csrf_token %}
                         <p>
-                          VM_NAME:<input type="text" name="name" required="required">
+                          VM_NAME:<input type="text" name="vm_name" required="required">
                         </p>
                         <p>
-                          VM_CPU:<input type="text" name="cpu">
+                          VM_CPUs:<input type="text" name="vm_cpus">
                         </p>
                         <p>
-                          VM_CPU_CoreS:<input type="text" name="core">
+                          vm_cpu_sockets:<input type="text" name="vm_cpu_sockets">
                         </p>
                         <p>
-                          VM_MEMORY:<input type="text" name="mem">
+                          VM_MEMORY:<input type="text" name="vm_memory">
                         </p>
                         <p>
                           Power_on:
@@ -68,7 +68,7 @@
                         </p>
                         <p>
                           Vcenter:
-                          <select name="vcenter">
+                          <select name="vcenter" id='vc' onchange="get_obj('vc','dc')">
                             <option value ="-1">--请选择--</option>
                             {% for vcenter in vcenters %}
                               <option value ="{{vcenter.name}}">{{vcenter.name}}</option>
@@ -77,38 +77,38 @@
                         </p>
                         <p>
                           Datacenter:
-                          <select name="datacenter">
+                          <select name="datacenter" id='dc' onchange="get_obj('dc','cluster')">
                             <option value ="-1">--请选择--</option>
-                            {% for datacenter in datacenters %}
+                            <!-- {% for datacenter in datacenters %}
                               <option value ="{{datacenter.name}}">{{datacenter.name}}</option>
-                            {% endfor %}
+                            {% endfor %} -->
                           </select>
                         </p>
                         <p>
                           Cluster:
-                          <select name="cluster">
+                          <select name="cluster" id='cluster' onchange="get_obj('cluster','esxi')">
                             <option value ="-1">--请选择--</option>
-                            {% for cluster in clusters %}
+                            <!-- {% for cluster in clusters %}
                               <option value ="{{cluster.name}}">{{cluster.name}}</option>
-                            {% endfor %}
+                            {% endfor %} -->
                           </select>
                         </p>
-                        <p>
+<!--                         <p>
                           Esxi主机:
-                          <select name="esxi">
-                            <option value ="-1">--请选择--</option>
+                          <select name="esxi" id='esxi'>
+                            <option value ="-1">请选择</option>
                             {% for host in hosts %}
                                 <option value ="{{host.ip}}">{{host.ip}}</option>
                             {% endfor %}
                           </select>
-                        </p>
+                        </p> -->
                         <p>
                           Datastore:
-                          <select name="datastore">
+                          <select name="datastore" id='ds'>
                             <option value ="-1">--请选择--</option>
-                            {% for datastore in datastores %}
+                            <!-- {% for datastore in datastores %}
                               <option value ="{{datastore.name}}">{{datastore.name}}</option>
-                            {% endfor %}
+                            {% endfor %} -->
                           </select>
                         </p>                                                                       	
                        	<button type="submit">提交</button>
@@ -125,5 +125,46 @@
 
 
     {% block js %}
+    <script type="text/javascript">
+    function get_obj(this_id,next_id){
+      var val=$("#"+this_id).val();
+      $("#"+next_id).empty();
+      if(val!="-1"){
+        $.ajax({
+          type:"GET",
+          url:'/installation/vm/get_obj',
+          data:{'type':this_id,'val':val},
+          dataType:"Json",
+          async : false, 
+          success:function(result){
+             $("#"+next_id).append("<option value = '" + '-1'  + "'>" + '--请选择--' + "</option>");
+             $.each(result,function(key,value)
+                {
+                  $("#"+next_id).append("<option value = '" + key  + "'>" + value + "</option>");
+                }
+             );
+             if (this_id == 'vc'){
+                $("#ds").empty();
+                $.ajax({
+                    type:"GET",
+                    url:'/installation/vm/get_obj',
+                    data:{'type':'ds','val':val},
+                    dataType:"Json",
+                    async : false, 
+                    success:function(result){
+                       $("#ds").append("<option value = '" + '-1'  + "'>" + '--请选择--' + "</option>");
+                       $.each(result,function(key,value)
+                          {
+                            $("#ds").append("<option value = '" + key  + "'>" + value + "</option>");
+                          }
+                       );
+                    }
+                });
+             }
+          }
+        });
+      };
+    }
+    </script>
     
     {% endblock %}

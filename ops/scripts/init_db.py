@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.contrib.auth.models import User
-from installation.models import ServerStatus,Tag
+from installation.models import ServerStatus,Tag,Cobbler
 
 # create admin user
 
@@ -35,3 +35,9 @@ except Exception as e:
     # raise e
     print e
 
+try:
+    cobbler,created = Cobbler.objects.get_or_create(user='cobbler',defaults ={ 'ip': '0.0.0.0','password':'cobbler' })
+    print '*************',cobbler.user,cobbler.ip,cobbler.password,'*************'
+except Exception as e:
+    print e
+    raise e
