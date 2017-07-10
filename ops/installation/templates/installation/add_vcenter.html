@@ -1,0 +1,48 @@
+{% extends 'base.html'%}
+{% load staticfiles %}
+
+    {% block css %}
+    
+    {% endblock %}
+
+
+
+        {% block page-content %}
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            {% block page-title %}
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Plain Page</h3>
+              </div>
+            </div>
+            {% endblock %}
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_content">
+                     <form action="{% url 'installation:add_vcenter' %}" method="post">
+                     	{% csrf_token %}
+                     	name:<input type="text" name="name">
+                     	ip:<input type="text" name="ip">
+                      port:<input type="text" name="port">
+                     	user:<input type="text" name="user">
+                     	password:<input type="password" name="password">
+                     	<button type="submit">提交</button>
+                     </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->
+        {% endblock %}
+
+    {% block js %}
+    
+    {% endblock %}

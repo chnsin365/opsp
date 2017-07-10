@@ -1,0 +1,219 @@
+{% extends 'base.html'%}
+{% load staticfiles %}
+
+    {% block title %}
+    <title> 自动化运维平台 </title>
+    {% endblock %}
+
+
+    {% block css %}
+    
+    {% endblock %}
+
+
+        {% block page-content %}
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            {% block page-title %}
+            <div class="page-title">
+              <div class="title_left">
+                
+              </div>
+            </div>
+            {% endblock %}
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                 
+                  	<h3>Vcenter</h3>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                     <table border="1">
+						<tr>
+						  <th>Name</th>
+						  <th>IP</th>
+						  <th>User</th>
+						</tr>
+						{% for vcenter in vcenters %}
+						<tr>
+						  <td>{{vcenter.name}}</td>
+						  <td>{{vcenter.ip}}</td>
+						  <td>{{vcenter.user}}</td>
+						</tr>
+						{% endfor %}
+					</table>
+					<p>
+						 <form action="{% url 'installation:add_vcenter' %}" method="post">
+	                     	{% csrf_token %}
+	                     	name:<input type="text" name="name">
+	                     	ip:<input type="text" name="ip">
+	                     	user:<input type="text" name="user">
+	                     	password:<input type="password" name="password">
+	                     	<button type="submit">提交</button>
+	                     </form>						
+					</p>
+
+
+					<!-- <a href="{% url 'installation:add_vcenter' %}">添加Vcenter</a> -->
+                  </div>
+                </div>
+
+                <div class="x_panel">
+                  <div class="x_title">
+                 
+                  	<h3>Datacenter</h3>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                     <table border="1">
+						<tr>
+						  <th>Name</th>
+						  <th>Vcenter</th>
+						</tr>
+						{% for datacenter in datacenters %}
+						<tr>
+						  <td>{{datacenter.name}}</td>
+						  <td>{{datacenter.vcenter}}</td>
+						</tr>
+						{% endfor %}
+					</table>
+                  </div>
+                </div>
+
+                <div class="x_panel">
+                  <div class="x_title">
+                 
+                  	<h3>Datastore</h3>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                     <table border="1">
+						<tr>
+						  <th>Name</th>
+						  <th>capacity</th>
+						  <th>free_space</th>
+						  <th>provisioned</th>
+						  <th>uncommitted</th>
+						  <th>hosts</th>
+						  <th>vms</th>
+						  <th>vcenter</th>
+						</tr>
+						{% for datastore in datastores %}
+						<tr>
+						  <td>{{datastore.name}}</td>
+						  <td>{{datastore.capacity}}</td>
+						  <td>{{datastore.free_space}}</td>
+						  <td>{{datastore.provisioned}}</td>
+						  <td>{{datastore.uncommitted}}</td>
+						  <td>{{datastore.hosts}}</td>
+						  <td>{{datastore.vms}}</td>
+						  <td>{{datastore.vcenter}}</td>
+						</tr>
+						{% endfor %}
+					</table>
+                  </div>
+                </div>
+
+                <div class="x_panel">
+                  <div class="x_title">
+                 
+                  	<h3>Cluster</h3>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                     <table border="1">
+						<tr>
+						  <th>Name</th>
+						  <th>Datacenter</th>
+						</tr>
+						{% for cluster in clusters %}
+						<tr>
+						  <td>{{cluster.name}}</td>
+						  <td>{{cluster.datacenter}}</td>
+						</tr>
+						{% endfor %}
+					</table>
+                  </div>
+                </div>
+
+                <div class="x_panel">
+                  <div class="x_title">
+                 
+                  	<h3>Esxi Hosts</h3>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                     <table border="1">
+						<tr>
+						  <th>IP</th>
+						  <th>Cluster</th>
+						  <th>Datacenter</th>
+						  <th>Vcenter</th>
+						  <th>Server</th>
+						</tr>
+						{% for host in hosts %}
+						<tr>
+						  <td>{{host.ip}}</td>
+						  <td>{{host.cluster}}</td>
+						  <td>{{host.cluster.datacenter}}</td>
+						  <td>{{host.cluster.datacenter.vcenter}}</td>
+						  <td>{{host.server}}</td>
+						</tr>
+						{% endfor %}
+					</table>
+                  </div>
+                </div>
+
+                <div class="x_panel">
+                  <div class="x_title">
+                 
+                  	<h3>virtual mechines</h3>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                     <table border="1">
+						<tr>
+						  <th>name</th>
+						  <th>annotation</th>
+						  <th>cpu</th>
+						  <th>diskGB</th>
+						  <th>folder</th>
+						  <th>mem(G)</th>
+						  <th>ostype</th>
+						  <th>datastore</th>
+						  <th>path</th>
+						  <th>status</th>
+						  <th>host</th>
+						  
+						</tr>
+						{% for guest in guests %}
+						<tr>
+						  <td>{{guest.name}}</td>
+						  <td>{{guest.annotation}}</td>
+						  <td>{{guest.cpu}}</td>
+						  <td>{{guest.diskGB}}</td>
+						  <td>{{guest.folder}}</td>
+						  <td>{{guest.mem}}</td>
+						  <td>{{guest.ostype}}</td>
+						  <td>{{guest.datastore.name}}</td>
+						  <td>{{guest.path}}</td>
+						  <td>{{guest.status}}</td>
+						  <td>{{guest.host.ip}}</td>
+						</tr>
+						{% endfor %}
+					</table>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->
+        {% endblock %}

@@ -12,7 +12,7 @@ from ops.sshapi import remote_cmd
 from .raid_api import RAIDAPI
 from ops.ipmi_api import ipmitool
 from .cobbler_api import CobblerAPI
-from .tasks import run_test_suit
+from .tasks import run_test_suit,get_info_from_vcenter,clone_vm
 
 # Create your views here.
 @csrf_exempt
@@ -127,11 +127,21 @@ def server_edit(request,server_id):
         Server.objects.filter(pk=server_id).update(**kwargs)
         return redirect('installation:server_edit',server_id)
 
+def init_cobbler(id=1):
+    cobbler = get_object_or_404(Cobbler,pk=id)
+    if cobbler:
+        url = "http://%s/cobbler_api"%(cobbler.ip)
+        user = cobbler.user
+        password = cobbler.password
+        cblr = CobblerAPI(url,user,password)
+    return cblr
+
 def server_change_status(request,server_id,status_type):
     server = get_object_or_404(Server,pk=server_id)
     try:
         pre_system = server.presystem
-        cobbler = CobblerAPI("http://192.168.3.166/cobbler_api","admin","admin")
+        # cobbler = CobblerAPI("http://192.168.3.166/cobbler_api","admin","admin")
+        cobbler = init_cobbler()
         result = cobbler.del_system(pre_system.hostname)
         if result['result']:
             status = get_object_or_404(ServerStatus,status_type=status_type)
@@ -211,6 +221,7 @@ def server_raid(request,server_id,fun):
             rd = RAIDAPI(server,addr,user='root',passwd='P@ssw0rd')
             array = request.POST.get('array','')
             ret_data = rd.delete_raid(array)
+            print ret_data
             if ret_data['status']:
                 cmd ="curl -L http://192.168.3.166/cobbler/svc/post_server_info.sh | sh > /tmp/curl.log 2>&1"
                 try:
@@ -314,9 +325,31 @@ def update_ipmi(request,server_id):
             ret_data = '账号配置成功'
         return render(request,'installation/msg.html',locals())
 
+def cobblers(request):
+    cobblers = Cobbler.objects.all()
+    return render(request,'installation/cobbler_config.html',locals())
+
+def edit_cobbler(request,id):
+    cobbler = get_object_or_404(Cobbler,pk=id)
+    if request.method == "GET":
+        return render(request,'installation/edit_cobbler.html',locals())
+    else:
+        ip = request.POST.get('ip','')
+        user = request.POST.get('user','')
+        password = request.POST.get('password','')
+        try:
+            cobbler.ip = ip
+            cobbler.user = user
+            cobbler.password = password
+            cobbler.save()
+        except Exception as e:
+            raise e
+        return redirect('installation:cobblers')
+
 def get_system(request,server_id):
     server = get_object_or_404(Server,pk=server_id)
-    cobbler = CobblerAPI("http://192.168.3.166/cobbler_api","admin","admin")
+    # cobbler = CobblerAPI("http://192.168.3.166/cobbler_api","admin","admin")
+    cobbler = init_cobbler()
     ret_data = cobbler.find_system(server.pxe_mac)
     if 'result' in ret_data:
         messages.error(request, ret_data['comment'])
@@ -325,7 +358,8 @@ def get_system(request,server_id):
 
 def add_system(request,server_id):
     server = get_object_or_404(Server,pk=server_id)
-    cobbler = CobblerAPI("http://192.168.3.166/cobbler_api","admin","admin")
+    # cobbler = CobblerAPI("http://192.168.3.166/cobbler_api","admin","admin")
+    cobbler = init_cobbler()
     if request.method == 'GET':
         profiles = cobbler.get_proflies()
         if 'result' in profiles:
@@ -353,7 +387,8 @@ def add_system(request,server_id):
         return redirect('installation:get_system',server_id)
 
 def view_system(request,system):
-    cobbler = CobblerAPI("http://192.168.3.166/cobbler_api","admin","admin")
+    # cobbler = CobblerAPI("http://192.168.3.166/cobbler_api","admin","admin")
+    cobbler = init_cobbler()
     system = cobbler.get_system(system)
     ret_data = json.dumps(json.loads(json.dumps(system), parse_int=str), indent=4, sort_keys=False, ensure_ascii=False)
     return render(request,'installation/tips.html',locals())
@@ -361,7 +396,8 @@ def view_system(request,system):
 def edit_system(request,server_id,system):
     server = get_object_or_404(Server,pk=server_id)
     pre_system = get_object_or_404(PreSystem,hostname=system)
-    cobbler = CobblerAPI("http://192.168.3.166/cobbler_api","admin","admin")
+    # cobbler = CobblerAPI("http://192.168.3.166/cobbler_api","admin","admin")
+    cobbler = init_cobbler()
     if request.method == 'GET':
         profiles = cobbler.get_proflies()
         if 'result' in profiles:
@@ -387,12 +423,128 @@ def edit_system(request,server_id,system):
         return redirect('installation:get_system',server_id)
 
 def delete_system(request,system,server_id):
-    cobbler = CobblerAPI("http://192.168.3.166/cobbler_api","admin","admin")
+    # cobbler = CobblerAPI("http://192.168.3.166/cobbler_api","admin","admin")
+    cobbler = init_cobbler()
     ret_data = cobbler.del_system(system)
     return redirect('installation:get_system',server_id)
 
 def tasks(request):
+    '''
+    for celery test
+    '''
     print('before run_test_suit')
     result = run_test_suit.delay('110')
     print('after run_test_suit')
+    if result.ready():
+        print result.get()
+    else:
+        print result,type(result)
     return HttpResponse("job is runing background~")
+
+def vcenter(request):
+    vcenters = Vcenter.objects.all()
+    datastores = Datastore.objects.all()
+    datacenters = Datacenter.objects.all()
+    clusters = Cluster.objects.all()
+    hosts = Host.objects.all()
+    guests = Guest.objects.all()
+    return render(request,'installation/vcenter.html',locals())
+
+def add_vcenter(request):
+    if request.method == "GET":
+        return render(request,'installation/add_vcenter.html')
+    else:
+        name = request.POST.get('name','')
+        ip = request.POST.get('ip','')
+        port = request.POST.get('port','')
+        user = request.POST.get('user','')
+        password = request.POST.get('password','')
+        try:
+            vcenter,created = Vcenter.objects.get_or_create(name=name,ip=ip,user=user,defaults={'password': password,'port':port})
+            if created:
+                result = get_info_from_vcenter.delay(vcenter.id,user,password,ip,port=port)
+        except Exception as e:
+            raise e
+        return redirect('installation:vcenter')
+
+def edit_vcenter(request,id):
+    vcenter = get_object_or_404(Vcenter,pk=id)
+    if request.mothed == "GET":
+        return render(request,'installation/add_vcenter.html',locals())
+    else:
+        name = request.POST.get('name','')
+        ip = request.POST.get('ip','')
+        user = request.POST.get('user','')
+        password = request.POST.get('password','')
+        vcenter = Vcenter.objects.create(name=name,ip=ip,user=user,default={'password': password})
+        return redirect('installation:vcenter')
+
+def delete_vcenter(request,id):
+    try:
+        Vcenter.objects.filter(pk=id).delete()
+        ret = 'vcenter删除成功'
+    except Exception as e:
+        ret = str(e)
+    return HttpResponse(ret)
+
+def add_vm(request):
+    '''
+    create vm from tempate
+    '''
+    if request.method == "GET":
+        vcenters = Vcenter.objects.all()
+        templates = Guest.objects.filter(is_template=True)
+        return render(request,'installation/add_vm.html',locals())
+    else:
+        vcenter_name = request.POST['vcenter']
+        vcenter = get_object_or_404(Vcenter,name=vcenter_name)
+        vm_name = request.POST['vm_name']
+        template = request.POST['template']
+        vm_cpus = request.POST['vm_cpus']
+        vm_cpu_sockets = request.POST['vm_cpu_sockets']
+        vm_memory = request.POST['vm_memory']
+        datacenter_name = request.POST['datacenter']
+        datastore_name = request.POST['datastore']
+        cluster_name = request.POST['cluster']
+        power_on = request.POST['power']
+        try:
+            result = clone_vm.delay(vcenter.ip,vcenter.user,vcenter.password,vcenter.port,\
+                template,vm_name,datacenter_name,datastore_name,cluster_name,power_on,vm_cpus,\
+                vm_cpu_sockets, vm_memory)
+        except Exception as e:
+            raise e
+        return redirect('installation:vcenter')
+
+def get_obj(request):
+    val = request.GET.get('val','')
+    obj_type = request.GET.get('type','')
+    result = {}
+    if obj_type == 'vc':
+        vc = Vcenter.objects.get(name=val)
+        dcs = vc.datacenter_set.all()
+        for dc in dcs:
+            result[dc.name] = dc.name
+    elif obj_type == 'dc':
+        dc = Datacenter.objects.get(name=val)
+        clusters = dc.cluster_set.all()
+        for cluster in clusters:
+            result[cluster.name] = cluster.name
+    elif obj_type == 'cluster':
+        cluster = Cluster.objects.get(name=val)
+        hosts = cluster.host_set.all()
+        for host in hosts:
+            result[host.ip] = host.ip
+    elif obj_type == 'ds':
+        vc = Vcenter.objects.get(name=val)
+        dses = vc.datastore_set.all()
+        for ds in dses:
+            result[ds.name] = ds.name
+    else:
+        result = {'-1':'Nothing'}
+    return HttpResponse(json.dumps(result))
+
+
+
+
+
+

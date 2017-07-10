@@ -90,6 +90,8 @@ class RAIDAPI(object):
             cmd = "/opt/ssacli/bin/ssacli ctrl slot=%s create type=ld drives=%s raid=%s"%(self.obj.raid_adapter_slot,drivers,raid_type)
             try:
                 ret = remote_cmd(cmd,self.addr,user=self.user,passwd=self.passwd)
+                if ret['result'].match('Error'):
+                    ret = {'status':False,'result':ret['result']}
             except Exception as e:
                 ret['result'] = str(e)
         else:
@@ -103,6 +105,8 @@ class RAIDAPI(object):
             cmd = "/opt/ssacli/bin/ssacli ctrl slot=%s array %s delete forced"%(self.obj.raid_adapter_slot,array)
             try:
                 ret = remote_cmd(cmd,self.addr,user=self.user,passwd=self.passwd)
+                if ret['result'].match('Error'):
+                    ret = {'status':False,'result':ret['result']}                
             except Exception as e:
                 ret['result'] = str(e)
         else:
