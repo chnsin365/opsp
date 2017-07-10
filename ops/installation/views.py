@@ -12,7 +12,7 @@ from ops.sshapi import remote_cmd
 from .raid_api import RAIDAPI
 from ops.ipmi_api import ipmitool
 from .cobbler_api import CobblerAPI
-from .tasks import run_test_suit,get_info_from_vcenter,create_vm_by_template
+from .tasks import run_test_suit,get_info_from_vcenter,clone_vm
 
 # Create your views here.
 @csrf_exempt
@@ -497,7 +497,7 @@ def add_vm(request):
         return render(request,'installation/add_vm.html',locals())
     else:
         vcenter_name = request.POST['vcenter']
-        vcenter = get_object_or_404(Vcenter,name=vcenter)
+        vcenter = get_object_or_404(Vcenter,name=vcenter_name)
         vm_name = request.POST['vm_name']
         template = request.POST['template']
         vm_cpus = request.POST['vm_cpus']
@@ -508,8 +508,9 @@ def add_vm(request):
         cluster_name = request.POST['cluster']
         power_on = request.POST['power']
         try:
-            result = create_vm_by_template.delay(vcenter,template,vm_name,datacenter_name,\
-                datastore_name,cluster_name,power_on,vm_cpus, vm_cpu_sockets, vm_memory)
+            result = clone_vm.delay(vcenter.ip,vcenter.user,vcenter.password,vcenter.port,\
+                template,vm_name,datacenter_name,datastore_name,cluster_name,power_on,vm_cpus,\
+                vm_cpu_sockets, vm_memory)
         except Exception as e:
             raise e
         return redirect('installation:vcenter')

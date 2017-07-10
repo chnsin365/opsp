@@ -42,24 +42,24 @@
                           VM_NAME:<input type="text" name="vm_name" required="required">
                         </p>
                         <p>
-                          VM_CPUs:<input type="text" name="vm_cpus">
+                          VM_CPUs:<input type="text" name="vm_cpus" required="required">
                         </p>
                         <p>
-                          vm_cpu_sockets:<input type="text" name="vm_cpu_sockets">
+                          vm_cpu_sockets:<input type="text" name="vm_cpu_sockets" required="required">
                         </p>
                         <p>
-                          VM_MEMORY:<input type="text" name="vm_memory">
+                          VM_MEMORY:<input type="text" name="vm_memory" required="required">
                         </p>
                         <p>
                           Power_on:
-                          <select name="power">
+                          <select name="power" required="required">
                             <option value ="1">On</option>
                             <option value ="0">Off</option>
                           </select>
                         </p>
                         <p>
                           Template:
-                          <select name="template">
+                          <select name="template" required="required">
                             <option value ="-1">--请选择--</option>
                             {% for template in templates %}
                               <option value ="{{template.name}}">{{template.name}}</option>
@@ -68,7 +68,7 @@
                         </p>
                         <p>
                           Vcenter:
-                          <select name="vcenter" id='vc' onchange="get_obj('vc','dc')">
+                          <select name="vcenter" id='vc' onchange="get_obj('vc','dc')" required="required">
                             <option value ="-1">--请选择--</option>
                             {% for vcenter in vcenters %}
                               <option value ="{{vcenter.name}}">{{vcenter.name}}</option>
@@ -77,7 +77,7 @@
                         </p>
                         <p>
                           Datacenter:
-                          <select name="datacenter" id='dc' onchange="get_obj('dc','cluster')">
+                          <select name="datacenter" id='dc' onchange="get_obj('dc','cluster')" required="required">
                             <option value ="-1">--请选择--</option>
                             <!-- {% for datacenter in datacenters %}
                               <option value ="{{datacenter.name}}">{{datacenter.name}}</option>
@@ -86,7 +86,7 @@
                         </p>
                         <p>
                           Cluster:
-                          <select name="cluster" id='cluster' onchange="get_obj('cluster','esxi')">
+                          <select name="cluster" id='cluster' onchange="get_obj('cluster','esxi')" required="required">
                             <option value ="-1">--请选择--</option>
                             <!-- {% for cluster in clusters %}
                               <option value ="{{cluster.name}}">{{cluster.name}}</option>
@@ -104,7 +104,7 @@
                         </p> -->
                         <p>
                           Datastore:
-                          <select name="datastore" id='ds'>
+                          <select name="datastore" id='ds' required="required">
                             <option value ="-1">--请选择--</option>
                             <!-- {% for datastore in datastores %}
                               <option value ="{{datastore.name}}">{{datastore.name}}</option>

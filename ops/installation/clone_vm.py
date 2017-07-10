@@ -168,15 +168,18 @@ def clone_vm(
             content, [vim.Datastore], template.datastore[0].info.name)
 
     # if None, get the first one
-    cluster = get_obj(content, [vim.ClusterComputeResource], cluster_name)
+    # cluster = get_obj(content, [vim.ClusterComputeResource], cluster_name)
 
-    if resource_pool:
-        resource_pool = get_obj(content, [vim.ResourcePool], resource_pool)
-    else:
-        resource_pool = cluster.resourcePool
+    # if resource_pool:
+    #     resource_pool = get_obj(content, [vim.ResourcePool], resource_pool)
+    # else:
+    #     resource_pool = cluster.resourcePool
 
+    # specify the host/cluster
+    hosts = datacenter.hostFolder.childEntity
+    resource_pool = hosts[0].resourcePool
 
-    # set relospec
+    # Setting the relospec 
     relospec = vim.vm.RelocateSpec()
     relospec.datastore = datastore
     relospec.pool = resource_pool
@@ -184,6 +187,7 @@ def clone_vm(
     config.numCPUs = vm_cpus 
     config.numCoresPerSocket = vm_cpu_sockets
     config.memoryMB = vm_memory 
+
 
     clonespec = vim.vm.CloneSpec()
     clonespec.location = relospec
@@ -194,8 +198,8 @@ def clone_vm(
     wait_for_task(task)
 
 
-def create_vm_by_template(vcenter,template,vm_name,datacenter_name,datastore_name,\
-    cluster_name,power_on,vm_cpus, vm_cpu_sockets, vm_memory,
+def create_vm_by_template(vcenter_ip,vcenter_user,vcenter_password,vcenter_port,template,vm_name,\
+    datacenter_name,datastore_name,cluster_name,power_on,vm_cpus,vm_cpu_sockets,vm_memory,\
     vm_folder=None,resource_pool = None):
     """
     Let this thing fly
@@ -204,10 +208,10 @@ def create_vm_by_template(vcenter,template,vm_name,datacenter_name,datastore_nam
 
     # connect this thing
     si = SmartConnect(
-        host=vcenter.ip,
-        user=vcenter.user,
-        pwd=vcenter.password,
-        port=vcenter.port)
+        host=vcenter_ip,
+        user=vcenter_user,
+        pwd=vcenter_password,
+        port=int(vcenter_port))
     # disconnect this thing
     atexit.register(Disconnect, si)
 
@@ -221,7 +225,7 @@ def create_vm_by_template(vcenter,template,vm_name,datacenter_name,datastore_nam
             content, template, vm_name, si,
             datacenter_name, vm_folder,
             datastore_name, cluster_name,
-            resource_pool, power_on,vm_cpus, vm_cpu_sockets, vm_memory)
+            resource_pool, bool(power_on),int(vm_cpus), int(vm_cpu_sockets), int(vm_memory))
     else:
         return "template not found"
 

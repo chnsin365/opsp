@@ -94,16 +94,12 @@ def get_info_from_vcenter(vc_id,user,password,ip,port=443):
 												vnet.save()
 
 @shared_task
-def clone_vm(vcenter_host,vcenter_port,username,password,\
-    vm_name,template,datacenter,datastore,power_on,vm_cpus,vm_cpu_sockets,vm_memory):
+def clone_vm(vcenter_ip,vcenter_user,vcenter_password,vcenter_port,template,vm_name,\
+	datacenter_name,datastore_name,cluster_name,power_on,vm_cpus, vm_cpu_sockets, vm_memory):
 	'''
 	clone vm from template
 	'''
-	create_vm_by_template(vcenter,template,vm_name,datacenter_name,datastore_name,\
-    cluster_name,power_on,vm_cpus, vm_cpu_sockets, vm_memory)
-    
-
-
-
+	create_vm_by_template(vcenter_ip,vcenter_user,vcenter_password,vcenter_port,template,vm_name,\
+		datacenter_name,datastore_name,cluster_name,power_on,vm_cpus, vm_cpu_sockets, vm_memory)
 
 
