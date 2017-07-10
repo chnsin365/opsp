@@ -115,7 +115,7 @@ def get_vms_by_cluster(user,password,host,port=443):
     si = SmartConnectNoSSL(host=host,
                            user=user,
                            pwd=password,
-                           port=port)
+                           port=int(port))
     if not si:
         print("Could not connect to the specified host using specified "
               "username and password")

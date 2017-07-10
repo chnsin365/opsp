@@ -45,14 +45,15 @@ def get_info_from_vcenter(vc_id,user,password,ip,port=443):
 							ht,created = Host.objects.get_or_create(ip=host)
 							if ht:
 								ht.cluster = clu
-								status = ServerStatus.objects.get(status_type='running')
 								try:
+									status = ServerStatus.objects.get(status_type='running')
 									server = Server.objects.get(prod_ip=host,serverstatus_id=status.id)
 									ht.server = server
-									ht.save()
 								except Exception as e:
 									# raise e
 									pass
+								finally:
+									ht.save()
 								for name,vm in vms.items():
 									guest,created = Guest.objects.update_or_create(name=name,\
 										defaults={'annotation':vm['annotation'],\

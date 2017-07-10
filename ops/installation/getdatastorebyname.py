@@ -99,7 +99,7 @@ def get_ds_from_vcenter(ds_name,user,password,host,port=443):
         host=host,
         user=user,
         pwd=password,
-        port=port)
+        port=int(port))
     # disconnect vc
     atexit.register(Disconnect, si)
 

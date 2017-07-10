@@ -51,10 +51,11 @@
 					<p>
 						 <form action="{% url 'installation:add_vcenter' %}" method="post">
 	                     	{% csrf_token %}
-	                     	name:<input type="text" name="name">
-	                     	ip:<input type="text" name="ip">
-	                     	user:<input type="text" name="user">
-	                     	password:<input type="password" name="password">
+                     	name:<input type="text" name="name">
+                     	ip:<input type="text" name="ip">
+                      	port:<input type="text" name="port" value="443">
+                     	user:<input type="text" name="user">
+                     	password:<input type="password" name="password">
 	                     	<button type="submit">提交</button>
 	                     </form>						
 					</p>
