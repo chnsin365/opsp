@@ -539,20 +539,24 @@ def add_vcenter(request):
 
 def edit_vcenter(request,id):
     vcenter = get_object_or_404(Vcenter,pk=id)
-    if request.mothed == "GET":
-        return render(request,'installation/add_vcenter.html',locals())
+    if request.method == "GET":
+        return render(request,'installation/edit_vcenter.html',locals())
     else:
-        name = request.POST.get('name','')
-        ip = request.POST.get('ip','')
-        user = request.POST.get('user','')
-        password = request.POST.get('password','')
-        vcenter = Vcenter.objects.create(name=name,ip=ip,user=user,default={'password': password})
-        return redirect('installation:vcenter')
+        try:
+            name = request.POST.get('name','')
+            ip = request.POST.get('ip','')
+            user = request.POST.get('user','')
+            password = request.POST.get('password','')
+            vcenter = Vcenter.objects.update(name=name,ip=ip,user=user,password=password)
+            messages.success(request, '更新成功')
+        except Exception as e:
+            messages.success(request, str(e))
+        return render(request,'installation/edit_vcenter.html',locals())
 
 def delete_vcenter(request,id):
     try:
         Vcenter.objects.filter(pk=id).delete()
-        ret = 'vcenter删除成功'
+        ret = ''
     except Exception as e:
         ret = str(e)
     return HttpResponse(ret)

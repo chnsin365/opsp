@@ -79,8 +79,8 @@
 									  <td>{{vcenter.user}}</td>
 									  <th>
 									  	<small>
-                      						<button data-placement="left" data-toggle="tooltip" class="label label-inverse tooltips" type="button" data-original-title="修改Vcenter信息" onclick="#">编辑</button>
-				              				<button data-placement="right" data-toggle="tooltip" class="label label-inverse tooltips" type="button" data-original-title="删除Vcenter" onclick="#" style="padding-left: 5px;">删除</button>
+                      				<button data-placement="left" data-toggle="tooltip" class="label label-inverse tooltips" type="button" data-original-title="修改Vcenter信息" onclick="edit_vcenter('{{vcenter.id}}')">编辑</button>
+				              				<button data-placement="right" data-toggle="tooltip" class="label label-inverse tooltips" type="button" data-original-title="删除Vcenter" onclick="delete_vcenter('{{vcenter.id}}')" style="padding-left: 5px;">删除</button>
 			              				</small>
 			              			   </th>
 									</tr>
@@ -222,7 +222,6 @@
                                     <th><small>path</small></th>
                                     <th><small>status</small></th>
                                     <th><small>host</small></th>
-                                    <th><small>annotation</small></th>
                                   </tr>
                           	</thead>
                              <tbody>
@@ -238,7 +237,6 @@
 									  <td>{{guest.path}}</td>
 									  <td>{{guest.status}}</td>
 									  <td>{{guest.host.ip}}</td>
-									  <td>{{guest.annotation}}</td>
 									</tr>
 								{% endfor %}
                             </tbody>
@@ -265,7 +263,6 @@
 
     <script type="text/javascript">
 
-
     function add_vcenter(){   
           layer.open({
             type: 2,
@@ -277,6 +274,38 @@
             }
           });
   	}
+
+    function edit_vcenter(id){   
+          layer.open({
+            type: 2,
+            title: '更新Vcenter信息',
+            area : ['500px','400px'],
+            content: '/installation/vm/edit_vcenter/' + id,
+            end: function(){
+               window.location.reload();
+            }
+          });
+    }
+
+    function delete_vcenter(id){   
+          layer.confirm('请确认是否要删除', function(index){
+                  $.get("/vm/delete_vcenter/"+id,function(data){
+                    if (data == '')
+                    {
+                      layer.msg('删除成功',function(){
+                        window.location.reload();
+                      });
+                    }
+                    else
+                    {
+                      layer.alert('删除失败:' + data, function(){
+                              window.location.reload();
+                            });
+                    }
+                  });
+                      
+            }); 
+    }
     </script>
   </body>
 </html>
