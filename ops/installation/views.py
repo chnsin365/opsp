@@ -582,7 +582,7 @@ def add_vm(request):
         cluster_name = request.POST['cluster']
         power_on = request.POST['power']
         try:
-            result = clone_vm.delay(vcenter.ip,vcenter.user,vcenter.password,vcenter.port,\
+            result = clone_vm.delay(vcenter.id,vcenter.ip,vcenter.user,vcenter.password,vcenter.port,\
                 template,vm_name,datacenter_name,datastore_name,cluster_name,power_on,vm_cpus,\
                 vm_cpu_sockets, vm_memory)
         except Exception as e:
