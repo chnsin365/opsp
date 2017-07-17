@@ -13,6 +13,7 @@
 
 from ops.sshapi import remote_cmd
 from .models import Disk
+import re
 
 class RAIDAPI(object):
     def __init__(self,obj,addr,user='root',passwd='P@ssw0rd'):
@@ -90,7 +91,7 @@ class RAIDAPI(object):
             cmd = "/opt/ssacli/bin/ssacli ctrl slot=%s create type=ld drives=%s raid=%s"%(self.obj.raid_adapter_slot,drivers,raid_type)
             try:
                 ret = remote_cmd(cmd,self.addr,user=self.user,passwd=self.passwd)
-                if ret['result'].match('Error'):
+                if re.search('Error',ret['result']):
                     ret = {'status':False,'result':ret['result']}
             except Exception as e:
                 ret['result'] = str(e)
@@ -105,7 +106,7 @@ class RAIDAPI(object):
             cmd = "/opt/ssacli/bin/ssacli ctrl slot=%s array %s delete forced"%(self.obj.raid_adapter_slot,array)
             try:
                 ret = remote_cmd(cmd,self.addr,user=self.user,passwd=self.passwd)
-                if ret['result'].match('Error'):
+                if re.search('Error',ret['result']):
                     ret = {'status':False,'result':ret['result']}                
             except Exception as e:
                 ret['result'] = str(e)

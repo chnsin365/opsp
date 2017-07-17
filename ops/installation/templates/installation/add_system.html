@@ -1,184 +1,109 @@
 {% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
 
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
+  <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Mosaddek">
+    <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+    <link rel="shortcut icon" href="{%static 'img/favicon.ico'%}">
 
-    <!-- Bootstrap -->
-    <link href="{%static 'vendors/bootstrap/dist/css/bootstrap.min.css'%}" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="{%static 'vendors/font-awesome/css/font-awesome.min.css'%}" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="{%static 'vendors/nprogress/nprogress.css'%}" rel="stylesheet">
-    <!-- iCheck -->
-    <link href="{%static 'vendors/iCheck/skins/flat/green.css'%}" rel="stylesheet">
-    <!-- bootstrap-progressbar -->
-    <link href="{%static 'vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css'%}" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="{%static 'css/bootstrap.min.css'%}" rel="stylesheet">
+    <link href="{%static 'css/bootstrap-reset.css'%}" rel="stylesheet">
+    <!--external css-->
+    <link href="{%static 'assets/font-awesome/css/font-awesome.css'%}" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="{%static 'css/style.css'%}" rel="stylesheet">
+    <link href="{%static 'css/style-responsive.css'%}" rel="stylesheet" />
 
-    <!-- Custom Theme Style -->
-    <link href="{%static 'build/css/custom.min.css'%}" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+    <!--[if lt IE 9]>
+      <script src="{%static 'js/html5shiv.js'%}"></script>
+      <script src="{%static 'js/respond.min.js'%}"></script>
+    <![endif]-->
 
-    <!-- bootstrap-wysiwyg -->
-    <link href="{%static 'vendors/google-code-prettify/bin/prettify.min.css'%}" rel="stylesheet">
-    <!-- Select2 -->
-    <link href="{%static 'vendors/select2/dist/css/select2.min.css'%}" rel="stylesheet">
-    <!-- Switchery -->
-    <link href="{%static 'vendors/switchery/dist/switchery.min.css'%}" rel="stylesheet">
-    <!-- starrr -->
-    <link href="{%static 'vendors/starrr/dist/starrr.css'%}" rel="stylesheet">
-    <!-- bootstrap-daterangepicker -->
-    <link href="{%static 'vendors/bootstrap-daterangepicker/daterangepicker.css'%}" rel="stylesheet">
-
-
-    {% block js %}
-
-    {% endblock %}
+    
   </head>
-
-
-    <div class="container body">
-      <div class="main_container">
-
-
-
-        <!-- page content -->
-        <div class="right_col" role="main">
-
-                {% if messages %}
-                        {% for message in messages %}
-                            {% if message.tags == 'error' %}
-                                <p class="value text-danger text-center">
-                            {% endif %}
-                                    {{ message }}
-                                </p>
-                        {% endfor %}
-                {% endif %}            
-
-                  {% block bs-example%}
-                <form class="form-horizontal" action="{% url 'installation:add_system' server.id %}" method="post">
-                    {% csrf_token %}
-                        
-                  <div class="col-md-6 col-sm-6 col-xs-6 form-group">
-                    <label class="control-label col-md-4 col-sm-4 col-xs-4 text-right">Hostname
-                        <span class="required">*</span>
-                        </label>
-                    <div class="col-md-8 col-sm-8 col-xs-8" >
-                            <input class="form-control col-md-6 col-xs-6" name="hostname" required="required" type="text">
-                    </div>
-                  </div>
-
-                  <div class="col-md-6 col-sm-6 col-xs-6 form-group">
-                  <label class="control-label col-md-4 col-sm-4 col-xs-4 text-right">IP 地址
-                        <span class="required">*</span>
-                        </label>
-                    <div class="col-md-8 col-sm-8 col-xs-8" >
-                            <input class="form-control col-md-6 col-xs-6" name="ip_addr" required="required" type="text" value="{{server.pxe_ip}}" placeholder="{{server.pxe_ip}}">
-                        </div>
-                  </div>
-
-                      <div class="col-md-6 col-sm-6 col-xs-6 form-group" >
-                        <label class="control-label col-md-4 col-sm-4 col-xs-4 text-right">Mac 地址
-                        <span class="required">*</span>
-                        </label>
-                        <div class="col-md-8 col-sm-8 col-xs-8" >
-                            <input class="form-control col-md-6 col-xs-6" name="mac_addr" required="required" type="passwrod" value="{{server.pxe_mac}}">
-                        </div>
-                      </div>
-
-                      <div class="col-md-6 col-sm-6 col-xs-6 form-group" >
-                        <label class="control-label col-md-4 col-sm-4 col-xs-4 text-right">Profile
-                        <span class="required">*</span>
-                        </label>
-                        <div class="col-md-8 col-sm-8 col-xs-8" >
-                          <select class="form-control" name="profile" required="required">
-                            <option value="-1">--请选择--</option>
-                            {% for profile in profiles %}
-                            <option value="{{profile}}">{{profile}}</option>
-                            {% endfor %}
-                          </select>
-                        </div>
-                      </div>
-
-                      <div class="col-md-12 col-sm-12 col-xs-12 form-group" >
-                        <label class="control-label col-md-2 col-sm-2 col-xs-2 text-right">Kopts
-                      <!--   <span class="required">*</span> -->
-                        </label>
-                        <div class="col-md-10 col-sm-10 col-xs-10">
-                                 <textarea id="message" class="form-control" name="kopts" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100"  data-parsley-validation-threshold="10"></textarea>
-                        </div>
-                      </div>
-                      <div class="ln_solid"></div>
-                      <div class="form-group">
-                        <div class="col-md-6 col-sm-6 col-xs-12" style="padding-left: 130px;">
-                          <button class="btn btn-primary" type="reset">Reset</button>
-                          <button type="submit" class="btn btn-success">Submit</button>
-                        </div>
-                      </div>
-                    </form>
-                  {% endblock %}
+                      
+  <body>
+  <div class="col-lg-12">
+    <div class="panel-body">
+      {% block content %}
+        {% if messages %}
+          {% for message in messages %}
+              {% if message.tags == 'error' %}
+                  <p class="alert alert-block alert-danger fade in">{{ message }}</p>
+              {% else %}
+                  <p class="alert alert-success fade in">{{ message }}</p>
+              {% endif %}                  
+          {% endfor %}
+        {% endif %} 
+      <form class="form-horizontal" role="form" action="{% url 'installation:add_system' server.id %}" method="post" role="form">
+          {% csrf_token %}     
+        <div class="form-group">
+          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span>Hostname *</span></label>
+          <div class="col-xs-8 col-md-6 col-sm-6">
+              <input class="form-control" name="hostname" required="required" type="text">
+          </div>
         </div>
-        <!-- /page content -->
 
-      </div>
+        <div class="form-group">
+          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">IP 地址 *</span></label>
+          <div class="col-xs-8 col-md-6 col-sm-6" >
+                <input class="form-control" name="ip_addr" required="required" type="text" value="{{server.pxe_ip}}" placeholder="{{server.pxe_ip}}">
+          </div>
+        </div>
+
+            <div class="form-group" >
+              <label class="col-md-3 col-sm-3 col-xs-3 control-label">Mac 地址<span class="required">*</span></label>
+              <div class="col-xs-8 col-md-6 col-sm-6" >
+                <input class="form-control" name="mac_addr" required="required" type="passwrod" value="{{server.pxe_mac}}" disabled="disabled">
+              </div>
+            </div>
+
+            <div class="form-group" >
+              <label class="col-md-3 col-sm-3 col-xs-3 control-label">Profile<span class="required">*</span></label>
+              <div class="col-xs-8 col-md-6 col-sm-6" >
+                <select class="form-control" name="profile" required="required">
+                  <option value="-1">--请选择--</option>
+                  {% for profile in profiles %}
+                  <option value="{{profile}}">{{profile}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group" >
+              <label class="col-md-3 col-sm-3 col-xs-3 control-label">Kopts</label>
+              <div class="col-xs-8 col-md-6 col-sm-6">
+                       <textarea class="form-control" name="kopts" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100"  data-parsley-validation-threshold="10"></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-xs-8 col-md-6 col-sm-6">
+                <button type="submit" class="btn">Submit</button>
+              </div>
+            </div>
+          </form>
+        {% endblock %}
+    </div>
+
   </div>
-    <!-- jQuery -->
-    <script src="{%static 'vendors/jquery/dist/jquery.min.js'%}"></script>
-    <!-- Bootstrap -->
-    <script src="{%static 'vendors/bootstrap/dist/js/bootstrap.min.js'%}"></script>
-    <!-- FastClick -->
-    <script src="{%static 'vendors/fastclick/lib/fastclick.js'%}"></script>
-    <!-- NProgress -->
-    <script src="{%static 'vendors/nprogress/nprogress.js'%}"></script>
-    <!-- bootstrap-progressbar -->
-    <script src="{%static 'vendors/bootstrap-progressbar/bootstrap-progressbar.min.js'%}"></script>
-    <!-- iCheck -->
-    <script src="{%static 'vendors/iCheck/icheck.min.js'%}"></script>
 
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="{%static 'js/jquery.js'%}"></script>
+    <script src="{%static 'js/bootstrap.min.js'%}"></script>
+    <script class="include" type="text/javascript" src="{%static 'js/jquery.dcjqaccordion.2.7.js'%}"></script>
+    <script src="{%static 'js/jquery.scrollTo.min.js'%}"></script>
+    <script src="{%static 'js/jquery.nicescroll.js'%}" type="text/javascript"></script>
+    <script src="{%static 'js/respond.min.js'%}" ></script>
+
+    <!--common script for all pages-->
+    <script src="{%static 'js/common-scripts.js'%}"></script>
     <script src="{%static 'layer/layer.js'%}"></script>
 
-    <!-- Custom Theme Scripts -->
-    <script src="{%static 'build/js/custom.min.js'%}"></script>
-
-    <!-- bootstrap-daterangepicker -->
-    <script src="{%static 'vendors/moment/min/moment.min.js'%}"></script>
-    <script src="{%static 'vendors/bootstrap-daterangepicker/daterangepicker.js'%}"></script>
-    <!-- bootstrap-wysiwyg -->
-    <script src="{%static 'vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js'%}"></script>
-    <script src="{%static 'vendors/jquery.hotkeys/jquery.hotkeys.js'%}"></script>
-    <script src="{%static 'vendors/google-code-prettify/src/prettify.js'%}"></script>
-    <!-- jQuery Tags Input -->
-    <script src="{%static 'vendors/jquery.tagsinput/src/jquery.tagsinput.js'%}"></script>
-    <!-- Switchery -->
-    <script src="{%static 'vendors/switchery/dist/switchery.min.js'%}"></script>
-    <!-- Select2 -->
-    <script src="{%static 'vendors/select2/dist/js/select2.full.min.js'%}"></script>
-    <!-- Parsley -->
-    <script src="{%static 'vendors/parsleyjs/dist/parsley.min.js'%}"></script>
-    <!-- Autosize -->
-    <script src="{%static 'vendors/autosize/dist/autosize.min.js'%}"></script>
-    <!-- jQuery autocomplete -->
-    <script src="{%static 'vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js'%}"></script>
-    <!-- starrr -->
-    <script src="{%static 'vendors/starrr/dist/starrr.js'%}"></script> 
-
-    <script type="text/javascript">
-      function detail(title,sn,width,height,url,fun){   
-          var index= layer.open({
-            type: 2,
-            shade: false,
-            title: title,
-            maxmin: true,
-            shadeClose: true, //点击遮罩关闭层
-            // area : [ width,height],
-            content: url + fun + sn
-          });
-          layer.full(index);
-          // layer.setTop(index);
-      }
-    </script>
-
-    {% block css %}
-
-    {% endblock %}
+  </body>
+</html>
