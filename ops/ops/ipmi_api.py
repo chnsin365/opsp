@@ -70,7 +70,8 @@ class ipmitool(object):
             raise TypeError("command should be either a string or list type")
 
         if self.error:
-            raise IPMIError(self.error)
+            # raise IPMIError(self.error)
+            return self.error
         else:
             return self.status
         

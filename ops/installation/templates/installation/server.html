@@ -1,0 +1,25 @@
+{% extends 'iframe.html' %}
+{% load staticfiles %}
+
+{% block title %}   
+<title> 装机管理 | 自动化运维平台 </title>
+{% endblock %}
+
+
+{% block content %}
+<iframe src="{% url 'installation:init'%}" id="myiframe" scrolling="no" onload="changeFrameHeight()" frameborder="0" width="100%"></iframe>
+{% endblock %}
+
+
+{% block js %}
+<script type="text/javascript">
+  function changeFrameHeight(){
+    var ifm= document.getElementById("myiframe"); 
+    ifm.height=document.documentElement.clientHeight;
+  }
+
+  window.onresize=function(){  
+     changeFrameHeight();  
+  } 
+</script>
+{% endblock %}

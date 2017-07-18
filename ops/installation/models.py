@@ -95,6 +95,7 @@ class Server(models.Model):
     vendor             = models.CharField(max_length=30,blank=True,null=True)
     model              = models.CharField(max_length=30,blank=True,null=True)
     prod_ip            = models.GenericIPAddressField(blank=True,null=True)
+    power              = models.BooleanField(default=True)
     create_time        = models.DateTimeField(auto_now_add=True)
     update_time        = models.DateTimeField(auto_now=True)
 

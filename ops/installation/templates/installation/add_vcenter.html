@@ -1,48 +1,59 @@
-{% extends 'base.html'%}
-{% load staticfiles %}
+{% extends "installation/add_system.html" %}
 
-    {% block css %}
-    
-    {% endblock %}
-
-
-
-        {% block page-content %}
-        <!-- page content -->
-        <div class="right_col" role="main">
-          <div class="">
-            {% block page-title %}
-            <div class="page-title">
-              <div class="title_left">
-                <h3>Plain Page</h3>
-              </div>
-            </div>
-            {% endblock %}
-
-            <div class="clearfix"></div>
-
-            <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_content">
-                     <form action="{% url 'installation:add_vcenter' %}" method="post">
-                     	{% csrf_token %}
-                     	name:<input type="text" name="name">
-                     	ip:<input type="text" name="ip">
-                      port:<input type="text" name="port">
-                     	user:<input type="text" name="user">
-                     	password:<input type="password" name="password">
-                     	<button type="submit">提交</button>
-                     </form>
-                  </div>
-                </div>
-              </div>
+{% block content %}
+      {% if messages %}
+              {% for message in messages %}
+                  {% if message.tags == 'error' %}
+                      <p class="alert alert-block alert-danger fade in">{{ message }}</p>
+                  {% else %}
+                      <p class="alert alert-success fade in">{{ message }}</p>
+                  {% endif %}
+              {% endfor %}
+      {% endif %} 
+    <form class="form-horizontal" role="form" action="{% url 'installation:add_vcenter' %}" method="post" role="form">
+        {% csrf_token %}
+          <div class="form-group">
+            <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">Vcenter Name *</span></label>
+            <div class="col-xs-8 col-md-6 col-sm-6" >
+                  <input class="form-control" name="name" required="required" type="text">
             </div>
           </div>
-        </div>
-        <!-- /page content -->
-        {% endblock %}
 
-    {% block js %}
-    
-    {% endblock %}
+      
+          <div class="form-group">
+            <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span>IP *</span></label>
+            <div class="col-xs-8 col-md-6 col-sm-6">
+                <input class="form-control" name="ip" required="required" type="text">
+            </div>
+          </div>
+
+
+          <div class="form-group" >
+            <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">Port *</span></label>
+            <div class="col-xs-8 col-md-6 col-sm-6" >
+              <input class="form-control" name="port" required="required" type="text" value="443">
+            </div>
+          </div>
+
+          <div class="form-group" >
+            <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">User *</span></label>
+            <div class="col-xs-8 col-md-6 col-sm-6" >
+              <input class="form-control" name="user" required="required" type="text">
+            </div>
+          </div>
+
+          <div class="form-group" >
+            <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">Password *</span></label>
+            <div class="col-xs-8 col-md-6 col-sm-6" >
+              <input class="form-control" name="password" required="required" type="password">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-xs-8 col-md-6 col-sm-6">
+              <button type="submit" class="btn">Submit</button>
+            </div>
+          </div>
+        </form>
+{% endblock %}
+

@@ -7,6 +7,7 @@ from django.shortcuts import get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
 from .models import *
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import json
 from ops.sshapi import remote_cmd
 from .raid_api import RAIDAPI
@@ -88,24 +89,60 @@ def install_pre_post(request):
 
 def init(request):
     status = get_object_or_404(ServerStatus,status_type='init')
-    servers = status.server_set.all()
-    return render(request,'installation/init_server.html',locals())
+    server_list = status.server_set.all()
+    page_number =  request.GET.get('page_number')
+    if page_number:
+        page_number = int(page_number)
+    else:
+        page_number =  10
+    paginator = Paginator(server_list, page_number)
+    page = request.GET.get('page')
+    try:
+        servers = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        servers = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        servers = paginator.page(paginator.num_pages)
+    return render(request,'installation/init.html',locals())
 
 def install(request):
-    systems = PreSystem.objects.all()
-    return render(request,'installation/install_server.html',locals())
+    system_list = PreSystem.objects.all()
+    page_number =  request.GET.get('page_number')
+    if page_number:
+        page_number = int(page_number)
+    else:
+        page_number =  10
+    paginator = Paginator(system_list, page_number)
+    page = request.GET.get('page')
+    try:
+        systems = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        systems = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        systems = paginator.page(paginator.num_pages)    
+    return render(request,'installation/install.html',locals())
+
+def server(request):
+    return render(request,'installation/server.html',locals())
 
 def server_detail(request,server_id):
     server = get_object_or_404(Server,pk=server_id)
     return render(request,'installation/server_detail.html',locals())
 
-def server_delete(request,server_id):
-    try:
-        get_object_or_404(Server,pk=server_id).delete()
-        ret_data = '删除成功！'
-    except Exception as e:
-        ret_data = '删除失败！'
-    return HttpResponse(ret_data)
+def server_delete(request):
+    ids = request.GET.get('ids','').lstrip(',')
+    ids = ids.split(',')
+    ret_data = {}
+    for server_id in ids:
+        try:
+            get_object_or_404(Server,pk=server_id).delete()
+        except Exception as e:
+            ret_data[server_id] = str(e)
+    return HttpResponse(json.dumps(ret_data))
 
 def server_edit(request,server_id):
     server = get_object_or_404(Server,pk=server_id)
@@ -136,26 +173,29 @@ def init_cobbler(id=1):
         cblr = CobblerAPI(url,user,password)
     return cblr
 
-def server_change_status(request,server_id,status_type):
-    server = get_object_or_404(Server,pk=server_id)
-    try:
-        pre_system = server.presystem
-        # cobbler = CobblerAPI("http://192.168.3.166/cobbler_api","admin","admin")
-        cobbler = init_cobbler()
-        result = cobbler.del_system(pre_system.hostname)
-        if result['result']:
-            status = get_object_or_404(ServerStatus,status_type=status_type)
-            server.serverstatus = status
-            server.save()
-            pre_system.delete()
-        else:
-            # messages.error(request, result['comment'])
-            # return render(request,'installation/install_server.html',locals())
-            return HttpResponse(result['comment'])
-    except Exception as e:
-        # raise e
-        messages.error(request, str(e))
-    return redirect('installation:install')
+def server_change_status(request):
+    ids = request.GET.get('ids','').lstrip(',')
+    ids = ids.split(',')
+    status = request.GET.get('status')
+    print ids,status
+    cobbler = init_cobbler()
+    ret = {}
+    for server_id in ids:
+        server = get_object_or_404(Server,pk=server_id)
+        try:
+            pre_system = server.presystem
+            result = cobbler.del_system(pre_system.hostname)
+            if result['result']:
+                status = get_object_or_404(ServerStatus,status_type=status)
+                server.serverstatus = status
+                server.save()
+                pre_system.delete()
+            else:
+                ret[server_id] = result['comment']
+        except Exception as e:
+            raise e
+            # messages.error(request, str(e))
+    return HttpResponse(json.dumps(ret))
 
 def select_cab(request):
     idc_id = request.GET.get('idc_id','')
@@ -165,7 +205,7 @@ def select_cab(request):
         result[cab.id] = cab.name
     return HttpResponse("%s"%(json.dumps(result)))
 
-def server_raid(request,server_id,fun):
+def server_raid(request,server_id,fun,array):
     '''
     raid模块,包含以下方法：
     1、查看raid卡信息(包括控制器状态、Cache状态、电池状态) (raid_card)
@@ -205,36 +245,34 @@ def server_raid(request,server_id,fun):
                 try:
                     ret = remote_cmd(cmd,addr,user='root',passwd='P@ssw0rd')
                     if ret['status']:
-                        ret_data = 'Raid %s has been created on %s'%(raid_type,drivers)
+                        ret_data['result'] = 'Raid %s has been created on %s'%(raid_type,drivers)
                     else:
-                        ret_data = ret['result']
+                        ret_data['result'] = ret['result']
                 except Exception as e:
-                    ret_data = str(e)
+                    ret_data['result'] = str(e)
             else:
-                ret_data = ret_data['result']
+                pass
             return HttpResponse(ret_data)
     elif fun == 'delete_raid':
-        if request.method == 'GET':
-            r_names = server.disk_set.exclude(raid_name='Unassigned').values('raid_name').distinct()
-            return render(request,'installation/delete_raid.html',locals())
+        # if request.method == 'GET':
+        #     r_names = server.disk_set.exclude(raid_name='Unassigned').values('raid_name').distinct()
+        #     return render(request,'installation/delete_raid.html',locals())
+        # else:
+        rd = RAIDAPI(server,addr,user='root',passwd='P@ssw0rd')
+        ret_data = rd.delete_raid(array)
+        if ret_data['status']:
+            cmd ="curl -L http://192.168.3.166/cobbler/svc/post_server_info.sh | sh > /tmp/curl.log 2>&1"
+            try:
+                ret = remote_cmd(cmd,addr,user='root',passwd='P@ssw0rd')
+                if ret['status']:
+                    ret_data['result'] = 'Array %s has been deleted'%(array)
+                else:
+                    ret_data['result'] = ret['result']
+            except Exception as e:
+                ret_data['result'] = str(e)
         else:
-            rd = RAIDAPI(server,addr,user='root',passwd='P@ssw0rd')
-            array = request.POST.get('array','')
-            ret_data = rd.delete_raid(array)
-            print ret_data
-            if ret_data['status']:
-                cmd ="curl -L http://192.168.3.166/cobbler/svc/post_server_info.sh | sh > /tmp/curl.log 2>&1"
-                try:
-                    ret = remote_cmd(cmd,addr,user='root',passwd='P@ssw0rd')
-                    if ret['status']:
-                        ret_data = 'Array %s has been deleted'%(array)
-                    else:
-                        ret_data = ret['result']
-                except Exception as e:
-                    ret_data = str(e)
-            else:
-                ret_data = ret_data['result']
-            return HttpResponse(ret_data)
+            pass
+        return HttpResponse(json.dumps(ret_data))
     else:
         pass
     return render(request,'installation/raid.html',locals())
@@ -253,57 +291,48 @@ def server_ipmi(request,server_id,fun):
     ipmi_ip = server.ipmi_ip
     ipmi_user = server.ipmi_user
     ipmi_pass = server.ipmi_pass
-    try:
+    if not (ipmi_ip and ipmi_user and ipmi_pass):
+        ret_data = "error"
+    else:
         ipmi = ipmitool(ipmi_ip,ipmi_pass,username=ipmi_user)
         ipmi.chassis_status()
-        if fun == 'boot_to_disk':
-            ipmi.boot_to_disk()
-            ipmi.chassis_on()
-            ret_data = ipmi.output
-        elif fun == 'chassis_off':
-            if 'off' in ipmi.output:
-                ret_data = '已经在关机状态，已为您取消本次关机操作。'
-            else:
-                ipmi.chassis_off()
-                ret_data = ipmi.output
-        elif fun == 'chassis_reboot':
-            if 'off' in ipmi.output:
-                ret_data = '当前在关机状态，无法完成重启操作。'
-            else:
-                ipmi.chassis_reboot()
-                ret_data = ipmi.output
-        elif fun == 'install':
-            if 'off' in ipmi.output:
-                ipmi.boot_to_pxe()
-                ipmi.chassis_on()
-                ret_data = '开始安装......'
-            else:
-                ipmi.boot_to_pxe()
-                ipmi.chassis_reboot()
-                ret_data = '开始安装......'
-            # server.presystem.progress = 0
-            # server.presystem.save()
-        elif fun == 'boot_to_pxe':
-            if 'on' in ipmi.output:
-                ret_data = '已经在开机状态，已为您取消本次开机操作。'
-            else:
-                ipmi.boot_to_pxe()
-                ipmi.chassis_on()
-                ret_data = ipmi.output            
-        else:
-            ret_data = ipmi.output
-    except Exception as e:
-        ret_data = str(e)
-    if 'socket' in ret_data or 'Error' in ret_data:
-        ret_data = '1'
-    else:
-        pass
+        if ipmi.error:
+            ret_data = 'error'
+        else:  
+            try:
+                if fun == 'chassis_off':
+                    if 'off' in ipmi.output:
+                        ret_data = 'disable'
+                    else:
+                        ipmi.chassis_off()
+                        ret_data = 'off'
+                elif fun == 'install':
+                    if 'off' in ipmi.output:
+                        ipmi.boot_to_pxe()
+                        ipmi.chassis_on()
+                    else:
+                        ipmi.boot_to_pxe()
+                        ipmi.chassis_reboot()
+                    ret_data = 'install'
+                    server.presystem.progress = 0
+                    server.presystem.save()
+                elif fun == 'boot_to_pxe':
+                    if 'on' in ipmi.output:
+                        ret_data = 'disable'
+                    else:
+                        ipmi.boot_to_pxe()
+                        ipmi.chassis_on()
+                        ret_data = 'on'            
+                else:
+                    pass
+            except Exception as e:
+                ret_data = str(e)
     return HttpResponse(ret_data)
 
 def update_ipmi(request,server_id):
     if request.method == "GET":
         server = get_object_or_404(Server,pk=server_id)
-        ret_data = "用户或密码错误"
+        ret_data = "用户或密码错误,请重新配置"
         return render(request,'installation/update_ipmi.html',locals())
     else:
         kwargs = {}
@@ -321,12 +350,30 @@ def update_ipmi(request,server_id):
         elif 'Error' in ret_data:
             ret_data = 'ipmi账号或密码错误'
         else:
-            Server.objects.filter(pk=server_id).update(**kwargs)
+            Server.objects.all().update(**kwargs)
             ret_data = '账号配置成功'
         return render(request,'installation/msg.html',locals())
 
-def cobblers(request):
-    cobblers = Cobbler.objects.all()
+def cobbler(request):
+    return render(request,'installation/service_conf.html')
+
+def cobbler_config(request):
+    cobbler_list = Cobbler.objects.all()
+    page_number =  request.GET.get('page_number')
+    if page_number:
+        page_number = int(page_number)
+    else:
+        page_number =  10
+    paginator = Paginator(cobbler_list, page_number)
+    page = request.GET.get('page')
+    try:
+        cobblers = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        cobblers = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        cobblers = paginator.page(paginator.num_pages)    
     return render(request,'installation/cobbler_config.html',locals())
 
 def edit_cobbler(request,id):
@@ -342,9 +389,28 @@ def edit_cobbler(request,id):
             cobbler.user = user
             cobbler.password = password
             cobbler.save()
+            messages.success(request, '更新成功')
         except Exception as e:
-            raise e
-        return redirect('installation:cobblers')
+            messages.error(request, str(e))
+        return render(request,'installation/edit_cobbler.html',locals())
+
+def add_cobbler(request):
+    if request.method == "GET":
+        return render(request,'installation/add_cobbler.html')
+    else:
+        ip = request.POST.get('ip','')
+        user = request.POST.get('user','')
+        password = request.POST.get('password','')
+        try:
+            cobbler,created = Cobbler.objects.get_or_create(ip=ip,defaults={'user':user,'password':password})
+            if created:
+                messages.success(request, '添加成功')
+            else:
+                messages.error(request, 'IP地址重复，请更换IP。')
+        except Exception as e:
+            messages.error(request, str(e))
+            return render(request,'installation/add_cobbler.html')
+        return redirect('installation:edit_cobbler',cobbler.id)
 
 def get_system(request,server_id):
     server = get_object_or_404(Server,pk=server_id)
@@ -354,7 +420,7 @@ def get_system(request,server_id):
     if 'result' in ret_data:
         messages.error(request, ret_data['comment'])
         ret_data = {}
-    return render(request,'installation/install.html',locals())
+    return render(request,'installation/config_sys.html',locals())
 
 def add_system(request,server_id):
     server = get_object_or_404(Server,pk=server_id)
@@ -463,26 +529,34 @@ def add_vcenter(request):
             vcenter,created = Vcenter.objects.get_or_create(name=name,ip=ip,user=user,defaults={'password': password,'port':port})
             if created:
                 result = get_info_from_vcenter.delay(vcenter.id,user,password,ip,port=port)
+                messages.success(request, '添加成功')
+            else:
+                messages.error(request, 'IP地址重复，请更换IP。')
         except Exception as e:
-            raise e
+            messages.error(request, str(e))
+            return render(request,'installation/add_vcenter.html')
         return redirect('installation:vcenter')
 
 def edit_vcenter(request,id):
     vcenter = get_object_or_404(Vcenter,pk=id)
-    if request.mothed == "GET":
-        return render(request,'installation/add_vcenter.html',locals())
+    if request.method == "GET":
+        return render(request,'installation/edit_vcenter.html',locals())
     else:
-        name = request.POST.get('name','')
-        ip = request.POST.get('ip','')
-        user = request.POST.get('user','')
-        password = request.POST.get('password','')
-        vcenter = Vcenter.objects.create(name=name,ip=ip,user=user,default={'password': password})
-        return redirect('installation:vcenter')
+        try:
+            name = request.POST.get('name','')
+            ip = request.POST.get('ip','')
+            user = request.POST.get('user','')
+            password = request.POST.get('password','')
+            vcenter = Vcenter.objects.update(name=name,ip=ip,user=user,password=password)
+            messages.success(request, '更新成功')
+        except Exception as e:
+            messages.success(request, str(e))
+        return render(request,'installation/edit_vcenter.html',locals())
 
 def delete_vcenter(request,id):
     try:
         Vcenter.objects.filter(pk=id).delete()
-        ret = 'vcenter删除成功'
+        ret = ''
     except Exception as e:
         ret = str(e)
     return HttpResponse(ret)
@@ -508,7 +582,7 @@ def add_vm(request):
         cluster_name = request.POST['cluster']
         power_on = request.POST['power']
         try:
-            result = clone_vm.delay(vcenter.ip,vcenter.user,vcenter.password,vcenter.port,\
+            result = clone_vm.delay(vcenter.id,vcenter.ip,vcenter.user,vcenter.password,vcenter.port,\
                 template,vm_name,datacenter_name,datastore_name,cluster_name,power_on,vm_cpus,\
                 vm_cpu_sockets, vm_memory)
         except Exception as e:

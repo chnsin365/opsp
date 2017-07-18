@@ -1,63 +1,45 @@
-{% extends 'base.html'%}
-{% load staticfiles %}
+{% extends "installation/add_system.html" %}
 
-    {% block title %}
-    <title> 自动化运维平台 </title>
-    {% endblock %}
-
-
-    {% block css %}
-    
-    {% endblock %}
-
-
-        {% block page-content %}
-        <!-- page content -->
-        <div class="right_col" role="main">
-          <div class="">
-            {% block page-title %}
-            <div class="page-title">
-              <div class="title_left">
-                
-              </div>
-            </div>
-            {% endblock %}
-
-            <div class="clearfix"></div>
-
-            <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                 
-                  	<h3>更新安装服务器配置</h3>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-					<p>
-						 <form action="{% url 'installation:edit_cobbler' cobbler.id %}" method="post">
-	                     	{% csrf_token %}
-	                     	<p>
-	                     	ip:<input type="text" name="ip" required="required" value="{{cobbler.ip}}">	
-	                     	</p>
-	                     	<p>
-	                     	user:<input type="text" name="user" required="required" value="{{cobbler.user}}">
-	                     	</p>
-	                     	<p>
-	                     	password:<input type="password" name="password" required="required" value="{{cobbler.password}}">	
-	                     	</p>
-	                     	<button type="submit">提交</button>
-	                     </form>						
-					</p>
-
-
-					<!-- <a href="{% url 'installation:add_vcenter' %}">添加Vcenter</a> -->
-                  </div>
-                </div>
-
-              </div>
+{% block content %}
+      {% if messages %}
+              {% for message in messages %}
+                  {% if message.tags == 'error' %}
+                      <p class="alert alert-block alert-danger fade in">{{ message }}</p>
+                  {% else %}
+                      <p class="alert alert-success fade in">{{ message }}</p>
+                  {% endif %}   
+              {% endfor %}
+      {% endif %} 
+    <form class="form-horizontal" role="form" action="{% url 'installation:edit_cobbler' cobbler.id %}" method="post" role="form">
+        {% csrf_token %}
+          <div class="form-group">
+            <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">IP 地址 *</span></label>
+            <div class="col-xs-8 col-md-6 col-sm-6" >
+                  <input class="form-control" name="ip" required="required" type="text" value="{{cobbler.ip}}">
             </div>
           </div>
-        </div>
-        <!-- /page content -->
-        {% endblock %}
+
+      
+          <div class="form-group">
+            <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span>User *</span></label>
+            <div class="col-xs-8 col-md-6 col-sm-6">
+                <input class="form-control" name="user" required="required" type="text" value="{{cobbler.user}}">
+            </div>
+          </div>
+
+
+          <div class="form-group" >
+            <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">Password *</span></label>
+            <div class="col-xs-8 col-md-6 col-sm-6" >
+              <input class="form-control" name="password" required="required" type="password" value="{{cobbler.password}}">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-xs-8 col-md-6 col-sm-6">
+              <button type="submit" class="btn">Submit</button>
+            </div>
+          </div>
+        </form>
+{% endblock %}
+
