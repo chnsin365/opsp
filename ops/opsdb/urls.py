@@ -15,14 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url,include
 from django.contrib import admin
+from django.views.decorators.csrf import csrf_exempt
 from . import views
 
 urlpatterns = [
-	url(r'^admin/', admin.site.urls),
-	url(r'^$',views.index,name="index"),
-	url(r'^accounts/login',views.login,name="login"),
-	url(r'^logout/',views.logout,name="logout"), 
-    url(r'^users/',include('users.urls',namespace='users')),  
-    url(r'^installation/',include('installation.urls',namespace='installation')),
-    url(r'^opsdb/',include('opsdb.urls',namespace='opsdb')),
+	url(r'^system/$',views.system,name='system'),
+	url(r'^system_iframe/',views.system_iframe,name='system_iframe'),
+	url(r'^system/add/$',views.add_system,name='add_system'),
 ]

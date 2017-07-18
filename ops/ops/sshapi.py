@@ -1,14 +1,15 @@
 #!/usr/bin/python
 import paramiko
 
-def remote_cmd(cmd,host,user='root',passwd='P@ssw0rd'):
-	ret = {'status':True,'result':''}
+def remote_cmd(cmd,host,port=22,user='root',passwd='P@ssw0rd'):
+	ret = {'status':True,'result':'','err':''}
 	try:
 		ssh = paramiko.SSHClient()
 		ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-		ssh.connect(hostname=host,username=user,password=passwd)
+		ssh.connect(hostname=host,port=port,username=user,password=passwd,timeout=30)
 		stdin,stdout,stderr = ssh.exec_command(cmd)
 		ret['result'] = stdout.read()
+		ret['err'] = stderr.read()
 	except Exception as e:
 		ret = {'status':False,'result':str(e)}
 	finally:
