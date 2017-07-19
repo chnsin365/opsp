@@ -17,7 +17,7 @@ git clone https://github.com/uevol/opsp.git
 ### 方法1、直接从网络安装
 #### 配置pip豆瓣源(可选,可以有效提升安装速度)
 ```
-mk -p  ~/.pip/pip.conf
+mkdir -p  ~/.pip/pip.conf
 vi pip.conf
 
 [global]
