@@ -11,6 +11,7 @@ from ops.sshapi import remote_cmd
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import json
 from json2html import *
+from .saltapi import SaltAPI
 
 from pymongo import MongoClient
 client = MongoClient('192.168.3.167',27017)
@@ -82,4 +83,40 @@ def add_system(request):
 			else:
 				messages.error(request, ret['result'])
 		return render(request,'opsdb/add_system.html',locals())
+
+def salt_run(request):
+	salt_funs = SaltFun.objects.all()
+	if request.method == 'GET':
+		pass
+	else:
+		salt_master = get_object_or_404(Salt,pk=1)
+		salt = SaltAPI(salt_master.ip,salt_master.user,salt_master.password,port=salt_master.port)
+		token = salt.login()
+		if token:
+			fun = request.POST.get('fun','')
+			arg_list = request.POST.get('arg_list','') if request.POST.get('arg_list','') else []
+			target = request.POST.get('target','').split(',')
+			result = salt.run(fun=fun,target=target,arg_list=arg_list)
+			# result = json.dumps(ret,indent=4, sort_keys=False)
+
+		else:
+			result = '无法执行.'
+	return render(request,'opsdb/salt_run.html',locals())
+
+def salt_state(request):
+	if request.method == 'GET':
+		pass
+	else:
+		salt_master = get_object_or_404(Salt,pk=1)
+		salt = SaltAPI(salt_master.ip,salt_master.user,salt_master.password,port=salt_master.port)
+		token = salt.login()
+		if token:
+			arg_list = request.POST.get('arg_list','')
+			target = request.POST.get('target','').split(',')
+			result = salt.run(fun='state.sls',target=target,arg_list=arg_list)
+		else:
+			result = '无法执行.'
+	return render(request,'opsdb/salt_state.html',locals())
+
+
 	
