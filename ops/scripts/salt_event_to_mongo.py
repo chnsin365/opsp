@@ -15,7 +15,7 @@ __opts__ = salt.config.client_config('/etc/salt/master')
 
 # Create MongoDB connect
 from pymongo import MongoClient
-client = MongoClient()
+client = MongoClient('192.168.3.167',27017)
 db = client.salt
 
 # define collection in mongo
@@ -51,10 +51,22 @@ for eachevent in event.iter_events(full=True):
 				if eachevent['data'].has_key('id') and eachevent['data'].has_key('return'):
 					if eachevent['data']['fun'] == 'grains.items':
 						grains.find_one_and_replace({'id':eachevent['data']['id']},eachevent['data'],upsert=True)
+<<<<<<< HEAD
 						sql = '''INSERT IGNORE INTO system (system_id,create_time,update_time) VALUES (%s,%s,%s)'''
 						try:
 						   # 执行sql语句
 						   cursor.execute(sql,(eachevent['data']['id'],eachevent['data']['_stamp'],eachevent['data']['_stamp']))
+=======
+						sql = '''INSERT IGNORE INTO system (system_id,ip,os,create_time,update_time)\
+						 VALUES (%s,%s,%s,%s,%s)'''
+						try:
+						   # 执行sql语句
+						   cursor.execute(sql,(eachevent['data']['id'],\
+						   	eachevent['data']['return']['fqdn_ip4'][0],\
+						   	' '.join([eachevent['data']['return']['osfullname'],\
+						   		eachevent['data']['return']['osrelease']]),\
+						   	eachevent['data']['_stamp'],eachevent['data']['_stamp']))
+>>>>>>> opsdb
 						   # 提交到数据库执行
 						   mysql_db.commit()
 						except Exception as e:
@@ -72,6 +84,10 @@ for eachevent in event.iter_events(full=True):
 			continue
 	except Exception as e:
 		# raise e
+<<<<<<< HEAD
 		continue
 
 
+=======
+		continue
+>>>>>>> opsdb
