@@ -19,7 +19,8 @@ from django.views.decorators.csrf import csrf_exempt
 from . import views
 
 urlpatterns = [
-	url(r'^system/$',views.system,name='system'),
+	url(r'^systems/$',views.systems,name='systems'),
 	url(r'^system_iframe/',views.system_iframe,name='system_iframe'),
-	url(r'^system/add/$',views.add_system,name='add_system'),
+    url(r'^systems/show/(.+)/$',views.system,name='system'),
+	url(r'^systems/add/$',views.add_system,name='add_system'),
 ]

@@ -91,17 +91,17 @@
                                    </li>
 
                                    <li>
-                                     <span>&nbsp&nbsp{{ servers.number }} / {{ servers.paginator.num_pages }}</span>
+                                     <span>&nbsp&nbsp{{ systems.number }} / {{ systems.paginator.num_pages }}</span>
                                    </li>
                                    
                                    <li>
-                                       {% if servers.has_previous %}
-                                       <a href="?page={{ servers.previous_page_number }}" class="np-btn"><i class="icon-angle-left  pagination-left"></i></a>
+                                       {% if systems.has_previous %}
+                                       <a href="?page={{ systems.previous_page_number }}" class="np-btn"><i class="icon-angle-left  pagination-left"></i></a>
                                        {% endif %}
                                    </li>
                                    <li>
-                                       {% if servers.has_next %}
-                                       <a href="?page={{ servers.next_page_number }}" class="np-btn"><i class="icon-angle-right pagination-right"></i></a>
+                                       {% if systems.has_next %}
+                                       <a href="?page={{ systems.next_page_number }}" class="np-btn"><i class="icon-angle-right pagination-right"></i></a>
                                        {% endif %}
                                    </li>
                                </ul>
@@ -110,32 +110,28 @@
                           <thead>
                                   <tr>
                                     <th><input type="checkbox" name="all" id="all"></th>
-                                    <th><small>序列号</small></th>
-                                    <th><small>状态</small></th>
+                                    <th><small>主机名</small></th>
                                     <th><small>IP地址</small></th>
-                                    <th><small>制造商</small></th>
-                                    <th><small>型号</small></th>
-                                    <th><small>配置</small></th>
-                                    <th><small>创建时间</small></th>
+                                    <th><small>系统发行版本</small></th>
+                                    <th><small>主机组</small></th>
+                                    <th><small>环境</small></th>
+                                    <th><small>应用</small></th>
+                                    <th><small>业务</small></th>
                                   </tr>
                             </thead>
                               <tbody>
-                                {% for server in servers %}
+                                {% for system in systems %}
                                   <tr>
                                     <td><input type="checkbox"></td>
-                                    <td id="{{server.id}}"><small><a onclick="show_server('{{server.id}}')" style="text-decoration:underline">{{server.id}}</a></small></td>
-                                    <td><small name="{{server.id}}">
-                                    {% if server.power %}
-                                      已开机
-                                    {% else %}
-                                      已关机
-                                    {% endif %}
-                                    </small></td>
-                                    <td><small>{{server.pxe_ip}}</small></td>
-                                    <td><small>{{server.vendor}}</small></td>
-                                    <td><small>{{server.model}}</small></td>
-                                    <td><small>{{server.cpu_cores}}核{{server.mem_size}}G</small></td>
-                                    <td><small>{{server.create_time | date:'Y-m-d H:m:s'}}</small></td>
+                                    <td id="{{server.id}}">
+                                      <small><a onclick="show_system('{{system.id}}')" style="text-decoration:underline">{{system.id}}</a></small>
+                                    </td>
+                                    <td><small>{{system.ip}}</small></td>
+                                    <td><small>{{system.os}}</small></td>
+                                    <td><small>{{system.hostgroup.name}}</small></td>
+                                    <td><small>{{system.environment.name}}</small></td>
+                                    <td><small>{{system.application.name}}</small></td>
+                                    <td><small>{{system.business.name}}</small></td>
                                   </tr>
                                 {% endfor %}
                               </tbody>
@@ -183,10 +179,10 @@
           });
       });
 
-      function show_server(server_id){
+      function show_system(system_id){
         var index = layer.open({
             type: 2,
-            title: "服务器详细信息",
+            title: "主机详细信息",
             offset: 'r',
             // maxmin: true,
             area: ['700px', '500px'],
@@ -194,7 +190,7 @@
             shadeClose: true,
             shift: 5,
             moveOut: true,
-            content: '/installation/server/detail/' + server_id
+            content: '/opsdb/systems/show/' + system_id
           });
       }
 
@@ -224,7 +220,7 @@
             // shadeClose: true,
             shift: 5,
             moveOut: true,
-            content: "/opsdb/system/add/",
+            content: "/opsdb/systems/add/",
             end: function() {
               window.location.reload();
             }
