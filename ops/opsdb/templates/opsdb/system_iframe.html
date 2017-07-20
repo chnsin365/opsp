@@ -66,14 +66,18 @@
                                    <button type="button" class="btn label label-inverse" onclick="add_system()"><i class="icon-plus"></i> 添加主机</button>
                                </div>
                                <div class="btn-group">
-                                   <button type="button" class="btn label label-inverse" onclick="salt()"><i class="icon-gear"></i> 配置管理</button>
+                                  <button type="button" class="btn label label-inverse" onclick="salt_run()"><i class="icon-laptop"></i> 远程执行</button>
+                               </div>
+
+                               <div class="btn-group">
+                                   <button type="button" class="btn label label-inverse" onclick="salt_state()"><i class="icon-gear"></i> 模块部署</button>
                                </div>
                                <div class="btn-group hidden-phone">
                                       <button data-toggle="dropdown" class="btn label label-inverse dropdown-toggle" type="button"><i class="icon-th-large"></i>&nbsp更多操作&nbsp&nbsp <span class="caret"></span></button>
                                       <ul role="menu" class="dropdown-menu" style="min-width: 101.63px;width: 101.63px;">
-                                          <li><a onclick="raid()" style="padding-left: 5px;"><small>RAID</small></a></li>
-                                          <li><a onclick="config_sys()" style="padding-left: 5px;"><small>配置系统</small></a></li>
-                                          <li><a onclick="delete_server()" style="padding-left: 5px;"><small>删除</small></a></li>
+                                          <li><a onclick="config_sys()" style="padding-left: 5px;"><small>Minion认证</small></a></li>
+                                          <li><a onclick="delete_server()" style="padding-left: 5px;"><small>模块管理</small></a></li>
+                                          <li><a onclick="delete_server()" style="padding-left: 5px;"><small>删除主机</small></a></li>
                                       </ul>
                                  </div>
 
@@ -123,7 +127,7 @@
                                 {% for system in systems %}
                                   <tr>
                                     <td><input type="checkbox"></td>
-                                    <td id="{{server.id}}">
+                                    <td id="{{system.id}}">
                                       <small><a onclick="show_system('{{system.id}}')" style="text-decoration:underline">{{system.id}}</a></small>
                                     </td>
                                     <td><small>{{system.ip}}</small></td>
@@ -199,13 +203,10 @@
         var ids = [];
             $("table :checkbox").each(function(key,value){
                 if($(value).prop('checked')){
-                    // alert(tbodyObj.rows[key].cells[1].innerHTML);
+                    if (value.id == 'all') return true
                     ids.push(tbodyObj.rows[key].cells[1].id);
                 }
             });
-            // console.log(ids);
-            // alert(ids.shift());
-            // alert(ids);
             return ids
       }
 
@@ -227,7 +228,7 @@
       	})
       }
 
-      function delete_server() {
+      function delete_system() {
         var ids = get_server_id();
         if (ids.length ==0 )
         {
@@ -253,6 +254,62 @@
                   });
                       
             }); 
+        }
+      }
+
+      function salt_run() {
+        var ids = get_server_id();
+        if (ids.length ==0 )
+        {
+            layer.alert("请至少选中一台主机");
+        }
+        else
+        {
+          var index = layer.open({
+              type: 2,
+              offset: 'r',
+              area: ['800px','550px'],
+              title: '远程执行',
+              content: '/opsdb/systems/remote_run/',
+              success: function(layero, index){
+                  console.log(layero);
+                  var body = layer.getChildFrame('body',index);//建立父子联系
+                  var iframeWin = window[layero.find('iframe')[0]['name']];
+                  // console.log(arr); //得到iframe页的body内容
+                  console.log(body.find('input'));
+                  var inputList = body.find('input');
+                  $(inputList[1]).val(ids);
+              }
+            });
+            // layer.full(index);
+        }
+      }
+
+      function salt_state() {
+        var ids = get_server_id();
+        if (ids.length ==0 )
+        {
+            layer.alert("请至少选中一台主机");
+        }
+        else
+        {
+          var index = layer.open({
+              type: 2,
+              offset: 'r',
+              area: ['800px','550px'],
+              title: '模块部署',
+              content: '/opsdb/systems/module_delay/',
+              success: function(layero, index){
+                  console.log(layero);
+                  var body = layer.getChildFrame('body',index);//建立父子联系
+                  var iframeWin = window[layero.find('iframe')[0]['name']];
+                  // console.log(arr); //得到iframe页的body内容
+                  console.log(body.find('input'));
+                  var inputList = body.find('input');
+                  $(inputList[1]).val(ids);
+              }
+            });
+            // layer.full(index);
         }
       }
     </script>

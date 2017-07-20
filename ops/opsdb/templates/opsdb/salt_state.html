@@ -28,12 +28,51 @@
   </head>
                       
   <body>
- <!--  <div class="col-lg-12">
-    <div class="panel-body"> -->
-     	{{system_detail}}
-   <!--  </div>
+  <div class="col-lg-12">
+    <div class="panel-body">
+   		<form class="form-horizontal" role="form" action="{% url 'opsdb:salt_state' %}" method="post" role="form">
+          {% csrf_token %}     
+	        <div class="form-group">
+	          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">目标主机 *</span></label>
+	          <div class="col-xs-8 col-md-6 col-sm-6" >
+	                <input class="form-control" name="target" required="required" type="text">
+	          </div>
+	        </div>
 
-  </div> -->
+	        <div class="form-group">
+	          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">执行模块 *</span></label>
+	          <div class="col-xs-8 col-md-6 col-sm-6" >
+	                <select name="arg_list" required="required" class="form-control m-bot15">
+	                	<option value ="">--请选择模块--</option>
+                      {% for fun in salt_funs %}
+                      	<option value ="{{fun.name}}">{{fun.name}}</option>
+                      {% endfor %}
+                    </select>   
+	          </div>
+              <button type="submit" class="btn">开始执行</button>
+	        </div>
+          </form>
+
+  <!--         <pre>
+{{result}}
+          </pre> -->
+        
+          {% if result%}
+            {% for minion,return in result.items %}
+<b>{{minion}}:</b>
+        <pre>
+{{return}}
+        </pre>
+            {% endfor %}
+          {% else %}
+           <pre>
+No result
+           </pre>
+          {% endif %}
+
+
+    </div>
+  </div>
 
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="{%static 'js/jquery.js'%}"></script>

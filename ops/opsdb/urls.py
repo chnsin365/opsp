@@ -23,4 +23,6 @@ urlpatterns = [
 	url(r'^system_iframe/',views.system_iframe,name='system_iframe'),
     url(r'^systems/show/(.+)/$',views.system,name='system'),
 	url(r'^systems/add/$',views.add_system,name='add_system'),
+    url(r'^systems/remote_run/$',views.salt_run,name='salt_run'),
+    url(r'^systems/module_delay/$',views.salt_state,name='salt_state'),
 ]
