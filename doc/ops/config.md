@@ -129,7 +129,7 @@ create database opsdb default charset=utf8;
 
 #### create user
 ```
-grant all on opsdb.* to ops@localhost identified by "ops@123";
+grant all on opsdb.* to ops@'%' identified by "ops@123";
 ```
 
 #### 根据实际修改opsp配置文件settings.py的数据库配置：

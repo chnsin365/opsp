@@ -2,11 +2,9 @@
 from __future__ import unicode_literals
 
 from django.db import models
-<<<<<<< HEAD
 from datetime import datetime
-=======
 from installation.models import Environment
->>>>>>> opsdb
+
 
 # Create your models here.
 
@@ -43,15 +41,12 @@ class Business(models.Model):
 
 class System(models.Model):
     id                 = models.CharField(primary_key=True,max_length=100,db_column="system_id")
-<<<<<<< HEAD
-=======
     ip                 = models.GenericIPAddressField(blank=True,null=True)
     os                 = models.CharField(max_length=100,blank=True,null=True)
     environment        = models.ForeignKey(Environment,blank=True, null=True,on_delete=models.PROTECT)
     hostgroup          = models.ForeignKey(HostGroup,blank=True, null=True,on_delete=models.PROTECT)
     application        = models.ManyToManyField(Application)
     business           = models.ManyToManyField(Business)
->>>>>>> opsdb
     create_time        = models.DateTimeField(auto_now_add=True)
     update_time        = models.DateTimeField(auto_now=True)
 
