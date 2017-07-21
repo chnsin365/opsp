@@ -76,3 +76,18 @@ class SaltFun(models.Model):
 
     def __unicode__(self):
         return self.name
+
+class SaltState(models.Model):
+    id                 = models.AutoField(primary_key=True,db_column="salt_state_id")
+    name               = models.CharField(max_length=100,blank=True,null=True)
+    path               = models.CharField(max_length=100,blank=True,null=True)
+    owner              = models.CharField(max_length=100,blank=True,null=True)
+    create_time        = models.DateTimeField(auto_now_add=True)
+    update_time        = models.DateTimeField(auto_now=True)   
+
+
+    class Meta:
+        db_table = 'salt_state'
+
+    def __unicode__(self):
+        return self.name
