@@ -6,7 +6,7 @@ def remote_cmd(cmd,host,port=22,user='root',passwd='P@ssw0rd'):
 	try:
 		ssh = paramiko.SSHClient()
 		ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-		ssh.connect(hostname=host,port=port,username=user,password=passwd,timeout=30)
+		ssh.connect(hostname=host,port=int(port),username=user,password=passwd,timeout=30)
 		stdin,stdout,stderr = ssh.exec_command(cmd)
 		ret['result'] = stdout.read()
 		ret['err'] = stderr.read()
@@ -16,11 +16,13 @@ def remote_cmd(cmd,host,port=22,user='root',passwd='P@ssw0rd'):
 		ssh.close()
 		return ret
 
-def put_file(user,passwd,localpath,remotepath):
+def put_file(host,user,passwd,localpath,remotepath,port=22):
+	ret = {'status':True,'err':''}
 	try:
-		t = paramiko.Transport((hostname,22))
+		t = paramiko.Transport((host,int(port)))
 		t.connect(username=user,password=passwd)
 		sftp = paramiko.SFTPClient.from_transport(t)
 		sftp.put(localpath,remotepath)
 	except Exception as e:
-		print str(e)
+		ret = {'status':False,'err':str(e)}
+	return ret

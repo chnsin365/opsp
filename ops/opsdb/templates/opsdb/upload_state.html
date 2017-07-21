@@ -41,39 +41,17 @@
               {% endif %}                  
           {% endfor %}
         {% endif %} 
-      <form class="form-horizontal" role="form" action="{% url 'opsdb:add_system' %}" method="post" role="form">
+      <form class="form-horizontal" enctype="multipart/form-data" role="form" action="{% url 'opsdb:state_upload' %}" method="post" role="form">
           {% csrf_token %}     
-        <div class="form-group">
-          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">目标主机 IP *</span></label>
-          <div class="col-xs-8 col-md-6 col-sm-6" >
-                <input class="form-control" name="ip" required="required" type="text" value="{{ip}}">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">SSH 端口 *</span></label>
-          <div class="col-xs-8 col-md-6 col-sm-6" >
-                <input class="form-control" name="port" required="required" type="text" value="22">
-          </div>
-        </div>
-
         <div class="form-group" >
-          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">主机用户名 *</span></label>
           <div class="col-xs-8 col-md-6 col-sm-6" >
-            <input class="form-control" name="username" required="required" type="text" value="root">
+             <input type="file" name="myfile" required="">
           </div>
         </div>
-
-        <div class="form-group" >
-          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">主机用户密码 *</span></label>
-          <div class="col-xs-8 col-md-6 col-sm-6" >
-             <input class="form-control" name="password" required="required" type="password" value="{{password}}">
-          </div>
-        </div>
-
+        <p>Tip:请将所有文件(即使只有一个文件)放在一个以模块名命名的文件夹内,并将该文件夹打包成tar包后上传.</p>
         <div class="form-group">
           <div class="col-xs-8 col-md-6 col-sm-6">
-            <button type="button" class="btn" onclick="sub()">Submit</button>
+            <button type="submit" class="btn">开始上传</button>
           </div>
         </div>
       </form>
@@ -93,14 +71,6 @@
     <!--common script for all pages-->
     <script src="{%static 'js/common-scripts.js'%}"></script>
     <script src="{%static 'layer/layer.js'%}"></script>
-
-    <script type="text/javascript">  
-    function sub() {  
-        document.forms[0].elements[0].disabled = true;
-        document.forms[0].submit();
-        layer.load(); 
-    }  
-    </script>  
 
   </body>
 </html>

@@ -50,10 +50,10 @@
                                   <button type="button" class="btn label label-inverse" onclick="window.location.reload()"><i class="icon-refresh"></i>刷新</button>
                                </div>
                                <div class="btn-group">
-                                   <button type="button" class="btn label label-inverse" onclick="add_system()"><i class="icon-plus"></i> 上传模块</button>
+                                   <button type="button" class="btn label label-inverse" onclick="upload_state()"><i class="icon-plus"></i> 上传模块</button>
                                </div>
                                <div class="btn-group">
-                                  <button type="button" class="btn label label-inverse" onclick="salt_run()"><i class="icon-laptop"></i> 删除模块</button>
+                                  <button type="button" class="btn label label-inverse" onclick="delete_state()"><i class="icon-trash"></i> 删除模块</button>
                                </div>
 
                                <ul class="unstyled inbox-pagination">
@@ -70,17 +70,17 @@
                                    </li>
 
                                    <li>
-                                     <span>&nbsp&nbsp{{ systems.number }} / {{ systems.paginator.num_pages }}</span>
+                                     <span>&nbsp&nbsp{{ states.number }} / {{ states.paginator.num_pages }}</span>
                                    </li>
                                    
                                    <li>
                                        {% if systems.has_previous %}
-                                       <a href="?page={{ systems.previous_page_number }}" class="np-btn"><i class="icon-angle-left  pagination-left"></i></a>
+                                       <a href="?page={{ states.previous_page_number }}" class="np-btn"><i class="icon-angle-left  pagination-left"></i></a>
                                        {% endif %}
                                    </li>
                                    <li>
                                        {% if systems.has_next %}
-                                       <a href="?page={{ systems.next_page_number }}" class="np-btn"><i class="icon-angle-right pagination-right"></i></a>
+                                       <a href="?page={{ states.next_page_number }}" class="np-btn"><i class="icon-angle-right pagination-right"></i></a>
                                        {% endif %}
                                    </li>
                                </ul>
@@ -96,15 +96,13 @@
                                   </tr>
                             </thead>
                               <tbody>
-                                {% for system in systems %}
+                                {% for state in states %}
                                   <tr>
                                     <td><input type="checkbox"></td>
-                                    <td id="{{system.id}}">
-                                      <small><a onclick="show_system('{{system.id}}')" style="text-decoration:underline">{{system.id}}</a></small>
-                                    </td>
-                                    <td><small>{{system.ip}}</small></td>
-                                    <td><small>{{system.os}}</small></td>
-                                    <td><small>{{system.hostgroup.name}}</small></td>
+                                    <td id="{{state.id}}"><small>{{state.name}}</small></td>
+                                    <td><small>{{state.path}}</small></td>
+                                    <td><small>{{state.owner}}</small></td>
+                                    <td><small>{{state.update_time | date:'Y-m-d H:m:s'}}</small></td>
                                   </tr>
                                 {% endfor %}
                               </tbody>
@@ -131,7 +129,89 @@
     <script src="{%static 'js/common-scripts.js'%}"></script>
     <script src="{%static 'layer/layer.js'%}"></script>
 
-    <script type="text/javascript">  
+    <script type="text/javascript">
+       $(function() {
+          var all_checked = false;
+          $(":checkbox").click(function() {
+              var table = $(this).parents("table");
+              if($(this).attr("id") === "all") {
+                  table.find(":checkbox").prop("checked", !all_checked);
+                  all_checked = !all_checked;
+              }
+              else {
+                  table.find(":checkbox[id!=all]").each(function (i) {
+                      if(!$(this).is(":checked")) {
+                          table.find("#all").prop("checked", false);
+                          all_checked = false;
+                          return false;
+                      }
+                      // $("#all").prop("checked", true);
+                      all_checked = true;
+                  });
+              }
+          });
+      });
+
+      function get_server_id(){
+        var tbodyObj = document.getElementById('mytable');
+        var ids = [];
+            $("table :checkbox").each(function(key,value){
+                if($(value).prop('checked')){
+                    if (value.id == 'all') return true
+                    ids.push(tbodyObj.rows[key].cells[1].id);
+                }
+            });
+            return ids
+      }
+
+
+    function upload_state() {
+      var index = layer.open({
+            type: 2,
+            title: "上传模块",
+            // offset: 'r',
+            // maxmin: true,
+            area: ['400px', '300px'],
+            // area: 'auto',
+            // shadeClose: true,
+            shift: 5,
+            moveOut: true,
+            content: "/opsdb/systems/state_upload/",
+            end: function() {
+              window.location.reload();
+            }
+        })
+    }
+
+    function delete_state() {
+        var ids = get_server_id();
+        if (ids.length ==0 )
+        {
+          layer.alert("请至少选中一个模块");
+        }
+        else
+        {   
+
+            layer.confirm('请确认是否要删除', function(index){
+                  console.log(ids);
+                  $.post("/opsdb/systems/state_delete/",{'ids':ids},function(data){
+                    if (data == '{}')
+                    {
+                      layer.msg('删除成功',function(){
+                        window.location.reload();
+                      });
+                    }
+                    else
+                    {
+                      layer.alert('删除失败:' + data, function(){
+                              window.location.reload();
+                            });
+                    }
+                  });
+                      
+                }); 
+        }
+    }
     </script>  
 
   </body>

@@ -56,15 +56,15 @@ class System(models.Model):
     def __unicode__(self):
         return self.id
 
-class Salt(models.Model):
-    id                 = models.AutoField(primary_key=True,db_column="salt_id")
-    ip                 = models.GenericIPAddressField(blank=True,null=True,unique=True)
+class ServiceHost(models.Model):
+    ip                 = models.GenericIPAddressField(blank=True,null=True)
     port               = models.CharField(max_length=20,blank=True,null=True)
     user               = models.CharField(max_length=50,blank=True,null=True)
     password           = models.CharField(max_length=50,blank=True,null=True)
+    service            = models.CharField(max_length=50,blank=True,null=True)
 
     class Meta:
-        db_table = 'salt'
+        db_table = 'service_host'
     
     def __unicode__(self):
         return self.ip

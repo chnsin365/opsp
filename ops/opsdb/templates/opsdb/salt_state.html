@@ -44,8 +44,8 @@
 	          <div class="col-xs-8 col-md-6 col-sm-6" >
 	                <select name="arg_list" required="required" class="form-control m-bot15">
 	                	<option value ="">--请选择模块--</option>
-                      {% for fun in salt_funs %}
-                      	<option value ="{{fun.name}}">{{fun.name}}</option>
+                      {% for state in states %}
+                      	<option value ="{{state.name}}">{{state.name}}</option>
                       {% endfor %}
                     </select>   
 	          </div>
