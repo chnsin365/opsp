@@ -24,5 +24,6 @@ urlpatterns = [
     url(r'^systems/show/(.+)/$',views.system,name='system'),
 	url(r'^systems/add/$',views.add_system,name='add_system'),
     url(r'^systems/remote_run/$',views.salt_run,name='salt_run'),
-    url(r'^systems/module_delay/$',views.salt_state,name='salt_state'),
+    url(r'^systems/state_deploy/$',views.salt_state,name='salt_state'),
+    url(r'^systems/state_manage/$',views.state_manage,name='state_manage'),
 ]

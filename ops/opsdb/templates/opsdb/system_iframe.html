@@ -76,7 +76,7 @@
                                       <button data-toggle="dropdown" class="btn label label-inverse dropdown-toggle" type="button"><i class="icon-th-large"></i>&nbsp更多操作&nbsp&nbsp <span class="caret"></span></button>
                                       <ul role="menu" class="dropdown-menu" style="min-width: 101.63px;width: 101.63px;">
                                           <li><a onclick="config_sys()" style="padding-left: 5px;"><small>Minion认证</small></a></li>
-                                          <li><a onclick="delete_server()" style="padding-left: 5px;"><small>模块管理</small></a></li>
+                                          <li><a onclick="state_manage()" style="padding-left: 5px;"><small>模块管理</small></a></li>
                                           <li><a onclick="delete_server()" style="padding-left: 5px;"><small>删除主机</small></a></li>
                                       </ul>
                                  </div>
@@ -187,7 +187,7 @@
         var index = layer.open({
             type: 2,
             title: "主机详细信息",
-            offset: 'r',
+            // offset: 'r',
             // maxmin: true,
             area: ['700px', '500px'],
             // area: 'auto',
@@ -267,12 +267,11 @@
         {
           var index = layer.open({
               type: 2,
-              offset: 'r',
+              // offset: 'r',
               area: ['800px','550px'],
               title: '远程执行',
               content: '/opsdb/systems/remote_run/',
               success: function(layero, index){
-                  console.log(layero);
                   var body = layer.getChildFrame('body',index);//建立父子联系
                   var iframeWin = window[layero.find('iframe')[0]['name']];
                   // console.log(arr); //得到iframe页的body内容
@@ -295,12 +294,11 @@
         {
           var index = layer.open({
               type: 2,
-              offset: 'r',
+              // offset: 'r',
               area: ['800px','550px'],
               title: '模块部署',
-              content: '/opsdb/systems/module_delay/',
+              content: '/opsdb/systems/state_deploy/',
               success: function(layero, index){
-                  console.log(layero);
                   var body = layer.getChildFrame('body',index);//建立父子联系
                   var iframeWin = window[layero.find('iframe')[0]['name']];
                   // console.log(arr); //得到iframe页的body内容
@@ -311,6 +309,19 @@
             });
             // layer.full(index);
         }
+      }
+
+      function state_manage() {
+         var index = layer.open({
+              type: 2,
+              // offset: 'r',
+              area: ['800px','550px'],
+              title: '模块管理',
+              content: '/opsdb/systems/state_manage/',
+              end: function () {
+                 window.location.reload();
+              }
+            });
       }
     </script>
   </body>

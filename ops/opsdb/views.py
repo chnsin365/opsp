@@ -119,4 +119,7 @@ def salt_state(request):
 	return render(request,'opsdb/salt_state.html',locals())
 
 
+def state_manage(request):
+	
+	return render(request,'opsdb/state_manage.html',locals())
 	
