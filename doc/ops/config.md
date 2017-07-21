@@ -17,7 +17,7 @@ git clone https://github.com/uevol/opsp.git
 ### 方法1、直接从网络安装
 #### 配置pip豆瓣源(可选,可以有效提升安装速度)
 ```
-mk -p  ~/.pip/pip.conf
+mkdir -p  ~/.pip/pip.conf
 vi pip.conf
 
 [global]
@@ -129,7 +129,7 @@ create database opsdb default charset=utf8;
 
 #### create user
 ```
-grant all on opsdb.* to ops@localhost identified by "ops@123";
+grant all on opsdb.* to ops@'%' identified by "ops@123";
 ```
 
 #### 根据实际修改opsp配置文件settings.py的数据库配置：
