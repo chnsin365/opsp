@@ -78,8 +78,7 @@ class SaltFun(models.Model):
 
     def __unicode__(self):
         return self.name
-<<<<<<< HEAD
-=======
+
 
 class SaltState(models.Model):
     id                 = models.AutoField(primary_key=True,db_column="salt_state_id")
@@ -95,4 +94,3 @@ class SaltState(models.Model):
 
     def __unicode__(self):
         return self.name
->>>>>>> opsdb
