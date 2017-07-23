@@ -8,7 +8,7 @@ import json
 
 class SaltAPI():
     def __init__(self, host, username, password, port=443, auth="pam"):
-        self.salt_api_host = host
+        self.host = host
         self.port = port
         self.username = username
         self.passoword = password
@@ -18,10 +18,11 @@ class SaltAPI():
             "Content-type": "application/json"
         }
         self.post_data = ""
+        self.token = self.login()
 
-    def do_post(self, api="login"):
-        post_req = requests.post("https://%s:%s/%s" % (self.salt_api_host, self.port, api), data=json.dumps(self.post_data),
-                                 headers=self.headers,verify=False)
+    def do_post(self, api=""):
+        url = "https://%s:%s/%s" % (self.host, self.port, api)
+        post_req = requests.post(url,data=json.dumps(self.post_data),headers=self.headers,verify=False)
         return post_req.json()["return"][0]
 
     def login(self):
@@ -30,22 +31,40 @@ class SaltAPI():
             "password": self.passoword,
             "eauth": self.auth
         }
-        resp = self.do_post()
-        self.token = resp["token"]
-        self.expire = resp["expire"]
-        return self.token
+        resp = self.do_post(api="login")
+        return resp["token"]
 
-    def run(self, fun="test.ping", target="*", arg_list=[],expr_form='list'):
+    def run(self, client='local', fun="test.ping", target="*", arg_list=[],expr_form='list'):
         self.post_data = [
             {
-                "client": "local",
+                "client": client,
                 "tgt": target,
                 "fun": fun,
                 "expr_form": expr_form,
-                "arg": arg_list,
-                "username": self.username,
-                "password": self.passoword,
-                "eauth": self.auth
+                "arg": arg_list
             }
         ]
-        return self.do_post("run")
+        self.headers['X-Auth-Token'] = self.token
+        return self.do_post()
+
+    def key(self, client='wheel', fun="key.accept", match=[]):
+        if match:
+            self.post_data = [
+                {
+                    "client": client,
+                    "fun": fun,
+                    "match": match
+                }
+            ]
+        else:
+            self.post_data = [
+                {
+                    "client": client,
+                    "fun": fun
+                }
+            ]
+        self.headers['X-Auth-Token'] = self.token
+        return self.do_post()
+
+
+

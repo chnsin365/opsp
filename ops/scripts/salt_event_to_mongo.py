@@ -20,6 +20,7 @@ db = client.salt
 
 # define collection in mongo
 key = db.salt_key
+# pend_key = db.salt_auth
 grains = db.salt_grains
 job = db.salt_job
 job_new = db.salt_job_new
@@ -51,12 +52,6 @@ for eachevent in event.iter_events(full=True):
 				if eachevent['data'].has_key('id') and eachevent['data'].has_key('return'):
 					if eachevent['data']['fun'] == 'grains.items':
 						grains.find_one_and_replace({'id':eachevent['data']['id']},eachevent['data'],upsert=True)
-<<<<<<< HEAD
-						sql = '''INSERT IGNORE INTO system (system_id,create_time,update_time) VALUES (%s,%s,%s)'''
-						try:
-						   # 执行sql语句
-						   cursor.execute(sql,(eachevent['data']['id'],eachevent['data']['_stamp'],eachevent['data']['_stamp']))
-=======
 						sql = '''INSERT IGNORE INTO system (system_id,ip,os,create_time,update_time)\
 						 VALUES (%s,%s,%s,%s,%s)'''
 						try:
@@ -66,7 +61,6 @@ for eachevent in event.iter_events(full=True):
 						   	' '.join([eachevent['data']['return']['osfullname'],\
 						   		eachevent['data']['return']['osrelease']]),\
 						   	eachevent['data']['_stamp'],eachevent['data']['_stamp']))
->>>>>>> opsdb
 						   # 提交到数据库执行
 						   mysql_db.commit()
 						except Exception as e:
@@ -84,10 +78,6 @@ for eachevent in event.iter_events(full=True):
 			continue
 	except Exception as e:
 		# raise e
-<<<<<<< HEAD
 		continue
 
 
-=======
-		continue
->>>>>>> opsdb

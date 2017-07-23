@@ -14,11 +14,12 @@ from json2html import *
 from .saltapi import SaltAPI
 import os
 
+# connect mongodb
 from pymongo import MongoClient
 salt_mongo = get_object_or_404(ServiceHost,service='salt_mongo')
 client = MongoClient(salt_mongo.ip,int(salt_mongo.port))
-db_salt = client.salt 
-# Create your views here.
+mongo_salt = client.salt 
+
 
 def systems(request):
 	return render(request,'opsdb/systems.html')
@@ -43,7 +44,7 @@ def system_iframe(request):
 	return render(request,'opsdb/system_iframe.html',locals())
 
 def system(request,id):
-	system = db_salt.salt_grains.find_one({'id':id})
+	system = mongo_salt.salt_grains.find_one({'id':id})
 	system_detail = json2html.convert(json = system['return'])
 	return HttpResponse(system_detail)
 
@@ -72,15 +73,13 @@ def salt_run(request):
 	else:
 		salt_master = get_object_or_404(ServiceHost,service='salt_api')
 		salt = SaltAPI(salt_master.ip,salt_master.user,salt_master.password,port=salt_master.port)
-		token = salt.login()
-		if token:
+		try:
 			fun = request.POST.get('fun','')
 			arg_list = request.POST.get('arg_list','') if request.POST.get('arg_list','') else []
 			target = request.POST.get('target','').split(',')
 			result = salt.run(fun=fun,target=target,arg_list=arg_list)
-			# result = json.dumps(ret,indent=4, sort_keys=False)
-		else:
-			result = '无法执行.'
+		except Exception as e:
+			result = str(e)
 	return render(request,'opsdb/salt_run.html',locals())
 
 def salt_state(request):
@@ -89,13 +88,12 @@ def salt_state(request):
 	else:
 		salt_master = get_object_or_404(ServiceHost,service='salt_api')
 		salt = SaltAPI(salt_master.ip,salt_master.user,salt_master.password,port=salt_master.port)
-		token = salt.login()
-		if token:
+		try:
 			arg_list = request.POST.get('arg_list','')
 			target = request.POST.get('target','').split(',')
 			result = salt.run(fun='state.sls',target=target,arg_list=arg_list)
-		else:
-			result = '无法执行.'
+		except Exception as e:
+			result = 'Saltstack master 服务不可用'
 	return render(request,'opsdb/salt_state.html',locals())
 
 
@@ -176,6 +174,52 @@ def state_delete(request):
 			ret_data[state.name] = str(e)
 	return HttpResponse(json.dumps(ret_data))
 
+def minion_key(request,act):
+	# minion_keys = mongo_salt.salt_key.find({'act':act})
+	# key_list = [{'id': key['id'],'act':key['act'],'stamp':key['_stamp']} for key in minion_keys]
+	salt_master = get_object_or_404(ServiceHost,service='salt_api')
+	try:
+		salt = SaltAPI(salt_master.ip,salt_master.user,salt_master.password,port=salt_master.port)
+		ret = salt.key(client='wheel',fun='key.list_all',match=[])
+		if act == 'pend':
+			key_list = ret['data']['return']['minions_pre']
+		else:
+			key_list = ret['data']['return']['minions']
+	except Exception as e:
+		raise e
+	page_number =  request.GET.get('page_number')
+	if page_number:
+	    page_number = int(page_number)
+	else:
+	    page_number =  10
+	print key_list
+	paginator = Paginator(key_list, page_number)
+	page = request.GET.get('page')
+	try:
+	    keys = paginator.page(page)
+	except PageNotAnInteger:
+	    keys = paginator.page(1)
+	except EmptyPage:
+	    keys = paginator.page(paginator.num_pages)
+	if act == 'pend':
+		return render(request,'opsdb/salt/minion_key.html',locals())
+	else:
+		return render(request,'opsdb/salt/accept_key.html',locals())
 
-
+@csrf_exempt
+def act_key(request):
+	salt_master = get_object_or_404(ServiceHost,service='salt_api')
+	salt = SaltAPI(salt_master.ip,salt_master.user,salt_master.password,port=salt_master.port)
+	result = {'status':True,'comment':''}
+	act = request.POST.get('act','')
+	ids = request.POST.getlist('ids[]','')
+	try:
+		if act == 'accept':
+			ret = salt.key(client='wheel',fun='key.accept',match=ids)
+		else:
+			ret = salt.key(client='wheel',fun='key.delete',match=ids)
+		result['comment'] = ret['data']['return']['minions']
+	except Exception as e:
+		result = {'status':False,'comment':str(e)}
+	return HttpResponse(json.dumps(result))
 

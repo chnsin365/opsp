@@ -28,4 +28,6 @@ urlpatterns = [
     url(r'^systems/state_manage/$',views.state_manage,name='state_manage'),
     url(r'^systems/state_upload/$',views.state_upload,name='state_upload'),
     url(r'^systems/state_delete/$',views.state_delete,name='state_delete'),
+    url(r'^systems/minion_key/(\w+)/$',views.minion_key,name='minion_key'),
+    url(r'^systems/act_key/$',views.act_key,name='act_key'),
 ]
