@@ -22,7 +22,7 @@ mongo_salt = client.salt
 
 
 def systems(request):
-	return render(request,'opsdb/systems.html')
+	return render(request,'opsdb/salt/systems.html')
 
 def system_iframe(request):
 	system_list = System.objects.select_related().all()
@@ -41,7 +41,7 @@ def system_iframe(request):
 	except EmptyPage:
 	    # If page is out of range (e.g. 9999), deliver last page of results.
 	    systems = paginator.page(paginator.num_pages)
-	return render(request,'opsdb/system_iframe.html',locals())
+	return render(request,'opsdb/salt/system_iframe.html',locals())
 
 def system(request,id):
 	system = mongo_salt.salt_grains.find_one({'id':id})
@@ -51,7 +51,7 @@ def system(request,id):
 @csrf_exempt
 def add_system(request):
 	if request.method == "GET":
-		return render(request,'opsdb/add_system.html')
+		return render(request,'opsdb/salt/add_system.html')
 	else:
 		ip = request.POST.get('ip','')
 		port = request.POST.get('port','')
@@ -64,7 +64,7 @@ def add_system(request):
 				messages.success(request, '添加成功')
 			else:
 				messages.error(request, ret['result'])
-		return render(request,'opsdb/add_system.html',locals())
+		return render(request,'opsdb/salt/add_system.html',locals())
 
 def salt_run(request):
 	salt_funs = SaltFun.objects.all()
@@ -80,7 +80,7 @@ def salt_run(request):
 			result = salt.run(fun=fun,target=target,arg_list=arg_list)
 		except Exception as e:
 			result = str(e)
-	return render(request,'opsdb/salt_run.html',locals())
+	return render(request,'opsdb/salt/salt_run.html',locals())
 
 def salt_state(request):
 	if request.method == 'GET':
@@ -94,7 +94,7 @@ def salt_state(request):
 			result = salt.run(fun='state.sls',target=target,arg_list=arg_list)
 		except Exception as e:
 			result = 'Saltstack master 服务不可用'
-	return render(request,'opsdb/salt_state.html',locals())
+	return render(request,'opsdb/salt/salt_state.html',locals())
 
 
 def state_manage(request):
@@ -114,21 +114,21 @@ def state_manage(request):
 	except EmptyPage:
 	    # If page is out of range (e.g. 9999), deliver last page of results.
 	    states = paginator.page(paginator.num_pages)
-	return render(request,'opsdb/state_manage.html',locals())
+	return render(request,'opsdb/salt/state_manage.html',locals())
 
 def state_upload(request):
 	if request.method == 'GET':
 		# pass
-		return render(request,'opsdb/upload_state.html')
+		return render(request,'opsdb/salt/upload_state.html')
 	else:
 		myFile = request.FILES.get("myfile", None)
         if not myFile:  
             messages.error(request, 'No files for upload!')
-            return render(request,'opsdb/upload_state.html')
+            return render(request,'opsdb/salt/upload_state.html')
         else:
         	if not 'tar' in myFile.name:
         		messages.error(request, 'Must be archived a tar package!')
-        		return render(request,'opsdb/upload_state.html')
+        		return render(request,'opsdb/salt/upload_state.html')
         	else:	
 				destination = open(os.path.join("/tmp",myFile.name),'wb+') 
 				for chunk in myFile.chunks():
@@ -154,7 +154,7 @@ def state_upload(request):
 						messages.error(request, ret1['err'])
 				except Exception as e:
 					messages.error(request, str(e)) 
-				return render(request,'opsdb/upload_state.html')
+				return render(request,'opsdb/salt/upload_state.html')
 	
 @csrf_exempt
 def state_delete(request):
