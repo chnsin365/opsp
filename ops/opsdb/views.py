@@ -13,6 +13,7 @@ import json
 from json2html import *
 from .saltapi import SaltAPI
 import os
+import time
 
 # connect mongodb
 try:
@@ -82,6 +83,11 @@ def salt_run(request):
 	if request.method == 'GET':
 		pass
 	else:
+		user = request.user.username
+		if request.META.has_key('HTTP_X_FORWARDED_FOR'):
+			client =  request.META['HTTP_X_FORWARDED_FOR']  
+		else:
+			client = request.META['REMOTE_ADDR']
 		salt_master = get_object_or_404(ServiceHost,service='salt_api')
 		salt = SaltAPI(salt_master.ip,salt_master.user,salt_master.password,port=salt_master.port)
 		try:
@@ -89,8 +95,11 @@ def salt_run(request):
 			arg_list = request.POST.get('arg_list','') if request.POST.get('arg_list','') else []
 			target = request.POST.get('target','').split(',')
 			result = salt.run(fun=fun,target=target,arg_list=arg_list)
+			job = {'user':user,'time':time.strftime("%Y-%m-%d %X", time.localtime()),'client':client,'fun':fun,'arg':arg_list,'result':result}
+			mongo_salt.salt_joblist.insert_one(job)
 		except Exception as e:
-			result = str(e)
+			result = ''
+			error = str(e)
 	return render(request,'opsdb/salt/salt_run.html',locals())
 
 def salt_state(request):
@@ -98,14 +107,26 @@ def salt_state(request):
 	if request.method == 'GET':
 		pass
 	else:
+		user = request.user.username
+		if request.META.has_key('HTTP_X_FORWARDED_FOR'):
+			client =  request.META['HTTP_X_FORWARDED_FOR']  
+		else:
+			client = request.META['REMOTE_ADDR']
 		salt_master = get_object_or_404(ServiceHost,service='salt_api')
 		salt = SaltAPI(salt_master.ip,salt_master.user,salt_master.password,port=salt_master.port)
 		try:
 			arg_list = request.POST.get('arg_list','')
 			target = request.POST.get('target','').split(',')
-			result = salt.run(fun='state.sls',target=target,arg_list=arg_list)
+			result = {}
+			err = []
+			for tgt in target:
+				cmd = 'salt %s state.sls %s'%(tgt,arg_list)
+				jid = salt.run_async(fun='cmd.run',target=salt_master.hostname,arg_list=cmd)
+				result[tgt] = jid['jid']
+				job = {'user':user,'time':time.strftime("%Y-%m-%d %X", time.localtime()),'client':client,'fun':'state.sls','arg':arg_list,'result':jid['jid']}
+				mongo_salt.salt_joblist.insert_one(job)
 		except Exception as e:
-			result = 'Saltstack master 服务不可用'
+			err.append(str(e))
 	return render(request,'opsdb/salt/salt_state.html',locals())
 
 

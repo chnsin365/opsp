@@ -97,3 +97,18 @@ class SaltState(models.Model):
 
     def __unicode__(self):
         return self.name
+
+class SaltJob(models.Model):
+    id                 = models.AutoField(primary_key=True,db_column="salt_jid")
+    user               = models.CharField(max_length=100,blank=True,null=True)
+    create_time        = models.DateTimeField(auto_now_add=True) 
+    client             = models.CharField(max_length=100,blank=True,null=True)
+    fun                = models.CharField(max_length=100,blank=True,null=True)
+    arg                = models.CharField(max_length=100,blank=True,null=True)
+    result             = models.TextField(blank=True)
+
+    class Meta:
+        db_table = 'salt_jobs'
+
+    def __unicode__(self):
+        return ' '.jion([self.user,self.fun,self.arg])

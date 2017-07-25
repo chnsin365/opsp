@@ -49,6 +49,18 @@ class SaltAPI():
         ]
         return self.do_post()
 
+    def run_async(self, client='local_async', fun="cmd.run", target="*", arg_list=[]):
+        self.post_data = [
+            {
+                "client": client,
+                "tgt": target,
+                "fun": fun,
+                "arg": arg_list
+            }
+        ]
+        return self.do_post()
+
+
     def key(self, client='wheel', fun="key.accept", match=[]):
         if match:
             self.post_data = [

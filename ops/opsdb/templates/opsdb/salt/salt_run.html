@@ -65,11 +65,11 @@
             </div> -->
           </form>
 
-          <pre>
+         <!--  <pre>
 {{result}}
-          </pre>
+          </pre> -->
         
-    <!--       {% if result %}
+          {% if result %}
             {% for minion,return in result.items %}
 <b>{{minion}}:</b>
         <pre>
@@ -78,9 +78,9 @@
             {% endfor %}
           {% else %}
            <pre>
-No result
+{{error}}
            </pre>
-          {% endif %} -->
+          {% endif %}
 
 
     </div>

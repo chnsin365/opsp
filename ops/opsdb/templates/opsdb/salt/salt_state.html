@@ -52,25 +52,22 @@
               <button type="submit" class="btn">开始执行</button>
 	        </div>
           </form>
-
-    <!--       <pre>
-{{result}}
-          </pre> -->
         
-          {% if result%}
-            {% for minion,return in result.items %}
-<b>{{minion}}:</b>
+          
         <pre>
-{{return}}
-        </pre>
+        {% if result %}
+            {% for minion,jid in result.items %}
+<b>{{minion}}:</b>     {{jid}}
             {% endfor %}
-          {% else %}
+        {% endif %}
+        </pre>
+            
+
+          {% if err %}
            <pre>
-No result
+{{err}}
            </pre>
           {% endif %}
-
-
     </div>
   </div>
 
