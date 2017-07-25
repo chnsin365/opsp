@@ -15,11 +15,22 @@ from .saltapi import SaltAPI
 import os
 
 # connect mongodb
-from pymongo import MongoClient
-salt_mongo = get_object_or_404(ServiceHost,service='salt_mongo')
-client = MongoClient(salt_mongo.ip,int(salt_mongo.port))
-mongo_salt = client.salt 
+try:
+	from pymongo import MongoClient
+	salt_mongo = get_object_or_404(ServiceHost,service='salt_mongo')
+	client = MongoClient(salt_mongo.ip,int(salt_mongo.port))
+	mongo_salt = client.salt 
+except Exception as e:
+	# raise e
+	pass
 
+# create salt object using saltapi
+# try:
+# 	salt_master = get_object_or_404(ServiceHost,service='salt_api')
+# 	saltobj = SaltAPI(salt_master.ip,salt_master.user,salt_master.password,port=salt_master.port)
+# except Exception as e:
+# 	# raise e
+# 	pass
 
 def systems(request):
 	return render(request,'opsdb/salt/systems.html')
@@ -83,8 +94,9 @@ def salt_run(request):
 	return render(request,'opsdb/salt/salt_run.html',locals())
 
 def salt_state(request):
+	states = SaltState.objects.all()
 	if request.method == 'GET':
-		states = SaltState.objects.all()
+		pass
 	else:
 		salt_master = get_object_or_404(ServiceHost,service='salt_api')
 		salt = SaltAPI(salt_master.ip,salt_master.user,salt_master.password,port=salt_master.port)
@@ -222,4 +234,3 @@ def act_key(request):
 	except Exception as e:
 		result = {'status':False,'comment':str(e)}
 	return HttpResponse(json.dumps(result))
-

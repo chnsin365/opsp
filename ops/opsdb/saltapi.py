@@ -18,7 +18,7 @@ class SaltAPI():
             "Content-type": "application/json"
         }
         self.post_data = ""
-        self.token = self.login()
+        self.headers['X-Auth-Token'] = self.login()
 
     def do_post(self, api=""):
         url = "https://%s:%s/%s" % (self.host, self.port, api)
@@ -31,7 +31,10 @@ class SaltAPI():
             "password": self.passoword,
             "eauth": self.auth
         }
-        resp = self.do_post(api="login")
+        url = "https://%s:%s/%s" % (self.host, self.port, 'login')
+        post_req = requests.post(url,data=json.dumps(self.post_data),headers=self.headers,verify=False)
+        resp = post_req.json()["return"][0]
+        # self.headers['X-Auth-Token'] = resp["token"]
         return resp["token"]
 
     def run(self, client='local', fun="test.ping", target="*", arg_list=[],expr_form='list'):
@@ -44,7 +47,6 @@ class SaltAPI():
                 "arg": arg_list
             }
         ]
-        self.headers['X-Auth-Token'] = self.token
         return self.do_post()
 
     def key(self, client='wheel', fun="key.accept", match=[]):
@@ -63,7 +65,6 @@ class SaltAPI():
                     "fun": fun
                 }
             ]
-        self.headers['X-Auth-Token'] = self.token
         return self.do_post()
 
 

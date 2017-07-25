@@ -43,6 +43,8 @@ class System(models.Model):
     id                 = models.CharField(primary_key=True,max_length=100,db_column="system_id")
     ip                 = models.GenericIPAddressField(blank=True,null=True)
     os                 = models.CharField(max_length=100,blank=True,null=True)
+    num_cpus           = models.CharField(max_length=100,blank=True,null=True)
+    mem_total          = models.CharField(max_length=100,blank=True,null=True)
     environment        = models.ForeignKey(Environment,blank=True, null=True,on_delete=models.PROTECT)
     hostgroup          = models.ForeignKey(HostGroup,blank=True, null=True,on_delete=models.PROTECT)
     application        = models.ManyToManyField(Application)
@@ -58,6 +60,7 @@ class System(models.Model):
 
 class ServiceHost(models.Model):
     ip                 = models.GenericIPAddressField(blank=True,null=True)
+    hostname           = models.CharField(max_length=100,blank=True,null=True)
     port               = models.CharField(max_length=20,blank=True,null=True)
     user               = models.CharField(max_length=50,blank=True,null=True)
     password           = models.CharField(max_length=50,blank=True,null=True)

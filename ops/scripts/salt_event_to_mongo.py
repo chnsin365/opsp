@@ -36,7 +36,7 @@ cursor = mysql_db.cursor()
 pattern_auth = re.compile(r'salt/auth')
 pattern_minion_start = re.compile(r'salt/minion/.+/start')
 pattern_key = re.compile(r'salt/key')
-pattern_job = re.compile(r'salt/job/.+')
+pattern_job = re.compile(r'^salt/job/')
 # pattern_job_new = re.compile(r'salt/job/\d+/new')
 # pattern_job_ret = re.compile(r'salt/job/\d+/ret/.+')
 # pattern_job_prog = re.compile(r'salt/job/\d+/prog/.+/.+')
@@ -51,22 +51,30 @@ for eachevent in event.iter_events(full=True):
 			else:
 				if eachevent['data'].has_key('id') and eachevent['data'].has_key('return'):
 					if eachevent['data']['fun'] == 'grains.items':
-						grains.find_one_and_replace({'id':eachevent['data']['id']},eachevent['data'],upsert=True)
-						sql = '''INSERT IGNORE INTO system (system_id,ip,os,create_time,update_time)\
-						 VALUES (%s,%s,%s,%s,%s)'''
+						sql = '''INSERT INTO system (system_id,ip,os,num_cpus,mem_total,create_time,update_time)\
+						 VALUES (%s,%s,%s,%s,%s,%s,%s) ON DUPLICATE KEY UPDATE ip=%s,os=%s,num_cpus=%s,mem_total=%s'''
 						try:
-						   # 执行sql语句
-						   cursor.execute(sql,(eachevent['data']['id'],\
+						    # 执行sql语句
+							cursor.execute(sql,(eachevent['data']['id'],\
 						   	eachevent['data']['return']['fqdn_ip4'][0],\
 						   	' '.join([eachevent['data']['return']['osfullname'],\
 						   		eachevent['data']['return']['osrelease']]),\
-						   	eachevent['data']['_stamp'],eachevent['data']['_stamp']))
-						   # 提交到数据库执行
-						   mysql_db.commit()
+						   	str(eachevent['data']['return']['num_cpus']),\
+						   	("%.2f"%(eachevent['data']['return']['mem_total']/1024.0)),\
+						   	eachevent['data']['_stamp'],\
+						   	eachevent['data']['_stamp'],\
+						   	eachevent['data']['return']['fqdn_ip4'][0],\
+						   	' '.join([eachevent['data']['return']['osfullname'],\
+						   		eachevent['data']['return']['osrelease']]),\
+						   	str(eachevent['data']['return']['num_cpus']),\
+						   	("%.2f"%(eachevent['data']['return']['mem_total']/1024.0))))
+						    # 提交到数据库执行
+							mysql_db.commit()
 						except Exception as e:
 							# raise e
 							# Rollback in case there is any error
 							mysql_db.rollback()
+						grains.find_one_and_replace({'id':eachevent['data']['id']},eachevent['data'],upsert=True)
 					job_ret.insert_one(eachevent['data'])
 				elif eachevent['data'].has_key('minions'):
 					job_new.insert_one(eachevent['data'])
@@ -79,5 +87,3 @@ for eachevent in event.iter_events(full=True):
 	except Exception as e:
 		# raise e
 		continue
-
-
