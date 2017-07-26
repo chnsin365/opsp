@@ -57,7 +57,7 @@
         <pre>
         {% if result %}
             {% for minion,jid in result.items %}
-<b>{{minion}}:</b>     {{jid}}
+<b>{{minion}}:</b><a onclick="show_job_result('job_jid','{{jid}}','{{minion}}')">{{jid}}</a>
             {% endfor %}
         {% endif %}
         </pre>
@@ -83,6 +83,23 @@
     <script src="{%static 'js/common-scripts.js'%}"></script>
     <script src="{%static 'layer/layer.js'%}"></script>
 
+    <script type="text/javascript">
+      function show_job_result(url,job_id,target){
+        var index = layer.open({
+            type: 2,
+            title: target,
+            // offset: 'r',
+            // maxmin: true,
+            area: ['800px', '500px'],
+            // area: 'auto',
+            shadeClose: true,
+            shift: 5,
+            scrollbar: true,
+            moveOut: true,
+            content: '/opsdb/systems/' + url + '/' + job_id
+          });
+    }
+    </script>
 
   </body>
 </html>

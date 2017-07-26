@@ -30,4 +30,7 @@ urlpatterns = [
     url(r'^systems/state_delete/$',views.state_delete,name='state_delete'),
     url(r'^systems/minion_key/(\w+)/$',views.minion_key,name='minion_key'),
     url(r'^systems/act_key/$',views.act_key,name='act_key'),
+    url(r'^systems/saltjoblist/$',views.saltjoblist,name='saltjoblist'),
+    url(r'^systems/job_cjid/(\d*)/$',views.job_cjid,name='job_cjid'),
+    url(r'^systems/job_jid/(\d*)/$',views.job_jid,name='job_jid'),
 ]

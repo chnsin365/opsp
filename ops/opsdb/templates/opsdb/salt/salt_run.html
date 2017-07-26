@@ -57,18 +57,9 @@
 	          </div>
             <button type="submit" class="btn">开始执行</button>
 	        </div>
-
-           <!--  <div class="form-group">
-              <div class="col-xs-8 col-md-6 col-sm-6">
-                <button type="submit" class="btn">开始执行</button>
-              </div>
-            </div> -->
           </form>
 
-         <!--  <pre>
-{{result}}
-          </pre> -->
-        
+       
           {% if result %}
             {% for minion,return in result.items %}
 <b>{{minion}}:</b>

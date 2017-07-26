@@ -95,7 +95,8 @@ def salt_run(request):
 			arg_list = request.POST.get('arg_list','') if request.POST.get('arg_list','') else []
 			target = request.POST.get('target','').split(',')
 			result = salt.run(fun=fun,target=target,arg_list=arg_list)
-			job = {'user':user,'time':time.strftime("%Y-%m-%d %X", time.localtime()),'client':client,'fun':fun,'arg':arg_list,'result':result}
+			job = {'user':user,'time':time.strftime("%Y-%m-%d %X", time.localtime()),'client':client,\
+			'target':target,'fun':fun,'arg':arg_list,'result':result,'cjid':str(int(round(time.time() * 1000)))}
 			mongo_salt.salt_joblist.insert_one(job)
 		except Exception as e:
 			result = ''
@@ -123,12 +124,41 @@ def salt_state(request):
 				cmd = 'salt %s state.sls %s'%(tgt,arg_list)
 				jid = salt.run_async(fun='cmd.run',target=salt_master.hostname,arg_list=cmd)
 				result[tgt] = jid['jid']
-				job = {'user':user,'time':time.strftime("%Y-%m-%d %X", time.localtime()),'client':client,'fun':'state.sls','arg':arg_list,'result':jid['jid']}
+				job = {'user':user,'time':time.strftime("%Y-%m-%d %X", time.localtime()),'client':client,\
+				'target':[tgt],'fun':'state.sls','arg':arg_list,'jid':jid['jid']}
 				mongo_salt.salt_joblist.insert_one(job)
 		except Exception as e:
 			err.append(str(e))
 	return render(request,'opsdb/salt/salt_state.html',locals())
 
+
+def saltjoblist(request):
+	sjobs = mongo_salt.salt_joblist.find().sort([('_id',-1)])
+	job_list = [job for job in sjobs]
+	page_number =  request.GET.get('page_number')
+	if page_number:
+	    page_number = int(page_number)
+	else:
+	    page_number =  10
+	paginator = Paginator(job_list, page_number)
+	page = request.GET.get('page')
+	try:
+	    jobs = paginator.page(page)
+	except PageNotAnInteger:
+	    # If page is not an integer, deliver first page.
+	    jobs = paginator.page(1)
+	except EmptyPage:
+	    # If page is out of range (e.g. 9999), deliver last page of results.
+	    jobs = paginator.page(paginator.num_pages)
+	return render(request,'opsdb/salt/salt_jobs.html',locals())
+
+def job_cjid(request,cjid):
+	sjob = mongo_salt.salt_joblist.find_one({'cjid':cjid})
+	return render(request,'opsdb/salt/salt_job_result.html',locals())
+
+def job_jid(request,jid):
+	sjob = mongo_salt.salt_job_ret.find_one({'jid':jid})
+	return render(request,'opsdb/salt/salt_job_result.html',locals())
 
 def state_manage(request):
 	state_list = SaltState.objects.all()
