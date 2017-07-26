@@ -63,6 +63,10 @@
 	                           </div>
 	                          
 	                           <div class="btn-group">
+	                              <button type="button" class="btn label label-inverse" onclick="salt_run()"><i class="icon-stop"></i> Kill Job(s)</button>
+	                           </div>
+
+	                           <div class="btn-group">
 	                              <button type="button" class="btn label label-inverse" onclick="salt_run()"><i class="icon-search"></i> 搜索</button>
 	                           </div>
 
@@ -107,7 +111,9 @@
 	                                <th><small>操作对象</small></th>
 	                                <th><small>执行模块</small></th>
 	                                <th><small>命令参数</small></th>
+	                                <th><small>执行状态</small></th>
 	                                <th><small>结果</small></th>
+	                                <th><small>详细报告</small></th>
 	                              </tr>
 	                        </thead>
 	                          <tbody>
@@ -123,10 +129,12 @@
 	                                <td><small>{{job.target | join:','}}</small></td>
 	                                <td><small>{{job.fun}}</small></td>
 	                                <td><small>{{job.arg}}</small></td>
+	                                <th><small>{{job.progress}}</small></th>
+	                                <th><small>{{job.status}}</small></th>
 	                                {% if job.cjid %}
-	                                <td><small><a onclick="show_job_result('job_cjid','{{job.cjid}}','{{job.target | join:','}}')">点击查看结果</a></small></td>
+	                                <td><small><a onclick="show_job_result('job_cjid','{{job.cjid}}','{{job.target | join:','}}')">点击查看报告</a></small></td>
 	                               	{% else %}
-	                               	<td><small><a onclick="show_job_result('job_jid','{{job.jid}}','{{job.target | join:','}}')">点击查看结果</a></small></td>
+	                               	<td><small><a onclick="show_job_result('job_jid','{{job.jid}}','{{job.target | join:','}}')">点击查看报告</a></small></td>
 	                               	{% endif %}
 	                              </tr>
 	                            {% endfor %}

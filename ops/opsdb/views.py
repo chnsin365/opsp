@@ -96,7 +96,8 @@ def salt_run(request):
 			target = request.POST.get('target','').split(',')
 			result = salt.run(fun=fun,target=target,arg_list=arg_list)
 			job = {'user':user,'time':time.strftime("%Y-%m-%d %X", time.localtime()),'client':client,\
-			'target':target,'fun':fun,'arg':arg_list,'result':result,'cjid':str(int(round(time.time() * 1000)))}
+			'target':target,'fun':fun,'arg':arg_list,\
+			'status':'','progress':'Finish','result':result,'cjid':str(int(round(time.time() * 1000)))}
 			mongo_salt.salt_joblist.insert_one(job)
 		except Exception as e:
 			result = ''
@@ -125,7 +126,8 @@ def salt_state(request):
 				jid = salt.run_async(fun='cmd.run',target=salt_master.hostname,arg_list=cmd)
 				result[tgt] = jid['jid']
 				job = {'user':user,'time':time.strftime("%Y-%m-%d %X", time.localtime()),'client':client,\
-				'target':[tgt],'fun':'state.sls','arg':arg_list,'jid':jid['jid']}
+				'target':[tgt],'fun':'state.sls','arg':arg_list,'jid':jid['jid'],\
+				'status':'','progress':'Executing'}
 				mongo_salt.salt_joblist.insert_one(job)
 		except Exception as e:
 			err.append(str(e))
