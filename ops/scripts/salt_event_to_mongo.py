@@ -48,12 +48,16 @@ for eachevent in event.iter_events(full=True):
 	try:
 		if pattern_job_ret.match(eachevent['tag']):
 			if eachevent['data']['fun'] == "saltutil.find_job":
-				continue
+				if eachevent['data'].has_key('return') and eachevent['data']['return'].has_key('metadata'):
+					job_list.update_one({'metadata':eachevent['data']['return']['metadata']},\
+									{"$set": {"state_id":eachevent['data']['return']['jid']}})
+				else:
+					continue
 			else:
 				if eachevent['data'].has_key('id') and eachevent['data'].has_key('return'):
 					if eachevent['data']['fun'] == 'grains.items':
-						sql = '''INSERT INTO system (system_id,ip,os,num_cpus,mem_total,create_time,update_time)\
-						 VALUES (%s,%s,%s,%s,%s,%s,%s) ON DUPLICATE KEY UPDATE ip=%s,os=%s,num_cpus=%s,mem_total=%s'''
+						sql = '''INSERT INTO system (system_id,ip,os,num_cpus,mem_total,status,create_time,update_time)\
+						 VALUES (%s,%s,%s,%s,%s,%s,%s,%s) ON DUPLICATE KEY UPDATE ip=%s,os=%s,num_cpus=%s,mem_total=%s,status=%s'''
 						try:
 						    # 执行sql语句
 							cursor.execute(sql,(eachevent['data']['id'],\
@@ -61,14 +65,14 @@ for eachevent in event.iter_events(full=True):
 						   	' '.join([eachevent['data']['return']['osfullname'],\
 						   		eachevent['data']['return']['osrelease']]),\
 						   	str(eachevent['data']['return']['num_cpus']),\
-						   	("%.2f"%(eachevent['data']['return']['mem_total']/1024.0)),\
+						   	("%.2f"%(eachevent['data']['return']['mem_total']/1024.0)),True,\
 						   	eachevent['data']['_stamp'],\
 						   	eachevent['data']['_stamp'],\
 						   	eachevent['data']['return']['fqdn_ip4'][0],\
 						   	' '.join([eachevent['data']['return']['osfullname'],\
 						   		eachevent['data']['return']['osrelease']]),\
 						   	str(eachevent['data']['return']['num_cpus']),\
-						   	("%.2f"%(eachevent['data']['return']['mem_total']/1024.0))))
+						   	("%.2f"%(eachevent['data']['return']['mem_total']/1024.0)),True))
 						    # 提交到数据库执行
 							mysql_db.commit()
 						except Exception as e:

@@ -37,7 +37,7 @@ def systems(request):
 	return render(request,'opsdb/salt/systems.html')
 
 def system_iframe(request):
-	system_list = System.objects.select_related().all()
+	system_list = System.objects.select_related().filter(status=True)
 	page_number =  request.GET.get('page_number')
 	if page_number:
 	    page_number = int(page_number)
@@ -78,6 +78,20 @@ def add_system(request):
 				messages.error(request, ret['result'])
 		return render(request,'opsdb/salt/add_system.html',locals())
 
+@csrf_exempt
+def delete_system(request):
+	target = request.POST.get('ids[]','')
+	salt_master = get_object_or_404(ServiceHost,service='salt_api')
+	salt = SaltAPI(salt_master.ip,salt_master.user,salt_master.password,port=salt_master.port)
+	ret = {}
+	for tgt in target:
+		try:
+			salt.key(client='wheel',fun='key.delete',match=tgt)
+			System.objects.filter(pk=tgt).update(status=False)
+		except Exception as e:
+			ret[tgt] = str(e)
+	return HttpResponse(ret)
+
 def salt_run(request):
 	salt_funs = SaltFun.objects.all()
 	if request.method == 'GET':
@@ -102,6 +116,25 @@ def salt_run(request):
 		except Exception as e:
 			result = ''
 			error = str(e)
+	return render(request,'opsdb/salt/salt_run.html',locals())
+
+def salt_custom_run(request,arg_list):
+	user = request.user.username
+	if request.META.has_key('HTTP_X_FORWARDED_FOR'):
+		client =  request.META['HTTP_X_FORWARDED_FOR']  
+	else:
+		client = request.META['REMOTE_ADDR']
+	salt_master = get_object_or_404(ServiceHost,service='salt_api')
+	salt = SaltAPI(salt_master.ip,salt_master.user,salt_master.password,port=salt_master.port)
+	try:
+		result = salt.run(fun='cmd.run',target=salt_master.hostname,arg_list=arg_list)
+		job = {'user':user,'time':time.strftime("%Y-%m-%d %X", time.localtime()),'client':client,\
+		'target':target,'fun':fun,'arg':arg_list,\
+		'status':'','progress':'Finish','result':result,'cjid':str(int(round(time.time() * 1000)))}
+		mongo_salt.salt_joblist.insert_one(job)
+	except Exception as e:
+		result = ''
+		error = str(e)	
 	return render(request,'opsdb/salt/salt_run.html',locals())
 
 def salt_state(request):
@@ -133,7 +166,6 @@ def salt_state(request):
 		except Exception as e:
 			err.append(str(e))
 	return render(request,'opsdb/salt/salt_state.html',locals())
-
 
 def saltjoblist(request):
 	sjobs = mongo_salt.salt_joblist.find().sort([('_id',-1)])
