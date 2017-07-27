@@ -48,7 +48,12 @@
              <input type="file" name="myfile" required="">
           </div>
         </div>
-        <p>Tip:请将所有文件(即使只有一个文件)放在一个以模块名命名的文件夹内,并将该文件夹打包成tar包后上传.</p>
+        <p>Tip:
+          <ol>
+            <li>如果是单个文件,请将文件打包成以模块名命名的tar包后上传.如:tar cvf test.tar test.sls</li>
+            <li>如果是多个文件,请将所有文件放在一个以模块名命名的文件夹内,打包成tar包后上传.</li>
+          </ol> 
+        </p>
         <div class="form-group">
           <div class="col-xs-8 col-md-6 col-sm-6">
             <button type="submit" class="btn">开始上传</button>

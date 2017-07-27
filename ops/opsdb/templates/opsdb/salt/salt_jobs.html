@@ -63,7 +63,7 @@
 	                           </div>
 	                          
 	                           <div class="btn-group">
-	                              <button type="button" class="btn label label-inverse" onclick="salt_run()"><i class="icon-stop"></i> Kill Job(s)</button>
+	                              <button type="button" class="btn label label-inverse" onclick="kill_job()"><i class="icon-stop"></i> Kill Job</button>
 	                           </div>
 
 	                           <div class="btn-group">
@@ -123,13 +123,17 @@
 	                                <!-- <td id="{{job.id}}">
 	                                  <small><a onclick="show_system('{{job.id}}')" style="text-decoration:underline">{{job.id}}</a></small>
 	                                </td> -->
-	                                <td><small>{{job.user}}</small></td>
+	                                <td id="{{job.jid}}"><small>{{job.user}}</small></td>
 	                                <td><small>{{job.time}}</small></td>
 	                                <td><small>{{job.client}}</small></td>
 	                                <td><small>{{job.target | join:','}}</small></td>
 	                                <td><small>{{job.fun}}</small></td>
 	                                <td><small>{{job.arg}}</small></td>
+	                                {% if job.killed %}
+	                                <th><small>{{job.killed}}</small></th>
+	                                {% else %}
 	                                <th><small>{{job.progress}}</small></th>
+	                               	{% endif %}
 	                                <th><small>{{job.status}}</small></th>
 	                                {% if job.cjid %}
 	                                <td><small><a onclick="show_job_result('job_cjid','{{job.cjid}}','{{job.target | join:','}}')">点击查看报告</a></small></td>
@@ -210,6 +214,34 @@
                 }
             });
             return ids
+      }
+
+      function kill_job(act) {
+      	var ids = get_server_id();
+      	// console.log(ids);
+        if (ids.length == 0 )
+        {
+          layer.alert("请至少选中一台主机");
+        }
+        else if (ids.length > 1) 
+        { layer.alert("该操作目前不支持批量操作");}
+    	else
+        {   
+        	if (ids[0] == '')
+        		{ layer.alert("该操作已完成,无法Kill");}
+        	else
+        	{
+        		layer.confirm('请确认是否kill', function(index){
+        		layer.load();
+             	$.get("/opsdb/systems/kill_job/"+ids[0],function(data){
+	                      layer.msg(data, function(){
+									  window.location.reload();
+									}); 
+               		});       
+            	}); 
+        	}
+            
+        }
       }
     </script>
   </body>

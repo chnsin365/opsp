@@ -33,4 +33,5 @@ urlpatterns = [
     url(r'^systems/saltjoblist/$',views.saltjoblist,name='saltjoblist'),
     url(r'^systems/job_cjid/(\d*)/$',views.job_cjid,name='job_cjid'),
     url(r'^systems/job_jid/(\d*)/$',views.job_jid,name='job_jid'),
+    url(r'^systems/kill_job/(\d+)/$',views.kill_job,name='kill_job'),
 ]

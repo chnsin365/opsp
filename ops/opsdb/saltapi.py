@@ -23,7 +23,6 @@ class SaltAPI():
     def do_post(self, api=""):
         url = "https://%s:%s/%s" % (self.host, self.port, api)
         post_req = requests.post(url,data=json.dumps(self.post_data),headers=self.headers,verify=False)
-        print post_req
         return post_req.json()["return"][0]
 
     def login(self):

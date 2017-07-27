@@ -122,12 +122,13 @@ def salt_state(request):
 			result = {}
 			err = []
 			for tgt in target:
-				cmd = 'salt %s state.sls %s'%(tgt,arg_list)
+				metadata = ''.join(map(lambda xx:(hex(ord(xx))[2:]),os.urandom(16)))
+				cmd = 'salt %s state.sls %s --metadata=%s'%(tgt,arg_list,metadata)
 				jid = salt.run_async(fun='cmd.run',target=salt_master.hostname,arg_list=cmd)
 				result[tgt] = jid['jid']
 				job = {'user':user,'time':time.strftime("%Y-%m-%d %X", time.localtime()),'client':client,\
 				'target':[tgt],'fun':'state.sls','arg':arg_list,'jid':jid['jid'],\
-				'status':'','progress':'Executing'}
+				'status':'','progress':'Executing','metadata':metadata}
 				mongo_salt.salt_joblist.insert_one(job)
 		except Exception as e:
 			err.append(str(e))
@@ -161,6 +162,19 @@ def job_cjid(request,cjid):
 def job_jid(request,jid):
 	sjob = mongo_salt.salt_job_ret.find_one({'jid':jid})
 	return render(request,'opsdb/salt/salt_job_result.html',locals())
+
+def kill_job(request,jid):
+	sjob = mongo_salt.salt_joblist.find_one({'jid':jid})
+	if sjob.has_key('state_id') and sjob['progress'] == 'Executing':
+		salt_master = get_object_or_404(ServiceHost,service='salt_api')
+		salt = SaltAPI(salt_master.ip,salt_master.user,salt_master.password,port=salt_master.port)
+		cmd = 'salt %s saltutil.kill_job %s'%(sjob['target'][0],sjob['state_id'])
+		result = salt.run(fun='cmd.run',target=salt_master.hostname,arg_list=cmd)
+		mongo_salt.salt_joblist.update_one({'jid':jid},{'$set':{'status':'Faield','killed':'Killed'}})
+		result = 'Successfully'
+	else:
+		result = '无法kill该job'
+	return HttpResponse(result)
 
 def state_manage(request):
 	state_list = SaltState.objects.all()

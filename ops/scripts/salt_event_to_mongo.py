@@ -86,6 +86,9 @@ for eachevent in event.iter_events(full=True):
 							else:
 								job_list.update_one({'jid':eachevent['data']['jid']},\
 									{"$set": {"status":'Success','progress':'Finish'}})
+						else:
+							job_list.update_one({'jid':eachevent['data']['jid']},\
+									{"$set": {"status":'Failed','progress':'Finish'}})
 					else:
 						pass
 					job_ret.insert_one(eachevent['data'])
