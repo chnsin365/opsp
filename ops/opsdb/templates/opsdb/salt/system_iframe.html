@@ -123,6 +123,8 @@
                                     <th><small>系统发行版本</small></th>
                                     <th><small>CPU(个)</small></th>
                                     <th><small>内存(G)</small></th>
+                                    <th><small>电源</small></th>
+                                    <th><small>Agent</small></th>
                                     <th><small>主机组</small></th>
                                     <th><small>环境</small></th>
                                     <th><small>应用</small></th>
@@ -140,6 +142,16 @@
                                     <td><small data-placement="left" data-toggle="tooltip" class="tooltips" data-original-title="{{system.os}}">{{system.os | truncatewords:2 }}</small></td>
                                     <td><small>{{system.num_cpus}}</small></td>
                                     <td><small>{{system.mem_total}}</small></td>
+                                    {% if system.power_status %}
+                                    <td><small><span class="badge bg-success">on</span></small></td>
+                                    {% else %}
+                                    <td><small><span class="badge bg-important">off</span></small></td>
+                                    {% endif %}
+                                    {% if system.minion_status %}
+                                    <td><small><span class="badge bg-success">up</span></small></td>
+                                    {% else %}
+                                    <td><small><span class="badge bg-important">down</span></small></td>
+                                    {% endif %}
                                     <td><small>{{system.hostgroup.name}}</small></td>
                                     <td><small>{{system.environment.name}}</small></td>
                                     <td><small>{{system.application.name | default_if_none:""}}</small></td>

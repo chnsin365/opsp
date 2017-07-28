@@ -1,6 +1,19 @@
 #!/bin/env python
 #coding=utf8
 
+'''
+author: wei.yang@jinmuinfo.com
+date: 2017.07.25
+
+function:
+Listening Salt Master Event System and parase the job return ,then store result to mongo and mysql
+
+requirements:
+1、The script must be exacuted on salt master because of salt modules
+2、The script need pymongo to connect mongodb
+3、The script need MySQLdb to connect mysql
+'''
+
 # Import python libs
 import json
 import re
@@ -56,8 +69,8 @@ for eachevent in event.iter_events(full=True):
 			else:
 				if eachevent['data'].has_key('id') and eachevent['data'].has_key('return'):
 					if eachevent['data']['fun'] == 'grains.items':
-						sql = '''INSERT INTO system (system_id,ip,os,num_cpus,mem_total,status,create_time,update_time)\
-						 VALUES (%s,%s,%s,%s,%s,%s,%s,%s) ON DUPLICATE KEY UPDATE ip=%s,os=%s,num_cpus=%s,mem_total=%s,status=%s'''
+						sql = '''INSERT INTO system (system_id,ip,os,num_cpus,mem_total,power_status,minion_status,is_delete,create_time,update_time)\
+						 VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) ON DUPLICATE KEY UPDATE ip=%s,os=%s,num_cpus=%s,mem_total=%s,power_status=%s,minion_status=%s,is_delete=%s'''
 						try:
 						    # 执行sql语句
 							cursor.execute(sql,(eachevent['data']['id'],\
@@ -65,14 +78,14 @@ for eachevent in event.iter_events(full=True):
 						   	' '.join([eachevent['data']['return']['osfullname'],\
 						   		eachevent['data']['return']['osrelease']]),\
 						   	str(eachevent['data']['return']['num_cpus']),\
-						   	("%.2f"%(eachevent['data']['return']['mem_total']/1024.0)),True,\
+						   	("%.2f"%(eachevent['data']['return']['mem_total']/1024.0)),True,True,False,\
 						   	eachevent['data']['_stamp'],\
 						   	eachevent['data']['_stamp'],\
 						   	eachevent['data']['return']['fqdn_ip4'][0],\
 						   	' '.join([eachevent['data']['return']['osfullname'],\
 						   		eachevent['data']['return']['osrelease']]),\
 						   	str(eachevent['data']['return']['num_cpus']),\
-						   	("%.2f"%(eachevent['data']['return']['mem_total']/1024.0)),True))
+						   	("%.2f"%(eachevent['data']['return']['mem_total']/1024.0)),True,True,False))
 						    # 提交到数据库执行
 							mysql_db.commit()
 						except Exception as e:
@@ -101,5 +114,5 @@ for eachevent in event.iter_events(full=True):
 		else:
 			continue
 	except Exception as e:
-		# print str(e)
-		continue
+		print str(e)
+		# continue

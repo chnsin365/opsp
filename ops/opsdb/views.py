@@ -37,7 +37,7 @@ def systems(request):
 	return render(request,'opsdb/salt/systems.html')
 
 def system_iframe(request):
-	system_list = System.objects.select_related().filter(status=True)
+	system_list = System.objects.select_related().filter(is_delete=False)
 	page_number =  request.GET.get('page_number')
 	if page_number:
 	    page_number = int(page_number)
@@ -57,7 +57,10 @@ def system_iframe(request):
 
 def system(request,id):
 	system = mongo_salt.salt_grains.find_one({'id':id})
-	system_detail = json2html.convert(json = system['return'])
+	if system:
+		system_detail = json2html.convert(json = system['return'])
+	else:
+		system_detail = '抱歉,未查询到当前主机信息'
 	return HttpResponse(system_detail)
 
 @csrf_exempt
@@ -87,7 +90,7 @@ def delete_system(request):
 	for tgt in target:
 		try:
 			salt.key(client='wheel',fun='key.delete',match=tgt)
-			System.objects.filter(pk=tgt).update(status=False)
+			System.objects.filter(pk=tgt).update(is_delete=True)
 		except Exception as e:
 			ret[tgt] = str(e)
 	return HttpResponse(ret)

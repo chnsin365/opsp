@@ -79,5 +79,13 @@ class SaltAPI():
             ]
         return self.do_post()
 
-
+    def minion_alive_check(self, client='runner', fun="manage.down", target="*"):
+        self.post_data = [
+            {
+                "client": client,
+                "tgt": target,
+                "fun": fun
+            }
+        ]
+        return self.do_post()
 

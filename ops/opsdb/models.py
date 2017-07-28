@@ -49,7 +49,9 @@ class System(models.Model):
     hostgroup          = models.ForeignKey(HostGroup,blank=True, null=True,on_delete=models.PROTECT)
     application        = models.ManyToManyField(Application)
     business           = models.ManyToManyField(Business)
-    status             = models.BooleanField(default=True)
+    power_status       = models.BooleanField(default=True)
+    minion_status      = models.BooleanField(default=True)
+    is_delete          = models.BooleanField(default=False)
     create_time        = models.DateTimeField(auto_now_add=True)
     update_time        = models.DateTimeField(auto_now=True)
 
