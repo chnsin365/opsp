@@ -1,0 +1,19 @@
+{% extends 'opsdb/salt/minion_key.html' %}
+
+{% block header %}
+<header class="panel-heading tab-bg-dark-navy-blue ">
+  <ul class="nav nav-tabs">
+      <li class="">
+          <a href="{%url 'opsdb:minion_key' 'pend' %}" style="left: 15px;">待签发</a>
+      </li>
+      <li class="active">
+          <a onclick="window.location.reload()" style="left: 15px;">已签发</a>
+      </li>
+  </ul>
+</header>
+{% endblock %}
+
+
+{% block button %}
+
+{% endblock %}

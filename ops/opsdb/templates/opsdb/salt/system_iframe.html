@@ -55,12 +55,13 @@
                   </li>
               </ul>
           </header> -->
+          {% block content %}
           <div class="panel-body">
               <div class="tab-content">
                   <div class="tab-pane active">
                         <div class="mail-option">
                                <div class="btn-group">
-                                  <button type="button" class="btn label label-inverse" onclick="window.location.reload()"><i class="icon-refresh"></i>刷新</button>
+                                  <button type="button" class="btn label label-inverse" onclick="window.location.reload()"><i class="icon-refresh"></i> 刷新</button>
                                </div>
                                <div class="btn-group">
                                    <button type="button" class="btn label label-inverse" onclick="add_system()"><i class="icon-plus"></i> 添加主机</button>
@@ -75,9 +76,11 @@
                                <div class="btn-group hidden-phone">
                                       <button data-toggle="dropdown" class="btn label label-inverse dropdown-toggle" type="button"><i class="icon-th-large"></i>&nbsp更多操作&nbsp&nbsp <span class="caret"></span></button>
                                       <ul role="menu" class="dropdown-menu" style="min-width: 101.63px;width: 101.63px;">
-                                          <li><a onclick="config_sys()" style="padding-left: 5px;"><small>Minion认证</small></a></li>
-                                          <li><a onclick="delete_server()" style="padding-left: 5px;"><small>模块管理</small></a></li>
-                                          <li><a onclick="delete_server()" style="padding-left: 5px;"><small>删除主机</small></a></li>
+                                          <li><a href="{% url 'opsdb:saltjoblist' %}" style="padding-left: 5px;"><small>操作记录</small></a></li>
+                                          <!-- <li><a onclick="state_manage()" style="padding-left: 5px;"><small>高级操作</small></a></li> -->
+                                          <li><a onclick="state_manage()" style="padding-left: 5px;"><small>模块管理</small></a></li>
+                                          <li><a onclick="minion_key()" style="padding-left: 5px;"><small>节点认证</small></a></li>
+                                          <li><a onclick="delete_system()" style="padding-left: 5px;"><small>删除主机</small></a></li>
                                       </ul>
                                  </div>
 
@@ -91,6 +94,7 @@
                                        <option value="20">20</option>
                                        <option value="50">50</option>
                                        <option value="100">100</option>
+                                       <option value="10000">all</option>
                                     </select>
                                    </li>
 
@@ -117,6 +121,10 @@
                                     <th><small>主机名</small></th>
                                     <th><small>IP地址</small></th>
                                     <th><small>系统发行版本</small></th>
+                                    <th><small>CPU(个)</small></th>
+                                    <th><small>内存(G)</small></th>
+                                    <th><small>电源</small></th>
+                                    <th><small>Agent</small></th>
                                     <th><small>主机组</small></th>
                                     <th><small>环境</small></th>
                                     <th><small>应用</small></th>
@@ -131,11 +139,23 @@
                                       <small><a onclick="show_system('{{system.id}}')" style="text-decoration:underline">{{system.id}}</a></small>
                                     </td>
                                     <td><small>{{system.ip}}</small></td>
-                                    <td><small>{{system.os}}</small></td>
+                                    <td><small data-placement="left" data-toggle="tooltip" class="tooltips" data-original-title="{{system.os}}">{{system.os | truncatewords:2 }}</small></td>
+                                    <td><small>{{system.num_cpus}}</small></td>
+                                    <td><small>{{system.mem_total}}</small></td>
+                                    {% if system.power_status %}
+                                    <td><small><span class="badge bg-success">on</span></small></td>
+                                    {% else %}
+                                    <td><small><span class="badge bg-important">off</span></small></td>
+                                    {% endif %}
+                                    {% if system.minion_status %}
+                                    <td><small><span class="badge bg-success">up</span></small></td>
+                                    {% else %}
+                                    <td><small><span class="badge bg-important">down</span></small></td>
+                                    {% endif %}
                                     <td><small>{{system.hostgroup.name}}</small></td>
                                     <td><small>{{system.environment.name}}</small></td>
-                                    <td><small>{{system.application.name}}</small></td>
-                                    <td><small>{{system.business.name}}</small></td>
+                                    <td><small>{{system.application.name | default_if_none:""}}</small></td>
+                                    <td><small>{{system.business.name | default_if_none:""}}</small></td>
                                   </tr>
                                 {% endfor %}
                               </tbody>
@@ -143,6 +163,7 @@
                       </div>
               </div>
           </div>
+          {% endblock %}
         </section>
         <!-- page end-->
     {% endblock %}
@@ -176,7 +197,7 @@
                           all_checked = false;
                           return false;
                       }
-                      // $("#all").prop("checked", true);
+                      $("#all").prop("checked", true);
                       all_checked = true;
                   });
               }
@@ -187,7 +208,7 @@
         var index = layer.open({
             type: 2,
             title: "主机详细信息",
-            offset: 'r',
+            // offset: 'r',
             // maxmin: true,
             area: ['700px', '500px'],
             // area: 'auto',
@@ -238,7 +259,7 @@
         {   
 
             layer.confirm('请确认是否要删除', function(index){
-                  $.get("/installation/server/delete/",{'ids':ids.toString()},function(data){
+                  $.post("/opsdb/systems/delete/",{'ids':ids},function(data){
                     if (data == '{}')
                     {
                       layer.msg('删除成功',function(){
@@ -267,12 +288,11 @@
         {
           var index = layer.open({
               type: 2,
-              offset: 'r',
+              // offset: 'r',
               area: ['800px','550px'],
               title: '远程执行',
               content: '/opsdb/systems/remote_run/',
               success: function(layero, index){
-                  console.log(layero);
                   var body = layer.getChildFrame('body',index);//建立父子联系
                   var iframeWin = window[layero.find('iframe')[0]['name']];
                   // console.log(arr); //得到iframe页的body内容
@@ -295,12 +315,11 @@
         {
           var index = layer.open({
               type: 2,
-              offset: 'r',
+              // offset: 'r',
               area: ['800px','550px'],
               title: '模块部署',
-              content: '/opsdb/systems/module_delay/',
+              content: '/opsdb/systems/state_deploy/',
               success: function(layero, index){
-                  console.log(layero);
                   var body = layer.getChildFrame('body',index);//建立父子联系
                   var iframeWin = window[layero.find('iframe')[0]['name']];
                   // console.log(arr); //得到iframe页的body内容
@@ -311,6 +330,32 @@
             });
             // layer.full(index);
         }
+      }
+
+      function state_manage() {
+         var index = layer.open({
+              type: 2,
+              // offset: 'r',
+              area: ['800px','550px'],
+              title: '模块管理',
+              content: '/opsdb/systems/state_manage/',
+              end: function () {
+                 window.location.reload();
+              }
+            });
+      }
+
+      function minion_key() {
+         var index = layer.open({
+              type: 2,
+              // offset: 'r',
+              area: ['800px','550px'],
+              title: '模块管理',
+              content: '/opsdb/systems/minion_key/pend/',
+              end: function () {
+                 window.location.reload();
+              }
+            });
       }
     </script>
   </body>
