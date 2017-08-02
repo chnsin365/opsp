@@ -25,14 +25,6 @@ except Exception as e:
 	# raise e
 	pass
 
-# create salt object using saltapi
-# try:
-# 	salt_master = get_object_or_404(ServiceHost,service='salt_api')
-# 	saltobj = SaltAPI(salt_master.ip,salt_master.user,salt_master.password,port=salt_master.port)
-# except Exception as e:
-# 	# raise e
-# 	pass
-
 def systems(request):
 	return render(request,'opsdb/salt/systems.html')
 

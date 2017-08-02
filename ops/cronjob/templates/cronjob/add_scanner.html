@@ -1,0 +1,119 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Mosaddek">
+    <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+    <link rel="shortcut icon" href="{%static 'img/favicon.ico'%}">
+
+    <!-- Bootstrap core CSS -->
+    <link href="{%static 'css/bootstrap.min.css'%}" rel="stylesheet">
+    <link href="{%static 'css/bootstrap-reset.css'%}" rel="stylesheet">
+    <!--external css-->
+    <link href="{%static 'assets/font-awesome/css/font-awesome.css'%}" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="{%static 'css/style.css'%}" rel="stylesheet">
+    <link href="{%static 'css/style-responsive.css'%}" rel="stylesheet" />
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+    <!--[if lt IE 9]>
+      <script src="{%static 'js/html5shiv.js'%}"></script>
+      <script src="{%static 'js/respond.min.js'%}"></script>
+    <![endif]-->
+
+    
+  </head>
+                      
+  <body>
+  <div class="col-lg-12">
+    <div class="panel-body">
+      {% block content %}
+        {% if messages %}
+          {% for message in messages %}
+              {% if message.tags == 'error' %}
+                  <pre class="alert alert-block alert-danger fade in">{{ message }}</pre>
+              {% else %}
+                  <p class="alert alert-success fade in">{{ message }}</p>
+              {% endif %}                  
+          {% endfor %}
+        {% endif %} 
+      <form class="form-horizontal" role="form" action="{% url 'cronjob:add_scanner' %}" method="post" role="form">
+          {% csrf_token %}
+        <div class="form-group">
+          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">任务名称 *</span></label>
+          <div class="col-xs-8 col-md-6 col-sm-6" >
+                <input class="form-control" name="job_id" required="required" type="text" placeholder="任务名称必须唯一">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">目标主机或网段 *</span></label>
+          <div class="col-xs-8 col-md-6 col-sm-6" >
+                <input class="form-control" name="hosts" required="required" type="text" placeholder="192.168.3.0/16">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">端口范围 *</span></label>
+          <div class="col-xs-8 col-md-6 col-sm-6" >
+                <input class="form-control" name="ports" required="required" type="text" placeholder="22或22,80,443或1-65535">
+          </div>
+        </div>
+
+        <div class="form-group" >
+          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">Trigger *</span></label>
+          <div class="col-xs-8 col-md-6 col-sm-6" >
+            <select name="trigger" required="required" class="form-control m-bot15">
+            	<option value ="interval">interval(周期任务)</option>
+              	<option value ="date">date(一次性任务)</option>
+            </select>   
+          </div>
+        </div>
+
+        <div class="form-group" >
+          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">参数 *</span></label>
+          <div class="col-xs-8 col-md-6 col-sm-6" >
+            <input class="form-control" name="trigger_arg" required="required" type="text">
+      		<li>interval:   seconds=1,minutes=1,hours=1,days=1,weeks=1</li>
+      		<li>date:   run_date=2017-08-01 09:30:30</li>
+          </div>
+
+        </div>
+
+        <div class="form-group">
+          <div class="col-xs-8 col-md-6 col-sm-6">
+            <button type="submit" class="btn">提交</button>
+          </div>
+        </div>
+      </form>
+        {% endblock %}
+    </div>
+
+  </div>
+
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="{%static 'js/jquery.js'%}"></script>
+    <script src="{%static 'js/bootstrap.min.js'%}"></script>
+    <script class="include" type="text/javascript" src="{%static 'js/jquery.dcjqaccordion.2.7.js'%}"></script>
+    <script src="{%static 'js/jquery.scrollTo.min.js'%}"></script>
+    <script src="{%static 'js/jquery.nicescroll.js'%}" type="text/javascript"></script>
+    <script src="{%static 'js/respond.min.js'%}" ></script>
+
+    <!--common script for all pages-->
+    <script src="{%static 'js/common-scripts.js'%}"></script>
+    <script src="{%static 'layer/layer.js'%}"></script>
+
+    <script type="text/javascript">  
+    function sub() {  
+        document.forms[0].elements[0].disabled = true;
+        document.forms[0].submit();
+        layer.load(); 
+    }  
+    </script>  
+
+  </body>
+</html>

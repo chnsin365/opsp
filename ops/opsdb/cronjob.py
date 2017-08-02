@@ -27,13 +27,14 @@ def check_minion_and_power():
 		salt_master = get_object_or_404(ServiceHost,service='salt_api')
 		salt = SaltAPI(salt_master.ip,salt_master.user,salt_master.password,port=salt_master.port)
 		ret = salt.minion_alive_check()
+		System.objects.filter(minion_status=False).update(power_status=True,minion_status=True)
 		if ret:
 			for minion in ret:
 				try:
 					system = get_object_or_404(System,pk=minion)
 					system.minion_status = False
 					nm = nmap.PortScanner()
-					nm.scan(system.ip,'22')
+					nm.scan(hosts=system.ip, arguments='-sP')
 					if int(nm.scanstats()['downhosts']):
 						system.power_status = False
 					else:
