@@ -70,7 +70,7 @@
                                       <button data-toggle="dropdown" class="btn label label-inverse dropdown-toggle" type="button"><i class="icon-th-large"></i>&nbsp更多操作&nbsp&nbsp <span class="caret"></span></button>
                                       <ul role="menu" class="dropdown-menu" style="min-width: 101.63px;width: 101.63px;">
                                           <li><a onclick="reset_pwd()" style="padding-left: 5px;"><small>重置密码</small></a></li>
-                                          <li><a onclick="disable_user()" style="padding-left: 5px;"><small>禁用账户</small></a></li>
+                                          <li><a onclick="disable_user()" style="padding-left: 5px;"><small>禁用/启用账户</small></a></li>
                                       </ul>
                                  </div>
 
@@ -123,7 +123,7 @@
                                 {% for user in users %}
                                   <tr>
                                     <td><input type="checkbox"></td>
-                                    <td id="{{user.id}}"><small><a onclick="show_server('{{user.id}}')" style="text-decoration:underline" data-original-title="联系方式:" data-content="邮件:{{user.email}}</br>电话:{{user.profile.phone}}</br>微信:{{user.profile.wechat}}" data-placement="right" data-trigger="hover"  data-html="true" class="popovers">{{user.username}}</a></small></td>
+                                    <td id="{{user.id}}"><small><a style="text-decoration:underline" data-original-title="联系方式:" data-content="邮件: {{user.email}}</br>电话: {{user.profile.phone}}</br>微信: {{user.profile.wechat}}" data-placement="right" data-trigger="hover"  data-html="true" class="popovers">{{user.username}}</a></small></td>
                                     <td>
                                     	<small>
                                     	{% if user.profile.roles %}
@@ -150,8 +150,8 @@
                                     <td><small>{{user.profile.date_expired | date:'Y-m-d H:m:s'}}</small></td>
                                     <td><small>{{user.profile.created_by | default_if_none:""}}</small></td>
                                     <td><small>{{user.last_login | date:'Y-m-d H:m:s'}}</small></td>
-                                    <td><small>{{user.profile.comment }}</small></td>
-                                    <td><small><button data-placement="left" data-toggle="tooltip" class="label label-inverse tooltips" data-original-title="编辑用户" onclick="" style="padding-left: 5px;">编辑</button></small></td>
+                                    <td><small data-placement="left" data-toggle="tooltip" class="tooltips" data-original-title="{{user.profile.comment}}">{{user.profile.comment | truncatewords:5}}</small></td>
+                                    <td><small><button data-placement="left" data-toggle="tooltip" class="label label-inverse tooltips" data-original-title="编辑用户" onclick="edit_user('{{user.id}}')" style="padding-left: 5px;">编辑</button></small></td>
                                   </tr>
                                 {% endfor %}
                               </tbody>
@@ -229,17 +229,90 @@
           });
       }
 
-      function delete_server() {
+      function edit_user(user_id) {
+          var index = layer.open({
+            type: 2,
+            title: "编辑用户",
+            area: ['700px', '520px'],
+            shadeClose: true,
+            shift: 5,
+            moveOut: true,
+            content: "/users/edit_user/"+user_id,
+            end: function () {
+                  window.location.reload();//刷新
+                }
+          });
+      }
+
+      function reset_pwd() {
         var ids = get_server_id();
         if (ids.length ==0 )
         {
-          layer.alert("请至少选中一台主机");
+          layer.alert("请至少选中一个账户");
         }
         else
         {   
 
-            layer.confirm('请确认是否要删除', function(index){
-                  $.get("/installation/server/delete/",{'ids':ids.toString()},function(data){
+            layer.confirm('请确认是否将密码重置为初始密码:1qaz@WSX', function(index){
+                  $.post("{% url 'users:resetpwd' %}",{'ids':ids.toString()},function(data){
+                    if (data == '{}')
+                    {
+                      layer.msg("重置密码成功",function(){
+                        window.location.reload();
+                      });
+                    }
+                    else
+                    {
+                      layer.alert('发生错误:' + data, function(){
+                              window.location.reload();
+                            });
+                    }
+                  });
+                      
+            }); 
+        }
+      }
+
+      function disable_user() {
+        var ids = get_server_id();
+        if (ids.length ==0 )
+        {
+          layer.alert("请至少选中一个账户");
+        }
+        else
+        {   
+
+            layer.confirm('请确认是禁用/启用已选账户', function(index){
+                  $.post("{% url 'users:disable_user' %}",{'ids':ids.toString()},function(data){
+                    if (data == '{}')
+                    {
+                      layer.msg("账户已禁用/启用",function(){
+                        window.location.reload();
+                      });
+                    }
+                    else
+                    {
+                      layer.alert('发生错误:' + data, function(){
+                              window.location.reload();
+                            });
+                    }
+                  });
+                      
+            }); 
+        }
+      }
+
+      function delete_user() {
+        var ids = get_server_id();
+        if (ids.length ==0 )
+        {
+          layer.alert("请至少选中一个账户");
+        }
+        else
+        {   
+
+            layer.confirm('请确认是否要删除账户', function(index){
+                  $.post("{% url 'users:delete_user' %}",{'ids':ids.toString()},function(data){
                     if (data == '{}')
                     {
                       layer.msg('删除成功',function(){

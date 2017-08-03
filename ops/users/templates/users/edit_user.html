@@ -36,23 +36,16 @@
         {% if result.status %}
                 <p class="alert alert-success fade in">{{ result.msg }}</p>
         {% elif result %}
-                <p class="alert alert-danger fade in">{{ result.msg }}</p>
-        {% else %}
-            
+        		<p class="alert alert-danger fade in">{{ result.msg }}</p>
+       	{% else %}
+
         {% endif %} 
-      <form class="form-horizontal" role="form" action="{% url 'users:add_user' %}" method="post" role="form">
+      <form class="form-horizontal" role="form" action="{% url 'users:edit_user' user.id %}" method="post" role="form">
           {% csrf_token %}     
         <div class="form-group">
           <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">用户名 *</span></label>
           <div class="col-xs-8 col-md-6 col-sm-6" >
-                <input class="form-control" name="username" required="required" type="text">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">初始密码 *</span></label>
-          <div class="col-xs-8 col-md-6 col-sm-6" >
-                <input class="form-control" type="text" disabled="disabled" value="1qaz@WSX">
+                <input class="form-control" name="username" required="required" type="text" value="{{user.username}}">
           </div>
         </div>
 
@@ -61,7 +54,11 @@
           <div class="col-xs-8 col-md-6 col-sm-6" >
                   <select multiple="multiple" class="multi-select" id="my_multi_select1" name="roles" required>
                       {% for role in  roles%}
-                        <option value="{{role.id}}">{{ role.comment }}</option>
+                      	{% if role in user.profile.roles.all %}
+                        	<option value="{{role.id}}" selected>{{ role.comment }}</option>
+                        {% else %}
+                        	<option value="{{role.id}}">{{ role.comment }}</option>
+                        {% endif %}
                       {% endfor %}
                   </select>
           </div>
@@ -72,18 +69,12 @@
           <div class="col-xs-8 col-md-6 col-sm-6" >
                   <select multiple="multiple" class="multi-select" id="my_multi_select4" name="groups" required>
                       {% for group in groups%}
-                        <option value="{{group.id}}">{{ group.name }}</option>
+                      	{% if group in user.groups.all %}
+                        	<option value="{{group.id}}" selected>{{ group.name }}</option>
+                        {% else %}
+                        	<option value="{{group.id}}">{{ group.name }}</option>
+                        {% endif %}
                       {% endfor %}
-                  </select>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">是否激活 *</span></label>
-          <div class="col-xs-8 col-md-6 col-sm-6" >
-                  <select name="is_active" required>
-                     <option value="1">激活</option>
-                     <option value="0">禁用</option>
                   </select>
           </div>
         </div>
@@ -91,42 +82,41 @@
         <div class="form-group">
           <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">账户过期时间 *</span></label>
           <div class="col-xs-8 col-md-6 col-sm-6" >
-                <input size="16" type="text" name="date_expired" class="form_datetime form-control" required="required">
+                <input size="16" type="text" name="date_expired" class="form_datetime form-control" required="required" value="{{user.profile.date_expired | date:'Y-m-d H:m:s'}}">
           </div>
         </div>
 
         <div class="form-group">
           <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">邮件地址 *</span></label>
           <div class="col-xs-8 col-md-6 col-sm-6" >
-                <input class="form-control" name="email" required="required" type="email">
+                <input class="form-control" name="email" required="required" type="email" value="{{user.email}}">
           </div>
         </div>
 
         <div class="form-group">
           <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">电话 </span></label>
           <div class="col-xs-8 col-md-6 col-sm-6" >
-                <input class="form-control" name="phone" type="phone">
+                <input class="form-control" name="phone" type="phone" value="{{user.profile.phone}}">
           </div>
         </div>
 
         <div class="form-group">
           <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">微信 </span></label>
           <div class="col-xs-8 col-md-6 col-sm-6" >
-                <input class="form-control" name="wechat" type="text">
+                <input class="form-control" name="wechat" type="text" value="{{user.profile.wechat}}">
           </div>
         </div>
 
         <div class="form-group">
           <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">备注 </span></label>
           <div class="col-xs-8 col-md-6 col-sm-6" >
-                <textarea class="form-control" name="comment"></textarea>
+                <textarea class="form-control" name="comment">{{user.profile.comment}}</textarea>
           </div>
         </div>
 
         <div class="form-group">
           <div class="col-xs-8 col-md-6 col-sm-6">
             <button type="submit" class="btn">提交</button>
-            <button type="reset" class="btn">取消</button>
           </div>
         </div>
       </form>

@@ -81,29 +81,69 @@ def add_user(request):
 @role_required('admin')
 def edit_user(request,id):
 	user = User.objects.get(id=id)
-	if request.method == 'GET':
-		all_groups = Group.objects.all()
-		return render(request, 'edit_user.html', {'user': user,'all_groups':all_groups})
+	roles = Role.objects.all()
+	groups = Group.objects.all()
+	if request.method == "GET":
+		return render(request, 'users/edit_user.html',locals())
 	else:
-		username = request.POST.get('username', '')
-		email = request.POST.get('email', '')
-		pn = request.POST.get('pn', '')
-		groups = request.POST.getlist('groups', '')
-		user.username=username
-		user.email=email
-		user.first_name = pn
-		user.save()
-		user.groups.clear()
-		user.groups = groups
-		return redirect('usermanage:edit_user',id)
+		try:
+			username = request.POST.get('username','')
+			new_roles = request.POST.getlist('roles','')
+			new_groups = request.POST.getlist('groups','')
+			date_expired = request.POST.get('date_expired','')
+			email = request.POST.get('email','')
+			phone = request.POST.get('phone','')
+			wechat = request.POST.get('wechat','')
+			comment = request.POST.get('comment','')
+			user.profile.roles = new_roles
+			user.groups = new_groups
+			user.profile.date_expired = date_expired
+			if username != user.username:
+				user.username=username
+			if email != user.email:
+				user.email=email
+			if phone != user.profile.phone:
+				user.profile.phone = phone
+			if wechat != user.profile.wechat:
+				user.profile.wechat = wechat
+			if comment != user.profile.comment:
+				user.profile.comment = comment
+			user.save()
+			result = {'status':True,'msg':'更新成功'}
+		except Exception as e:
+			result = {'status':False,'msg':str(e)}
+		user = User.objects.get(id=id)
+		return render(request, 'users/edit_user.html',locals())
 
 @login_required
 @role_required('admin')
-def delelte_user(request,id):
-	User.objects.filter(id=id).delete()
-	messages.success(request, 'Delete successfully!')
-	Audit.objects.create(user=request.user,client=request.META['REMOTE_ADDR'],action='Delete user %s'%((user.username)))
-	return redirect('usermanage:users')
+@csrf_exempt
+def delete_user(request):
+	ids = request.POST.getlist('ids','')
+	result = {}
+	for user_id in ids:
+		try:
+			user = User.objects.get(pk=user_id)
+			user.delete()
+		except Exception as e:
+			result[user.username] = '错误原因:%s'%(str(e))
+	return HttpResponse(json.dumps(result))
+
+
+@login_required
+@role_required('admin')
+@csrf_exempt
+def disable_user(request):
+	ids = request.POST.getlist('ids','')
+	result = {}
+	for user_id in ids:
+		try:
+			user = User.objects.get(pk=user_id)
+			user.is_active = not user.is_active
+			user.save()
+		except Exception as e:
+			result[user.username] = '错误原因:%s'%(str(e))
+	return HttpResponse(json.dumps(result))
 
 @login_required
 def changepwd(request):
@@ -127,20 +167,18 @@ def changepwd(request):
 
 @login_required
 @role_required('admin')
-def resetpwd(request,id):
-	if request.method == 'GET':
-		return render(request, 'resetpwd.html',{'id':id})
-	else:
-		newpassword = request.POST.get('newpassword', '')
-		newpassword1 = request.POST.get('newpassword1', '')
-		if newpassword == newpassword1:
-			user = User.objects.get(id=id)
-			user.set_password(newpassword)
+@csrf_exempt
+def resetpwd(request):
+	ids = request.POST.getlist('ids','')
+	result = {}
+	for user_id in ids:
+		try:
+			user = User.objects.get(pk=user_id)
+			user.set_password('1qaz@WSX')
 			user.save()
-			messages.success(request, 'Change password successfully!')
-		else:
-			messages.error(request, '两次输入密码不一致！')
-		return redirect('usermanage:resetpwd')
+		except Exception as e:
+			result[user.username] = '重置密码失败,原因:%s'%(str(e))
+	return HttpResponse(json.dumps(result))
 
 @login_required
 @role_required('admin')
