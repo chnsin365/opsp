@@ -113,7 +113,7 @@
                                     <td>
                                     	<small>{{ group.user_set.all.count }}</small>
                                     </td>
-                                    <td><small><button data-placement="left" data-toggle="tooltip" class="label label-inverse tooltips" data-original-title="编辑用户" onclick="" style="padding-left: 5px;">编辑</button></small></td>
+                                    <td><small><button data-placement="left" data-toggle="tooltip" class="label label-inverse tooltips" data-original-title="编辑用户" onclick="edit_group('{{ group.id }}')" style="padding-left: 5px;">编辑</button></small></td>
                                   </tr>
                                 {% endfor %}
                               </tbody>
@@ -160,21 +160,6 @@
           });
       });
 
-      function show_server(server_id){
-        var index = layer.open({
-            type: 2,
-            title: "服务器详细信息",
-            offset: 'r',
-            // maxmin: true,
-            area: ['700px', '500px'],
-            // area: 'auto',
-            shadeClose: true,
-            shift: 5,
-            moveOut: true,
-            content: '/installation/server/detail/' + server_id
-          });
-      }
-
       function get_server_id(){
         var tbodyObj = document.getElementById('mytable');
         var ids = [];
@@ -184,137 +169,49 @@
                     ids.push(tbodyObj.rows[key].cells[1].id);
                 }
             });
-            // console.log(ids);
-            // alert(ids.shift());
-            // alert(ids);
             return ids
       }
 
-      function power_on(act) {
-        var ids = get_server_id();
-        if (ids.length == 0) 
-            {
-              layer.alert("请先选中主机");
-            }
-        else
-            { 
-              var index = layer.load(2, {time: 30*1000});
-              $.each(ids,function(key,value){
-                  $.get("/installation/server/ipmi/"+ value + '/' + act,
-                        function(data) {
-                          if (data == 'error')
-                              {
-                                var index = layer.open({
-                                    type: 2,
-                                    title: "更新IPMI配置",
-                                    // offset: 'r',
-                                    // maxmin: true,
-                                    area: ['400px', '300px'],
-                                    // area: 'auto',
-                                    shadeClose: true,
-                                    shift: 5,
-                                    moveOut: true,
-                                    content: ['/installation/server/ipmi/' + value,'no'],
-                                    end : function(){
-                                        window.location.reload();
-                                      }
-                                  });
-                              }
-                          else if (data == 'disable')
-                              {
-                                layer.alert(value + '无法完成该操作！');
-                              }
-                          else if (data == 'installing')
-                              {
-                                
-                              }
-                          else
-                              {
-                                var status = document.getElementByName(value);
-                                if (data == 'off'){
-                                  status[0].innerHTML = '已关机';
-                                }
-                                else if (data == 'on'){
-                                  status[0].innerHTML = '已开机';
-                                }
-                                else{
-                                  status[0].innerHTML = '正在安装系统';
-                                }
-                                
-                              }
-                        }
-                  );
-              });
-
-              
-            }
-      }
-
-      function raid() {
-        var ids = get_server_id();
-        if (ids.length ==0 )
-        {
-          layer.alert("请先选中一台主机");
-        }
-        else if (ids.length > 1)
-        {
-          layer.alert("该操作不支持批量操作");
-        }
-        else
-        {
-          var index = layer.open({
+      function add_group(){
+        var index = layer.open({
             type: 2,
-            title: "服务器RAID信息",
-            // offset: 'r',
-            // maxmin: true,
-            area: ['600px', '500px'],
+            title: '添加用户组',
+            area: ['650px', '430px'],
             // area: 'auto',
-            shadeClose: true,
             shift: 5,
             moveOut: true,
-            content: '/installation/server/raid/' + ids[0] + '/raid_status'
-          });
-        }
-      }
-
-      function config_sys() {
-        var ids = get_server_id();
-        if (ids.length ==0 )
-        {
-          layer.alert("请先选中一台主机");
-        }
-        else if (ids.length > 1)
-        {
-          layer.alert("该操作不支持批量操作");
-        }
-        else
-        {
-          var index = layer.open({
-            type: 2,
-            title: '配置系统',
-            area: ['600px', '400px'],
-            // shadeClose: true,
-            shift: 5,
-            moveOut: true,
-            content: '/installation/server/install/' + ids[0],
+            content: "{% url 'users:add_group' %}",
             end: function () {
                   window.location.reload();//刷新
                 }
           });
-        }
       }
 
-      function delete_server() {
+      function edit_group(group_id){
+        var index = layer.open({
+            type: 2,
+            title: '编辑用户组',
+            area: ['650px', '430px'],
+            shift: 5,
+            moveOut: true,
+            content: "/users/edit_group/"+group_id,
+            end: function () {
+                  window.location.reload();//刷新
+                }
+          });
+      }
+
+      function delete_group() {
         var ids = get_server_id();
         if (ids.length ==0 )
         {
-          layer.alert("请至少选中一台主机");
+          layer.alert("请至少选中一个用户组");
         }
         else
         {   
 
-            layer.confirm('请确认是否要删除', function(index){
-                  $.get("/installation/server/delete/",{'ids':ids.toString()},function(data){
+            layer.confirm('请确认是否要删除用户组', function(index){
+                  $.post("/users/delete_group/",{'ids':ids.toString()},function(data){
                     if (data == '{}')
                     {
                       layer.msg('删除成功',function(){

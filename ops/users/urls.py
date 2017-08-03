@@ -20,4 +20,7 @@ urlpatterns = [
 	url(r'^$',views.users,name='users'),
 	url(r'^userlist/$',views.userlist,name='userlist'),
 	url(r'^grouplist/$',views.grouplist,name='grouplist'),
+    url(r'^add_group/$',views.add_group,name='add_group'),
+    url(r'^edit_group/(\d+)/$',views.edit_group,name='edit_group'),
+    url(r'^delete_group/$',views.delete_group,name='delete_group'),
 ]

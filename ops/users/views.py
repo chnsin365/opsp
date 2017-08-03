@@ -1,13 +1,16 @@
 # encoding:utf-8
 from django.shortcuts import render,redirect
+from django.shortcuts import HttpResponse
 from django.contrib import auth
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .custom_decorators import role_required
 from django.contrib import messages
 from django.contrib.auth.decorators import permission_required
+from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User,Group
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+import json
 # Create your views here.
 
 @login_required
@@ -146,33 +149,52 @@ def grouplist(request):
 
 @login_required
 @role_required('admin')
-def new_group(request):
+@csrf_exempt
+def add_group(request):
+	users = User.objects.all()
 	if request.method == "GET":
-		all_permissions = Permission.objects.filter(name__iregex=u'[\u4e00-\u9fa5]')
-		return render(request, 'new_group.html',{'all_permissions':all_permissions})
+		return render(request, 'users/add_group.html',locals())
 	else:
 		name = request.POST.get('name','')
-		permissions = request.POST.getlist('permissions','')
-		group = Group.objects.create(name=name)
-		if permissions:
-			group.permissions = permissions
-		return redirect('usermanage:groups')
+		members = request.POST.getlist('members','')
+		try:
+			group,created = Group.objects.get_or_create(name=name)
+			if created and members:
+				group.user_set = members
+			result = {'status':True,'msg':'添加成功'}
+		except Exception as e:
+			result = {'status':False,'msg':str(e)}
+		return render(request, 'users/add_group.html',locals())
 
 @login_required
 @role_required('admin')
+@csrf_exempt
 def edit_group(request,id):
 	group = Group.objects.get(id=id)
+	users = User.objects.all()
 	if request.method == "GET":
-		all_permissions = Permission.objects.filter(name__iregex=u'[\u4e00-\u9fa5]')
-		return render(request,'edit_group.html',{'all_permissions': all_permissions,'group':group})
+		return render(request,'users/edit_group.html',locals())
 	else:
-		groups = request.POST.getlist('groups', '')
-		group.permissions.clear()
-		group.permissions = groups
-		return redirect('usermanage:edit_group',id)
+		name = request.POST.get('name','')
+		members = request.POST.getlist('members','')
+		try:
+			if group.name != name:
+				group.update(name=name)
+			group.user_set = members
+			result = {'status':True,'msg':'更新成功'}
+		except Exception as e:
+			result = {'status':False,'msg':str(e)}
+		return render(request, 'users/edit_group.html',locals())
 
 @login_required
 @role_required('admin')
-def delete_group(request,id):
-	Group.objects.get(id=id).delete()
-	return redirect('usermanage:groups')
+@csrf_exempt
+def delete_group(request):
+	ids = request.POST.getlist('ids','')
+	result = {}
+	try:
+		for group_id in ids:
+			Group.objects.filter(pk=group_id).delete()
+	except Exception as e:
+		result[group_id] = str(e)
+	return HttpResponse(json.dumps(result))
