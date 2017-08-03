@@ -19,6 +19,7 @@ from . import views
 urlpatterns = [
 	url(r'^$',views.users,name='users'),
 	url(r'^userlist/$',views.userlist,name='userlist'),
+    url(r'^add_user/$',views.add_user,name='add_user'),
 	url(r'^grouplist/$',views.grouplist,name='grouplist'),
     url(r'^add_group/$',views.add_group,name='add_group'),
     url(r'^edit_group/(\d+)/$',views.edit_group,name='edit_group'),

@@ -11,6 +11,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User,Group
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import json
+from .models import *
 # Create your views here.
 
 @login_required
@@ -39,27 +40,42 @@ def userlist(request):
 
 @login_required
 @role_required('admin')
-def new_user(request):
+@csrf_exempt
+def add_user(request):
+	roles = Role.objects.all()
+	groups = Group.objects.all()
 	if request.method == "GET":
-		all_groups = Group.objects.all()
-		return render(request, 'new_user.html',{'all_groups':all_groups})
+		return render(request, 'users/add_user.html',locals())
 	else:
 		try:
 			username = request.POST.get('username','')
 			password = request.POST.get('password','')
-			email = request.POST.get('email','')
-			pn = request.POST.get('pn','')
+			roles = request.POST.getlist('roles','')
 			groups = request.POST.getlist('groups','')
-			user = User.objects.create(username=username,email=email,first_name=pn)
-			user.set_password(password)
-			user.save()
-			if groups:
+			is_active = bool(int(request.POST.get('is_active','')))
+			date_expired = request.POST.get('date_expired','')
+			email = request.POST.get('email','')
+			phone = request.POST.get('phone','')
+			wechat = request.POST.get('wechat','')
+			comment = request.POST.get('comment','')
+			user, created = User.objects.get_or_create(username=username,email=email,is_active=is_active)
+			if created:
+				user.set_password(password)
+				user.profile.roles = roles
+				user.profile.date_expired = date_expired
+				user.profile.created_by = request.user
+				if phone:
+					user.profile.phone = phone
+				if wechat:
+					user.profile.wechat = wechat
+				if comment:
+					user.profile.comment = comment
 				user.groups = groups
-			messages.success(request, '%s has been created successfully!'%(user.username))
-			Audit.objects.create(user=request.user,client=request.META['REMOTE_ADDR'],action='Create user %s'%((user.username)))
+				user.save()
+			result = {'status':True,'msg':'添加成功'}
 		except Exception as e:
-			messages.error(request, e)
-		return redirect('usermanage:users')
+			result = {'status':False,'msg':str(e)}
+		return render(request, 'users/add_user.html',locals())
 
 @login_required
 @role_required('admin')

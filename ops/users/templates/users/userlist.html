@@ -61,16 +61,16 @@
                                   <button type="button" class="btn label label-inverse" onclick="window.location.reload()"><i class="icon-refresh"></i> 刷新</button>
                                </div>
                                <div class="btn-group">
-                                   <button type="button" class="btn label label-inverse" onclick="power_on('boot_to_pxe')"><i class="icon-plus"></i> 新建</button>
+                                   <button type="button" class="btn label label-inverse" onclick="add_user()"><i class="icon-plus"></i> 新建</button>
                                </div>
                                <div class="btn-group">
-                                   <button type="button" class="btn label label-inverse" onclick="power_on('chassis_off')"><i class="icon-trash"></i> 删除</button>
+                                   <button type="button" class="btn label label-inverse" onclick="delete_user()"><i class="icon-trash"></i> 删除</button>
                                </div>
                                <div class="btn-group hidden-phone">
                                       <button data-toggle="dropdown" class="btn label label-inverse dropdown-toggle" type="button"><i class="icon-th-large"></i>&nbsp更多操作&nbsp&nbsp <span class="caret"></span></button>
                                       <ul role="menu" class="dropdown-menu" style="min-width: 101.63px;width: 101.63px;">
-                                          <li><a onclick="raid()" style="padding-left: 5px;"><small>重置密码</small></a></li>
-                                          <li><a onclick="config_sys()" style="padding-left: 5px;"><small>禁用账户</small></a></li>
+                                          <li><a onclick="reset_pwd()" style="padding-left: 5px;"><small>重置密码</small></a></li>
+                                          <li><a onclick="disable_user()" style="padding-left: 5px;"><small>禁用账户</small></a></li>
                                       </ul>
                                  </div>
 
@@ -123,7 +123,7 @@
                                 {% for user in users %}
                                   <tr>
                                     <td><input type="checkbox"></td>
-                                    <td id="{{user.id}}"><small><a onclick="show_server('{{user.id}}')" style="text-decoration:underline">{{user.username}}</a></small></td>
+                                    <td id="{{user.id}}"><small><a onclick="show_server('{{user.id}}')" style="text-decoration:underline" data-original-title="联系方式:" data-content="邮件:{{user.email}}</br>电话:{{user.profile.phone}}</br>微信:{{user.profile.wechat}}" data-placement="right" data-trigger="hover"  data-html="true" class="popovers">{{user.username}}</a></small></td>
                                     <td>
                                     	<small>
                                     	{% if user.profile.roles %}
@@ -198,21 +198,6 @@
           });
       });
 
-      function show_server(server_id){
-        var index = layer.open({
-            type: 2,
-            title: "服务器详细信息",
-            offset: 'r',
-            // maxmin: true,
-            area: ['700px', '500px'],
-            // area: 'auto',
-            shadeClose: true,
-            shift: 5,
-            moveOut: true,
-            content: '/installation/server/detail/' + server_id
-          });
-      }
-
       function get_server_id(){
         var tbodyObj = document.getElementById('mytable');
         var ids = [];
@@ -228,118 +213,20 @@
             return ids
       }
 
-      function power_on(act) {
-        var ids = get_server_id();
-        if (ids.length == 0) 
-            {
-              layer.alert("请先选中主机");
-            }
-        else
-            { 
-              var index = layer.load(2, {time: 30*1000});
-              $.each(ids,function(key,value){
-                  $.get("/installation/server/ipmi/"+ value + '/' + act,
-                        function(data) {
-                          if (data == 'error')
-                              {
-                                var index = layer.open({
-                                    type: 2,
-                                    title: "更新IPMI配置",
-                                    // offset: 'r',
-                                    // maxmin: true,
-                                    area: ['400px', '300px'],
-                                    // area: 'auto',
-                                    shadeClose: true,
-                                    shift: 5,
-                                    moveOut: true,
-                                    content: ['/installation/server/ipmi/' + value,'no'],
-                                    end : function(){
-                                        window.location.reload();
-                                      }
-                                  });
-                              }
-                          else if (data == 'disable')
-                              {
-                                layer.alert(value + '无法完成该操作！');
-                              }
-                          else if (data == 'installing')
-                              {
-                                
-                              }
-                          else
-                              {
-                                var status = document.getElementByName(value);
-                                if (data == 'off'){
-                                  status[0].innerHTML = '已关机';
-                                }
-                                else if (data == 'on'){
-                                  status[0].innerHTML = '已开机';
-                                }
-                                else{
-                                  status[0].innerHTML = '正在安装系统';
-                                }
-                                
-                              }
-                        }
-                  );
-              });
 
-              
-            }
-      }
-
-      function raid() {
-        var ids = get_server_id();
-        if (ids.length ==0 )
-        {
-          layer.alert("请先选中一台主机");
-        }
-        else if (ids.length > 1)
-        {
-          layer.alert("该操作不支持批量操作");
-        }
-        else
-        {
+      function add_user() {
           var index = layer.open({
             type: 2,
-            title: "服务器RAID信息",
-            // offset: 'r',
-            // maxmin: true,
-            area: ['600px', '500px'],
-            // area: 'auto',
+            title: "添加用户",
+            area: ['700px', '520px'],
             shadeClose: true,
             shift: 5,
             moveOut: true,
-            content: '/installation/server/raid/' + ids[0] + '/raid_status'
-          });
-        }
-      }
-
-      function config_sys() {
-        var ids = get_server_id();
-        if (ids.length ==0 )
-        {
-          layer.alert("请先选中一台主机");
-        }
-        else if (ids.length > 1)
-        {
-          layer.alert("该操作不支持批量操作");
-        }
-        else
-        {
-          var index = layer.open({
-            type: 2,
-            title: '配置系统',
-            area: ['600px', '400px'],
-            // shadeClose: true,
-            shift: 5,
-            moveOut: true,
-            content: '/installation/server/install/' + ids[0],
+            content: "{% url 'users:add_user' %}",
             end: function () {
                   window.location.reload();//刷新
                 }
           });
-        }
       }
 
       function delete_server() {
