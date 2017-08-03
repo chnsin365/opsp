@@ -36,97 +36,37 @@
         {% if result.status %}
                 <p class="alert alert-success fade in">{{ result.msg }}</p>
         {% elif result %}
-                <p class="alert alert-danger fade in">{{ result.msg }}</p>
-        {% else %}
-            
+        		<p class="alert alert-danger fade in">{{ result.msg }}</p>
+       	{% else %}
+
         {% endif %} 
-      <form class="form-horizontal" role="form" action="{% url 'users:add_user' %}" method="post" role="form">
+      <form class="form-horizontal" role="form" action="{% url 'users:changepwd' %}" method="post" role="form">
           {% csrf_token %}     
         <div class="form-group">
-          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">用户名 *</span></label>
+          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">旧密码 *</span></label>
           <div class="col-xs-8 col-md-6 col-sm-6" >
-                <input class="form-control" name="username" required="required" type="text">
+                <input class="form-control" name="oldpassword" required="required" type="password">
           </div>
         </div>
 
         <div class="form-group">
-          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">初始密码 *</span></label>
+          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">新密码 *</span></label>
           <div class="col-xs-8 col-md-6 col-sm-6" >
-                <input class="form-control" type="text" name="password" disabled="disabled" value="1qaz@WSX">
+                <input class="form-control" name="newpassword" required="required" type="password">
           </div>
         </div>
 
         <div class="form-group">
-          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">角色 * </span></label>
+          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">确认密码 *</span></label>
           <div class="col-xs-8 col-md-6 col-sm-6" >
-                  <select multiple="multiple" class="multi-select" id="my_multi_select1" name="roles" required>
-                      {% for role in  roles%}
-                        <option value="{{role.id}}">{{ role.comment }}</option>
-                      {% endfor %}
-                  </select>
+                <input class="form-control" name="newpassword1" required="required" type="password">
           </div>
         </div>
 
-        <div class="form-group">
-          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">用户组 * </span></label>
-          <div class="col-xs-8 col-md-6 col-sm-6" >
-                  <select multiple="multiple" class="multi-select" id="my_multi_select4" name="groups" required>
-                      {% for group in groups%}
-                        <option value="{{group.id}}">{{ group.name }}</option>
-                      {% endfor %}
-                  </select>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">是否激活 *</span></label>
-          <div class="col-xs-8 col-md-6 col-sm-6" >
-                  <select name="is_active" required>
-                     <option value="1">激活</option>
-                     <option value="0">禁用</option>
-                  </select>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">账户过期时间 *</span></label>
-          <div class="col-xs-8 col-md-6 col-sm-6" >
-                <input size="16" type="text" name="date_expired" class="form_datetime form-control" required="required">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">邮件地址 *</span></label>
-          <div class="col-xs-8 col-md-6 col-sm-6" >
-                <input class="form-control" name="email" required="required" type="email">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">电话 </span></label>
-          <div class="col-xs-8 col-md-6 col-sm-6" >
-                <input class="form-control" name="phone" type="phone">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">微信 </span></label>
-          <div class="col-xs-8 col-md-6 col-sm-6" >
-                <input class="form-control" name="wechat" type="text">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">备注 </span></label>
-          <div class="col-xs-8 col-md-6 col-sm-6" >
-                <textarea class="form-control" name="comment"></textarea>
-          </div>
-        </div>
 
         <div class="form-group">
           <div class="col-xs-8 col-md-6 col-sm-6">
             <button type="submit" class="btn">提交</button>
-            <button type="reset" class="btn">取消</button>
           </div>
         </div>
       </form>

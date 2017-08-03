@@ -145,10 +145,41 @@ def disable_user(request):
 			result[user.username] = '错误原因:%s'%(str(e))
 	return HttpResponse(json.dumps(result))
 
+
+@login_required
+def profile(request,id):
+	user = User.objects.get(id=id)
+	if request.method == "GET":
+		return render(request, 'users/profile.html',locals())
+	else:
+		try:
+			username = request.POST.get('username','')
+			email = request.POST.get('email','')
+			phone = request.POST.get('phone','')
+			wechat = request.POST.get('wechat','')
+			comment = request.POST.get('comment','')
+			if username != user.username:
+				user.username=username
+			if email != user.email:
+				user.email=email
+			if phone != user.profile.phone:
+				user.profile.phone = phone
+			if wechat != user.profile.wechat:
+				user.profile.wechat = wechat
+			if comment != user.profile.comment:
+				user.profile.comment = comment
+			user.save()
+			result = {'status':True,'msg':'更新成功'}
+		except Exception as e:
+			result = {'status':False,'msg':str(e)}
+		user = User.objects.get(id=id)
+		return render(request, 'users/profile.html',locals())
+
+
 @login_required
 def changepwd(request):
 	if request.method == 'GET':
-		return render(request, 'changepwd.html')
+		return render(request, 'users/changepwd.html')
 	else:
 		oldpassword = request.POST.get('oldpassword', '')
 		user = auth.authenticate(username=request.user.username, password=oldpassword)
@@ -158,12 +189,12 @@ def changepwd(request):
 			if newpassword == newpassword1:
 				user.set_password(newpassword)
 				user.save()
-				messages.success(request, 'Change password successfully!')
+				result = {'status':True,'msg':'密码修改成功'}
 			else:
-				messages.error(request, '两次输入密码不一致！')
+				result = {'status':False,'msg':'两次输入密码不同'}
 		else:
-			messages.error(request, '旧密码错误！')
-		return redirect('usermanage:changepwd')
+			result = {'status':False,'msg':'旧密码错误！'}
+		return render(request, 'users/changepwd.html',locals())
 
 @login_required
 @role_required('admin')

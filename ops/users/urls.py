@@ -24,8 +24,10 @@ urlpatterns = [
     url(r'^disable_user/$',views.disable_user,name='disable_user'),
     url(r'^delete_user/$',views.delete_user,name='delete_user'),
     url(r'^reset_password/$',views.resetpwd,name='resetpwd'),
+    url(r'^change_password/$',views.changepwd,name='changepwd'),
 	url(r'^grouplist/$',views.grouplist,name='grouplist'),
     url(r'^add_group/$',views.add_group,name='add_group'),
     url(r'^edit_group/(\d+)/$',views.edit_group,name='edit_group'),
     url(r'^delete_group/$',views.delete_group,name='delete_group'),
+    url(r'^profile/(\d+)/$',views.profile,name='profile'),
 ]
