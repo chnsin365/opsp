@@ -1,18 +1,38 @@
 # -*- coding: utf-8 -*-
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User,Group
 from installation.models import ServerStatus,Tag,Cobbler
+from users.models import Role
+import datetime
+
+# create roles
+roles = {'viewer':'访客','operator':'普通用户','admin':'管理员'}
+try:
+    for name,comment in roles.items():
+        Role.objects.get_or_create(name=name,defaults={'comment':comment})
+        print '***********',name,comment,'***********'
+except Exception as e:
+    # raise e
+    print e
 
 # create admin user
-
 try:
     user,created = User.objects.get_or_create(username='admin',defaults ={ 'is_superuser': True })
     if created:
         user.set_password('admin@123')
+        role = Role.objects.get(name='admin')
+        user.profile.roles.add(role)
+        user.profile.created_by = user
+        user.profile.date_expired = datetime.datetime(2100, 1, 2, 00, 00)
         user.save()
+        group,created = Group.objects.get_or_create(name='admin')
+        if created:
+            user.groups.add(group)
     print '*************',user.username,'*************'
 except Exception as e:
     print e
     raise e
+
+
 
 # 创建数据来源<从LiveCD获取的信息会自动填入L，线上主机通过Agent抓取的为A>
 tag = {'L':'livecd','A':'agent'}
