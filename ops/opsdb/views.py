@@ -14,6 +14,8 @@ from json2html import *
 from .saltapi import SaltAPI
 import os
 import time
+from django.contrib.auth.decorators import login_required
+from users.custom_decorators import role_required
 
 # connect mongodb
 try:
@@ -55,6 +57,8 @@ def system(request,id):
 		system_detail = '抱歉,未查询到当前主机信息'
 	return HttpResponse(system_detail)
 
+@login_required
+@role_required('salt','admin')
 @csrf_exempt
 def add_system(request):
 	if request.method == "GET":
@@ -73,6 +77,8 @@ def add_system(request):
 				messages.error(request, ret['result'])
 		return render(request,'opsdb/salt/add_system.html',locals())
 
+@login_required
+@role_required('salt','admin')
 @csrf_exempt
 def delete_system(request):
 	target = request.POST.get('ids[]','')
@@ -87,6 +93,8 @@ def delete_system(request):
 			ret[tgt] = str(e)
 	return HttpResponse(ret)
 
+@login_required
+@role_required('salt','admin')
 def salt_run(request):
 	salt_funs = SaltFun.objects.all()
 	if request.method == 'GET':
@@ -113,6 +121,8 @@ def salt_run(request):
 			error = str(e)
 	return render(request,'opsdb/salt/salt_run.html',locals())
 
+@login_required
+@role_required('salt','admin')
 def salt_custom_run(request,arg_list):
 	user = request.user.username
 	if request.META.has_key('HTTP_X_FORWARDED_FOR'):
@@ -132,6 +142,8 @@ def salt_custom_run(request,arg_list):
 		error = str(e)	
 	return render(request,'opsdb/salt/salt_run.html',locals())
 
+@login_required
+@role_required('salt','admin')
 def salt_state(request):
 	states = SaltState.objects.all()
 	if request.method == 'GET':
@@ -162,6 +174,8 @@ def salt_state(request):
 			err.append(str(e))
 	return render(request,'opsdb/salt/salt_state.html',locals())
 
+@login_required
+@role_required('salt','admin')
 def saltjoblist(request):
 	sjobs = mongo_salt.salt_joblist.find().sort([('_id',-1)])
 	job_list = [job for job in sjobs]
@@ -190,6 +204,8 @@ def job_jid(request,jid):
 	sjob = mongo_salt.salt_job_ret.find_one({'jid':jid})
 	return render(request,'opsdb/salt/salt_job_result.html',locals())
 
+@login_required
+@role_required('salt','admin')
 def kill_job(request,jid):
 	sjob = mongo_salt.salt_joblist.find_one({'jid':jid})
 	if sjob.has_key('state_id') and sjob['progress'] == 'Executing':
@@ -203,6 +219,8 @@ def kill_job(request,jid):
 		result = '无法kill该job'
 	return HttpResponse(result)
 
+@login_required
+@role_required('salt','admin')
 def state_manage(request):
 	state_list = SaltState.objects.all()
 	page_number =  request.GET.get('page_number')
@@ -222,6 +240,8 @@ def state_manage(request):
 	    states = paginator.page(paginator.num_pages)
 	return render(request,'opsdb/salt/state_manage.html',locals())
 
+@login_required
+@role_required('salt','admin')
 def state_upload(request):
 	if request.method == 'GET':
 		# pass
@@ -261,7 +281,9 @@ def state_upload(request):
 				except Exception as e:
 					messages.error(request, str(e)) 
 				return render(request,'opsdb/salt/upload_state.html')
-	
+
+@login_required
+@role_required('salt','admin')	
 @csrf_exempt
 def state_delete(request):
 	ids = request.POST.getlist('ids[]','')
@@ -280,6 +302,8 @@ def state_delete(request):
 			ret_data[state.name] = str(e)
 	return HttpResponse(json.dumps(ret_data))
 
+@login_required
+@role_required('salt','admin')
 def minion_key(request,act):
 	# minion_keys = mongo_salt.salt_key.find({'act':act})
 	# key_list = [{'id': key['id'],'act':key['act'],'stamp':key['_stamp']} for key in minion_keys]
@@ -312,6 +336,8 @@ def minion_key(request,act):
 	else:
 		return render(request,'opsdb/salt/accept_key.html',locals())
 
+@login_required
+@role_required('salt','admin')
 @csrf_exempt
 def act_key(request):
 	salt_master = get_object_or_404(ServiceHost,service='salt_api')
