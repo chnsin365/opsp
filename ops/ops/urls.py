@@ -21,7 +21,7 @@ urlpatterns = [
 	url(r'^admin/', admin.site.urls),
 	url(r'^$',views.index,name="index"),
 	url(r'^accounts/login',views.login,name="login"),
-	url(r'^logout/',views.logout,name="logout"), 
+	url(r'^logout/',views.logout,name="logout"),
     url(r'^users/',include('users.urls',namespace='users')),  
     url(r'^installation/',include('installation.urls',namespace='installation')),
     url(r'^opsdb/',include('opsdb.urls',namespace='opsdb')),
