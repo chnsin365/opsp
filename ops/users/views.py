@@ -12,6 +12,7 @@ from django.contrib.auth.models import User,Group
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import json
 from .models import *
+from opsdb.models import HostGroup,Application,Business
 # Create your views here.
 
 @login_required
@@ -283,3 +284,71 @@ def delete_group(request):
 	except Exception as e:
 		result[group_id] = str(e)
 	return HttpResponse(json.dumps(result))
+
+@login_required
+@role_required('admin')
+def rules(request):
+	return render(request,'users/rules.html')
+
+@login_required
+@role_required('admin')
+def rulelist(request):
+	rule_list = Rule.objects.all()
+	page_number =  request.GET.get('page_number')
+	if page_number:
+		page_number = int(page_number)
+	else:
+		page_number =  10
+	paginator = Paginator(rule_list, page_number)
+	page = request.GET.get('page')
+	try:
+		rules = paginator.page(page)
+	except PageNotAnInteger:
+		# If page is not an integer, deliver first page.
+		rules = paginator.page(1)
+	except EmptyPage:
+		# If page is out of range (e.g. 9999), deliver last page of results.
+		rules = paginator.page(paginator.num_pages)	
+	return render(request,'users/rulelist.html',locals())
+
+
+@login_required
+@role_required('admin')
+@csrf_exempt
+def edit_rule(request,id):
+	hostgroups = HostGroup.objects.all()
+	apps = Application.objects.all()
+	businesses = Business.objects.all()
+	rule = Rule.objects.get(pk=id)
+	if request.method == "GET":
+		return render(request, 'users/edit_rule.html',locals())
+	else:
+		try:
+			username = request.POST.get('username','')
+			password = request.POST.get('password','')
+			roles = request.POST.getlist('roles','')
+			groups = request.POST.getlist('groups','')
+			is_active = bool(int(request.POST.get('is_active','')))
+			date_expired = request.POST.get('date_expired','')
+			email = request.POST.get('email','')
+			phone = request.POST.get('phone','')
+			wechat = request.POST.get('wechat','')
+			comment = request.POST.get('comment','')
+			user, created = User.objects.get_or_create(username=username,email=email,is_active=is_active)
+			if created:
+				user.set_password(password)
+				user.profile.roles = roles
+				user.profile.date_expired = date_expired
+				user.profile.created_by = request.user
+				if phone:
+					user.profile.phone = phone
+				if wechat:
+					user.profile.wechat = wechat
+				if comment:
+					user.profile.comment = comment
+				user.groups = groups
+				user.save()
+			result = {'status':True,'msg':'添加成功'}
+		except Exception as e:
+			result = {'status':False,'msg':str(e)}
+		return render(request, 'users/add_user.html',locals())
