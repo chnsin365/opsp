@@ -293,7 +293,7 @@
                   <li class="sub-menu">
                       <a href="javascript:;">
                           <i class="icon-laptop"></i>
-                          <span>装机管理</span>
+                          <span>部署平台</span>
                       </a>
                       <ul class="sub">
                       	  <li><a  href="{% url 'installation:server' %}">物理机安装</a></li>
@@ -305,7 +305,7 @@
                   <li class="sub-menu">
                       <a href="javascript:;">
                           <i class="icon-book"></i>
-                          <span>运维数据库</span>
+                          <span>运维平台</span>
                       </a>
                       <ul class="sub">
                           <li><a  href="{% url 'opsdb:systems' %}">主机管理</a></li>
@@ -314,23 +314,11 @@
                           <li><a  href="{% url 'cronjob:cron' %}">定时作业</a></li>
                       </ul>
                   </li>
-
-<!--                   <li class="sub-menu">
-                      <a href="javascript:;">
-                          <i class="icon-cogs"></i>
-                          <span>配置管理</span>
-                      </a>
-                      <ul class="sub">
-                          <li><a  href="#">自动配置</a></li>
-                          <li><a  href="#">Minion配置</a></li>
-                          <li><a  href="#">模块管理</a></li>
-                          <li><a  href="#">历史任务</a></li>
-                      </ul>
-                  </li> -->
+                  
                   <li class="sub-menu">
                       <a href="javascript:;">
                           <i class="icon-th"></i>
-                          <span>性能监控</span>
+                          <span>监控平台</span>
                       </a>
                       <ul class="sub">
                           <li><a  href="basic_table.html">Basic Table</a></li>
@@ -343,7 +331,7 @@
                   <li class="sub-menu">
                       <a href="javascript:;">
                           <i class=" icon-bar-chart"></i>
-                          <span>日志管理</span>
+                          <span>日志平台</span>
                       </a>
                       <ul class="sub">
                           <li><a  href="morris.html">Morris</a></li>
@@ -360,7 +348,7 @@
                       </a>
                       <ul class="sub">
                           <li><a  href="{% url 'users:users' %}">用户管理</a></li>
-                          <li><a  href="#">授权规则</a></li>
+                          <li><a  href="{% url 'users:rules' %}">授权规则</a></li>
                           <li><a  href="#">安全审计</a></li>
                       </ul>
                   </li>

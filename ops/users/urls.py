@@ -28,4 +28,7 @@ urlpatterns = [
     url(r'^add_group/$',views.add_group,name='add_group'),
     url(r'^edit_group/(\d+)/$',views.edit_group,name='edit_group'),
     url(r'^delete_group/$',views.delete_group,name='delete_group'),
+    url(r'^rules/$',views.rules,name='rules'),
+    url(r'^rulelist/$',views.rulelist,name='rulelist'),
+    url(r'^edit_rule/(\d+)/$',views.edit_rule,name='edit_rule'),    
 ]
