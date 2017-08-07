@@ -10,10 +10,11 @@ from django.contrib import messages
 # Create your views here.
 
 @login_required
-def index(request):
-    return render(request, 'index.html')
+def base(request):
+    return render(request, 'base.html')
 
-# Create your views here.
+def dashboard(request):
+    return render(request, 'dashboard.html')
 
 def login(request):
 	if request.method == 'GET':

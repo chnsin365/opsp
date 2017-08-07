@@ -5,7 +5,7 @@ from users.models import Role
 import datetime
 
 # create roles
-roles = {'viewer':'访客','install':'装机','salt':'配置管理','admin':'管理员'}
+roles = {'viewer':'访客','install':'装机操作','salt':'主机配置','hostadmin':'主机管理','admin':'管理员'}
 try:
     for name,comment in roles.items():
         Role.objects.get_or_create(name=name,defaults={'comment':comment})

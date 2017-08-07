@@ -355,9 +355,6 @@ def update_ipmi(request,server_id):
         return render(request,'installation/msg.html',locals())
 
 def cobbler(request):
-    return render(request,'installation/service_conf.html')
-
-def cobbler_config(request):
     cobbler_list = Cobbler.objects.all()
     page_number =  request.GET.get('page_number')
     if page_number:
@@ -374,7 +371,7 @@ def cobbler_config(request):
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
         cobblers = paginator.page(paginator.num_pages)    
-    return render(request,'installation/cobbler_config.html',locals())
+    return render(request,'installation/service_conf.html',locals())
 
 def edit_cobbler(request,id):
     cobbler = get_object_or_404(Cobbler,pk=id)

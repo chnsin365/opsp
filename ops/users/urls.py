@@ -17,7 +17,6 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-	url(r'^$',views.users,name='users'),
 	url(r'^userlist/$',views.userlist,name='userlist'),
     url(r'^add_user/$',views.add_user,name='add_user'),
     url(r'^edit_user/(\d+)/$',views.edit_user,name='edit_user'),
@@ -30,7 +29,6 @@ urlpatterns = [
     url(r'^edit_group/(\d+)/$',views.edit_group,name='edit_group'),
     url(r'^delete_group/$',views.delete_group,name='delete_group'),
     url(r'^profile/(\d+)/$',views.profile,name='profile'),
-    url(r'^rules/$',views.rules,name='rules'),
     url(r'^rulelist/$',views.rulelist,name='rulelist'),
     url(r'^edit_rule/(\d+)/$',views.edit_rule,name='edit_rule'),
 ]

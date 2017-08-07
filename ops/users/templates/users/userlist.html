@@ -312,7 +312,7 @@
         {   
 
             layer.confirm('请确认是否要删除账户', function(index){
-                  $.post("{% url 'users:delete_user' %}",{'ids':ids.toString()},function(data){
+                  $.post("{% url 'users:delete_user' %}",{'ids':ids},function(data){
                     if (data == '{}')
                     {
                       layer.msg('删除成功',function(){

@@ -45,7 +45,6 @@ urlpatterns = [
     url(r'^vm/add_vm/$',views.add_vm,name='add_vm'),
     url(r'^vm/get_obj',views.get_obj,name='get_obj'),
     url(r'^installserver/$',views.cobbler,name='cobbler'),
-    url(r'^installserver/config/$',views.cobbler_config,name='cobbler_config'),
     url(r'^installserver/add/$',views.add_cobbler,name='add_cobbler'),
     url(r'^installserver/edit/(\d+)/$',views.edit_cobbler,name='edit_cobbler'),
 ]

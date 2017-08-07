@@ -19,7 +19,8 @@ from . import views
 
 urlpatterns = [
 	url(r'^admin/', admin.site.urls),
-	url(r'^$',views.index,name="index"),
+	url(r'^$',views.base,name="base"),
+    url(r'^dashboard/$',views.dashboard,name="dashboard"),    
 	url(r'^accounts/login',views.login,name="login"),
 	url(r'^logout/',views.logout,name="logout"),
     url(r'^users/',include('users.urls',namespace='users')),  

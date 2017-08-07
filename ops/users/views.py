@@ -17,9 +17,6 @@ from opsdb.models import HostGroup,Application,Business
 
 @login_required
 @role_required('admin')
-def users(request):
-	return render(request,'users/users.html')
-
 def userlist(request):
 	user_list = User.objects.all()
 	page_number =  request.GET.get('page_number')
@@ -120,7 +117,7 @@ def edit_user(request,id):
 @role_required('admin')
 @csrf_exempt
 def delete_user(request):
-	ids = request.POST.getlist('ids','')
+	ids = request.POST.getlist('ids[]','')
 	result = {}
 	for user_id in ids:
 		try:
@@ -276,19 +273,15 @@ def edit_group(request,id):
 @role_required('admin')
 @csrf_exempt
 def delete_group(request):
-	ids = request.POST.getlist('ids','')
+	ids = request.POST.getlist('ids[]','')
 	result = {}
-	try:
-		for group_id in ids:
-			Group.objects.filter(pk=group_id).delete()
-	except Exception as e:
-		result[group_id] = str(e)
+	for group_id in ids:
+		try:
+			group = Group.objects.get(pk=group_id)
+			group.delete()
+		except Exception as e:
+			result[group.name] = str(e)
 	return HttpResponse(json.dumps(result))
-
-@login_required
-@role_required('admin')
-def rules(request):
-	return render(request,'users/rules.html')
 
 @login_required
 @role_required('admin')
@@ -324,31 +317,18 @@ def edit_rule(request,id):
 		return render(request, 'users/edit_rule.html',locals())
 	else:
 		try:
-			username = request.POST.get('username','')
-			password = request.POST.get('password','')
-			roles = request.POST.getlist('roles','')
-			groups = request.POST.getlist('groups','')
-			is_active = bool(int(request.POST.get('is_active','')))
-			date_expired = request.POST.get('date_expired','')
-			email = request.POST.get('email','')
-			phone = request.POST.get('phone','')
-			wechat = request.POST.get('wechat','')
+			hostgroups = request.POST.getlist('hostgroups','')
+			apps = request.POST.getlist('apps','')
+			businesses = request.POST.getlist('businesses','')
 			comment = request.POST.get('comment','')
-			user, created = User.objects.get_or_create(username=username,email=email,is_active=is_active)
-			if created:
-				user.set_password(password)
-				user.profile.roles = roles
-				user.profile.date_expired = date_expired
-				user.profile.created_by = request.user
-				if phone:
-					user.profile.phone = phone
-				if wechat:
-					user.profile.wechat = wechat
-				if comment:
-					user.profile.comment = comment
-				user.groups = groups
-				user.save()
+			rule.hostgroups = hostgroups
+			rule.applications = apps
+			rule.businesses = businesses
+			rule.created_by = request.user
+			rule.comment = comment
+			rule.save()
 			result = {'status':True,'msg':'添加成功'}
 		except Exception as e:
 			result = {'status':False,'msg':str(e)}
-		return render(request, 'users/add_user.html',locals())
+		rule = Rule.objects.get(pk=id)
+		return render(request, 'users/edit_rule.html',locals())

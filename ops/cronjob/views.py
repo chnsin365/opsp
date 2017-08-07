@@ -60,10 +60,7 @@ try:
 except SystemExit:
 	client.close()
 
-def cron(request):
-	return render(request,'cronjob/cron.html')
-
-def jobs(request):
+def cronjobs(request):
 	cronjobs = client.cron.joblist.find().sort([('_id',-1)])
 	job_list = [job for job in cronjobs]
 	page_number =  request.GET.get('page_number')
@@ -81,7 +78,7 @@ def jobs(request):
 	except EmptyPage:
 	    # If page is out of range (e.g. 9999), deliver last page of results.
 	    jobs = paginator.page(paginator.num_pages)
-	return render(request,'cronjob/jobs.html',locals())
+	return render(request,'cronjob/cronjobs.html',locals())
 
 
 def add_scanner(request):

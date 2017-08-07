@@ -23,38 +23,34 @@
       <script src="{%static 'js/html5shiv.js'%}"></script>
       <script src="{%static 'js/respond.min.js'%}"></script>
     <![endif]-->
-
-    {% block css %}
-    
-    {% endblock %}
   </head>
 
   <body>
 
     <section class="wrapper site-min-height">
-    {% block page %}
         <!-- page start-->
         <div class="row">
           <div class="col-lg-12">
               <!--breadcrumbs start -->
               <ul class="breadcrumb">
                   <li><a href="#"></i>运维数据库</a></li>
-                  <li class="active">主机管理</li>
+                  <li><a href="#"></i>主机管理</a></li>
+                  <li class="active">主机</li>
               </ul>
               <!--breadcrumbs end -->
           </div>
         </div>
         <section class="panel">
-         <!--  <header class="panel-heading tab-bg-dark-navy-blue ">
+          <header class="panel-heading tab-bg-dark-navy-blue ">
               <ul class="nav nav-tabs">
                   <li class="active">
-                      <a onclick="window.location.reload()" style="left: 15px;">初始化</a>
+                      <a onclick="window.location.reload()" style="left: 15px;">主机</a>
                   </li>
                   <li class="">
-                      <a href="{%url 'installation:install'%}" style="left: 15px;">安装系统</a>
+                      <a href="{% url 'opsdb:grouplist' %}" style="left: 15px;">主机组</a>
                   </li>
               </ul>
-          </header> -->
+          </header>
           {% block content %}
           <div class="panel-body">
               <div class="tab-content">
@@ -126,9 +122,9 @@
                                     <th><small>Ping</small></th>
                                     <th><small>Agent</small></th>
                                     <th><small>主机组</small></th>
-                                    <th><small>环境</small></th>
                                     <th><small>应用</small></th>
                                     <th><small>业务</small></th>
+                                    <th><small>环境</small></th>
                                   </tr>
                             </thead>
                               <tbody>
@@ -152,10 +148,16 @@
                                     {% else %}
                                     <td><small><span class="badge bg-important">down</span></small></td>
                                     {% endif %}
-                                    <td><small>{{system.hostgroup.name}}</small></td>
-                                    <td><small>{{system.environment.name}}</small></td>
+                                    <td>
+                                        <small>
+                                          {% for hostgroup in system.hostgroups.all %}
+                                            {{ hostgroup.name }}
+                                          {% endfor %}
+                                        </small>
+                                    </td>
                                     <td><small>{{system.application.name | default_if_none:""}}</small></td>
-                                    <td><small>{{system.business.name | default_if_none:""}}</small></td>
+                                    <td><small>{{system.application.business.name | default_if_none:""}}</small></td>
+                                    <td><small>{{system.application.business.environment.name | default_if_none:""}}</small></td>
                                   </tr>
                                 {% endfor %}
                               </tbody>
@@ -166,7 +168,6 @@
           {% endblock %}
         </section>
         <!-- page end-->
-    {% endblock %}
     </section>
 
     <!-- js placed at the end of the document so the pages load faster -->

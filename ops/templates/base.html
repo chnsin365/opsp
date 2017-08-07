@@ -43,7 +43,7 @@
               <div data-original-title="Toggle Navigation" data-placement="right" class="icon-reorder tooltips"></div>
           </div>
           <!--logo start-->
-          <a href="{% url 'index' %}" class="logo" >DEV<span>OPS</span></a>
+          <a href="{% url 'base' %}" class="logo" >DEV<span>OPS</span></a>
           <!--logo end-->
           <div class="nav notify-row" id="top_menu">
             <!--  notification start -->
@@ -284,7 +284,7 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
                   <li>
-                      <a href="{% url 'index' %}">
+                      <a href="{% url 'base' %}">
                           <i class="icon-dashboard"></i>
                           <span>Dashboard</span>
                       </a>
@@ -296,9 +296,9 @@
                           <span>部署平台</span>
                       </a>
                       <ul class="sub">
-                      	  <li><a  href="{% url 'installation:server' %}">物理机安装</a></li>
-                          <li><a  href="{% url 'installation:add_vm' %}">虚拟机安装</a></li>
-                          <li><a  href="{% url 'installation:cobbler' %}">服务配置</a></li>
+                      	  <li><a  href="{% url 'installation:init' %}" target="myiframe">物理机安装</a></li>
+                          <li><a  href="{% url 'installation:add_vm' %}" target="myiframe">虚拟机安装</a></li>
+                          <li><a  href="{% url 'installation:cobbler' %}" target="myiframe">服务配置</a></li>
                       </ul>
                   </li>
 
@@ -308,10 +308,11 @@
                           <span>运维平台</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="{% url 'opsdb:systems' %}">主机管理</a></li>
+                          <li><a  href="{% url 'opsdb:systems' %}" target="myiframe">主机管理</a></li>
                           <li><a  href="#">应用管理</a></li>
                           <li><a  href="#">业务管理</a></li>
-                          <li><a  href="{% url 'cronjob:cron' %}">定时作业</a></li>
+                          <li><a  href="{% url 'opsdb:envlist' %}" target="myiframe">环境管理</a></li>
+                          <li><a  href="{% url 'cronjob:cronjobs' %}" target="myiframe">定时作业</a></li>
                       </ul>
                   </li>
                   
@@ -347,8 +348,8 @@
                           <span>安全及权限</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="{% url 'users:users' %}">用户管理</a></li>
-                          <li><a  href="{% url 'users:rules' %}">授权规则</a></li>
+                          <li><a  href="{% url 'users:userlist' %}" target="myiframe">用户管理</a></li>
+                          <li><a  href="{% url 'users:rulelist' %}" target="myiframe">授权规则</a></li>
                           <li><a  href="#">安全审计</a></li>
                       </ul>
                   </li>
@@ -361,18 +362,14 @@
       <!--main content start-->
       {% block main-content %}
       <section id="main-content">
-        {% block content %}
-          <section class="wrapper site-min-height">
-              <!-- page start-->
-              	Page content goes here
-              <!-- page end-->
-          </section>
-        {% endblock %}
+          <!-- <section> -->
+                <iframe id="myiframe" name='myiframe' scrolling="yes" onload="changeFrameHeight()" frameborder="0" width="100%" src="{% url 'dashboard' %}"></iframe>
+          <!-- </section> -->
       </section>
       {% endblock %}
       <!--main content end-->
       <!--footer start-->
-      {% block footer %}
+      <!-- {% block footer %}
       <footer class="site-footer">
           <div class="text-center">
               2017 &copy; DevOps by Jinmuinfo.
@@ -381,7 +378,7 @@
               </a>
           </div>
       </footer>
-      {% endblock %}
+      {% endblock %} -->
       <!--footer end-->
   </section>
 
@@ -427,7 +424,16 @@
                 }
           });
       }
-      </script>
+
+        function changeFrameHeight(){
+            var ifm= document.getElementById("myiframe"); 
+            ifm.height=document.documentElement.clientHeight;
+          }
+
+        window.onresize=function(){  
+           changeFrameHeight();  
+        } 
+    </script>
 
     {% block js %}
     

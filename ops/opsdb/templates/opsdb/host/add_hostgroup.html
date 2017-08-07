@@ -36,59 +36,36 @@
         {% if result.status %}
                 <p class="alert alert-success fade in">{{ result.msg }}</p>
         {% elif result %}
-        		<p class="alert alert-danger fade in">{{ result.msg }}</p>
-       	{% else %}
-
+                <p class="alert alert-danger fade in">{{ result.msg }}</p>
+        {% else %}
+            
         {% endif %} 
-      <form class="form-horizontal" role="form" action="{% url 'users:edit_rule' rule.id %}" method="post" role="form">
+      <form class="form-horizontal" role="form" action="{% url 'opsdb:add_hostgroup' %}" method="post" role="form">
           {% csrf_token %}     
         <div class="form-group">
-          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">用户组</span></label>
+          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">主机组名 *</span></label>
           <div class="col-xs-8 col-md-6 col-sm-6" >
-               <input class="form-control" name="usergroup" required="required" type="text" value="{{rule.group.name}}" disabled>
+                <input class="form-control" name="name" required="required" type="text">
           </div>
         </div>
 
         <div class="form-group">
-          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">主机组 </span></label>
+          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">主机 * </span></label>
           <div class="col-xs-8 col-md-6 col-sm-6" >
-                <select multiple="multiple" class="multi-select" id="my_multi_select1" name="hostgroups">
-                    {% for group in hostgroups%}
-                    	{% if group in rule.hostgroups.all %}
-                      	<option value="{{group.id}}" selected>{{ group.name }}</option>
-                      {% else %}
-                      	<option value="{{group.id}}">{{ group.name }}</option>
-                      {% endif %}
-                    {% endfor %}
-                </select>
+                  <select multiple="multiple" class="multi-select" id="my_multi_select1" name="systems" required>
+                      {% for system in  systems %}
+                        <option value="{{system.id}}">{{ system.id }}</option>
+                      {% endfor %}
+                  </select>
           </div>
         </div>
 
         <div class="form-group">
-          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">应用 </span></label>
+          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">所属用户组 * </span></label>
           <div class="col-xs-8 col-md-6 col-sm-6" >
-                <select multiple="multiple" class="multi-select" id="my_multi_select4" name="apps">
-                    {% for app in apps%}
-                    	{% if app in rule.applications.all %}
-                      	<option value="{{app.id}}" selected>{{ app.name }}</option>
-                      {% else %}
-                      	<option value="{{app.id}}">{{ app.name }}</option>
-                      {% endif %}
-                    {% endfor %}
-                </select>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">业务 </span></label>
-          <div class="col-xs-8 col-md-6 col-sm-6" >
-                  <select multiple="multiple" class="multi-select" id="my_multi_select5" name="businesses">
-                      {% for business in businesses%}
-                      	{% if business in rule.businesses.all %}
-                        	<option value="{{business.id}}" selected>{{ business.name }}</option>
-                        {% else %}
-                        	<option value="{{business.id}}">{{ business.name }}</option>
-                        {% endif %}
+                  <select multiple="multiple" class="multi-select" id="my_multi_select4" name="groups" required>
+                      {% for group in groups%}
+                        <option value="{{group.id}}">{{ group.name }}</option>
                       {% endfor %}
                   </select>
           </div>
@@ -97,7 +74,7 @@
         <div class="form-group">
           <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">备注 </span></label>
           <div class="col-xs-8 col-md-6 col-sm-6" >
-                <textarea class="form-control" name="comment">{{rule.comment}}</textarea>
+                <textarea class="form-control" name="comment"></textarea>
           </div>
         </div>
 

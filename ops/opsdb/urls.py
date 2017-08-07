@@ -20,7 +20,6 @@ from . import views
 
 urlpatterns = [
 	url(r'^systems/$',views.systems,name='systems'),
-	url(r'^system_iframe/',views.system_iframe,name='system_iframe'),
     url(r'^systems/show/(.+)/$',views.system,name='system'),
 	url(r'^systems/add/$',views.add_system,name='add_system'),
     url(r'^systems/delete/$',views.delete_system,name='delete_system'),
@@ -35,4 +34,22 @@ urlpatterns = [
     url(r'^systems/job_cjid/(\d*)/$',views.job_cjid,name='job_cjid'),
     url(r'^systems/job_jid/(\d*)/$',views.job_jid,name='job_jid'),
     url(r'^systems/kill_job/(\d+)/$',views.kill_job,name='kill_job'),
+    url(r'^systems/kill_job/(\d+)/$',views.kill_job,name='kill_job'),
+    url(r'^hostgroup/grouplist/$',views.grouplist,name='grouplist'),
+    url(r'^hostgroup/add/$',views.add_hostgroup,name='add_hostgroup'),
+    url(r'^hostgroup/edit/(\d+)/$',views.edit_hostgroup,name='edit_hostgroup'),
+    url(r'^hostgroup/delete/$',views.delete_hostgroup,name='delete_hostgroup'),
+    url(r'^environment/envlist/$',views.envlist,name='envlist'),
 ]
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,7 +17,6 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-	url(r'^$',views.cron,name='cron'),
-	url(r'^jobs/$',views.jobs,name='jobs'),
+	url(r'^$',views.cronjobs,name='cronjobs'),
 	url(r'^add_scanner/$',views.add_scanner,name='add_scanner'),
 ]

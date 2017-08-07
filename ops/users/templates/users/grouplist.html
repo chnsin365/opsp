@@ -210,8 +210,8 @@
         else
         {   
 
-            layer.confirm('请确认是否要删除用户组', function(index){
-                  $.post("/users/delete_group/",{'ids':ids.toString()},function(data){
+            layer.confirm('请确认是否要删除选中的用户组', function(index){
+                  $.post("/users/delete_group/",{'ids':ids},function(data){
                     if (data == '{}')
                     {
                       layer.msg('删除成功',function(){
