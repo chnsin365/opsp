@@ -130,5 +130,27 @@ Total run time:  20.638 s
 ```
 > State module参考：https://docs.saltstack.com/en/latest/ref/states/all/
 
-# pillar #
+# cmd.script #
+```
+master上创建文件夹，脚本放置在该文件夹下
+mkdir -p /srv/salt/scripts/
+salt cobbler cmd.script salt://scripts/test.sh
+cobbler:
+   ----------
+   pid:
+       14882
+   retcode:
+       0
+   stderr:
+   stdout:
 
+```
+
+# 命令帮助查看#
+```
+salt cobbler sys.list_modules
+salt cobbler sys.list_functions cmd
+salt cobbler sys.doc cmd
+```
+
+# pillar #
