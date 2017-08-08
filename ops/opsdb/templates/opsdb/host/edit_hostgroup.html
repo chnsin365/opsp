@@ -45,35 +45,35 @@
         <div class="form-group">
           <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">主机组名 *</span></label>
           <div class="col-xs-8 col-md-6 col-sm-6" >
-                <input class="form-control" name="name" required="required" type="text" value="{{hostgroup.name}}">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">主机 * </span></label>
-          <div class="col-xs-8 col-md-6 col-sm-6" >
-                  <select multiple="multiple" class="multi-select" id="my_multi_select1" name="systems" required>
-                      {% for system in  systems %}
-                      	{% if system in hostgroup.system_set.all %}
-                        	<option value="{{system.id}}" selected>{{ system.id }}</option>
-                        {% else %}
-                        	<option value="{{system.id}}">{{ system.id }}</option>
-                        {% endif %}
-                      {% endfor %}
-                  </select>
+                <input class="form-control" name="name" type="text" value="{{hostgroup.name}}">
           </div>
         </div>
 
         <div class="form-group">
           <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">所属用户组 * </span></label>
           <div class="col-xs-8 col-md-6 col-sm-6" >
-                  <select multiple="multiple" class="multi-select" id="my_multi_select4" name="groups" required>
+                  <select multiple="multiple" class="multi-select" id="my_multi_select4" name="groups" required="required">
                       {% for group in groups%}
-                      	{% if group in hostgroup.groups.all %}
-                        	<option value="{{group.id}}" selected>{{ group.name }}</option>
+                        {% if group in hostgroup.groups.all %}
+                          <option value="{{group.id}}" selected>{{ group.name }}</option>
                         {% else %}
-                        	<option value="{{group.id}}">{{ group.name }}</option>
+                          <option value="{{group.id}}">{{ group.name }}</option>
                         {% endif %}                        
+                      {% endfor %}
+                  </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">主机 </span></label>
+          <div class="col-xs-8 col-md-6 col-sm-6" >
+                  <select multiple="multiple" class="multi-select" id="my_multi_select1" name="systems">
+                      {% for system in  systems %}
+                      	{% if system in hostgroup.system_set.all %}
+                        	<option value="{{system.id}}" selected>{{ system.id }}</option>
+                        {% else %}
+                        	<option value="{{system.id}}">{{ system.id }}</option>
+                        {% endif %}
                       {% endfor %}
                   </select>
           </div>

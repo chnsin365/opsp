@@ -123,14 +123,14 @@ def add_hostgroup(request):
 		return render(request, 'opsdb/host/add_hostgroup.html',locals())
 	else:
 		name = request.POST.get('name','')
-		systems = request.POST.getlist('systems','')
-		groups = request.POST.getlist('groups','')
+		systems_list = request.POST.getlist('systems','')
+		groups_list = request.POST.getlist('groups','')
 		comment = request.POST.get('comment','')
 		try:
 			hostgroup,created = HostGroup.objects.get_or_create(name=name)
 			if created:
-				hostgroup.system_set = systems
-				hostgroup.groups = groups
+				hostgroup.groups = groups_list
+				hostgroup.system_set = systems_list
 				if comment:
 					hostgroup.comment = comment
 					hostgroup.save()
@@ -149,16 +149,16 @@ def edit_hostgroup(request,id):
 		return render(request, 'opsdb/host/edit_hostgroup.html',locals())
 	else:
 		name = request.POST.get('name','')
-		systems = request.POST.getlist('systems','')
-		groups = request.POST.getlist('groups','')
+		systems_list = request.POST.getlist('systems','')
+		groups_list = request.POST.getlist('groups','')
 		comment = request.POST.get('comment','')
 		try:
 			if name != hostgroup.name:
 				hostgroup.name = name
 			if comment != hostgroup.comment:
 				hostgroup.comment = comment
-			hostgroup.system_set = systems
-			hostgroup.groups = groups
+			hostgroup.system_set = systems_list
+			hostgroup.groups = groups_list
 			hostgroup.save()
 			result = {'status':True,'msg':'更新成功'}
 		except Exception as e:

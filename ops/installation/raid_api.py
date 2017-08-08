@@ -25,7 +25,7 @@ class RAIDAPI(object):
     def raid_card(self):
         # 查看raid卡信息(包括控制器状态、Cache状态、电池状态)
         ret = {'status':False,'result':''}
-        if self.obj.vendor == 'HP':
+        if self.obj.vendor in ['HP','Hewlett-Packard']:
             cmd = "/opt/ssacli/bin/ssacli ctrl all show status"
             try:
                 ret = remote_cmd(cmd,self.addr,user=self.user,passwd=self.passwd)
@@ -38,7 +38,7 @@ class RAIDAPI(object):
     def raid_detail(self):
         # 查看raid详细信息
         ret = {'status':False,'result':''}
-        if self.obj.vendor == 'HP':
+        if self.obj.vendor in ['HP','Hewlett-Packard']:
             cmd = "/opt/ssacli/bin/ssacli ctrl slot=%s show config detail"%(self.obj.raid_adapter_slot)
             try:
                 ret = remote_cmd(cmd,self.addr,user=self.user,passwd=self.passwd)
@@ -51,7 +51,7 @@ class RAIDAPI(object):
     def raid_status(self):
         # 查看raid状态
         ret = {'status':False,'result':''}
-        if self.obj.vendor == 'HP':
+        if self.obj.vendor in ['HP','Hewlett-Packard']:
             cmd = "/opt/ssacli/bin/ssacli ctrl slot=%s ld all show"%(self.obj.raid_adapter_slot)
             try:
                 ret = remote_cmd(cmd,self.addr,user=self.user,passwd=self.passwd)
@@ -64,7 +64,7 @@ class RAIDAPI(object):
     def raid_disk(self):
         # 查看物理硬盘状态
         ret = {'status':False,'result':''}
-        if self.obj.vendor == 'HP':
+        if self.obj.vendor in ['HP','Hewlett-Packard']:
             cmd = "/opt/ssacli/bin/ssacli ctrl slot=%s pd all show"%(self.obj.raid_adapter_slot)
             try:
                 ret = remote_cmd(cmd,self.addr,user=self.user,passwd=self.passwd)
@@ -87,7 +87,7 @@ class RAIDAPI(object):
     def create_raid(self,drivers,raid_type):
         # 创建raid
         ret = {'status':False,'result':''}
-        if self.obj.vendor == 'HP':
+        if self.obj.vendor in ['HP','Hewlett-Packard']:
             cmd = "/opt/ssacli/bin/ssacli ctrl slot=%s create type=ld drives=%s raid=%s"%(self.obj.raid_adapter_slot,drivers,raid_type)
             try:
                 ret = remote_cmd(cmd,self.addr,user=self.user,passwd=self.passwd)
@@ -102,7 +102,7 @@ class RAIDAPI(object):
     def delete_raid(self,array):  
         # 删除raid
         ret = {'status':False,'result':''}
-        if self.obj.vendor == 'HP':
+        if self.obj.vendor in ['HP','Hewlett-Packard']:
             cmd = "/opt/ssacli/bin/ssacli ctrl slot=%s array %s delete forced"%(self.obj.raid_adapter_slot,array)
             try:
                 ret = remote_cmd(cmd,self.addr,user=self.user,passwd=self.passwd)

@@ -50,22 +50,22 @@
         </div>
 
         <div class="form-group">
-          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">主机 * </span></label>
+          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">所属用户组 * </span></label>
           <div class="col-xs-8 col-md-6 col-sm-6" >
-                  <select multiple="multiple" class="multi-select" id="my_multi_select1" name="systems" required>
-                      {% for system in  systems %}
-                        <option value="{{system.id}}">{{ system.id }}</option>
+                  <select multiple="multiple" class="multi-select" id="my_multi_select4" name="groups" required>
+                      {% for group in groups %}
+                        <option value="{{group.id}}">{{ group.name }}</option>
                       {% endfor %}
                   </select>
           </div>
         </div>
 
         <div class="form-group">
-          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">所属用户组 * </span></label>
+          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">主机 </span></label>
           <div class="col-xs-8 col-md-6 col-sm-6" >
-                  <select multiple="multiple" class="multi-select" id="my_multi_select4" name="groups" required>
-                      {% for group in groups%}
-                        <option value="{{group.id}}">{{ group.name }}</option>
+                  <select multiple="multiple" class="multi-select" id="my_multi_select1" name="systems">
+                      {% for system in  systems %}
+                        <option value="{{system.id}}">{{ system.id }}</option>
                       {% endfor %}
                   </select>
           </div>
