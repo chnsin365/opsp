@@ -126,7 +126,7 @@ class Nic(models.Model):
     name               = models.CharField(max_length=20,blank=True,null=True,db_column="nic_name")
     mac                = models.CharField(max_length=50,blank=True,null=True,db_column="mac")
     model              = models.CharField(max_length=100,blank=True,null=True,db_column="nic_model")
-    server             = models.ForeignKey(Server,blank=True, null=True,on_delete=models.PROTECT)
+    server             = models.ForeignKey(Server,blank=True, null=True)
 
     class Meta:
         db_table = 'nic'

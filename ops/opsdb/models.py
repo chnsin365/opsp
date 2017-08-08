@@ -53,7 +53,7 @@ class System(models.Model):
 	os                 = models.CharField(max_length=100,blank=True,null=True)
 	num_cpus           = models.CharField(max_length=100,blank=True,null=True)
 	mem_total          = models.CharField(max_length=100,blank=True,null=True)
-	hostgroup          = models.ManyToManyField(HostGroup)
+	hostgroups          = models.ManyToManyField(HostGroup)
 	applications       = models.ManyToManyField(Application)
 	power_status       = models.BooleanField(default=True)
 	minion_status      = models.BooleanField(default=True)

@@ -47,20 +47,20 @@ def add_user(request):
 	else:
 		try:
 			username = request.POST.get('username','')
-			password = request.POST.get('password','')
+			# password = request.POST.get('password','')
 			roles = request.POST.getlist('roles','')
 			groups = request.POST.getlist('groups','')
 			is_active = bool(int(request.POST.get('is_active','')))
-			date_expired = request.POST.get('date_expired','')
+			# date_expired = request.POST.get('date_expired','')
 			email = request.POST.get('email','')
 			phone = request.POST.get('phone','')
 			wechat = request.POST.get('wechat','')
 			comment = request.POST.get('comment','')
-			user, created = User.objects.get_or_create(username=username,email=email,is_active=is_active)
-			if created:
-				user.set_password(password)
+			user = User.objects.create(username=username,email=email,is_active=is_active)
+			if user:
+				user.set_password("1qaz@WSX")
 				user.profile.roles = roles
-				user.profile.date_expired = date_expired
+				# user.profile.date_expired = date_expired
 				user.profile.created_by = request.user
 				if phone:
 					user.profile.phone = phone
@@ -88,14 +88,14 @@ def edit_user(request,id):
 			username = request.POST.get('username','')
 			new_roles = request.POST.getlist('roles','')
 			new_groups = request.POST.getlist('groups','')
-			date_expired = request.POST.get('date_expired','')
+			# date_expired = request.POST.get('date_expired','')
 			email = request.POST.get('email','')
 			phone = request.POST.get('phone','')
 			wechat = request.POST.get('wechat','')
 			comment = request.POST.get('comment','')
 			user.profile.roles = new_roles
 			user.groups = new_groups
-			user.profile.date_expired = date_expired
+			# user.profile.date_expired = date_expired
 			if username != user.username:
 				user.username=username
 			if email != user.email:
@@ -241,8 +241,8 @@ def add_group(request):
 		name = request.POST.get('name','')
 		members = request.POST.getlist('members','')
 		try:
-			group,created = Group.objects.get_or_create(name=name)
-			if created and members:
+			group = Group.objects.create(name=name)
+			if group and members:
 				group.user_set = members
 			result = {'status':True,'msg':'添加成功'}
 		except Exception as e:

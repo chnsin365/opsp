@@ -111,7 +111,7 @@
                                     <th><small>角色</small></th>
                                     <th><small>用户组</small></th>
                                     <th><small>激活</small></th>
-                                    <th><small>账户过期时间</small></th>
+                                    <!-- <th><small>账户过期时间</small></th> -->
                                     <th><small>创建者</small></th>
                                     <th><small>上次登录时间</small></th>
                                     <th><small>备注</small></th>
@@ -147,7 +147,7 @@
                                     {% else %}
                                     	<td><small><span class="badge bg-important">F</span></small></td>
                                     {% endif %}
-                                    <td><small>{{user.profile.date_expired | date:'Y-m-d H:m:s'}}</small></td>
+                                    <!-- <td><small>{{user.profile.date_expired | date:'Y-m-d H:m:s'}}</small></td> -->
                                     <td><small>{{user.profile.created_by | default_if_none:""}}</small></td>
                                     <td><small>{{user.last_login | date:'Y-m-d H:m:s'}}</small></td>
                                     <td><small data-placement="left" data-toggle="tooltip" class="tooltips" data-original-title="{{user.profile.comment}}">{{user.profile.comment | truncatewords:5}}</small></td>

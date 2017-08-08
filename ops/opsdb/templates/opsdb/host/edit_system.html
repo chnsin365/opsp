@@ -16,6 +16,11 @@
     <!--external css-->
     <link href="{%static 'assets/font-awesome/css/font-awesome.css'%}" rel="stylesheet" />
 
+    <link rel="stylesheet" href="{%static 'assets/bootstrap-fileupload/bootstrap-fileupload.css'%}" />
+    <link rel="stylesheet" href="{%static 'assets/bootstrap-datepicker/css/datepicker.css'%}" />
+    <link rel="stylesheet" href="{%static 'assets/bootstrap-timepicker/compiled/timepicker.css'%}" />
+    <link rel="stylesheet" href="{%static 'assets/bootstrap-colorpicker/css/colorpicker.css'%}" />
+    <link rel="stylesheet" href="{%static 'assets/bootstrap-daterangepicker/daterangepicker-bs3.css'%}" />
     <link rel="stylesheet" href="{%static 'assets/bootstrap-datetimepicker/css/datetimepicker.css'%}" />
     <link rel="stylesheet" href="{%static 'assets/bootstrap-wysihtml5/bootstrap-wysihtml5.css'%}" />
     <link rel="stylesheet" href="{%static 'assets/jquery-multi-select/css/multi-select.css'%}" />
@@ -36,81 +41,48 @@
         {% if result.status %}
                 <p class="alert alert-success fade in">{{ result.msg }}</p>
         {% elif result %}
-        		<p class="alert alert-danger fade in">{{ result.msg }}</p>
-       	{% else %}
-
+                <p class="alert alert-danger fade in">{{ result.msg }}</p>
+        {% else %}
+            
         {% endif %} 
-      <form class="form-horizontal" role="form" action="{% url 'users:edit_user' user.id %}" method="post" role="form">
+      <form class="form-horizontal" role="form" action="{% url 'opsdb:edit_system' system.id %}" method="post" role="form">
           {% csrf_token %}     
         <div class="form-group">
-          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">用户名 *</span></label>
+          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">主机名 *</span></label>
           <div class="col-xs-8 col-md-6 col-sm-6" >
-                <input class="form-control" name="username" required="required" type="text" value="{{user.username}}">
+                <input class="form-control" name="name" type="text" disabled="disabled" value="{{ system.id }}">
           </div>
         </div>
 
         <div class="form-group">
-          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">角色 * </span></label>
+          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">主机组 </span></label>
           <div class="col-xs-8 col-md-6 col-sm-6" >
-                  <select multiple="multiple" class="multi-select" id="my_multi_select1" name="roles" required>
-                      {% for role in  roles%}
-                      	{% if role in user.profile.roles.all %}
-                        	<option value="{{role.id}}" selected>{{ role.comment }}</option>
+                  <!-- <select multiple="" class="multi-select" id="my_multi_select6" name="hostgroups"> -->
+                  <select class="multi-select" multiple="" id="my_multi_select3" name="hostgroups">
+                      {% for group in hostgroups%}
+                        {% if group in system.hostgroups.all %}
+                          <option value="{{group.id}}" selected>{{ group.name }}</option>
                         {% else %}
-                        	<option value="{{role.id}}">{{ role.comment }}</option>
-                        {% endif %}
+                          <option value="{{group.id}}">{{ group.name }}</option>
+                        {% endif %}                        
                       {% endfor %}
                   </select>
           </div>
         </div>
 
         <div class="form-group">
-          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">用户组 * </span></label>
+          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">应用 </span></label>
           <div class="col-xs-8 col-md-6 col-sm-6" >
-                  <select multiple="multiple" class="multi-select" id="my_multi_select4" name="groups" required>
-                      {% for group in groups%}
-                      	{% if group in user.groups.all %}
-                        	<option value="{{group.id}}" selected>{{ group.name }}</option>
+                  <!-- <select multiple="multiple" class="multi-select" id="my_multi_select1" name="systems"> -->
+                  <select multiple="multiple" class="multi-select" id="my_multi_select4" name="apps">
+                      {% for app in  apps %}
+                      	{% if app in system.applications.all %}
+                        	<option value="{{app.id}}" selected>{{ app.name }}</option>
                         {% else %}
-                        	<option value="{{group.id}}">{{ group.name }}</option>
+                        	<option value="{{app.id}}">{{ app.name }}</option>
                         {% endif %}
                       {% endfor %}
                   </select>
-          </div>
-        </div>
-
-<!--         <div class="form-group">
-          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">账户过期时间 *</span></label>
-          <div class="col-xs-8 col-md-6 col-sm-6" >
-                <input size="16" type="text" name="date_expired" class="form_datetime form-control" required="required" value="{{user.profile.date_expired | date:'Y-m-d H:m:s'}}">
-          </div>
-        </div> -->
-
-        <div class="form-group">
-          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">邮件地址 *</span></label>
-          <div class="col-xs-8 col-md-6 col-sm-6" >
-                <input class="form-control" name="email" required="required" type="email" value="{{user.email}}">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">电话 </span></label>
-          <div class="col-xs-8 col-md-6 col-sm-6" >
-                <input class="form-control" name="phone" type="phone" value="{{user.profile.phone}}">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">微信 </span></label>
-          <div class="col-xs-8 col-md-6 col-sm-6" >
-                <input class="form-control" name="wechat" type="text" value="{{user.profile.wechat}}">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-3 col-sm-3 col-xs-3 control-label"><span class="required">备注 </span></label>
-          <div class="col-xs-8 col-md-6 col-sm-6" >
-                <textarea class="form-control" name="comment">{{user.profile.comment}}</textarea>
           </div>
         </div>
 
@@ -132,6 +104,12 @@
     <script src="{%static 'js/jquery.nicescroll.js'%}" type="text/javascript"></script>
     <script src="{%static 'js/respond.min.js'%}" ></script>
 
+    <!--this page plugins-->
+    <script type="text/javascript" src="{%static 'assets/fuelux/js/spinner.min.js'%}"></script>
+    <script type="text/javascript" src="{%static 'assets/bootstrap-fileupload/bootstrap-fileupload.js'%}"></script>
+    <script type="text/javascript" src="{%static 'assets/bootstrap-wysihtml5/wysihtml5-0.3.0.js'%}"></script>
+    <script type="text/javascript" src="{%static 'assets/bootstrap-wysihtml5/bootstrap-wysihtml5.js'%}"></script>
+    <script type="text/javascript" src="{%static 'assets/bootstrap-datepicker/js/bootstrap-datepicker.js'%}"></script>
     <script type="text/javascript" src="{%static 'assets/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js'%}"></script>
     <script type="text/javascript" src="{%static 'assets/bootstrap-daterangepicker/moment.min.js'%}"></script>
     <script type="text/javascript" src="{%static 'assets/bootstrap-daterangepicker/daterangepicker.js'%}"></script>

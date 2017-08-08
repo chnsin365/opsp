@@ -83,7 +83,7 @@
       function delete_raid(server_id,fun,array) {
           layer.confirm('请确认是否要删除RAID', function(index){
               var index = layer.load();
-              $.get("/installation/server/raid/" + server_id +'/' + fun + '/' + array.split(' ')[1],
+              $.get("/installation/server/raid/" + server_id +'/' + fun + '/' + array,
                       function(data){
                           var obj = JSON.parse(data);
                           layer.closeAll();

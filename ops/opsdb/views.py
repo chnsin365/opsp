@@ -57,8 +57,10 @@ def system(request,id):
 		system_detail = '抱歉,未查询到当前主机信息'
 	return HttpResponse(system_detail)
 
+
+
 @login_required
-@role_required('salt','admin')
+@role_required('hostadmin','admin')
 @csrf_exempt
 def add_system(request):
 	if request.method == "GET":
@@ -78,7 +80,27 @@ def add_system(request):
 		return render(request,'opsdb/host/add_system.html',locals())
 
 @login_required
-@role_required('salt','admin')
+@role_required('hostadmin','admin')
+@csrf_exempt
+def edit_system(request,id):
+	hostgroups = HostGroup.objects.all()
+	apps = Application.objects.all()
+	system = get_object_or_404(System,pk=id)
+	if request.method == "GET":
+		return render(request,'opsdb/host/edit_system.html',locals())
+	else:
+		hostgroup_list = request.POST.getlist('hostgroups','')
+		app_list = request.POST.getlist('apps','')
+		try:
+			system.hostgroups = hostgroup_list
+			system.applications = app_list
+			result = {'status':True,'msg':'变更成功'}
+		except Exception as e:
+			result = {'status':False,'msg':str(e)}
+		return render(request,'opsdb/host/edit_system.html',locals())
+
+@login_required
+@role_required('hostadmin','admin')
 @csrf_exempt
 def delete_system(request):
 	target = request.POST.get('ids[]','')

@@ -159,7 +159,6 @@ $('.colorpicker-rgba').colorpicker();
         }
     });
 
-
 //multiselect end
 
 

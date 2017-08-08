@@ -120,7 +120,7 @@
                                       {% endfor %}
                                     </small>
                                   </td>
-                                  <td><small>{{hostgroup.comment | truncatewords:5}}</small></td>
+                                  <td><small data-placement="left" data-toggle="tooltip" class="tooltips" data-original-title="{{hostgroup.comment}}">{{hostgroup.comment | truncatewords:5}}</small></td>
                                   <td><small><button data-placement="left" data-toggle="tooltip" class="label label-inverse tooltips" data-original-title="编辑主机组" onclick="edit_hostgroup('{{hostgroup.id}}')">编辑</button></small></td>
                                 </tr>
                               {% endfor %}

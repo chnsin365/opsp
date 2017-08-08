@@ -73,7 +73,7 @@
                                       <button data-toggle="dropdown" class="btn label label-inverse dropdown-toggle" type="button"><i class="icon-th-large"></i>&nbsp更多操作&nbsp&nbsp <span class="caret"></span></button>
                                       <ul role="menu" class="dropdown-menu" style="min-width: 101.63px;width: 101.63px;">
                                           <li><a href="{% url 'opsdb:saltjoblist' %}" style="padding-left: 5px;"><small>操作记录</small></a></li>
-                                          <!-- <li><a onclick="state_manage()" style="padding-left: 5px;"><small>高级操作</small></a></li> -->
+                                          <li><a onclick="edit_system()" style="padding-left: 5px;"><small>主机编辑</small></a></li>
                                           <li><a onclick="state_manage()" style="padding-left: 5px;"><small>模块管理</small></a></li>
                                           <li><a onclick="minion_key()" style="padding-left: 5px;"><small>节点认证</small></a></li>
                                           <li><a onclick="delete_system()" style="padding-left: 5px;"><small>删除主机</small></a></li>
@@ -236,11 +236,7 @@
       	var index = layer.open({
       		  type: 2,
             title: "添加主机",
-            // offset: 'r',
-            // maxmin: true,
             area: ['550px', '350px'],
-            // area: 'auto',
-            // shadeClose: true,
             shift: 5,
             moveOut: true,
             content: "/opsdb/systems/add/",
@@ -248,6 +244,39 @@
               window.location.reload();
             }
       	})
+      }
+
+      function edit_system() {
+          var ids = get_server_id();
+          if (ids.length == 0 )
+          {
+            layer.alert("请先选中一台主机");
+          }
+          else if (ids.length > 1 )
+          {
+            layer.alert("该操作不支持批量操作");
+          }
+          else
+          {   
+            var index = layer.open({
+                type: 2,
+                title: "主机编辑",
+                area: ['700px', '500px'],
+                shift: 5,
+                moveOut: true,
+                content: "/opsdb/systems/edit/"+ids[0],
+                // success: function(layero, index){
+                //   var body = layer.getChildFrame('body',index);//建立父子联系
+                //   var iframeWin = window[layero.find('iframe')[0]['name']];
+                //   // console.log(arr); //得到iframe页的body内容
+                //   var inputList = body.find('input');
+                //   $(inputList[1]).val(ids[0]);
+                // }
+                end: function() {
+                  window.location.reload();
+                }
+            })
+          }
       }
 
       function delete_system() {
@@ -258,7 +287,6 @@
         }
         else
         {   
-
             layer.confirm('请确认是否要删除', function(index){
                   $.post("/opsdb/systems/delete/",{'ids':ids},function(data){
                     if (data == '{}')
@@ -297,7 +325,7 @@
                   var body = layer.getChildFrame('body',index);//建立父子联系
                   var iframeWin = window[layero.find('iframe')[0]['name']];
                   // console.log(arr); //得到iframe页的body内容
-                  console.log(body.find('input'));
+                  // console.log(body.find('input'));
                   var inputList = body.find('input');
                   $(inputList[1]).val(ids);
               }
