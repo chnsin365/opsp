@@ -33,7 +33,7 @@ ssacli安装在LiveCD的目录
 # ssacli ctrl slot=0 create type=ld drives=1I:1:3,1I:1:4,2I:1:5 raid=5
 
 创建raid1
-# ssacli ctrl slot=1 create type=ld drives=1I:1:1-1I:1:2 raid=1
+# ssacli ctrl slot=1 create type=ld drives=1I:1:1-1I:1:2 raid=1 forced
 
 删除raid
 # ssacli ctrl slot=0 array A delete forced
@@ -115,4 +115,4 @@ Warning: Deleting an array can cause other array letters to become renamed.
 Error: Controller identified by "slot=0" does not have an array identified by
        "A".
 
-删除失败有Error                
+删除失败有Error

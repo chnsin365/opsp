@@ -115,7 +115,7 @@ function get_empty_mem_slots(){
 
 function get_raid_controller_type(){
         manufacturer=$(/usr/sbin/dmidecode |grep "Manufacturer"|sed -n "1p" |awk -F: '{print $NF}' | sed 's/[][ ]*//g')
-        if [ $manufacturer == "HP" ]
+        if [[ $manufacturer == "HP" || $manufacturer == "Hewlett-Packard" ]]
         then
             raid_controller_type=$(/opt/ssacli/bin/ssacli ctrl all show status|sed -n '2p')
         fi
@@ -124,7 +124,7 @@ function get_raid_controller_type(){
 
 function get_raid_controller_slot(){
         manufacturer=$(/usr/sbin/dmidecode |grep "Manufacturer"|sed -n "1p" |awk -F: '{print $NF}' | sed 's/[][ ]*//g')
-        if [ $manufacturer == "HP" ]
+        if [[ $manufacturer == "HP" || $manufacturer == "Hewlett-Packard" ]]
         then
             raid_controller_type=`/opt/ssacli/bin/ssacli ctrl all show status|sed -n '2p'`
             #raid_controller_slot=$({raid_controller_type#*in} | awk '{print $2}')
@@ -151,7 +151,7 @@ function get_raid_controller_slot(){
 
 function get_disk_info(){
         manufacturer=$(/usr/sbin/dmidecode |grep "Manufacturer"|sed -n "1p" |awk -F: '{print $NF}' | sed 's/[][ ]*//g')
-        if [ $manufacturer == "HP" ]
+        if [[ $manufacturer == "HP" || $manufacturer == "Hewlett-Packard" ]]
         then
         echo"" >/tmp/disk_info_list
         get_raid_controller_slot
@@ -279,7 +279,7 @@ function post_server_info(){
         IFS=$SAVEIFS
         printf  "\n]\n" >> /tmp/json.json
         printf "}\n" >> /tmp/json.json
-        /usr/bin/curl -H "Content-type: application/json" -X POST -d "@/tmp/json.json" http://192.168.3.168:8000/installation/post_server_info/
+        /usr/bin/curl -H "Content-type: application/json" -X POST -d "@/tmp/json.json" http://192.168.3.168:80/installation/post_server_info/
 }
 
 post_server_info
