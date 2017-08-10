@@ -33,7 +33,7 @@
           <div class="col-lg-12">
               <!--breadcrumbs start -->
               <ul class="breadcrumb">
-                  <li><a href="#"></i>运维数据库</a></li>
+                  <li><a href="#"></i>运维平台</a></li>
                   <li><a href="#"></i>主机管理</a></li>
                   <li class="active">主机</li>
               </ul>
@@ -155,9 +155,27 @@
                                           {% endfor %}
                                         </small>
                                     </td>
-                                    <td><small>{{system.application.name | default_if_none:""}}</small></td>
-                                    <td><small>{{system.application.business.name | default_if_none:""}}</small></td>
-                                    <td><small>{{system.application.business.environment.name | default_if_none:""}}</small></td>
+                                    <td>
+                                        <small>
+                                          {% for app in system.applications.all %}
+                                            {{app.name}}
+                                          {% endfor %}
+                                        </small>
+                                    </td>
+                                    <td>
+                                        <small>
+                                          {% for app in system.applications.all %}
+                                            {{app.business.name}}
+                                          {% endfor %}
+                                        </small>
+                                    </td>
+                                    <td>
+                                        <small>
+                                          {% for app in system.applications.all %}
+                                            {{app.business.environment.name}}
+                                          {% endfor %}
+                                        </small>
+                                    </td>
                                   </tr>
                                 {% endfor %}
                               </tbody>
