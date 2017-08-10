@@ -7,6 +7,7 @@ from django.shortcuts import get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
 from .models import *
+from opsdb.models import ServiceHost
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import json
 from ops.sshapi import remote_cmd
@@ -36,7 +37,8 @@ def post_server_info(request):
                         'pxe_mac':server_info['pxe_mac'],\
                         'pxe_ip':server_info['pxe_ip'],\
                         'vendor':server_info['vendor'],\
-                        'model':server_info['model']})
+                        'model':server_info['model'],\
+                        'power':'on'})
         if created:
             tag = Tag.objects.get(tag_type=server_info['tag'])
             server.tag = tag
@@ -174,10 +176,8 @@ def init_cobbler(id=1):
     return cblr
 
 def server_change_status(request):
-    ids = request.GET.get('ids','').lstrip(',')
-    ids = ids.split(',')
+    ids = request.GET.getlist('ids[]','')
     status = request.GET.get('status')
-    print ids,status
     cobbler = init_cobbler()
     ret = {}
     for server_id in ids:
@@ -188,13 +188,28 @@ def server_change_status(request):
             if result['result']:
                 status = get_object_or_404(ServerStatus,status_type=status)
                 server.serverstatus = status
-                server.save()
+                if server.presystem.progress == 1:
+                    ipmi_ip = server.ipmi_ip
+                    ipmi_user = server.ipmi_user
+                    ipmi_pass = server.ipmi_pass
+                    if not (ipmi_ip and ipmi_user and ipmi_pass):
+                        ret = "ipmi地址、用户名或密码为空"
+                    else:
+                        ipmi = ipmitool(ipmi_ip,ipmi_pass,username=ipmi_user)
+                        ipmi.chassis_status()
+                        if ipmi.error:
+                            ret = ipmi.error
+                        else:
+                            ipmi.boot_to_pxe()
+                            ipmi.chassis_reboot()
+                            server.power = 'start'
                 pre_system.delete()
+                server.save()
             else:
                 ret[server_id] = result['comment']
         except Exception as e:
-            raise e
-            # messages.error(request, str(e))
+            # raise e
+            ret[server_id] = str(e)
     return HttpResponse(json.dumps(ret))
 
 def select_cab(request):
@@ -208,12 +223,9 @@ def select_cab(request):
 def server_raid(request,server_id,fun,array):
     '''
     raid模块,包含以下方法：
-    1、查看raid卡信息(包括控制器状态、Cache状态、电池状态) (raid_card)
-    2、查看raid详细信息 （raid_detail）
-    3、查看raid状态 (raid_status)
-    4、查看物理硬盘状态 (raid_status)
-    5、创建raid (create_raid)
-    6、删除raid (delete_raid)
+    1、查看物理硬盘状态 (raid_status)
+    2、创建raid (create_raid)
+    3、删除raid (delete_raid)
     '''
     server = get_object_or_404(Server,pk=server_id)
     addr = server.pxe_ip
@@ -241,7 +253,8 @@ def server_raid(request,server_id,fun,array):
             rd = RAIDAPI(server,addr,user='root',passwd='P@ssw0rd')
             ret_data = rd.create_raid(drivers,raid_type)
             if ret_data['status']:
-                cmd ="curl -L http://192.168.3.166/cobbler/svc/post_server_info.sh | sh > /tmp/curl.log 2>&1"
+                cobbler = get_object_or_404(ServiceHost,service='cobbler')
+                cmd ="curl -L http://%s:%s/cobbler/svc/post_server_info.sh | sh > /tmp/curl.log 2>&1"%(cobbler.ip,cobbler.port)
                 try:
                     ret = remote_cmd(cmd,addr,user='root',passwd='P@ssw0rd')
                     if ret['status']:
@@ -252,16 +265,13 @@ def server_raid(request,server_id,fun,array):
                     ret_data['result'] = str(e)
             else:
                 pass
-            return HttpResponse(ret_data)
+            return HttpResponse(ret_data['result'])
     elif fun == 'delete_raid':
-        # if request.method == 'GET':
-        #     r_names = server.disk_set.exclude(raid_name='Unassigned').values('raid_name').distinct()
-        #     return render(request,'installation/delete_raid.html',locals())
-        # else:
         rd = RAIDAPI(server,addr,user='root',passwd='P@ssw0rd')
         ret_data = rd.delete_raid(array)
         if ret_data['status']:
-            cmd ="curl -L http://192.168.3.166/cobbler/svc/post_server_info.sh | sh > /tmp/curl.log 2>&1"
+            cobbler = get_object_or_404(ServiceHost,service='cobbler')
+            cmd ="curl -L http://%s:%s/cobbler/svc/post_server_info.sh | sh > /tmp/curl.log 2>&1"%(cobbler.ip,cobbler.port)
             try:
                 ret = remote_cmd(cmd,addr,user='root',passwd='P@ssw0rd')
                 if ret['status']:
@@ -297,15 +307,15 @@ def server_ipmi(request,server_id,fun):
         ipmi = ipmitool(ipmi_ip,ipmi_pass,username=ipmi_user)
         ipmi.chassis_status()
         if ipmi.error:
-            ret_data = 'error'
+            ret_data = ipmi.error
         else:  
             try:
                 if fun == 'chassis_off':
                     if 'off' in ipmi.output:
-                        ret_data = 'disable'
+                        pass
                     else:
                         ipmi.chassis_off()
-                        ret_data = 'off'
+                    server.power = 'off'
                 elif fun == 'install':
                     if 'off' in ipmi.output:
                         ipmi.boot_to_pxe()
@@ -313,18 +323,18 @@ def server_ipmi(request,server_id,fun):
                     else:
                         ipmi.boot_to_pxe()
                         ipmi.chassis_reboot()
-                    ret_data = 'install'
                     server.presystem.progress = 0
                     server.presystem.save()
                 elif fun == 'boot_to_pxe':
                     if 'on' in ipmi.output:
-                        ret_data = 'disable'
+                        pass
                     else:
                         ipmi.boot_to_pxe()
                         ipmi.chassis_on()
-                        ret_data = 'on'            
+                    server.power = 'start'         
                 else:
                     pass
+                server.save()
             except Exception as e:
                 ret_data = str(e)
     return HttpResponse(ret_data)
@@ -411,12 +421,10 @@ def add_cobbler(request):
 
 def get_system(request,server_id):
     server = get_object_or_404(Server,pk=server_id)
-    # cobbler = CobblerAPI("http://192.168.3.166/cobbler_api","admin","admin")
     cobbler = init_cobbler()
     ret_data = cobbler.find_system(server.pxe_mac)
-    if 'result' in ret_data:
+    if not ret_data['result']:
         messages.error(request, ret_data['comment'])
-        ret_data = {}
     return render(request,'installation/config_sys.html',locals())
 
 def add_system(request,server_id):

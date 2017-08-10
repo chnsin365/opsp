@@ -149,9 +149,9 @@ class CobblerAPI(object):
             "result": True,
             "comment": [],
         }
-        remote = xmlrpclib.Server(self.cobbler_url) 
+        remote = xmlrpclib.Server(self.cobbler_url)
         try:
-            ret = remote.find_system({"mac_address":mac_addr})
+            ret['comment'] = remote.find_system({"mac_address":mac_addr})
         except Exception as e:
             ret['result'] = False
             ret['comment'].append(str(e))

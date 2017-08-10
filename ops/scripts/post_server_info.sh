@@ -214,6 +214,7 @@ function post_server_info(){
 
         printf "{" > /tmp/json.json
         printf  "\"server_id\":\"$server_id\"," >> /tmp/json.json
+        printf  "\"power\":\"1\"," >> /tmp/json.json
         printf  "\"sn\":\"$sn\"," >> /tmp/json.json
         printf  "\"cpu_model\":\"$cpu_model\"," >> /tmp/json.json
         printf  "\"cpu_sockets\":\"$cpu_sockets\"," >> /tmp/json.json

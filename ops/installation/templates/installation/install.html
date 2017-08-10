@@ -149,20 +149,22 @@
             }
         else
             { 
-              var index = layer.load(2, {time: 10*1000});
-              $.get("/installation/server/status/",{'ids':ids.toString(),'status':status},function(data){
-                if (data == '{}')
-                {
-                  layer.msg('操作成功',function(){
-                    window.location.reload();
+              layer.confirm('请确认是否要重新初始化 (注意:已经装过系统的主机会自动重启)', function(index){
+                  var index = layer.load(2, {time: 10*1000});
+                  $.get("/installation/server/status/",{'ids':ids,'status':status},function(data){
+                    if (data == '{}')
+                    {
+                      layer.msg('操作成功',function(){
+                        window.location.reload();
+                      });
+                    }
+                    else
+                    {
+                      layer.alert('操作失败:' + data, function(){
+                              window.location.reload();
+                            });
+                    }
                   });
-                }
-                else
-                {
-                  layer.alert('操作失败:' + data, function(){
-                          window.location.reload();
-                        });
-                }
               });
             }
   }
