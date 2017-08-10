@@ -512,10 +512,10 @@ def add_env(request):
 		try:
 			env = Environment.objects.create(name=name)
 			if env:
-				env.business_set = businesses_list
 				if comment:
 					env.comment = comment
 					env.save()
+				env.business_set.set([Business.objects.get(pk=busi_id) for busi_id in businesses_list])
 			result = {'status':True,'msg':'添加成功'}
 		except Exception as e:
 			result = {'status':False,'msg':str(e)}
@@ -540,8 +540,7 @@ def edit_env(request,id):
 				if comment != env.comment:
 					env.comment = comment
 				env.save()
-				if businesses_list:
-					env.business_set.set([Business.objects.get(pk=busi_id) for busi_id in businesses_list])
+				env.business_set.set([Business.objects.get(pk=busi_id) for busi_id in businesses_list])
 			result = {'status':True,'msg':'更新成功'}
 		except Exception as e:
 			result = {'status':False,'msg':str(e)}
@@ -570,7 +569,7 @@ def busilist(request):
 	for busi in busi_obj:
 		data = {}
 		data['busi_id'] = busi.id
-		data['busi_env'] = busi.environment.name
+		data['busi_env'] = busi.environment.name if busi.environment else ''
 		data['busi_name'] = busi.name
 		data['comment'] = busi.comment
 		data['app_cnt'] = busi.application_set.count()
@@ -612,7 +611,8 @@ def add_busi(request):
 		try:
 			busi = Business.objects.create(name=name,environment_id=env_id)
 			if busi:
-				busi.applications = app_list
+				if app_list:
+					busi.application_set.set([Application.objects.get(pk=app_id) for app_id in app_list])
 				busi.groups = group_list
 				if comment:
 					busi.comment = comment
@@ -645,9 +645,9 @@ def edit_busi(request,id):
 					busi.comment = comment
 				if busi.environment.id != env_id:
 					busi.environment.id = env_id
-				busi.groups = group_list
-				busi.applications = app_list
 				busi.save()
+				busi.groups = group_list
+				busi.application_set.set([Application.objects.get(pk=app_id) for app_id in app_list])
 			result = {'status':True,'msg':'添加成功'}
 		except Exception as e:
 			result = {'status':False,'msg':str(e)}
@@ -677,7 +677,7 @@ def applist(request):
 		data['app_id'] = app.id
 		data['app_name'] = app.name
 		data['app_busi'] = app.business.name if app.business else ''
-		data['app_env'] = app.business.environment.name if app.business else ''
+		data['app_env'] = app.business.environment.name if (app.business and app.business.environment) else ''
 		data['comment'] = app.comment
 		data['host_cnt'] = app.system_set.count()
 		app_list.append(data)
