@@ -201,26 +201,6 @@ def delete_hostgroup(request):
 			result[group_id] = str(e)
 	return HttpResponse(json.dumps(result))
 
-@login_required
-@role_required('hostadmin','admin')
-def envlist(request):
-	env_list = Environment.objects.all()
-	page_number =  request.GET.get('page_number')
-	if page_number:
-	    page_number = int(page_number)
-	else:
-	    page_number =  10
-	paginator = Paginator(env_list, page_number)
-	page = request.GET.get('page')
-	try:
-	    environments = paginator.page(page)
-	except PageNotAnInteger:
-	    # If page is not an integer, deliver first page.
-	    environments = paginator.page(1)
-	except EmptyPage:
-	    # If page is out of range (e.g. 9999), deliver last page of results.
-	    environments = paginator.page(paginator.num_pages)
-	return render(request,'opsdb/environment/envlist.html',locals())
 
 @login_required
 @role_required('salt','admin')
@@ -482,4 +462,310 @@ def act_key(request):
 		result['comment'] = ret['data']['return']['minions']
 	except Exception as e:
 		result = {'status':False,'comment':str(e)}
+	return HttpResponse(json.dumps(result))
+
+@login_required
+@role_required('admin')
+def envlist(request):
+	env_obj = Environment.objects.all()
+	env_list = []
+	for env in env_obj:
+		data = {}
+		data['env_id'] = env.id
+		data['env_name'] = env.name
+		data['comment'] = env.comment
+		data['busi_cnt'] = env.business_set.count()
+		data['app_cnt'] = 0
+		for business in env.business_set.all():
+			data['app_cnt'] += business.application_set.count()
+			data['host_cnt'] = 0
+			for app in business.application_set.all():
+				data['host_cnt'] += app.system_set.count()
+		env_list.append(data)
+	page_number =  request.GET.get('page_number')
+	if page_number:
+	    page_number = int(page_number)
+	else:
+	    page_number =  10
+	paginator = Paginator(env_list, page_number)
+	page = request.GET.get('page')
+	try:
+	    envs = paginator.page(page)
+	except PageNotAnInteger:
+	    # If page is not an integer, deliver first page.
+	    envs = paginator.page(1)
+	except EmptyPage:
+	    # If page is out of range (e.g. 9999), deliver last page of results.
+	    envs = paginator.page(paginator.num_pages)
+	return render(request,'opsdb/env/envlist.html',locals())
+
+@login_required
+@role_required('admin')
+def add_env(request):
+	businesses = Business.objects.select_related().all()
+	if request.method == "GET":
+		return render(request, 'opsdb/env/add_env.html',locals())
+	else:
+		name = request.POST.get('name','')
+		businesses_list = request.POST.getlist('businesses','')
+		comment = request.POST.get('comment','')
+		try:
+			env = Environment.objects.create(name=name)
+			if env:
+				if comment:
+					env.comment = comment
+					env.save()
+				env.business_set.set([Business.objects.get(pk=busi_id) for busi_id in businesses_list])
+			result = {'status':True,'msg':'添加成功'}
+		except Exception as e:
+			result = {'status':False,'msg':str(e)}
+		return render(request, 'opsdb/env/add_env.html',locals())
+
+
+@login_required
+@role_required('admin')
+def edit_env(request,id):
+	businesses = Business.objects.select_related().all()
+	env = Environment.objects.get(pk=id)
+	if request.method == "GET":
+		return render(request, 'opsdb/env/edit_env.html',locals())
+	else:
+		name = request.POST.get('name','')
+		businesses_list = request.POST.getlist('businesses','')
+		comment = request.POST.get('comment','')
+		try:
+			if env:
+				if name != env.name:
+					env.name = name
+				if comment != env.comment:
+					env.comment = comment
+				env.save()
+				env.business_set.set([Business.objects.get(pk=busi_id) for busi_id in businesses_list])
+			result = {'status':True,'msg':'更新成功'}
+		except Exception as e:
+			result = {'status':False,'msg':str(e)}
+		env = Environment.objects.get(pk=id)
+		return render(request, 'opsdb/env/edit_env.html',locals())
+
+@login_required
+@role_required('admin')
+@csrf_exempt
+def delete_env(request):
+	ids = request.POST.getlist('ids[]','')
+	result = {}
+	for env_id in ids:
+		try:
+			env = Environment.objects.get(pk=env_id)
+			env.delete()
+		except Exception as e:
+			result[env.name] = str(e)
+	return HttpResponse(json.dumps(result))
+
+@login_required
+@role_required('busiadmin','admin')
+def busilist(request):
+	busi_obj = Business.objects.all()
+	busi_list = []
+	for busi in busi_obj:
+		data = {}
+		data['busi_id'] = busi.id
+		data['busi_env'] = busi.environment.name if busi.environment else ''
+		data['busi_name'] = busi.name
+		data['comment'] = busi.comment
+		data['app_cnt'] = busi.application_set.count()
+		data['host_cnt'] = 0
+		for app in busi.application_set.all():
+			data['host_cnt'] += app.system_set.count()
+		busi_list.append(data)
+	page_number =  request.GET.get('page_number')
+	if page_number:
+	    page_number = int(page_number)
+	else:
+	    page_number =  10
+	paginator = Paginator(busi_list, page_number)
+	page = request.GET.get('page')
+	try:
+	    businesses = paginator.page(page)
+	except PageNotAnInteger:
+	    # If page is not an integer, deliver first page.
+	    businesses = paginator.page(1)
+	except EmptyPage:
+	    # If page is out of range (e.g. 9999), deliver last page of results.
+	    businesses = paginator.page(paginator.num_pages)
+	return render(request,'opsdb/business/busilist.html',locals())
+
+@login_required
+@role_required('busiadmin','admin')
+def add_busi(request):
+	apps = Application.objects.select_related().all()
+	envs = Environment.objects.all()
+	usergroups = Group.objects.all()
+	if request.method == "GET":
+		return render(request, 'opsdb/business/add_busi.html',locals())
+	else:
+		name = request.POST.get('name','')
+		env_id = request.POST.get('env','')
+		group_list = request.POST.getlist('usergroups','')
+		app_list = request.POST.getlist('apps','')
+		comment = request.POST.get('comment','')
+		try:
+			busi = Business.objects.create(name=name,environment_id=env_id)
+			if busi:
+				if app_list:
+					busi.application_set.set([Application.objects.get(pk=app_id) for app_id in app_list])
+				busi.groups = group_list
+				if comment:
+					busi.comment = comment
+					busi.save()
+			result = {'status':True,'msg':'添加成功'}
+		except Exception as e:
+			result = {'status':False,'msg':str(e)}
+		return render(request, 'opsdb/business/add_busi.html',locals())
+
+@login_required
+@role_required('busiadmin','admin')
+def edit_busi(request,id):
+	apps = Application.objects.select_related().all()
+	envs = Environment.objects.all()
+	usergroups = Group.objects.all()
+	busi = Business.objects.get(pk=id)
+	if request.method == "GET":
+		return render(request, 'opsdb/business/edit_busi.html',locals())
+	else:
+		name = request.POST.get('name','')
+		env_id = request.POST.get('env','')
+		group_list = request.POST.getlist('usergroups','')
+		app_list = request.POST.getlist('apps','')
+		comment = request.POST.get('comment','')
+		try:
+			if busi:
+				if name != busi.name:
+					busi.name = name
+				if comment != busi.comment:
+					busi.comment = comment
+				if busi.environment.id != env_id:
+					busi.environment.id = env_id
+				busi.save()
+				busi.groups = group_list
+				busi.application_set.set([Application.objects.get(pk=app_id) for app_id in app_list])
+			result = {'status':True,'msg':'添加成功'}
+		except Exception as e:
+			result = {'status':False,'msg':str(e)}
+		return render(request, 'opsdb/business/edit_busi.html',locals())
+
+@login_required
+@role_required('busiadmin','admin')
+@csrf_exempt
+def delete_busi(request):
+	ids = request.POST.getlist('ids[]','')
+	result = {}
+	for busi_id in ids:
+		try:
+			busi = Business.objects.get(pk=busi_id)
+			busi.delete()
+		except Exception as e:
+			result[busi.name] = str(e)
+	return HttpResponse(json.dumps(result))
+
+@login_required
+@role_required('appadmin','admin')
+def applist(request):
+	app_objs = Application.objects.all()
+	app_list = []
+	for app in app_objs:
+		data = {}
+		data['app_id'] = app.id
+		data['app_name'] = app.name
+		data['app_busi'] = app.business.name if app.business else ''
+		data['app_env'] = app.business.environment.name if (app.business and app.business.environment) else ''
+		data['comment'] = app.comment
+		data['host_cnt'] = app.system_set.count()
+		app_list.append(data)
+	page_number =  request.GET.get('page_number')
+	if page_number:
+	    page_number = int(page_number)
+	else:
+	    page_number =  10
+	paginator = Paginator(app_list, page_number)
+	page = request.GET.get('page')
+	try:
+	    apps = paginator.page(page)
+	except PageNotAnInteger:
+	    # If page is not an integer, deliver first page.
+	    apps = paginator.page(1)
+	except EmptyPage:
+	    # If page is out of range (e.g. 9999), deliver last page of results.
+	    apps = paginator.page(paginator.num_pages)
+	return render(request,'opsdb/app/applist.html',locals())
+
+@login_required
+@role_required('appadmin','admin')
+def add_app(request):
+	businesses = Business.objects.select_related().all()
+	systems = System.objects.select_related().all()
+	usergroups = Group.objects.all()
+	if request.method == "GET":
+		return render(request, 'opsdb/app/add_app.html',locals())
+	else:
+		name = request.POST.get('name','')
+		usergroup_list = request.POST.getlist('usergroups','')
+		business = request.POST.get('business','')
+		system_list = request.POST.getlist('systems','')
+		comment = request.POST.get('comment','')
+		try:
+			app = Application.objects.create(name=name,comment=comment)
+			if app:
+				if business:
+					app.business = Business.objects.get(pk=business)
+				app.system_set = system_list
+				app.groups = usergroup_list
+				app.save()
+			result = {'status':True,'msg':'添加成功'}
+		except Exception as e:
+			result = {'status':False,'msg':str(e)}
+		return render(request, 'opsdb/app/add_app.html',locals())
+
+@login_required
+@role_required('appadmin','admin')
+def edit_app(request,id):
+	businesses = Business.objects.select_related().all()
+	systems = System.objects.select_related().all()
+	usergroups = Group.objects.all()
+	app = Application.objects.get(pk=id)
+	if request.method == "GET":
+		return render(request, 'opsdb/app/edit_app.html',locals())
+	else:
+		name = request.POST.get('name','')
+		usergroup_list = request.POST.getlist('usergroups','')
+		business = request.POST.get('business','')
+		system_list = request.POST.getlist('systems','')
+		comment = request.POST.get('comment','')
+		try:
+			if app:
+				app.system_set = system_list
+				app.groups = usergroup_list
+				if business != app.business_id:
+					app.business_id = business
+				if name != app.name:
+					app.name = name
+				if comment != app.comment:
+					app.comment = comment
+				app.save()
+			result = {'status':True,'msg':'更新成功'}
+		except Exception as e:
+			result = {'status':False,'msg':str(e)}
+		return render(request, 'opsdb/app/edit_app.html',locals())
+
+@login_required
+@role_required('appadmin','admin')
+@csrf_exempt
+def delete_app(request):
+	ids = request.POST.getlist('ids[]','')
+	result = {}
+	for app_id in ids:
+		try:
+			app = Application.objects.get(pk=app_id)
+			app.delete()
+		except Exception as e:
+			result[app.name] = str(e)
 	return HttpResponse(json.dumps(result))

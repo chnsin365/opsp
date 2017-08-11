@@ -41,6 +41,17 @@ urlpatterns = [
     url(r'^hostgroup/edit/(\d+)/$',views.edit_hostgroup,name='edit_hostgroup'),
     url(r'^hostgroup/delete/$',views.delete_hostgroup,name='delete_hostgroup'),
     url(r'^environment/envlist/$',views.envlist,name='envlist'),
+    url(r'^environment/add_env/$',views.add_env,name='add_env'),
+    url(r'^environment/edit_env/(\d+)/$',views.edit_env,name='edit_env'),
+    url(r'^environment/delete/$',views.delete_env,name='delete_env'),
+    url(r'^business/busilist/$',views.busilist,name='busilist'),
+    url(r'^business/add_busi/$',views.add_busi,name='add_busi'),
+    url(r'^business/edit_busi/(\d+)/$',views.edit_busi,name='edit_busi'),
+    url(r'^business/delete/$',views.delete_busi,name='delete_busi'),
+    url(r'^application/applist/$',views.applist,name='applist'),
+    url(r'^application/add_app/$',views.add_app,name='add_app'),
+    url(r'^application/edit_app/(\d+)/$',views.edit_app,name='edit_app'),
+    url(r'^application/delete/$',views.delete_app,name='delete_app'),
 ]
 
 

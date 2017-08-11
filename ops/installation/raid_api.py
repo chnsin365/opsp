@@ -1,4 +1,4 @@
-#!/usr/bin/env python 
+ #!/usr/bin/env python 
 # -*- coding: utf-8 -*-
 #
 # @author: wei.yang <wei.yang@jinmuinfo.com>
@@ -88,7 +88,7 @@ class RAIDAPI(object):
         # 创建raid
         ret = {'status':False,'result':''}
         if self.obj.vendor in ['HP','Hewlett-Packard']:
-            cmd = "/opt/ssacli/bin/ssacli ctrl slot=%s create type=ld drives=%s raid=%s"%(self.obj.raid_adapter_slot,drivers,raid_type)
+            cmd = "/opt/ssacli/bin/ssacli ctrl slot=%s create type=ld drives=%s raid=%s forced"%(self.obj.raid_adapter_slot,drivers,raid_type)
             try:
                 ret = remote_cmd(cmd,self.addr,user=self.user,passwd=self.passwd)
                 if re.search('Error',ret['result']):

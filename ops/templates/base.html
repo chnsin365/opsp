@@ -309,8 +309,8 @@
                       </a>
                       <ul class="sub">
                           <li><a  href="{% url 'opsdb:systems' %}" target="myiframe">主机管理</a></li>
-                          <li><a  href="#">应用管理</a></li>
-                          <li><a  href="#">运维配置</a></li>
+                          <li><a  href="{% url 'opsdb:applist' %}" target="myiframe">应用管理</a></li>
+                          <li><a  href="{% url 'opsdb:envlist' %}" target="myiframe"">运维配置</a></li>
                           <!-- <li><a  href="#">业务管理</a></li>
                           <li><a  href="{% url 'opsdb:envlist' %}" target="myiframe">环境管理</a></li> -->
                           <li><a  href="{% url 'cronjob:cronjobs' %}" target="myiframe">定时作业</a></li>

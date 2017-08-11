@@ -21,23 +21,10 @@ class HostGroup(models.Model):
 	def __unicode__(self):
 		return self.name
 
-class Application(models.Model):
-	id                 = models.AutoField(primary_key=True,db_column="app_id") 
-	name               = models.CharField(max_length=50,blank=True,null=True)
-	groups             = models.ManyToManyField(Group)
-	comment            = models.TextField(max_length=200,blank=True)
-
-	class Meta:
-		db_table = 'application'
-
-	def __unicode__(self):
-		return self.name
-
 class Business(models.Model):
 	id                 = models.AutoField(primary_key=True,db_column="business_id") 
 	name               = models.CharField(max_length=50,blank=True,null=True)
 	environment        = models.ForeignKey(Environment,blank=True, null=True,on_delete=models.PROTECT)
-	applications       = models.ManyToManyField(Application)
 	groups             = models.ManyToManyField(Group)
 	comment            = models.TextField(max_length=200,blank=True)
 
@@ -47,13 +34,27 @@ class Business(models.Model):
 	def __unicode__(self):
 		return self.name
 
+class Application(models.Model):
+	id                 = models.AutoField(primary_key=True,db_column="app_id") 
+	name               = models.CharField(max_length=50,blank=True,null=True)
+	business           = models.ForeignKey(Business,blank=True, null=True,on_delete=models.PROTECT)
+	groups             = models.ManyToManyField(Group)
+	comment            = models.TextField(max_length=200,blank=True)
+
+	class Meta:
+		db_table = 'application'
+
+	def __unicode__(self):
+		return self.name
+
+
 class System(models.Model):
 	id                 = models.CharField(primary_key=True,max_length=100,db_column="system_id")
 	ip                 = models.GenericIPAddressField(blank=True,null=True)
 	os                 = models.CharField(max_length=100,blank=True,null=True)
 	num_cpus           = models.CharField(max_length=100,blank=True,null=True)
 	mem_total          = models.CharField(max_length=100,blank=True,null=True)
-	hostgroups          = models.ManyToManyField(HostGroup)
+	hostgroups         = models.ManyToManyField(HostGroup)
 	applications       = models.ManyToManyField(Application)
 	power_status       = models.BooleanField(default=True)
 	minion_status      = models.BooleanField(default=True)

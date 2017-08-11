@@ -28,6 +28,7 @@ class Cabinet(models.Model):
 class Environment(models.Model):
     id                 = models.AutoField(primary_key=True,db_column="environment_id")
     name               = models.CharField(max_length=100,blank=True,null=True,db_column="environment_name")
+    comment            = models.TextField(max_length=200,blank=True)
     class Meta:
         db_table = 'environment'
 
@@ -95,7 +96,7 @@ class Server(models.Model):
     vendor             = models.CharField(max_length=30,blank=True,null=True)
     model              = models.CharField(max_length=30,blank=True,null=True)
     prod_ip            = models.GenericIPAddressField(blank=True,null=True)
-    power              = models.BooleanField(default=True)
+    power              = models.CharField(max_length=10,blank=True,null=True,default='on')
     create_time        = models.DateTimeField(auto_now_add=True)
     update_time        = models.DateTimeField(auto_now=True)
 
