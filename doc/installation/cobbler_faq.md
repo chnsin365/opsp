@@ -43,3 +43,18 @@ ip             |target              |start            |state
 也可以通过查看/var/log/cobbler/install.log获取
 
 > https://github.com/cobbler/cobbler/issues/1261
+
+
+### default启动配置 ####
+```
+修改 /var/lib/tftpboot/pxelinux.cfg
+ONTIMEOUT LiveV3  <local 改为 LiveV3>
+
+LABEL LiveV3
+        kernel /images/LiveV3/vmlinuz0
+        MENU LABEL LiveV3
+        MENU DEFAULT   <添加这一行，原先的local里面把这行去掉>
+        append initrd=/images/LiveV3/initrd0.img ksdevice=bootif installserverip=192.168.3.166 text rd.dm=0 vga=791 nolvmmount liveimg rootfstype=auto lang=  kssendmac quiet rd.md=0 rhgb 3 rd.luks=0 ro root=live:/LiveV3.iso  ks=http://192.168.3.166/cblr/svc/op/ks/profile/LiveV3
+        ipappend 2
+
+```
